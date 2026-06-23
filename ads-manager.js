@@ -274,12 +274,29 @@ function startAdRefresh() {
 document.addEventListener("DOMContentLoaded", () => {
     loadAdLibrary();
 
-    // Auto-display any active slot divs present in page DOM
+    // Lazy load AdSense slots to increase loading speed & ad viewability rate (improving CPM)
+    const adsenseObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const divId = entry.target.id;
+                displayAd(divId);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: "150px 0px" // Load ad 150px before it scrolls into the viewport
+    });
+
+    // Auto-display or observe active slot divs present in page DOM
     for (const divId of Object.keys(AD_CONFIG.slots)) {
         if (divId === "bottom-anchor") continue;
         const el = document.getElementById(divId);
         if (el) {
-            displayAd(divId);
+            if (AD_CONFIG.useAdManager) {
+                displayAd(divId); // GAM has native lazy loading configured
+            } else {
+                adsenseObserver.observe(el); // Lazy load AdSense dynamically
+            }
         }
     }
 
