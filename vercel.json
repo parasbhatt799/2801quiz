@@ -1,8 +1,12 @@
 {
+  "cleanUrls": true,
   "routes": [
     {
       "src": "/api.php",
       "dest": "/api/index.js"
+    },
+    {
+      "handle": "filesystem"
     }
   ]
 }
