@@ -1033,9 +1033,11 @@ function renderQuestion() {
     document.getElementById('q-counter').innerText = (qIdx + 1) + "/" + sessionData.length;
     document.getElementById('progress-bar').style.width = `${((qIdx + 1) / sessionData.length) * 100}%`;
     const data = sessionData[qIdx];
-    let mappedOptions = data.opt.map((text, index) => {
-        return { text: text, isCorrect: index === data.ans };
-    });
+    let mappedOptions = data.opt
+        .map((text, index) => {
+            return { text: text, isCorrect: index === data.ans };
+        })
+        .filter(optObj => optObj.text !== null && optObj.text !== undefined && String(optObj.text).trim() !== "");
     mappedOptions.sort(() => Math.random() - 0.5);
     document.getElementById('q-title').innerText = data.q;
     const container = document.getElementById('options-container');
@@ -1107,8 +1109,9 @@ async function usePowerUp(type) {
         const buttons = Array.from(document.querySelectorAll('.option-btn'));
         const correctText = sessionData[qIdx].opt[sessionData[qIdx].ans];
         let hiddenCount = 0;
+        const maxToHide = buttons.length === 3 ? 1 : 2;
         buttons.forEach(btn => {
-            if (btn.innerText !== correctText && hiddenCount < 2) {
+            if (btn.innerText !== correctText && hiddenCount < maxToHide) {
                 btn.style.visibility = 'hidden';
                 hiddenCount++;
             }
