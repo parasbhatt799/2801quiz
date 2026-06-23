@@ -363,6 +363,18 @@ app.all(['/api.php', '/api', '/api/', '/api/index.js', '/'], async (req, res) =>
     const action = req.query.action || req.body.action || '';
 
     try {
+        if (action === 'debug_vercel') {
+            return res.json({
+                debug_version: "v2-assets-check",
+                url: req.url,
+                path: req.path,
+                cwd: process.cwd(),
+                dirname: __dirname,
+                filesInCwd: fs.existsSync(process.cwd()) ? fs.readdirSync(process.cwd()) : null,
+                filesInDirname: fs.existsSync(__dirname) ? fs.readdirSync(__dirname) : null
+            });
+        }
+
         if (action === 'get_keys') {
             return res.json([]);
         }
