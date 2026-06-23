@@ -178,7 +178,10 @@ function initAdManager() {
 
 // Setup AdSense Bottom Anchor
 function setupAdSenseAnchor(slotId) {
+    if (document.getElementById("adsense-anchor-container")) return;
+
     const anchorDiv = document.createElement('div');
+    anchorDiv.id = "adsense-anchor-container";
     anchorDiv.style.position = "fixed";
     anchorDiv.style.bottom = "0";
     anchorDiv.style.left = "50%";
@@ -200,7 +203,11 @@ function setupAdSenseAnchor(slotId) {
     anchorDiv.appendChild(ins);
     document.body.appendChild(anchorDiv);
 
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+        console.error("AdSense Anchor Push Error: ", e);
+    }
 }
 
 // Display or inject ad content inside placeholder div
@@ -218,23 +225,15 @@ function displayAd(divId) {
         });
     } else {
         // Render AdSense
+        if (container.querySelector('.adsbygoogle')) return;
+
         container.innerHTML = ""; // Clear existing tags
         const ins = document.createElement('ins');
         ins.className = "adsbygoogle";
         ins.style.display = "block";
         ins.setAttribute("data-ad-client", AD_CONFIG.adsenseClient);
         ins.setAttribute("data-ad-slot", config.adsenseSlot);
-        
-        // Pick proper format based on configuration sizes
-        if (config.sizes && config.sizes[0] && config.sizes[0][0] >= 300 && config.sizes[0][1] >= 250) {
-            ins.setAttribute("data-ad-format", "rectangle");
-            ins.style.minWidth = "300px";
-            ins.style.minHeight = "250px";
-        } else {
-            ins.setAttribute("data-ad-format", "horizontal");
-            ins.style.minWidth = "320px";
-            ins.style.minHeight = "50px";
-        }
+        ins.setAttribute("data-ad-format", "auto");
         ins.setAttribute("data-full-width-responsive", "true");
         container.appendChild(ins);
 
@@ -270,35 +269,25 @@ function startAdRefresh() {
     }, AD_CONFIG.refreshInterval);
 }
 
-// Initialize ad setup on DOMContentLoaded
-document.addEventListener("DOMContentLoaded", () => {
+// Initialize ad setup
+function initializeAds() {
     loadAdLibrary();
 
-    // Lazy load AdSense slots to increase loading speed & ad viewability rate (improving CPM)
-    const adsenseObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const divId = entry.target.id;
-                displayAd(divId);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        rootMargin: "150px 0px" // Load ad 150px before it scrolls into the viewport
-    });
-
-    // Auto-display or observe active slot divs present in page DOM
+    // Auto-display active slot divs present in page DOM immediately
     for (const divId of Object.keys(AD_CONFIG.slots)) {
         if (divId === "bottom-anchor") continue;
         const el = document.getElementById(divId);
         if (el) {
-            if (AD_CONFIG.useAdManager) {
-                displayAd(divId); // GAM has native lazy loading configured
-            } else {
-                adsenseObserver.observe(el); // Lazy load AdSense dynamically
-            }
+            displayAd(divId);
         }
     }
 
     startAdRefresh();
-});
+}
+
+// Run immediately if DOM is already parsed, otherwise wait for event
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeAds);
+} else {
+    initializeAds();
+}
