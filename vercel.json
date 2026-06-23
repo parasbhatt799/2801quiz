@@ -5,5 +5,21 @@
       "source": "/api.php",
       "destination": "/api/index.js"
     }
-  ]
+  ],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": [
+        "*.js",
+        "*.css",
+        "*.png",
+        "*.json",
+        "*.txt",
+        "*.ico",
+        "*.webmanifest",
+        "*.html",
+        "css/**",
+        "webfonts/**"
+      ]
+    }
+  }
 }
