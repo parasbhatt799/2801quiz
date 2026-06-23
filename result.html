@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-100 dark:bg-gray-950">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Master - Professional Edition</title>
+    <script src="app-logic.js?v=1425585555755425" defer></script>
+    <script src="tailwindcss.js?663332211"></script>
+    <link rel="stylesheet" href="css/main.css?22355335" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/all.min.css?223555335" type="text/css" media="all" />
+    <link rel="manifest" href="manifest.json">
+    <script>  if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+    <script>tailwind.config = { darkMode: 'class', }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    
+    
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "v8j39jw9y2");
+</script>
+
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentMode = urlParams.get('mode') || 'home'; // કયો મોડ છે તે પકડશે
+    
+    window.deviceId = urlParams.get('ppid') || localStorage.getItem('user_id');
+    if (!window.deviceId || window.deviceId === 'guest') {
+        if(!localStorage.getItem('user_id')) {
+            window.deviceId = 'u_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+            localStorage.setItem('user_id', window.deviceId);
+        } else {
+            window.deviceId = localStorage.getItem('user_id');
+        }
+    }
+
+    const hasGclid = urlParams.has('gclid');
+
+    // CONFIG માં ફેરફાર: જે-તે મોડ મુજબ પેજ ટ્રેક કરશે
+    gtag('config', 'G-BMZY691ZG4', {
+        'user_id': window.deviceId,
+        'page_path': window.location.pathname + (urlParams.get('mode') ? '?mode=' + urlParams.get('mode') : ''),
+        'page_title': currentMode.toUpperCase(),
+        'cookie_flags': 'SameSite=None;Secure',
+        'campaign_source': hasGclid ? undefined : (urlParams.get('utm_source') || 'android_app'),
+        'campaign_medium': hasGclid ? undefined : (urlParams.get('utm_medium') || 'app_cct'),
+        'campaign_name': hasGclid ? undefined : (urlParams.get('utm_campaign') || 'install_flow'),
+        'debug_mode': true // આનાથી તમે Real-time માં તરત ડેટા જોઈ શકશો
+    });
+
+    window.trackGA = function(eventName, params = {}) {
+        let eventParams = {
+            'user_id': window.deviceId,
+            'client_id': window.deviceId,
+            'platform': 'Android_CCT',
+            'screen_name': currentMode, // કયા સ્ક્રીન પર ઇવેન્ટ બની તે પણ મોકલશે
+            ...params
+        };
+        
+        if (params.is_conversion) {
+            eventParams['transaction_id'] = window.deviceId + '_' + eventName;
+        }
+        gtag('event', eventName, eventParams);
+        console.log("GA Event Logged:", eventName, eventParams); // ચેક કરવા માટે
+    };
+</script>
+
+<script>
+      window.googletag = window.googletag || { cmd: [] };
+
+      let anchorSlot;
+
+      googletag.cmd.push(() => {
+        anchorSlot = googletag.defineOutOfPageSlot(
+          "/22856454650/2801_Mid_Custom",
+          googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
+        );
+        if (anchorSlot) {
+          anchorSlot.addService(googletag.pubads()).setConfig({
+            targeting: {
+              test: "anchor",
+            },
+          });
+        }
+
+        // Define top ad slot globally
+        window.topAdSlot = googletag.defineSlot(
+          '/22856454650/2801_result_custom_rendaring', 
+          [[336, 280], [300, 250], [300, 100], [320, 100]], 
+          'div-gpt-ad-17701189157955-4'
+        ).addService(googletag.pubads());
+
+        // Define result display slot 1
+        googletag.defineSlot(
+          '/22856454650/2801_result_custom_rendaring', 
+          [[336, 280], [300, 250], [300, 100], [320, 100]], 
+          'div-gpt-ad-1747370165862-5'
+        ).setTargeting("test", "lazyload").addService(googletag.pubads());
+
+        // Define result display slot 2
+        googletag.defineSlot(
+          '/22856454650/2801_result_custom_rendaring', 
+          [[336, 280], [300, 250], [300, 100], [320, 100]], 
+          'div-gpt-ad-1747370165862-6'
+        ).setTargeting("test", "lazyload").addService(googletag.pubads());
+
+        const pubads = googletag.pubads();
+        pubads.addEventListener('slotRenderEnded', (event) => {
+          if (typeof window.trackGA === 'function') {
+            window.trackGA('ad_impression', { slot: event.slot.getSlotElementId() });
+          }
+        });
+
+        pubads.enableSingleRequest();
+        pubads.setCentering(true);
+        pubads.collapseEmptyDivs();
+
+        if (window.deviceId) {
+          pubads.setPublisherProvidedId(window.deviceId);
+        }
+        googletag.enableServices();
+      });
+    </script>
+
+
+ <script>
+  googletag.cmd.push(() => {
+    googletag.display(anchorSlot);
+  });
+ </script>
+</head>
+
+<body id="main-result-body" class="bg-gray-50 dark:bg-[#030712] font-sans min-h-screen relative pb-24 shadow-2xl border-x" style="max-width: 480px; margin: 0 auto; width: 100%;">
+    <nav class="p-4 border-b bg-white/80 backdrop-blur-md sticky top-0 z-30 flex justify-between items-center shadow-sm dark:bg-gray-900/80 dark:border-gray-800">
+        <div class="flex items-center gap-3">
+            <div onclick="safeNav('?mode=profile')"
+                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 cursor-pointer active:scale-90 transition-all">
+                <i id="nav-user-avatar" class="fa-solid fa-bars text-white text-lg"></i>
+            </div>
+            <div onclick="safeNav('app.html?mode=profile')" class="cursor-pointer">
+                <h1 class="font-black text-lg tracking-tighter uppercase text-gray-800 dark:text-white leading-none">IQ
+                    MASTER</h1>
+                <p class="text-[7px] font-bold text-blue-500 uppercase tracking-[0.2em] mt-0.5">Professional</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="toggleDarkMode()" id="theme-toggle"
+                class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 transition-all active:scale-90">
+                <i id="theme-icon" class="fa-solid fa-moon text-gray-600 dark:text-yellow-400"></i>
+            </button>
+            <button onclick="openBonusModal()"
+                class="relative w-10 h-10 flex items-center justify-center bg-orange-400/10 border border-orange-400/20 rounded-xl shadow-sm active:scale-90 transition-all">
+                <i class="fa-solid fa-gift text-orange-600 dark:text-orange-400 text-sm"></i>
+                <span id="bonus-dot"
+                    class="hidden absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 border-2 border-white dark:border-gray-900 rounded-full animate-pulse"></span>
+            </button>
+            <div onclick="window.trackGA('nav_wllet_click', {card_name: 'wallet-balance'});safeNav('app.html?mode=points')"
+                class="h-10 px-3 bg-yellow-400/10 border border-yellow-400/20 rounded-xl flex items-center gap-2 shadow-sm">
+                <span class="text-sm">💰</span>
+                <span id="wallet-balance" class="text-xs font-black text-yellow-700 dark:text-yellow-500">0</span>
+            </div>
+        </div>
+    </nav>
+    <div class="flex items-center justify-center mt-10">
+    <script>
+        setInterval(function() {
+            if (window.topAdSlot && document.visibilityState === 'visible') {
+                const adElement = document.getElementById('div-gpt-ad-17701189157955-4');
+                if (adElement) {
+                    const rect = adElement.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible) {
+                        googletag.pubads().refresh([window.topAdSlot]);
+                    }
+                }
+            }
+        }, 30000);
+    </script>
+<div id='div-gpt-ad-17701189157955-4' style='min-width: 300px; min-height: 100px;'>
+<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-17701189157955-4'); });
+</script>
+</div>
+</div>
+
+    <div class="p-3">
+       <div id="result-page" class="animate-in fade-in duration-500 px-2">
+            <div class="flex items-center justify-between mt-4 mb-4 bg-white/50 dark:bg-gray-800/50 p-3 rounded-3xl border border-white dark:border-gray-700 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div id="res-badge" class="text-4xl filter drop-shadow-md">🎓</div>
+                    <div>
+                        <h2 class="text-xl font-black text-gray-900 dark:text-white leading-none uppercase italic">IQ
+                            REPORT</h2>
+                        <span id="iq-class"
+                            class="text-[9px] font-black text-blue-600 dark:text-blue-400 tracking-widest uppercase">MASTER</span>
+                        <p id="res-category-name"
+                            class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">GENERAL QUIZ
+                        </p>
+                    </div>
+                </div>
+                <button onclick="safeNav('/')"
+                    class="bg-black text-white dark:bg-blue-600 px-4 py-2 rounded-2xl text-[10px] font-black">RESTART</button>
+            </div>
+            <div class="grid grid-cols-12 gap-3 mb-4">
+                <div
+                    class="col-span-5 bg-white dark:bg-gray-800 rounded-[2rem] p-4 flex flex-col items-center justify-center shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="relative w-24 h-24 flex items-center justify-center">
+                        <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 96 96">
+                            <defs>
+                                <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#4F46E5" />
+                                    <stop offset="100%" stop-color="#9333EA" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="48" cy="48" r="42" stroke="currentColor" stroke-width="6" fill="transparent"
+                                class="text-gray-100 dark:text-gray-700"></circle>
+                            <circle id="score-circle" cx="48" cy="48" r="42" stroke="url(#scoreGradient)"
+                                stroke-width="7" fill="transparent" stroke-dasharray="264" stroke-dashoffset="264"
+                                stroke-linecap="round" class="transition-all duration-1000 ease-out">
+                            </circle>
+                        </svg>
+                        <div class="text-center z-10">
+                            <p id="f-score" class="text-2xl font-black text-gray-900 dark:text-white leading-none">0/5
+                            </p>
+                            <p class="text-[7px] font-bold text-gray-400 uppercase mt-1">Score</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-7 space-y-2">
+                    <div
+                        class="bg-white dark:bg-gray-800 p-3 rounded-2xl border border-gray-100 dark:border-gray-700 flex justify-between items-center shadow-sm">
+                        <div>
+                            <p class="text-[8px] font-bold text-gray-400 uppercase">Accuracy</p>
+                            <p id="f-acc" class="text-lg font-black text-green-500">0%</p>
+                        </div>
+                        <i class="fa-solid fa-bullseye text-gray-200 text-xl"></i>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-gray-800 p-3 rounded-2xl border border-gray-100 dark:border-gray-700 flex justify-between items-center shadow-sm">
+                        <div>
+                            <p class="text-[8px] font-bold text-gray-400 uppercase">Response</p>
+                            <p id="f-speed-res" class="text-lg font-black text-orange-500">0s</p>
+                        </div>
+                        <i class="fa-solid fa-bolt text-gray-200 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-950 p-4 rounded-[2rem] mb-4 border border-blue-500/20 shadow-lg">
+                <div class="flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-brain text-blue-500 text-xs"></i>
+                    <h4 class="text-blue-400 text-[9px] font-black uppercase tracking-widest">Neural Analysis</h4>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-[8px] font-bold text-gray-500 uppercase mb-1">
+                            <span>Logic Efficiency</span>
+                            <span id="logic-val" class="text-blue-400">0%</span>
+                        </div>
+                        <div class="h-1 w-full bg-gray-800 rounded-full overflow-hidden">
+                            <div id="logic-bar" class="h-full bg-blue-500 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-[8px] font-bold text-gray-500 uppercase mb-1">
+                            <span>Processing Speed</span>
+                            <span id="speed-val" class="text-orange-400">0%</span>
+                        </div>
+                        <div class="h-1 w-full bg-gray-800 rounded-full overflow-hidden">
+                            <div id="speed-bar" class="h-full bg-orange-500 transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="flex items-center justify-center mt-10">  
+
+<div id="div-gpt-ad-1747370165862-5" class="ad-slot" style="height: 250px; width: 300px"></div>
+        <script>
+            googletag.cmd.push(function() {
+                googletag.display('div-gpt-ad-1747370165862-5');
+            });
+        </script>
+</div>  
+            
+            <div class="space-y-4 px-1">
+                <div class="grid grid-cols-2 gap-3 mt-5">
+                    <div onclick="safeNav('app.html?mode=review')"
+                        class="relative overflow-hidden bg-white dark:bg-gray-800 p-4 rounded-[2rem] shadow-lg shadow-black/5 border border-gray-100 dark:border-gray-700 cursor-pointer active:scale-90 transition-all group">
+                        <div
+                            class="absolute -right-1 -bottom-1 opacity-[0.05] dark:opacity-[0.08] group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass text-5xl"></i>
+                        </div>
+                        <div
+                            class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30 mb-2 relative z-10">
+                            <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                        </div>
+                        <h4
+                            class="text-gray-800 dark:text-white font-black text-[10px] uppercase tracking-wider relative z-10">
+                            Review</h4>
+                        <p class="text-gray-400 text-[7px] font-bold uppercase relative z-10">Check Answers</p>
+                    </div>
+                    <div onclick="safeNav('app.html?mode=categories')"
+                        class="relative overflow-hidden bg-white dark:bg-gray-800 p-4 rounded-[2rem] shadow-lg shadow-black/5 border border-gray-100 dark:border-gray-700 cursor-pointer active:scale-90 transition-all group">
+                        <div
+                            class="absolute -right-1 -bottom-1 opacity-[0.05] dark:opacity-[0.08] group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-layer-group text-5xl"></i>
+                        </div>
+                        <div
+                            class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-500/30 mb-2 relative z-10">
+                            <i class="fa-solid fa-layer-group text-sm"></i>
+                        </div>
+                        <h4
+                            class="text-gray-800 dark:text-white font-black text-[10px] uppercase tracking-wider relative z-10">
+                            Topics</h4>
+                        <p class="text-gray-400 text-[7px] font-bold uppercase relative z-10">New Quizzes</p>
+                    </div>
+                </div>
+                <div id="install-card" class="hidden relative overflow-hidden bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-800 p-4 rounded-[2rem] shadow-xl shadow-indigo-500/30">
+                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-white/10 rounded-full blur-xl"></div>
+                    <div class="flex items-center justify-between relative z-10">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-11 h-11 bg-white/20 backdrop-blur-md rounded-2xl border border-white/30 flex items-center justify-center shadow-lg">
+                                <i class="fa-solid fa-download text-white text-base animate-bounce"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-[11px] font-black uppercase tracking-tight">IQ Master App
+                                </h4>
+                                <p class="text-indigo-100 text-[8px] font-bold uppercase opacity-80">Claim 50 Coins
+                                    Free!</p>
+                            </div>
+                        </div>
+                        <button onclick="triggerInstall('result')"
+                            class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-xl text-[9px] font-black uppercase shadow-lg shadow-yellow-500/20 active:scale-90 transition">Install</button>
+                    </div>
+                </div>
+                <div onclick="safeNav('scratch.html')" class="relative overflow-hidden bg-gradient-to-r from-fuchsia-600 via-purple-600 to-indigo-600 p-4 rounded-[2.2rem] shadow-2xl shadow-purple-500/30 cursor-pointer active:scale-95 transition-all group">
+                    <div
+                        class="absolute -bottom-6 -right-6 w-20 h-20 bg-white/10 rounded-full blur-2xl transition-all group-hover:bg-white/20">
+                    </div>
+                    <div class="flex items-center justify-between relative z-10">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div
+                                    class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl border border-white/40 flex items-center justify-center shadow-inner">
+                                    <i
+                                        class="fa-solid fa-ticket-simple text-white text-lg rotate-[35deg] drop-shadow-md"></i>
+                                </div>
+                                <span
+                                    class="absolute -top-1 -right-1 bg-yellow-400 text-gray-900 text-[8px] font-black px-1.5 py-0.5 rounded-md border-2 border-purple-600"
+                                    id="scratch-count">0</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-black text-[13px] uppercase leading-none tracking-tight">
+                                    Scratch & Win</h4>
+                                <p
+                                    class="text-purple-100 text-[8px] font-bold uppercase mt-1 opacity-70 tracking-widest">
+                                    Lucky Rewards</p>
+                            </div>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-xl bg-black/20 flex items-center justify-center border border-white/10 text-white group-hover:translate-x-1 transition-transform">
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+             <div class="flex items-center justify-center mt-10">  
+                 <div id="div-gpt-ad-1747370165862-6" class="ad-slot" style="height: 250px; width: 300px"></div>
+                 <script>
+                     googletag.cmd.push(function() {
+                         googletag.display('div-gpt-ad-1747370165862-6');
+                     });
+                 </script>
+             </div>  
+
+                <div
+                    class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[2.5rem] p-5 shadow-lg shadow-black/5">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3
+                            class="font-black text-[11px] flex items-center gap-2 text-gray-800 dark:text-white uppercase tracking-tighter">
+                            <span class="w-1.5 h-4 bg-yellow-400 rounded-full"></span>
+                            Hall of Fame
+                        </h3>
+                        <div
+                            class="flex bg-gray-50 dark:bg-gray-800 p-1 rounded-xl border border-gray-100 dark:border-gray-700">
+                            <button onclick="loadLeaderboard(false, 'global')" id="btn-lb-global"
+                                class="text-[7px] font-black px-3 py-1.5 rounded-lg transition-all">GLOBAL</button>
+                            <button onclick="loadLeaderboard(false, 'local')" id="btn-lb-local"
+                                class="text-[7px] font-black px-3 py-1.5 rounded-lg transition-all">INDIA</button>
+                        </div>
+                    </div>
+
+                    <div id="leaderboard-list" class="space-y-2">
+                        <div
+                            class="flex items-center justify-between p-2.5 bg-gray-50/50 dark:bg-gray-800/30 rounded-2xl border border-transparent hover:border-blue-500/10 transition-all">
+                            <div class="flex items-center gap-2">
+                                <span class="w-5 text-[9px] font-black text-gray-400 italic">#1</span>
+                                <div
+                                    class="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center text-[10px] shadow-inner">
+                                    👑</div>
+                                <span
+                                    class="text-[11px] font-bold dark:text-white uppercase tracking-tight">Loading...</span>
+                            </div>
+                            <span class="text-[11px] font-black text-blue-600 dark:text-blue-400">0 💰</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+<div id="vault-modal" class="fixed inset-0 z-[200] bg-black/60 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-[320px] bg-[#0f172a] border border-blue-500/30 rounded-[2.5rem] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden text-center animate-in zoom-in duration-300">
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
+
+        <div id="vault-main-view">
+            <h2 class="text-white font-black text-lg uppercase tracking-widest italic leading-none">Neural Vault</h2>
+            <p class="text-blue-400 text-[8px] font-bold uppercase tracking-[0.3em] mt-2 mb-8">Decryption in Progress</p>
+            
+            <div id="vault-chest-container" class="relative w-32 h-32 mx-auto cursor-pointer group" onclick="startVaultOpening()">
+                <div id="orb-ring" class="absolute inset-0 border-2 border-dashed border-blue-500/40 rounded-full animate-[spin_8s_linear_infinite]"></div>
+                <div id="main-chest" class="absolute inset-4 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full shadow-[0_0_30px_rgba(59,130,246,0.6)] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                    <i class="fa-solid fa-atom text-white text-4xl animate-pulse"></i>
+                </div>
+                <p id="vault-hint" class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-white/40 text-[9px] font-black uppercase tracking-widest whitespace-nowrap">Tap to Decrypt</p>
+                <p id="vault-cooldown-msg" class="hidden absolute -bottom-10 left-1/2 -translate-x-1/2 text-red-500 font-black text-[9px] uppercase tracking-widest whitespace-nowrap">Limit Reached</p>
+            </div>
+            
+            <p id="vault-limit-text" class="mt-16 text-[8px] font-black text-gray-500 uppercase tracking-widest">2/2 Left</p>
+        </div>
+
+        <div id="vault-result" class="hidden transform scale-0 transition-all duration-500">
+            <div id="rarity-badge" class="bg-blue-600 text-white text-[7px] font-black px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-4">Common Unit</div>
+            <div id="vault-prize-icon" class="text-5xl mb-3 drop-shadow-lg">💰</div>
+            <h3 id="vault-prize-name" class="text-white font-black text-xl mb-1 italic">100 Coins</h3>
+            <p class="text-gray-500 text-[8px] font-bold uppercase mb-8">Added to Neural Wallet</p>
+            <button onclick="closeVault()" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3.5 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all">Claim & Sync</button>
+        </div>
+
+        <button onclick="closeVault()" class="mt-8 text-gray-600 hover:text-white transition-colors">
+            <i class="fa-solid fa-circle-xmark text-xl"></i>
+        </button>
+    </div>
+</div>
+
+    <div id="scratch-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-6">
+        <div class="bg-white dark:bg-gray-900 w-full max-w-xs rounded-[3rem] p-8 text-center relative">
+            <button onclick="closeScratchModal()" class="absolute top-6 right-6 text-gray-400"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-black text-xl dark:text-white uppercase mb-2">Lucky Card</h3>
+            <div id="scratch-area" class="relative w-48 h-48 mx-auto bg-gray-100 dark:bg-gray-800 rounded-[2.5rem] flex items-center justify-center border-4 border-dashed border-gray-200">
+                <div id="scratch-cover" class="absolute inset-0 bg-gray-400 dark:bg-gray-600 rounded-[2rem] flex items-center justify-center z-10 transition-opacity duration-500">
+                    <i class="fa-solid fa-hand-pointer text-white text-3xl animate-bounce"></i>
+                </div>
+                <div class="text-center">
+                    <span id="scratch-prize-icon" class="text-4xl block">💰</span>
+                    <span id="scratch-prize-amount" class="text-2xl font-black dark:text-white">100</span>
+                </div>
+            </div>
+            <button id="scratch-btn" onclick="processScratch()" class="mt-8 w-full py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-xs">Tap to Scratch</button>
+        </div>
+    </div>
+    
+      <div id="login-bonus-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-6">
+        <div
+            class="bg-white dark:bg-gray-900 w-full max-w-sm rounded-[2.5rem] p-6 text-center relative shadow-2xl border border-white/10">
+            <button onclick="closeBonusModal()" class="absolute top-4 right-4 text-gray-400"><i
+                    class="fa-solid fa-circle-xmark text-xl"></i></button>
+            <h2 class="text-xl font-black dark:text-white uppercase italic mb-1">Daily Rewards</h2>
+            <p class="text-[10px] text-gray-400 mb-6 uppercase font-bold tracking-widest">Day <span
+                    id="streak-num">1</span> Streak</p>
+            <div id="login-days-grid" class="grid grid-cols-4 gap-2 mb-6"></div>
+            <button onclick="claimDailyBonus()" id="claim-bonus-btn"
+                class="w-full py-4 bg-yellow-400 text-black font-black uppercase rounded-2xl shadow-xl active:scale-95 mb-6">Claim
+                Now 💰</button>
+            <div id="chest-container" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 hidden">
+                <div class="bg-gradient-to-br from-yellow-400 to-orange-500 p-0.5 rounded-[2rem]">
+                    <div class="bg-white dark:bg-gray-900 rounded-[1.9rem] p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="text-3xl animate-bounce">🎁</div>
+                            <div class="text-left">
+                                <h5 class="text-[11px] font-black dark:text-white uppercase">Treasure Chest</h5>
+                                <p class="text-[8px] font-bold text-gray-400 uppercase">3+ Day Streak Bonus</p>
+                            </div>
+                        </div>
+                        <button onclick="claimTreasure()"
+                            class="px-4 py-2 bg-yellow-500 text-white text-[10px] font-black rounded-xl uppercase shadow-md shadow-yellow-500/20">Open</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--<footer id="dynamic-bottom-nav" style="z-index: 2147483647 !important;" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-100 dark:border-gray-800 px-2 py-2 transition-[bottom] duration-300 shadow-[0_-10px_25px_rgba(0,0,0,0.1)]">-->
+<!--    <div class="flex items-center justify-around">-->
+<!--        <button onclick="safeNav('/')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-100 dark:group-hover:bg-blue-500/20">-->
+<!--                <i class="fa-solid fa-house text-blue-600 dark:text-blue-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Home</span>-->
+<!--        </button>-->
+<!--        <button onclick="safeNav('app.html?mode=referral')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20">-->
+<!--                <i class="fa-solid fa-share-nodes text-indigo-600 dark:text-indigo-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Invite</span>-->
+<!--        </button>-->
+<!--        <button onclick="triggerInstall('footer-nav')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-100 dark:group-hover:bg-emerald-500/20">-->
+<!--                <i class="fa-solid fa-cloud-arrow-down text-emerald-600 dark:text-emerald-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Install</span>-->
+<!--        </button>-->
+<!--        <button onclick="safeNav('app.html?mode=categories')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-orange-500/20">-->
+<!--                <i class="fa-solid fa-layer-group text-orange-600 dark:text-orange-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Topics</span>-->
+<!--        </button>-->
+<!--    </div>-->
+<!--</footer>-->
+
+   
+    
+</body>
+
+</html>

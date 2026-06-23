@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Master - Professional Edition</title>
+    <script src="app-logic.js?v=455885245574" defer></script>
+    <script src="quizbank.js?121" defer></script>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/brain.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="css/all.min.css?224523335" defer type="text/css" media="all" />-->
+    <script src="tailwindcss.js?11" ></script>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/main.css?444555633"  type="text/css" media="all" />
+    <script>  if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
+    <script>tailwind.config = { darkMode: 'class', }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "v8j39jw9y2");
+    </script>
+
+
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentMode = urlParams.get('mode') || 'home'; // કયો મોડ છે તે પકડશે
+    
+    window.deviceId = urlParams.get('ppid') || localStorage.getItem('user_id');
+    if (!window.deviceId || window.deviceId === 'guest') {
+        if(!localStorage.getItem('user_id')) {
+            window.deviceId = 'u_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+            localStorage.setItem('user_id', window.deviceId);
+        } else {
+            window.deviceId = localStorage.getItem('user_id');
+        }
+    }
+
+    const hasGclid = urlParams.has('gclid');
+
+    // CONFIG માં ફેરફાર: જે-તે મોડ મુજબ પેજ ટ્રેક કરશે
+    gtag('config', 'G-BMZY691ZG4', {
+        'user_id': window.deviceId,
+        'page_path': window.location.pathname + (urlParams.get('mode') ? '?mode=' + urlParams.get('mode') : ''),
+        'page_title': currentMode.toUpperCase(),
+        'cookie_flags': 'SameSite=None;Secure',
+        'campaign_source': hasGclid ? undefined : (urlParams.get('utm_source') || 'android_app'),
+        'campaign_medium': hasGclid ? undefined : (urlParams.get('utm_medium') || 'app_cct'),
+        'campaign_name': hasGclid ? undefined : (urlParams.get('utm_campaign') || 'install_flow'),
+        'debug_mode': true // આનાથી તમે Real-time માં તરત ડેટા જોઈ શકશો
+    });
+
+    window.trackGA = function(eventName, params = {}) {
+        let eventParams = {
+            'user_id': window.deviceId,
+            'client_id': window.deviceId,
+            'platform': 'Android_CCT',
+            'screen_name': currentMode, // કયા સ્ક્રીન પર ઇવેન્ટ બની તે પણ મોકલશે
+            ...params
+        };
+        
+        if (params.is_conversion) {
+            eventParams['transaction_id'] = window.deviceId + '_' + eventName;
+        }
+        gtag('event', eventName, eventParams);
+        console.log("GA Event Logged:", eventName, eventParams); // ચેક કરવા માટે
+    };
+</script>
+<script>
+      window.googletag = window.googletag || { cmd: [] };
+
+      let anchorSlot;
+
+      googletag.cmd.push(() => {
+        anchorSlot = googletag.defineOutOfPageSlot(
+          "/22856454650/2801_Mid_Custom",
+          googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
+        );
+        if (anchorSlot) {
+          anchorSlot.addService(googletag.pubads()).setConfig({
+            targeting: {
+              test: "anchor",
+            },
+          });
+        }
+
+        // Define top ad slot globally
+        window.topAdSlot = googletag.defineSlot(
+          '/22856454650/2801_app_customtop_rendaring', 
+          [[300, 250], [300, 100], [320, 100]], 
+          'div-gpt-ad-17701189157955-3'
+        ).addService(googletag.pubads());
+
+        const pubads = googletag.pubads();
+        pubads.enableSingleRequest();
+        pubads.setCentering(true);
+        pubads.collapseEmptyDivs();
+
+        if (window.deviceId) {
+          pubads.setPublisherProvidedId(window.deviceId);
+        }
+        googletag.enableServices();
+      });
+    </script>
+
+
+ <script>
+  googletag.cmd.push(() => {
+    googletag.display(anchorSlot);
+  });
+</script>
+    
+  
+</head>
+
+
+
+<body id="main-body" class="bg-gray-50 font-sans border-x max-w-md mx-auto min-h-screen relative pb-24 shadow-2xl">
+    <nav class="p-4 border-b bg-white/80 backdrop-blur-md sticky top-0 z-30 flex justify-between items-center shadow-sm dark:bg-gray-900/80 dark:border-gray-800">
+        <div class="flex items-center gap-3">
+            <div onclick="safeNav('?mode=profile')"
+                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 cursor-pointer active:scale-90 transition-all">
+                <i id="nav-user-avatar" class="fa-solid fa-bars text-white text-lg"></i>
+            </div>
+            <div onclick="safeNav('?mode=profile')" class="cursor-pointer">
+                <h1 class="font-black text-lg tracking-tighter uppercase text-gray-800 dark:text-white leading-none">IQ
+                    MASTER</h1>
+                <p class="text-[7px] font-bold text-blue-500 uppercase tracking-[0.2em] mt-0.5">Professional</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="toggleDarkMode()" id="theme-toggle"
+                class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 transition-all active:scale-90">
+                <i id="theme-icon" class="fa-solid fa-moon text-gray-600 dark:text-yellow-400"></i>
+            </button>
+
+            <button onclick="openBonusModal()"
+                class="relative w-10 h-10 flex items-center justify-center bg-orange-400/10 border border-orange-400/20 rounded-xl shadow-sm active:scale-90 transition-all">
+                <i class="fa-solid fa-gift text-orange-600 dark:text-orange-400 text-sm"></i>
+                <span id="bonus-dot"
+                    class="hidden absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 border-2 border-white dark:border-gray-900 rounded-full animate-pulse"></span>
+            </button>
+            <div onclick="window.trackGA('nav_wllet_click', {card_name: 'wallet-balance'});safeNav('?mode=points')"
+                class="h-10 px-3 bg-yellow-400/10 border border-yellow-400/20 rounded-xl flex items-center gap-2 shadow-sm">
+                <span class="text-sm">💰</span>
+                <span id="wallet-balance" class="text-xs font-black text-yellow-700 dark:text-yellow-500">0</span>
+            </div>
+        </div>
+    </nav>
+    <div class="flex items-center justify-center mt-10">
+    <script>
+        setInterval(function() {
+            if (window.topAdSlot && document.visibilityState === 'visible') {
+                const adElement = document.getElementById('div-gpt-ad-17701189157955-3');
+                if (adElement) {
+                    const rect = adElement.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible) {
+                        googletag.pubads().refresh([window.topAdSlot]);
+                    }
+                }
+            }
+        }, 30000);
+    </script>
+<div id='div-gpt-ad-17701189157955-3' style='min-width: 300px; min-height: 100px; margin:8px;'>
+<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-17701189157955-3'); });
+</script>
+</div>
+</div>
+    <div id="emoji-popup" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[200] pointer-events-none scale-0 transition-transform duration-300">
+        <div class="bg-white/90 backdrop-blur px-6 py-3 rounded-full shadow-2xl border-2 border-blue-500 text-4xl"
+            id="emoji-display">😂</div>
+    </div>
+
+<main class="p-3">
+        <div id="quiz-ui" class="hidden max-w-md mx-auto min-h-screen  flex flex-col font-sans bg-transparent">
+            <div class="flex justify-between items-center mb-2 px-1 gap-2">
+                <div class="flex flex-col min-w-fit">
+                    <p id="mode-label"
+                        class="text-[8px] font-black text-blue-500 uppercase tracking-widest leading-none mb-1">IQ
+                        MASTER PRO</p>
+                    <h2 id="q-counter" class="text-xl font-black text-slate-800 dark:text-white leading-none">1<span
+                            class="text-slate-400 text-xs font-bold">/10</span></h2>
+                </div>
+                <div class="flex gap-1.5 items-center overflow-x-auto no-scrollbar py-1">
+                    <div id="opp-score-box"
+                        class="hidden flex items-center gap-1.5 bg-red-50 dark:bg-red-900/30 border-b-4 border-red-200 dark:border-red-900 px-3 py-1.5 rounded-2xl shadow-sm transition-all">
+                        <span class="text-base">⚔️</span>
+                        <span id="opp-score-display"
+                            class="text-[10px] font-black text-red-600 dark:text-red-400 uppercase leading-none">0</span>
+                    </div>
+                    <button onclick="usePowerUp('5050')" id="btn-5050"
+                        class="flex items-center gap-1.5 bg-white/90 dark:bg-slate-800/90 border-b-4 border-blue-200 dark:border-blue-900 px-3 py-1.5 rounded-2xl active:border-b-0 active:translate-y-1 transition-all shadow-sm">
+                        <span class="text-base">🌓</span>
+                        <span class="text-[10px] font-black text-blue-600 uppercase">100</span>
+                    </button>                   
+                    <button onclick="usePowerUp('skip')" id="btn-skip"
+                        class="flex items-center gap-1.5 bg-white/90 dark:bg-slate-800/90 border-b-4 border-orange-200 dark:border-orange-900 px-3 py-1.5 rounded-2xl active:border-b-0 active:translate-y-1 transition-all shadow-sm">
+                        <span class="text-base">⏭️</span>
+                        <span class="text-[10px] font-black text-orange-600 uppercase">200</span>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full bg-black/5 dark:bg-white/10 h-1.5 rounded-full mb-3 overflow-hidden">
+                <div id="progress-bar"
+                    class="bg-gradient-to-r from-blue-500 to-indigo-600 h-full rounded-full transition-all duration-700 shadow-[0_0_10px_rgba(59,130,246,0.3)]"
+                    style="width: 10%"></div>
+            </div>
+            <div class="relative">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-500/10 blur-xl rounded-[2.5rem]">
+                </div>
+
+                <div
+                    class="relative bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-xl border border-white dark:border-slate-800 overflow-hidden flex flex-col">
+                    <div class="h-0.2 w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
+                   
+                    <div id="quiz-box" class="pt-2 pb-6 text-center">
+                        <span
+                            class="inline-block px-3 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/20 text-[8px] font-black text-blue-500 uppercase mb-2">Challenge</span>
+                        <h2 id="q-title" class="text-medium font-extrabold text-slate-800 dark:text-white leading-tight">
+                            Loading...</h2>
+                    </div> <div id="options-container" class="grid grid-cols-2 gap-3 p-4 pt-0"></div>
+
+                    
+                    <div id="pvp-chat-bar"
+                        class="hidden flex flex-col border-t border-slate-50 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30">
+                        <p class="text-[7px] font-black text-slate-400 uppercase tracking-[0.3em] pt-2 text-center">
+                            Express with Emojis</p>
+                        <div class="relative flex items-center h-12">
+                            <button type="button" onclick="sideScroll('emoji-container', 'left')"
+                                class="absolute left-0 z-50 w-10 h-full flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <span class="text-lg font-black animate-arrow-left">❮</span>
+                            </button>
+                            <div id="emoji-container"
+                                class="flex overflow-x-auto gap-6 px-10 py-2 no-scrollbar scroll-smooth items-center w-full relative z-10">
+                                <button onclick="sendEmoji('😂')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">😂</button>
+                                <button onclick="sendEmoji('😎')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">😎</button>
+                                <button onclick="sendEmoji('🔥')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">🔥</button>
+                                <button onclick="sendEmoji('😲')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">😲</button>
+                                <button onclick="sendEmoji('🤯')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">🤯</button>
+                                <button onclick="sendEmoji('👏')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">👏</button>
+                                <button onclick="sendEmoji('💯')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">💯</button>
+                                <button onclick="sendEmoji('💩')"
+                                    class="text-2xl shrink-0 active:scale-150 transition">💩</button>
+                            </div>
+                            <button type="button" onclick="sideScroll('emoji-container', 'right')"
+                                class="absolute right-0 z-50 w-10 h-full flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <span class="text-lg font-black animate-arrow-right">❯</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.sideScroll = function (elementId, direction) {
+                var container = document.getElementById(elementId);
+                if (container) {
+                    var scrollAmount = 180;
+                    if (direction === 'left') {
+                        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    } else {
+                        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    }
+                }
+            };
+        </script>
+        <div id="referral-screen" class="hidden fixed inset-0 z-[2000] flex items-center justify-center p-6 transition-all duration-500">
+            <div class="absolute inset-0 bg-black/20 dark:bg-black/60 backdrop-blur-md"></div>
+            <div class="relative w-full max-w-sm overflow-hidden backdrop-blur-2xl bg-white/80 dark:bg-[#0f0f12]/90 border border-white dark:border-white/10 rounded-[3.5rem] p-8 text-center shadow-[0_25px_80px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_80px_rgba(0,0,0,0.6)]">
+                <div class="absolute -top-20 -left-20 w-40 h-40 bg-blue-500/20 blur-[80px] rounded-full"></div>
+                <div class="absolute -top-20 -right-20 w-40 h-40 bg-rose-500/20 blur-[80px] rounded-full"></div>
+                <div class="relative w-24 h-24 mx-auto mb-6">
+                    <div class="absolute inset-0 bg-blue-500/20 rounded-full animate-ping"></div>
+                    <div class="absolute inset-0 bg-blue-500/10 rounded-full animate-pulse delay-75"></div>
+                    <div
+                        class="relative w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-700 rounded-[2rem] flex items-center justify-center shadow-2xl rotate-12 transition-transform hover:rotate-0 duration-500">
+                        <i class="fa-solid fa-users text-4xl text-white drop-shadow-lg"></i>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-[900] text-gray-900 dark:text-white uppercase italic tracking-tighter">
+                    Invite <span class="text-blue-600 dark:text-blue-500">&</span> Earn
+                </h2>
+                <p class="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[4px] mt-2 mb-4">
+                    Referral Program</p>
+
+                <div
+                    class="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-500/10 rounded-full border border-blue-100 dark:border-blue-500/20 mb-6">
+                    <p class="text-xs font-bold text-gray-600 dark:text-blue-400">
+                        Get <span class="text-blue-600 dark:text-blue-300 font-black">500 Coins</span> 💰 per friend
+                    </p>
+                </div>
+                <div
+                    class="relative group mt-2 p-5 bg-gray-50 dark:bg-black/40 rounded-[2rem] border-2 border-dashed border-gray-200 dark:border-white/10 transition-all hover:border-blue-400">
+                    <p class="text-[9px] uppercase font-black text-gray-400 dark:text-gray-500 mb-2 tracking-widest">
+                        Your Unique Link</p>
+                    <div class="overflow-hidden">
+                        <p id="ref-link-text"
+                            class="text-[12px] font-mono font-bold dark:text-gray-300 break-all leading-tight">
+                            loading...
+                        </p>
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent -translate-x-full group-hover:animate-[sweep_2s_infinite]">
+                    </div>
+                </div>
+                <button onclick="shareReferral()"
+                    class="w-full mt-6 py-5 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-[1.8rem] font-black uppercase shadow-[0_15px_30px_rgba(37,211,102,0.3)] transition-all active:scale-95 flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Share on WhatsApp</span>
+                </button>
+
+                <button onclick="safeNav('/')"
+                    class="mt-6 text-[10px] font-black text-gray-400 dark:text-gray-600 uppercase tracking-[3px] hover:text-rose-500 transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Back to Home
+                </button>
+            </div>
+        </div>
+        
+        <div id="achievements-screen" class="hidden ">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-black dark:text-white uppercase italic">Achievements</h2>
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-xmark dark:text-white"></i>
+                </button>
+            </div>
+            <div id="achievements-list" class="space-y-3">
+            </div>
+        </div>
+        
+        <div id="shop-screen" class="hidden flex flex-col py-8 animate-in slide-in-from-bottom duration-500">
+            <div class="flex items-center justify-between mb-8 px-2">
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h2 class="text-xl font-black uppercase italic dark:text-white">Brain Shop</h2>
+                <div
+                    class="bg-yellow-100 dark:bg-yellow-900/30 px-3 py-1.5 rounded-xl border border-yellow-200 dark:border-yellow-700/50">
+                    <span class="text-xs">💰</span> <span id="shop-wallet"
+                        class="text-xs font-black text-yellow-700 dark:text-yellow-500">0</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 px-2" id="avatar-grid">
+            </div>
+        </div>
+       
+        <div id="withdrawal-history-screen" class="hidden min-h-screen bg-gray-50 dark:bg-gray-950 p-4 pb-24">
+            <div class="flex items-center gap-4 mb-6">
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 rounded-2xl bg-white dark:bg-gray-900 flex items-center justify-center shadow-sm border border-gray-100 dark:border-gray-800 active:scale-90 transition-all">
+                    <i class="fa-solid fa-chevron-left dark:text-white text-xs"></i>
+                </button>
+                <div>
+                    <h2 class="text-xl font-black dark:text-white uppercase tracking-tighter italic leading-none">My
+                        Withdrawals</h2>
+                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-1">Track your payouts</p>
+                </div>
+            </div>
+            <div id="withdrawal-list" class="space-y-3">
+                <div class="text-center py-20 opacity-50">
+                    <i class="fa-solid fa-spinner animate-spin text-blue-600 text-2xl mb-4"></i>
+                    <p class="text-[10px] font-black text-gray-400 uppercase">Scanning Neural Network...</p>
+                </div>
+            </div>
+        </div>
+        
+         <div id="diamond-screen" class="hidden flex flex-col py-3 px-2 bg-transparent min-h-[95vh] overflow-hidden font-sans">
+            <div class="flex items-center justify-between mb-5 mt-1 px-1 animate-in fade-in duration-500">
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 glass-panel flex items-center justify-center active:scale-90 transition">
+                    <i class="fa-solid fa-chevron-left text-gray-500"></i>
+                </button>
+                <div class="text-center">
+                    <h2
+                        class="text-xs font-black uppercase tracking-[0.3em] dark:text-white text-gray-900 leading-none">
+                        REWARD HUB</h2>
+                    <p class="text-[7px] font-bold text-blue-500 uppercase mt-1 tracking-widest">Authorized Transaction
+                        Portal</p>
+                </div>
+                <div class="w-10 h-10 glass-panel flex items-center justify-center">
+                    <i class="fa-solid fa-fingerprint text-blue-500 text-xs"></i>
+                </div>
+            </div>
+            
+            <button onclick="safeNav('app.html?mode=withdrawals')"
+                class="w-full mb-4 py-3 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-800 text-[10px] font-black text-gray-400 uppercase hover:bg-gray-50 transition-all">
+                <i class="fa-solid fa-history mr-2"></i> REDEEM HISTORY
+            </button>
+           
+<div onclick="showAssetHint()" 
+     class="cursor-pointer glass-panel p-4 mb-5 relative overflow-hidden border-t-2 border-blue-500/30 animate-in slide-in-from-bottom duration-500 active:scale-95 transition-all">
+    
+    <div class="absolute -right-4 -bottom-4 opacity-5"><i class="fa-solid fa-gem text-7xl"></i></div>
+    <div class="flex justify-between items-center">
+        <div>
+            <span class="step-label mb-2 inline-block italic">STEP 01: ASSETS</span>
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center float-icon">
+                    <i class="fa-solid fa-gem text-blue-500 text-2xl"></i>
+                </div>
+                <div>
+                    <h4 id="screen-diamond-balance"
+                        class="text-4xl font-black italic dark:text-white text-gray-900 leading-none tracking-tighter">
+                        0</h4>
+                    <p class="text-[8px] font-bold text-gray-400 uppercase mt-1">WALLET BALANCE</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-right pl-3 border-l border-gray-200 dark:border-gray-800">
+            <p class="text-[7px] font-black text-yellow-600 uppercase mb-1">Total Coins</p>
+            <p class="text-xl font-black dark:text-white text-gray-900 italic leading-none"><span
+                    id="vault-coin-balance">0</span> 💰</p>
+        </div>
+    </div>
+</div>
+            
+            <div onclick="safeNav('app.html?mode=categories')"
+                class="group relative h-24 rounded-[2.2rem] cursor-pointer transition-all duration-500 active:scale-95 overflow-hidden border border-emerald-500/20 dark:border-emerald-500/20 shadow-[0_20px_50px_rgba(16,185,129,0.1)] dark:shadow-[0_20px_50px_rgba(16,185,129,0.2)] bg-white dark:bg-[#05100a] mb-6">
+                <div class="absolute inset-0">
+                    <div
+                        class="absolute -right-10 -top-10 w-48 h-48 bg-emerald-600/10 dark:bg-emerald-600/10 blur-[80px] group-hover:bg-emerald-600/20 transition-all duration-1000">
+                    </div>
+                    <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-teal-600/10 dark:bg-teal-600/10 blur-[70px]">
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-400/30 dark:via-emerald-400/30 to-transparent">
+                    </div>
+                </div>
+                <div class="relative h-full w-full flex items-center px-4 sm:px-5 justify-between z-10">
+                    <div class="flex items-center gap-3 sm:gap-4">
+                        <div class="relative shrink-0">
+                            <div class="absolute inset-0 bg-emerald-500 blur-md opacity-30 animate-pulse"></div>
+                            <div
+                                class="w-12 h-12 sm:w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[1.1rem] sm:rounded-[1.3rem] flex items-center justify-center shadow-2xl relative z-10 group-hover:scale-110 transition-transform duration-500">
+                                <i class="fa-solid fa-layer-group text-white text-xl sm:text-2xl drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"></i>
+                            </div>
+                            <div class="absolute -top-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-emerald-600 rounded-full flex items-center justify-center border border-white dark:border-[#05100a] z-20">
+                                <i class="fa-solid fa-plus text-[5px] sm:text-[6px] text-white"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="flex items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1">
+                                <h3
+                                    class="text-[12px] sm:text-[14px] font-black text-slate-800 dark:text-white uppercase italic tracking-tighter leading-none">
+                                    Quiz Library</h3>
+                                <span
+                                    class="text-[6px] sm:text-[7px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-1.5 py-0.5 rounded uppercase tracking-wider shrink-0">Unlocked</span>
+                            </div>
+                            <div class="flex items-baseline gap-1.5">
+                                <span
+                                    class="text-[10px] sm:text-[11px] font-black text-slate-700 dark:text-white leading-none uppercase">50+
+                                    PREMIUM TOPICS</span>
+                            </div>
+                            <p
+                                class="text-[7px] font-bold text-slate-500 dark:text-gray-500 uppercase mt-1 tracking-wider sm:tracking-[0.15em] group-hover:text-emerald-600 transition-colors">
+                                Neural IQ Level Up Ready</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end justify-center gap-2 sm:gap-2.5 shrink-0">
+                        <div class="text-right">
+                            <p
+                                class="text-[5px] sm:text-[6px] font-black text-slate-400 dark:text-gray-600 uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-0.5">
+                                Database Status</p>
+                            <div class="flex items-center justify-end gap-1.5">
+                                <div class="w-1 h-1 bg-emerald-500 rounded-full animate-ping"></div>
+                                <p
+                                    class="text-[7px] sm:text-[8px] font-black text-emerald-600 dark:text-emerald-500 uppercase leading-none italic">
+                                    Daily Updated</p>
+                            </div>
+                        </div>
+
+                        <div class="relative active:scale-90 transition-all">
+                            <div class="absolute inset-0 bg-emerald-600 blur-sm opacity-20"></div>
+                            <div
+                                class="relative h-8 sm:h-10 px-4 sm:px-5 bg-gradient-to-r from-emerald-600 to-teal-500 text-white rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl border border-white/10 group-hover:translate-x-1 transition-transform">
+                                <span
+                                    class="text-[9px] sm:text-[10px] font-black uppercase tracking-widest italic">SELECT</span>
+                                <i class="fa-solid fa-chevron-right text-[7px] ml-1.5 sm:ml-2 opacity-70"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent -translate-x-full group-hover:animate-[sweep_1.5s_infinite]">
+                </div>
+            </div>
+            
+            <div onclick="safeNav('scratch.html')" class="relative overflow-hidden bg-gradient-to-r from-fuchsia-600 via-purple-600 to-indigo-600 p-4 rounded-[2.2rem] shadow-2xl shadow-purple-500/30 cursor-pointer active:scale-95 transition-all group mt-4" >
+                    <div
+                        class="absolute -bottom-6 -right-6 w-20 h-20 bg-white/10 rounded-full blur-2xl transition-all group-hover:bg-white/20">
+                    </div>
+                    <div class="flex items-center justify-between relative z-10">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div
+                                    class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl border border-white/40 flex items-center justify-center shadow-inner">
+                                    <i
+                                        class="fa-solid fa-ticket-simple text-white text-lg rotate-[35deg] drop-shadow-md"></i>
+                                </div>
+                                <span
+                                    class="absolute -top-1 -right-1 bg-yellow-400 text-gray-900 text-[8px] font-black px-1.5 py-0.5 rounded-md border-2 border-purple-600"
+                                    id="scratch-count">0</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-black text-[13px] uppercase leading-none tracking-tight">
+                                    Scratch & Win</h4>
+                                <p
+                                    class="text-purple-100 text-[8px] font-bold uppercase mt-1 opacity-70 tracking-widest">
+                                    Lucky Rewards</p>
+                            </div>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-xl bg-black/20 flex items-center justify-center border border-white/10 text-white group-hover:translate-x-1 transition-transform">
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+            
+             
+            <div class="mb-5  animate-in slide-in-from-bottom duration-700">
+                <div class="flex items-center gap-2 mb-4 px-1">
+                    <span class="step-label italic">STEP 02: CONVERT COINS</span>
+                </div>
+                <div class="grid grid-cols-2 gap-x-2 gap-y-5">
+                    <button onclick="exchangeDiamonds(1000)"
+                        class="glass-panel p-3 text-center active:scale-95 transition-all group border-gray-100 dark:border-gray-800 relative">
+                        <p class="text-[14px] font-black text-blue-500 italic mb-1 group-hover:scale-110 transition">100 💎
+                            </p>
+                        <p class="text-[8px] font-bold text-gray-400 dark:text-gray-500 uppercase mb-3">Cost: 1,000 💰
+                        </p>
+                        <div
+                            class="bg-blue-600 text-white text-[8px] font-black py-2 rounded-xl uppercase tracking-widest shadow-lg shadow-blue-500/20">
+                            Convert</div>
+                    </button>
+                    <button onclick="exchangeDiamonds(5000)"
+                        class="glass-panel p-3 text-center active:scale-95 transition-all group border-gray-100 dark:border-gray-800 relative">
+                        <p class="text-[14px] font-black text-blue-500 italic mb-1 group-hover:scale-110 transition">
+                            500 💎</p>
+                        <p class="text-[8px] font-bold text-gray-400 dark:text-gray-500 uppercase mb-3">Cost: 5,000 💰
+                        </p>
+                        <div
+                            class="bg-blue-600 text-white text-[8px] font-black py-2 rounded-xl uppercase tracking-widest shadow-lg shadow-blue-500/20">
+                            Convert</div>
+                    </button>
+                    <button onclick="exchangeDiamonds(10000)"
+                        class="glass-panel p-3 text-center active:scale-95 transition-all group border-blue-500/40 relative">
+                        <div
+                            class="absolute -top-2.5 right-2 bg-red-600 text-white text-[7px] px-2 py-1 font-black uppercase rounded-lg shadow-lg z-20 italic">
+                            HOT</div>
+                        <p class="text-[14px] font-black text-blue-500 italic mb-1">1,000 💎</p>
+                        <p class="text-[8px] font-bold text-gray-400 dark:text-gray-500 uppercase mb-3">Cost: 10,000 💰
+                        </p>
+                        <div
+                            class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[8px] font-black py-2 rounded-xl uppercase tracking-widest shadow-lg shadow-blue-500/20">
+                            Popular</div>
+                    </button>
+                    <button onclick="exchangeDiamonds(15000)"
+                        class="glass-panel p-3 text-center active:scale-95 transition-all group border-yellow-500/40 relative">
+                        <div
+                            class="absolute -top-2.5 right-2 bg-yellow-500 text-black text-[7px] px-2 py-1 font-black uppercase rounded-lg shadow-lg z-20 italic">
+                            ELITE</div>
+                        <p class="text-[14px] font-black text-blue-500 italic mb-1">2,500 💎</p>
+                        <p class="text-[8px] font-bold text-gray-400 dark:text-gray-500 uppercase mb-3">Cost: 15,000 💰
+                        </p>
+                        <div
+                            class="bg-yellow-500 text-black text-[8px] font-black py-2 rounded-xl uppercase tracking-widest shadow-lg shadow-yellow-500/20">
+                            Best Value</div>
+                    </button>
+                </div>
+            </div>
+            <div
+                class="mt-2 glass-panel p-4 border-t-2 border-cyan-500/30 bg-gradient-to-b from-transparent to-cyan-500/5 animate-in slide-in-from-bottom duration-1000">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="step-label italic">STEP 03: REDEEM REQUEST</span>
+                </div>
+                <div class="flex justify-between items-end mb-2 px-1">
+                    <p
+                        class="text-[8px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest leading-none italic">
+                        Min:Required 5,000 </p>
+                    <p id="payout-percent" class="text-xs font-black text-blue-500">0%</p>
+                </div>
+                <div
+                    class="h-2 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mb-5 p-[2px] border border-gray-200 dark:border-gray-900">
+                    <div id="payout-bar"
+                        class="h-full bg-gradient-to-r from-blue-600 via-cyan-400 to-indigo-600 transition-all duration-1000 rounded-full payout-glow"
+                        style="width: 0%"></div>
+                </div>
+                <div class="space-y-3">
+                    <input type="number" id="ff-uid-input" placeholder="Enter Player ID"
+                        class="w-full bg-white dark:bg-black border border-gray-100 dark:border-gray-800 p-4 rounded-2xl dark:text-white font-black text-xs outline-none focus:border-blue-500 transition-all text-center tracking-widest">
+                    <button onclick="redeemDiamonds()"
+                        class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-blue-500/30 active:scale-95 transition-all italic">
+                        SUBMIT REQUEST
+                    </button>
+                </div>
+                <p
+                    class="text-center text-[7px] text-gray-400 font-bold uppercase mt-4 tracking-widest flex items-center justify-center gap-1 italic">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Process Time: 24 - 48 Hours
+                </p>
+            </div>
+            
+           
+        </div>
+       
+        <div id="spin-screen" class="hidden flex flex-col items-center py-8 animate-in fade-in duration-700">
+            
+            <div class="w-full flex items-center justify-between px-6">
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-arrow-left text-gray-600 dark:text-white"></i>
+                </button>
+                <h2 class="text-xl font-black text-gray-800 dark:text-white uppercase italic">Lucky Wheel</h2>
+                <div class="w-10"></div>
+            </div>
+            <div class="text-center px-6 w-full max-w-sm mt-2">
+                <p id="spin-msg" class="text-sm font-bold text-gray-400 uppercase tracking-[0.2em]">You have 1 Free Spin
+                    Today!</p>
+            </div>
+            <div class="relative w-80 h-80 flex-shrink-0 mt-10">
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 z-30 text-4xl drop-shadow-xl animate-bounce">👇
+                </div>
+                <div id="wheel"
+                    class="w-full h-full rounded-full border-[12px] border-gray-900 dark:border-gray-800 shadow-[0_0_50px_rgba(0,0,0,0.3)] transition-transform duration-[5s] cubic-bezier(0.15, 0, 0.15, 1) relative overflow-hidden"
+                    style="background: conic-gradient(
+                #ef4444 0deg 60deg, 
+                #3b82f6 60deg 120deg, 
+                #10b981 120deg 180deg, 
+                #f59e0b 180deg 240deg, 
+                #8b5cf6 240deg 300deg, 
+                #ec4899 300deg 360deg
+            );">
+                    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                        <style>
+                            .label-text {
+                                font: bold 5px Arial;
+                                fill: white;
+                                text-anchor: middle;
+                            }
+                        </style>
+                        <text x="50" y="15" transform="rotate(30 50 50)" class="label-text">💰50</text>
+                        <text x="50" y="15" transform="rotate(90 50 50)" class="label-text">💰500</text>
+                        <text x="50" y="15" transform="rotate(150 50 50)" class="label-text">💰20</text>
+                        <text x="50" y="15" transform="rotate(210 50 50)" class="label-text">💰100</text>
+                        <text x="50" y="15" transform="rotate(270 50 50)" class="label-text">💰10</text>
+                        <text x="50" y="15" transform="rotate(330 50 50)" class="label-text">💰250</text>
+                    </svg>
+                </div>
+                <button id="spin-btn" onclick="runSpin()"
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full shadow-[0_0_30px_rgba(59,130,246,0.5)] flex flex-col items-center justify-center border-4 border-white dark:border-gray-800 z-40 active:scale-90 transition-transform group">
+                    <span class="text-white font-black text-[10px] uppercase tracking-tighter leading-none">Spin</span>
+                    <span class="text-white font-black text-sm uppercase leading-none">Now</span>
+                    <div class="absolute inset-0 rounded-full border-2 border-white/20 animate-pulse"></div>
+                </button>
+                <div id="win-box" class="hidden absolute inset-0 z-50 flex items-center justify-center p-4">
+                    <div
+                        class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm p-6 rounded-[2.5rem] border-4 border-green-500 shadow-2xl flex flex-col items-center justify-center text-center animate-in zoom-in duration-300 min-w-[200px]">
+                        <p class="text-[10px] font-black text-green-600 uppercase tracking-widest mb-1">Congratulations!
+                        </p>
+                        <h4 class="text-3xl font-black text-gray-900 dark:text-white leading-tight">
+                            <span id="win-amount">0</span>
+                        </h4>
+                        <div class="text-3xl mt-2">💰</div>
+                        <button onclick="collectSpin()"
+                            class="mt-4 px-6 py-2 bg-green-500 text-white text-[10px] font-black uppercase rounded-full shadow-lg">Collect</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="category-screen" class="hidden animate-in slide-in-from-bottom duration-500">
+            <div class="flex items-center gap-4 mb-6">
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-arrow-left dark:text-white"></i>
+                </button>
+                <h2 class="text-xl font-black uppercase italic dark:text-white">Select Category</h2>
+            </div>
+            <div class="relative mb-8 group">
+                <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                    <i
+                        class="fa-solid fa-magnifying-glass text-blue-500 text-sm group-focus-within:scale-110 transition-transform"></i>
+                </div>
+                <input type="text" id="cat-search-input" oninput="filterCategories()"
+                    placeholder="Search topics (e.g. Math, Science...)"
+                    class="w-full bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4 pl-12 rounded-[1.5rem] dark:text-white font-bold text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 shadow-sm transition-all">
+            </div>
+             <div id="pagination-controls"></div>
+            <div id="category-list-container" class="grid grid-cols-2 gap-4 pb-24 px-1">
+            </div>
+        </div>
+        <div id="profile-screen" class="hidden animate-in fade-in duration-500 w-full pb-10">
+            <div class="flex items-center justify-between mb-6 px-2">
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md active:scale-95 transition">
+                    <i class="fa-solid fa-arrow-left dark:text-white text-sm"></i>
+                </button>
+                <h2 class="text-lg font-black uppercase italic dark:text-white tracking-tighter">My Stats</h2>
+                <div class="w-10"></div>
+            </div>
+            <div
+                class="bg-white dark:bg-gray-900 p-6 rounded-[2.5rem] shadow-xl border border-gray-100 dark:border-gray-800 text-center w-full relative overflow-hidden">
+                <div class="relative mb-6 flex flex-col items-center">
+                    <div id="profile-pic-bg" onclick="triggerImageUpload()"
+                        class="cursor-pointer group w-20 h-20 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-[2rem] flex items-center justify-center shadow-lg shadow-blue-500/20 relative transition-all duration-500 overflow-hidden">
+                        <img id="p-custom-img" class="hidden w-full h-full object-cover rounded-[2rem]" src="">
+                        <i id="profile-pic-icon" class="fa-solid fa-brain text-white text-3xl"></i>
+                        <div
+                            class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-camera text-white text-xs"></i>
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 bg-yellow-500 text-white w-7 h-7 rounded-full border-4 border-white dark:border-gray-900 flex items-center justify-center font-black text-[9px] z-20"
+                            id="display-level">1</div>
+                    </div>
+                    <input type="file" id="p-image-input" class="hidden" accept="image/*"
+                        onchange="handleImageUpload(event)">
+                    <div class="relative inline-flex items-center justify-center mt-4 mb-1 min-w-[100px] h-9">
+                        <h3 id="p-name" class="text-2xl font-black dark:text-white leading-none whitespace-nowrap z-10">
+                            Genius Player</h3>
+                        <input type="text" id="p-name-input"
+                            class="hidden w-40 bg-gray-100 dark:bg-gray-800 text-center text-xl font-black rounded-lg py-1 px-2 border-2 border-blue-500 outline-none dark:text-white absolute left-1/2 -translate-x-1/2 z-20"
+                            maxlength="12">
+                        <button onclick="toggleNameEdit()" id="edit-btn"
+                            class="absolute -right-10 top-1/2 -translate-y-1/2 w-7 h-7 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center shadow-sm active:scale-90 transition hover:bg-blue-100 z-10">
+                            <i id="edit-icon" class="fa-solid fa-pen text-gray-400 text-[10px]"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mt-1 px-10">
+                        <p id="p-bio"
+                            class="text-[11px] font-bold text-gray-500 dark:text-gray-400 italic truncate max-w-[200px]">
+                            I'm an IQ Master!
+                        </p>
+                        <input id="p-bio-input"
+                            class="hidden text-[11px] font-bold text-center bg-gray-100 dark:bg-gray-800 border-b-2 border-blue-500 rounded px-2 py-1 focus:outline-none dark:text-white w-full max-w-[180px]"
+                            maxlength="40">
+                        <button onclick="toggleBioEdit()" class="flex-shrink-0 transition-all active:scale-90">
+                            <i id="bio-edit-icon" class="fa-solid fa-pen text-gray-400 text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <p id="p-rank"
+                        class="text-[8px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest bg-blue-50 dark:bg-blue-900/20 py-1 px-3 rounded-full mt-2">
+                        Novice</p>
+                </div>
+
+
+                <div class="w-full px-4 mb-6">
+                    <div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5 overflow-hidden">
+                        <div id="display-xp-bar" class="bg-blue-600 h-full transition-all duration-700"
+                            style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between mt-1.5 px-0.5">
+                        <span class="text-[7px] font-black text-gray-400 uppercase">EXP Progress</span>
+                        <span id="p-xp-detail" class="text-[7px] font-black text-blue-500 uppercase">0/100</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-2xl flex flex-col items-center border border-gray-100 dark:border-gray-700">
+                        <p class="text-[7px] font-black text-gray-400 uppercase tracking-widest mb-1">Wallet</p>
+                        <p id="p-wallet" class="text-sm font-black text-yellow-500">0 💰</p>
+                    </div>
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-2xl flex flex-col items-center border border-gray-100 dark:border-gray-700">
+                        <p class="text-[7px] font-black text-gray-400 uppercase tracking-widest mb-1">Rewards</p>
+                        <p id="p-diamonds" class="text-sm font-black text-cyan-500">0 💎</p>
+                    </div>
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-2xl flex flex-col items-center border border-gray-100 dark:border-gray-700">
+                        <p class="text-[7px] font-black text-gray-400 uppercase tracking-widest mb-1">Wins</p>
+                        <p id="stat-pvp-wins" class="text-sm font-black text-green-500">0</p>
+                    </div>
+                    <div
+                        class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-2xl flex flex-col items-center border border-gray-100 dark:border-gray-700">
+                        <p class="text-[7px] font-black text-gray-400 uppercase tracking-widest mb-1">Streak</p>
+                        <p id="p-streak" class="text-sm font-black text-orange-500">0 Days</p>
+                    </div>
+                </div>
+                <div class="w-full mb-6">
+                    <div class="flex items-center justify-center gap-2 mb-4 opacity-50">
+                        <div class="h-[1px] w-8 bg-gray-300"></div>
+                        <h4 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Achievements</h4>
+                        <div class="h-[1px] w-8 bg-gray-300"></div>
+                    </div>
+                    <div id="badge-container" class="flex flex-wrap justify-center gap-3">
+                    </div>
+
+                    <div class="w-full">
+                        <div class="flex items-center justify-center gap-2 mb-4 opacity-50">
+                            <div class="h-[1px] w-8 bg-gray-300"></div>
+                            <h4 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Subject Mastery
+                            </h4>
+                            <div class="h-[1px] w-8 bg-gray-300"></div>
+                        </div>
+                        <div id="category-stats-list" class="grid grid-cols-2 gap-3 w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="review-screen" class="hidden min-h-screen  dark:bg-black p-5">
+            
+            <div class="max-w-md mx-auto">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-black dark:text-white uppercase">Review</h2>
+                    <button onclick="safeNav('/')"
+                        class="h-10 w-10 bg-white dark:bg-gray-900 rounded-full shadow-sm flex items-center justify-center">
+                        <i class="fa-solid fa-xmark dark:text-white"></i>
+                    </button>
+                </div>
+                <div id="review-list" class="space-y-4 pb-10">
+                </div>
+            </div>
+        </div>
+        <div id="how-to-play-screen" class="hidden absolute inset-0 px-5 pt-2 bg-transparent backdrop-blur-3xl transition-all duration-500 overflow-y-auto pb-32 z-[100]">
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                <div class="absolute -top-20 -left-20 w-[300px] h-[300px] bg-blue-500/10 blur-[120px] rounded-full">
+                </div>
+                <div
+                    class="absolute -bottom-20 -right-20 w-[300px] h-[300px] bg-emerald-500/10 blur-[120px] rounded-full">
+                </div>
+            </div>
+            <div class="relative z-10 flex justify-between items-center mb-8 pt-4">
+                <div>
+                    <h1
+                        class="text-2xl font-black italic tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 leading-none">
+                        Neural Guide</h1>
+                    <p class="text-[8px] font-black text-slate-600 dark:text-gray-400 tracking-[0.2em] uppercase mt-1">
+                        Master the IQ Ecosystem</p>
+                </div>
+                <button onclick="safeNav('/')"
+                    class="w-10 h-10 bg-white/20 dark:bg-white/5 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-xl flex items-center justify-center shadow-xl active:scale-90 transition-all">
+                    <i class="fa-solid fa-xmark text-slate-800 dark:text-white text-sm"></i>
+                </button>
+            </div>
+            <div class="relative z-10 space-y-6">
+                <div class="space-y-3">
+                    <h2 class="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] pl-2">01. Economy</h2>
+                    <div
+                        class="bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 p-5 rounded-[2rem] backdrop-blur-md">
+                        <div class="flex gap-4 mb-4">
+                            <div
+                                class="shrink-0 w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center text-yellow-600 font-black text-xl">
+                                💰</div>
+                            <p class="text-[11px] text-slate-700 dark:text-gray-300 leading-relaxed"><b
+                                    class="text-slate-900 dark:text-white">Coins:</b> Earned by playing quizzes. Use
+                                them to buy Avatars, trade in Stocks, or invade Territories.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="shrink-0 w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-600 font-black text-xl">
+                                💎</div>
+                            <p class="text-[11px] text-slate-700 dark:text-gray-300 leading-relaxed"><b
+                                    class="text-slate-900 dark:text-white">EXCLUSIVE REWARDS:</b> Rare asset. Exchange 1000 Coins
+                                for 100 Rewards. Reach 5000 Rewards to redeem for Player ID.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <h2 class="text-[10px] font-black text-emerald-600 uppercase tracking-[0.3em] pl-2">02. Combat Modes
+                    </h2>
+                    <div class="grid grid-cols-1 gap-3">
+                        <div
+                            class="bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 p-4 rounded-[1.8rem]">
+                            <h4 class="text-[12px] font-black text-slate-900 dark:text-white uppercase mb-2">⚔️ PvP
+                                Battles</h4>
+                            <p class="text-[10px] text-slate-600 dark:text-gray-400">Challenge friends or random players
+                                online. Highest score wins the 500 Coin jackpot!</p>
+                        </div>
+                        <div
+                            class="bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 p-4 rounded-[1.8rem]">
+                            <h4 class="text-[12px] font-black text-slate-900 dark:text-white uppercase mb-2">🏰 World
+                                Domination</h4>
+                            <p class="text-[10px] text-slate-600 dark:text-gray-400">Score 5/5 in a category to conquer
+                                that region. Once you are the Ruler, you earn "Daily Tax" every 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <h2 class="text-[10px] font-black text-amber-600 uppercase tracking-[0.3em] pl-2">03. High Stakes
+                    </h2>
+                    <div
+                        class="bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 p-5 rounded-[2rem]">
+                        <div class="flex items-center gap-4 mb-3">
+                            <i class="fa-solid fa-chart-line text-blue-500 text-xl"></i>
+                            <h4 class="text-[12px] font-black text-slate-900 dark:text-white uppercase">Quiz Stocks</h4>
+                        </div>
+                        <p class="text-[10px] text-slate-600 dark:text-gray-400 leading-relaxed">The stock price of a
+                            category increases when more people play it. Buy low, wait for the hype, and sell high to
+                            multiply your coins!</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <h2 class="text-[10px] font-black text-purple-600 uppercase tracking-[0.3em] pl-2">04. Neural
+                        Rewards</h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div
+                            class="bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 p-4 rounded-[1.8rem] text-center">
+                            <i class="fa-solid fa-vault text-purple-500 text-lg mb-2"></i>
+                            <p class="text-[9px] font-bold dark:text-white uppercase">Neural Vault</p>
+                            <p class="text-[8px] text-gray-500 mt-1">2 Free decryptions daily.</p>
+                        </div>
+                        <div
+                            class="bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 p-4 rounded-[1.8rem] text-center">
+                            <i class="fa-solid fa-rotate text-amber-500 text-lg mb-2"></i>
+                            <p class="text-[9px] font-bold dark:text-white uppercase">Lucky Spin</p>
+                            <p class="text-[8px] text-gray-500 mt-1">Win up to 500 Coins daily.</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/20 p-5 rounded-[2rem]">
+                    <h4 class="text-[12px] font-black text-slate-900 dark:text-white uppercase mb-2">🎭 Avatar Lab</h4>
+                    <p class="text-[10px] text-slate-600 dark:text-gray-400 leading-relaxed">Upgrade your digital
+                        identity. Higher tier avatars (like IQ God) represent your status in the Neural Network.</p>
+                </div>
+                <button onclick="closeHowToPlay()"
+                    class="w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-[1.5rem] font-black uppercase text-[12px] tracking-widest shadow-2xl active:scale-95 transition-all">
+                    Understood. Let's Play!
+                </button>
+            </div>
+        </div>
+
+    </main>
+    
+    
+    <div id="vault-modal" class="fixed inset-0 z-[200] bg-black/60 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-[320px] bg-[#0f172a] border border-blue-500/30 rounded-[2.5rem] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden text-center animate-in zoom-in duration-300">
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
+
+        <div id="vault-main-view">
+            <h2 class="text-white font-black text-lg uppercase tracking-widest italic leading-none">Neural Vault</h2>
+            <p class="text-blue-400 text-[8px] font-bold uppercase tracking-[0.3em] mt-2 mb-8">Decryption in Progress</p>
+            
+            <div id="vault-chest-container" class="relative w-32 h-32 mx-auto cursor-pointer group" onclick="startVaultOpening()">
+                <div id="orb-ring" class="absolute inset-0 border-2 border-dashed border-blue-500/40 rounded-full animate-[spin_8s_linear_infinite]"></div>
+                <div id="main-chest" class="absolute inset-4 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full shadow-[0_0_30px_rgba(59,130,246,0.6)] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                    <i class="fa-solid fa-atom text-white text-4xl animate-pulse"></i>
+                </div>
+                <p id="vault-hint" class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-white/40 text-[9px] font-black uppercase tracking-widest whitespace-nowrap">Tap to Decrypt</p>
+                <p id="vault-cooldown-msg" class="hidden absolute -bottom-10 left-1/2 -translate-x-1/2 text-red-500 font-black text-[9px] uppercase tracking-widest whitespace-nowrap">Limit Reached</p>
+            </div>
+            <p id="vault-limit-text" class="mt-16 text-[8px] font-black text-gray-500 uppercase tracking-widest">2/2 Left</p>
+        </div>
+
+        <div id="vault-result" class="hidden transform scale-0 transition-all duration-500">
+            <div id="rarity-badge" class="bg-blue-600 text-white text-[7px] font-black px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-4">Common Unit</div>
+            <div id="vault-prize-icon" class="text-5xl mb-3 drop-shadow-lg">💰</div>
+            <h3 id="vault-prize-name" class="text-white font-black text-xl mb-1 italic">100 Coins</h3>
+            <p class="text-gray-500 text-[8px] font-bold uppercase mb-8">Added to Neural Wallet</p>
+            <button onclick="closeVault()" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3.5 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all">Claim & Sync</button>
+        </div>
+
+        <button onclick="closeVault()" class="mt-8 text-gray-600 hover:text-white transition-colors">
+            <i class="fa-solid fa-circle-xmark text-xl"></i>
+        </button>
+    </div>
+</div>
+    <div id="scratch-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-6">
+        <div class="bg-white dark:bg-gray-900 w-full max-w-xs rounded-[3rem] p-8 text-center relative overflow-hidden">
+            <button onclick="closeScratchModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600"><i
+                    class="fa-solid fa-xmark"></i></button>
+
+            <h3 class="font-black text-xl dark:text-white uppercase mb-2">Lucky Card</h3>
+            <p class="text-gray-400 text-[10px] font-bold uppercase mb-8">Scratch the card to reveal prize</p>
+            <div id="scratch-area"
+                class="relative w-48 h-48 mx-auto bg-gray-100 dark:bg-gray-800 rounded-[2.5rem] flex items-center justify-center border-4 border-dashed border-gray-200 dark:border-gray-700 cursor-pointer group">
+                <div id="scratch-cover"
+                    class="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-700 dark:to-gray-600 rounded-[2rem] flex items-center justify-center z-10 transition-opacity duration-500">
+                    <i class="fa-solid fa-hand-pointer text-white text-3xl animate-bounce"></i>
+                </div>
+                <div class="text-center">
+                    <span id="scratch-prize-icon" class="text-4xl block mb-2">💰</span>
+                    <span id="scratch-prize-amount" class="text-2xl font-black dark:text-white">100</span>
+                    <p class="text-[10px] font-black text-blue-500 uppercase mt-1">Reward Added!</p>
+                </div>
+            </div>
+            <button id="scratch-btn" onclick="processScratch()"
+                class="mt-8 w-full py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-xs shadow-lg shadow-blue-500/30">Tap
+                to Scratch</button>
+        </div>
+    </div>
+    <div id="login-bonus-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-6">
+        <div
+            class="bg-white dark:bg-gray-900 w-full max-w-sm rounded-[2.5rem] p-6 text-center relative shadow-2xl border border-white/10">
+            <button onclick="closeBonusModal()" class="absolute top-4 right-4 text-gray-400"><i
+                    class="fa-solid fa-circle-xmark text-xl"></i></button>
+            <h2 class="text-xl font-black dark:text-white uppercase italic mb-1">Daily Rewards</h2>
+            <p class="text-[10px] text-gray-400 mb-6 uppercase font-bold tracking-widest">Day <span
+                    id="streak-num">1</span> Streak</p>
+            <div id="login-days-grid" class="grid grid-cols-4 gap-2 mb-6"></div>
+            <button onclick="claimDailyBonus()" id="claim-bonus-btn"
+                class="w-full py-4 bg-yellow-400 text-black font-black uppercase rounded-2xl shadow-xl active:scale-95 mb-6">Claim
+                Now 💰</button>
+            <div id="chest-container" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 hidden">
+                <div class="bg-gradient-to-br from-yellow-400 to-orange-500 p-0.5 rounded-[2rem]">
+                    <div class="bg-white dark:bg-gray-900 rounded-[1.9rem] p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="text-3xl animate-bounce">🎁</div>
+                            <div class="text-left">
+                                <h5 class="text-[11px] font-black dark:text-white uppercase">Treasure Chest</h5>
+                                <p class="text-[8px] font-bold text-gray-400 uppercase">3+ Day Streak Bonus</p>
+                            </div>
+                        </div>
+                        <button onclick="claimTreasure()"
+                            class="px-4 py-2 bg-yellow-500 text-white text-[10px] font-black rounded-xl uppercase shadow-md shadow-yellow-500/20">Open</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+  
+ 
+    
+</body>

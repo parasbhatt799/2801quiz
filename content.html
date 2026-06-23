@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Training Module - IQ Master Pro</title>
+    <script src="tailwindcss.js?663332211"></script>
+    <link rel="stylesheet" href="css/all.min.css?223335" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/main.css?223533555" type="text/css" media="all" />
+    <script>tailwind.config = { darkMode: 'class', }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "v8j39jw9y2");
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        // પેજ લોડ થતા જ એકવાર urlParams ડિક્લેર કરી દઈએ
+        const globalUrlParams = new URLSearchParams(window.location.search);
+        const currentMode = globalUrlParams.get('mode') || (window.location.pathname.includes('result.html') ? 'result' : 'home');
+        const deviceId = globalUrlParams.get('ppid') || localStorage.getItem('user_id') || 'guest';
+
+        gtag('config', 'G-BMZY691ZG4', {
+            'user_id': deviceId,
+            'page_title': currentMode,
+            'traffic_type': globalUrlParams.get('ppid') ? 'App_User' : 'Web_User'
+        });
+
+        window.trackGA = function(eventName, params = {}) {
+            gtag('event', eventName, {
+                'user_id': deviceId,
+                'mode': currentMode,
+                ...params
+            });
+        };
+    </script>
+
+    <script>
+      window.googletag = window.googletag || { cmd: [] };
+      let anchorSlot;
+      googletag.cmd.push(() => {
+        anchorSlot = googletag.defineOutOfPageSlot("/22856454650/2801_Mid_Custom", googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+        if (anchorSlot) { anchorSlot.addService(googletag.pubads()).setConfig({ targeting: { test: "anchor" } }); }
+
+        // Define top ad slot globally
+        window.topAdSlot = googletag.defineSlot(
+          '/22856454650/2801_Small_Custome_topic', 
+          [[320, 100], [300, 100], [300, 75], [300, 50], [320, 50]], 
+          'div-gpt-ad-177011891579545-7'
+        ).addService(googletag.pubads());
+
+        // Define mid display ad slot
+        googletag.defineSlot(
+          '/22856454650/2801_result_custom_rendaring', 
+          [[336, 280], [300, 250], [300, 100], [320, 100]], 
+          'div-gpt-ad-17473701658621-5'
+        ).setTargeting("test", "lazyload").addService(googletag.pubads());
+
+        const pubads = googletag.pubads();
+        pubads.addEventListener('slotRenderEnded', (event) => {
+          if (typeof window.trackGA === 'function') {
+            window.trackGA('ad_impression', { slot: event.slot.getSlotElementId() });
+          }
+        });
+
+        pubads.enableSingleRequest();
+        pubads.setCentering(true);
+        pubads.collapseEmptyDivs();
+
+        if (window.deviceId) {
+          pubads.setPublisherProvidedId(window.deviceId);
+        }
+        googletag.enableServices();
+      });
+    </script>
+
+    <style>
+        .content-section p { margin-bottom: 1.25rem; line-height: 1.6; }
+        .content-section h3 { font-weight: 900; text-transform: uppercase; margin-top: 1.5rem; margin-bottom: 0.75rem; font-style: italic; color: #2563eb; }
+        .img-placeholder { background-color: #1f2937; }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-[#030712] font-sans max-w-md mx-auto min-h-screen relative pb-12 shadow-2xl border-x">
+    
+    <div class="sticky top-0 z-50 w-full h-1 bg-gray-200 dark:bg-gray-800">
+        <div id="scroll-progress" class="h-full bg-blue-600 w-0 transition-all duration-200"></div>
+    </div>
+
+    <nav class="p-4 border-b bg-white/80 backdrop-blur-md sticky top-1 z-30 flex justify-between items-center dark:bg-gray-900/80 dark:border-gray-800">
+        <div class="flex items-center gap-3">
+            <div onclick="location.href='topic.html'" class="w-9 h-9 bg-blue-600 text-white rounded-xl flex items-center justify-center cursor-pointer active:scale-90 transition-all shadow-lg shadow-blue-500/20">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div>
+                <h1 id="nav-title" class="font-black text-xs uppercase dark:text-white leading-none">Module</h1>
+                <p class="text-[7px] font-bold text-blue-500 uppercase tracking-widest mt-0.5">Verified Intelligence</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="text-[8px] font-black bg-emerald-500/10 text-emerald-600 px-2 py-1 rounded-md border border-emerald-500/20 uppercase">Ready</span>
+        </div>
+    </nav>
+    
+    <div style="display:flex; justify-content:center; align-items:center;">
+    <script>
+        setInterval(function() {
+            if (window.topAdSlot && document.visibilityState === 'visible') {
+                const adElement = document.getElementById('div-gpt-ad-177011891579545-7');
+                if (adElement) {
+                    const rect = adElement.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible) {
+                        googletag.pubads().refresh([window.topAdSlot]);
+                    }
+                }
+            }
+        }, 30000);
+    </script>
+<div id='div-gpt-ad-177011891579545-7' style='min-width: 300px; min-height: 100px;'>
+<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-177011891579545-7'); });
+</script>
+</div>
+</div>
+
+    <div class="p-4">
+        <div class="bg-white dark:bg-gray-900/40 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-2xl overflow-hidden">
+            
+            <!-- Image Section -->
+            <div class="p-4">
+                <div class="relative h-44 w-full rounded-[2rem] overflow-hidden img-placeholder group">
+                    <img id="topic-image" src="" alt="Module Image"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+                    <div class="absolute bottom-4 left-5">
+                        <div id="topic-badge" class="bg-blue-600 text-white text-[8px] font-black px-2 py-0.5 rounded uppercase mb-1 w-fit">Training</div>
+                        <h2 id="dynamic-title" class="text-xl font-black text-white uppercase italic tracking-tighter">Loading Title...</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-6 pb-8">
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-2 mb-8 text-center bg-gray-50 dark:bg-white/5 p-4 rounded-3xl">
+                    <div><p class="text-[7px] font-black text-gray-400 uppercase">Difficulty</p><p id="stat-diff" class="text-[10px] font-black text-blue-600 uppercase">Pro</p></div>
+                    <div class="border-x border-gray-200 dark:border-white/10"><p class="text-[7px] font-black text-gray-400 uppercase">Read Time</p><p class="text-[10px] font-black text-emerald-500 uppercase">5 Min</p></div>
+                    <div><p class="text-[7px] font-black text-gray-400 uppercase">Reward</p><p class="text-[10px] font-black text-orange-500 uppercase">+500 💎</p></div>
+                </div>
+
+                <div id="dynamic-body" class="content-section text-slate-600 dark:text-gray-300 text-[13px]"></div>
+
+                <!-- MID AD UNIT -->
+                <div style="display:flex; justify-content:center; align-items:center;">  
+                    <div id="div-gpt-ad-17473701658621-5" class="ad-slot" style="height: 250px; width: 300px"></div>
+                    <script>
+                        googletag.cmd.push(function() {
+                            googletag.display('div-gpt-ad-17473701658621-5');
+                        });
+                    </script>
+                </div>  
+
+                <div id="dynamic-body-2" class="content-section text-slate-600 dark:text-gray-300 text-[13px]"></div>
+
+                <!-- Tip Box -->
+                <div class="mt-8 p-6 bg-gradient-to-br from-slate-900 to-blue-900 rounded-[2rem] text-white relative overflow-hidden shadow-xl">
+                    <div class="absolute -right-4 -bottom-4 opacity-10 text-6xl"><i class="fa-solid fa-brain"></i></div>
+                    <h4 class="font-black uppercase italic text-xs mb-2 text-blue-400">Neural Intelligence Tip</h4>
+                    <p id="pro-tip-text" class="text-[11px] leading-relaxed opacity-90"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <button onclick="location.href='topic.html'" class="w-full bg-gray-900 dark:bg-white p-4 rounded-2xl active:scale-95 transition-all shadow-xl">
+                <span class="font-black text-white dark:text-black uppercase text-[10px] tracking-[0.2em]">Mark as Completed</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // અહીં tipsData અને લોજિક છે
+        const tipsData = {
+            sensitivity: {
+                title: "One-Tap Mastery",
+                image: "https://2801.tfpstore.in/Sensitivity.png",
+                badge: "Settings Meta",
+                diff: "Advanced",
+                proTip: "If your aim locks on the chest, increase 'Red Dot' by 5. If it flies over the head, decrease 'General' by 2.",
+                body1: `
+                    <h3>Understanding DPI vs Sensitivity</h3>
+                    <p>Free Fire sensitivity is not just about 100%. To get those "Red Numbers," you must understand <b>Pixel Skipping</b>. When your sensitivity is too high, the game skips pixels, making it impossible to aim at long distances.</p>
+                    <h3>The Secret "Neutral" Setup</h3>
+                    <p>According to pro-players, the best base settings are: <b>General: 97, Red Dot: 92, 2X Scope: 85, 4X Scope: 80</b>. Start with these. The General sensitivity controls your camera rotation; if it's too fast, your drag shots will be inconsistent.</p>
+                `,
+                body2: `
+                    <h3>Drag Speed Technique</h3>
+                    <p>It's not just the settings; it's the <b>Thumb Speed</b>. For close range, drag the fire button quickly in a 'J' shape. For long range, a slow, straight upward drag is required. Practice this in the training ground with the M1887 and Woodpecker to see a 40% improvement in 3 days.</p>
+                `
+            },
+            characters: {
+                title: "Elite Character Combos",
+                image: "https://2801.tfpstore.in/character.png",
+                badge: "Battle Tactics",
+                diff: "Strategic",
+                proTip: "Use Tatsuya in Clash Squad but stick to K-Character for the main Ranked BR map for unlimited EP-to-HP conversion.",
+                body1: `
+                    <h3>The New Meta (Season 34+)</h3>
+                    <p>In the current update, passive characters like <b>Kelly</b> and <b>Hayato</b> are mandatory. Hayato increases your armor penetration by 10% for every 10% decrease in your max HP, making you deadly when your health is low.</p>
+                    <h3>Clash Squad Specialized Combo</h3>
+                    <p>For rushing, use <b>Tatsuya + Luna + Kelly + Jota</b>. Tatsuya allows 2 quick dashes, Luna increases firing rate by 8%, and Jota heals you instantly after a knockdown. This is the fastest way to wipe a squad.</p>
+                `,
+                body2: `
+                    <h3>Rank Push Survival Combo</h3>
+                    <p>If you play safe, use <b>K + Ford + Maxim + Olivia</b>. Ford reduces zone damage by 24%, and Maxim lets you use medkits 25% faster. With Olivia, every heal gives an extra 80HP to teammates. You can literally survive in the 4th zone easily.</p>
+                `
+            },
+            gloowall: {
+                title: "Speed Defense Matrix",
+                image: "https://2801.tfpstore.in/GlooWall.png",
+                badge: "Mechanics",
+                diff: "Extreme",
+                proTip: "Always use the 'Left Fire Button' for Gloo Walls. This leaves your right thumb free to rotate the camera and aim the wall placement.",
+                body1: `
+                    <h3>The 0.1s Wall Secret</h3>
+                    <p>To place walls like a PC player, you must master the <b>Crouch-Place</b> method. Placing a wall while standing leaves a gap below where bullets can hit your feet. Crouching forces the wall to spawn closer to your character model.</p>
+                    <h3>360° Shielding Technique</h3>
+                    <p>When surrounded, don't just place one wall. Tap the wall button and rotate your joystick in a full circle while holding the fire button. This creates a "Room" of walls. This is essential for reviving teammates in the open field.</p>
+                `,
+                body2: `
+                    <h3>Practice Drill</h3>
+                    <p>Go to the training zone's Gloo Wall machine. Try to place 20 walls without moving from your spot, focusing only on speed. Your goal is to make the wall appear the exact millisecond you hear a gunshot.</p>
+                `
+            },
+            weapons: {
+                title: "Meta Arsenal Guide",
+                image: "https://2801.tfpstore.in/wepons.png",
+                badge: "Firepower",
+                diff: "Standard",
+                proTip: "The Bizon SMG has zero recoil for the first 5 bullets. Use it for mid-range SMG headshots.",
+                body1: `
+                    <h3>Top Tier Weapon Rankings</h3>
+                    <p><b>Woodpecker (King of AR):</b> This gun has the highest armor penetration. Even a Level 3 helmet can't survive two shots. Always prioritize this over the M4A1 or Scar.</p>
+                    <p><b>UMP (Best SMG):</b> The UMP is currently the most balanced SMG. It provides great movement speed and decent range, making it the favorite for pro-tournaments.</p>
+                `,
+                body2: `
+                    <h3>Weapon Attributes to Look For</h3>
+                    <p>Always choose skins or weapons with <b>++ Double Rate of Fire</b> or <b>++ Armor Penetration</b>. Avoid skins that increase 'Range' at the cost of 'Reload Speed'. In close combat, firing speed is the only thing that saves you.</p>
+                `
+            },
+            ranking: {
+                title: "Grandmaster Blueprint",
+                image: "https://2801.tfpstore.in/rankPush.png",
+                badge: "Ranking Up",
+                diff: "Hard",
+                proTip: "Loot for 5 minutes, travel for 10 minutes, and only fight for the last 2 minutes. Survival is 80% of your score.",
+                body1: `
+                    <h3>Zone Rotation Masterclass</h3>
+                    <p>Most players die because they run straight to the safe zone center. <b>Always stay on the edge</b>. By staying near the blue line, you only have to worry about enemies in front of you, not behind. Use a vehicle (Misha skill) to move between zones safely.</p>
+                    <h3>Looting Efficiency</h3>
+                    <p>Don't spend 10 minutes looting one house. Your priority should be: 1. Gloo Walls (min 5), 2. Vest Level 3, 3. Inhalers. Inhalers are better than Medkits because you can use them while running.</p>
+                `,
+                body2: `
+                    <h3>Point System Secret</h3>
+                    <p>To get the maximum points, you need a 'BOOYAH' with at least 3 kills. Getting 10 kills and dying in the top 20 will give you fewer points than getting 2 kills and winning the game. Play for the win, not for the highlight reel.</p>
+                `
+            },
+            diamonds: {
+                title: "Diamond Economy Guide",
+                image: "https://2801.tfpstore.in/Diamond.png",
+                badge: "Free Rewards",
+                diff: "Safe",
+                proTip: "Never buy the 80-rupee top-up. The Weekly Membership gives 450 diamonds for just 159 rupees, which is much cheaper.",
+                body1: `
+                    <h3>How to get 10-Rupee Airdrops</h3>
+                    <p>Garena sends cheap airdrops to inactive players or those with low diamond balances. <b>Trick:</b> Don't top up for a week and play only 'Classic' matches with low-level friends. This often triggers the 10-rupee or 29-rupee special offers.</p>
+                    <h3>Official Reward Sites</h3>
+                    <p>Only use the official <b>FF Reward Site</b> to redeem 12-digit codes. Never give your password to any "Diamond Generator" site. Use the Booyah! App to watch official Garena streams and win free drops directly in your vault.</p>
+                `,
+                body2: `
+                    <h3>Smart Spending</h3>
+                    <p>The best use of diamonds is the <b>Elite Pass (Booyah Pass)</b> and <b>Evo Gun</b> upgrades. Don't spend on Luck Royales unless you have at least 2000 diamonds, as the chances of getting a grand prize are very low in the first few spins.</p>
+                `
+            }
+        };
+
+        // ફિક્સ: urlParams ને બીજી વાર ડિક્લેર કરવાને બદલે ઉપરવાળો globalUrlParams વાપરો
+        const topic = globalUrlParams.get('topic') || 'sensitivity';
+        const data = tipsData[topic];
+
+        if (data) {
+            document.getElementById('nav-title').innerText = data.title;
+            document.getElementById('dynamic-title').innerText = data.title;
+            document.getElementById('topic-image').src = data.image;
+            document.getElementById('topic-badge').innerText = data.badge;
+            document.getElementById('stat-diff').innerText = data.diff;
+            document.getElementById('pro-tip-text').innerText = data.proTip;
+            document.getElementById('dynamic-body').innerHTML = data.body1;
+            document.getElementById('dynamic-body-2').innerHTML = data.body2;
+        }
+
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ Master - Professional Edition</title>
+    <script src="app-logic.js?v=14225557525452857525555225" defer></script>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/brain.png">
+    <script src="tailwindcss.js?11" ></script>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/main.css?44" />
+    <script>tailwind.config = { darkMode: 'class' }</script>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "v8j39jw9y2");
+    </script>
+
+   
+    
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentMode = urlParams.get('mode') || 'home'; // કયો મોડ છે તે પકડશે
+    
+    window.deviceId = urlParams.get('ppid') || localStorage.getItem('user_id');
+    if (!window.deviceId || window.deviceId === 'guest') {
+        if(!localStorage.getItem('user_id')) {
+            window.deviceId = 'u_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+            localStorage.setItem('user_id', window.deviceId);
+        } else {
+            window.deviceId = localStorage.getItem('user_id');
+        }
+    }
+
+    const hasGclid = urlParams.has('gclid');
+
+    // CONFIG માં ફેરફાર: જે-તે મોડ મુજબ પેજ ટ્રેક કરશે
+    gtag('config', 'G-BMZY691ZG4', {
+        'user_id': window.deviceId,
+        'page_path': window.location.pathname + (urlParams.get('mode') ? '?mode=' + urlParams.get('mode') : ''),
+        'page_title': currentMode.toUpperCase(),
+        'cookie_flags': 'SameSite=None;Secure',
+        'campaign_source': hasGclid ? undefined : (urlParams.get('utm_source') || 'android_app'),
+        'campaign_medium': hasGclid ? undefined : (urlParams.get('utm_medium') || 'app_cct'),
+        'campaign_name': hasGclid ? undefined : (urlParams.get('utm_campaign') || 'install_flow'),
+        'debug_mode': true // આનાથી તમે Real-time માં તરત ડેટા જોઈ શકશો
+    });
+
+    window.trackGA = function(eventName, params = {}) {
+        let eventParams = {
+            'user_id': window.deviceId,
+            'client_id': window.deviceId,
+            'platform': 'Android_CCT',
+            'screen_name': currentMode, // કયા સ્ક્રીન પર ઇવેન્ટ બની તે પણ મોકલશે
+            ...params
+        };
+        
+        if (params.is_conversion) {
+            eventParams['transaction_id'] = window.deviceId + '_' + eventName;
+        }
+        gtag('event', eventName, eventParams);
+        console.log("GA Event Logged:", eventName, eventParams); // ચેક કરવા માટે
+    };
+</script>
+<script>
+      window.googletag = window.googletag || { cmd: [] };
+
+      let anchorSlot;
+
+      googletag.cmd.push(() => {
+        anchorSlot = googletag.defineOutOfPageSlot(
+          "/22856454650/2801_Mid_Custom",
+          googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
+        );
+        if (anchorSlot) {
+          anchorSlot.addService(googletag.pubads()).setConfig({
+            targeting: {
+              test: "anchor",
+            },
+          });
+        }
+
+        // Define top ad slot globally
+        window.topAdSlot = googletag.defineSlot(
+          '/22856454650/2801_sc_custom_rendaring', 
+          [[336, 280], [300, 250], [300, 100], [320, 100]], 
+          'div-gpt-ad-17701189157955-7'
+        ).addService(googletag.pubads());
+
+        const pubads = googletag.pubads();
+        pubads.enableSingleRequest();
+        pubads.setCentering(true);
+        pubads.collapseEmptyDivs();
+
+        if (window.deviceId) {
+          pubads.setPublisherProvidedId(window.deviceId);
+        }
+        googletag.enableServices();
+      });
+    </script>
+
+
+ <script>
+  googletag.cmd.push(() => {
+    googletag.display(anchorSlot);
+  });
+</script>
+
+    
+    
+</head>
+
+
+<body id="main-scratch-body" class="bg-gray-50 dark:bg-[#030712] font-sans max-w-md mx-auto min-h-screen relative pb-24 shadow-2xl border-x">
+     
+    
+    <nav class="p-4 border-b bg-white/80 backdrop-blur-md sticky top-0 z-30 flex justify-between items-center shadow-sm dark:bg-gray-900/80 dark:border-gray-800">
+        <div class="flex items-center gap-3">
+            
+            <div onclick="location.href='index.html'"
+                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 cursor-pointer active:scale-90 transition-all">
+                <i class="fa-solid fa-arrow-left text-white text-lg"></i>
+            </div>
+            <div>
+                <h1 class="font-black text-lg tracking-tighter uppercase text-gray-800 dark:text-white leading-none">LUCKY CARDS</h1>
+                <p class="text-[7px] font-bold text-blue-500 uppercase tracking-[0.2em] mt-0.5">Inventory</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="toggleDarkMode()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 transition-all active:scale-90">
+                <i id="theme-icon" class="fa-solid fa-moon text-gray-600 dark:text-yellow-400"></i>
+            </button>
+            <button onclick="openBonusModal()" class="relative w-10 h-10 flex items-center justify-center bg-orange-400/10 border border-orange-400/20 rounded-xl shadow-sm active:scale-90 transition-all">
+                <i class="fa-solid fa-gift text-orange-600 dark:text-orange-400 text-sm"></i>
+            </button>
+            <div onclick="window.trackGA('nav_wllet_click', {card_name: 'wallet-balance'});safeNav('app.html?mode=points')" class="h-10 px-3 bg-yellow-400/10 border border-yellow-400/20 rounded-xl flex items-center gap-2 shadow-sm">
+                <span class="text-sm">💰</span>
+                <span id="wallet-balance" class="text-xs font-black text-yellow-700 dark:text-yellow-500">0</span>
+            </div>
+        </div>
+    </nav>
+    
+   <div class="flex items-center justify-center mt-10">
+    <script>
+        setInterval(function() {
+            if (window.topAdSlot && document.visibilityState === 'visible') {
+                const adElement = document.getElementById('div-gpt-ad-17701189157955-7');
+                if (adElement) {
+                    const rect = adElement.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible) {
+                        googletag.pubads().refresh([window.topAdSlot]);
+                    }
+                }
+            }
+        }, 30000);
+    </script>
+<div id='div-gpt-ad-17701189157955-7' style='min-width: 300px; min-height: 100px;'>
+<script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-17701189157955-7'); });
+</script>
+</div>
+</div>
+
+    <div class="p-4">
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-4 rounded-[1.8rem] mb-5 text-white shadow-lg relative overflow-hidden flex items-center justify-between">
+        <div class="absolute right-2 -bottom-2 opacity-10 rotate-12">
+            <i class="fa-solid fa-ticket-simple text-6xl"></i>
+        </div>
+        <div class="relative z-10 flex items-center gap-3">
+            <div class="w-11 h-11 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10">
+                <i class="fa-solid fa-ticket-simple text-white text-xl rotate-45"></i>
+            </div>
+            <div>
+                <p class="text-[8px] font-black uppercase tracking-widest opacity-70">Total Inventory</p>
+                <h2 class="text-2xl font-[1000] italic leading-none tracking-tighter">
+                    <span id="total-card-count">0</span> Cards
+                </h2>
+            </div>
+        </div>
+        <div class="relative z-10">
+            <span class="text-[7px] font-black bg-black/20 border border-white/10 px-2.5 py-1.5 rounded-xl uppercase tracking-tighter">
+                Tap to Reveal
+            </span>
+        </div>
+    </div>
+    <div class="flex items-center gap-2 mb-4 px-1 opacity-50">
+        <span class="text-[9px] font-black dark:text-gray-400 uppercase tracking-[0.2em]">Available Rewards</span>
+        <div class="h-[1px] flex-1 bg-gray-200 dark:bg-gray-800"></div>
+    </div>
+    <div id="cards-grid" class="grid grid-cols-2 gap-3">
+    </div>
+    <div id="empty-state" class="hidden text-center py-16">
+        <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-box-open text-gray-300 text-2xl"></i>
+        </div>
+        <h3 class="text-gray-400 font-black uppercase text-xs">Empty Inventory</h3>
+        <p class="text-[8px] text-gray-500 uppercase mt-1">Play Quizzes to earn more!</p>
+    </div>
+</div>
+    <div id="scratch-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-6">
+        <div class="bg-white dark:bg-gray-900 w-full max-w-xs rounded-[3rem] p-8 text-center relative shadow-2xl border border-white/10">
+            <button onclick="closeScratchModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-black text-xl dark:text-white uppercase mb-2">Lucky Card</h3>
+            <p class="text-gray-400 text-[10px] font-bold uppercase mb-8 italic">Scratch to reveal reward</p>
+            <div class="relative w-48 h-48 mx-auto bg-gray-100 dark:bg-gray-800 rounded-[2.5rem] flex items-center justify-center border-4 border-dashed border-gray-200 dark:border-gray-700 cursor-pointer overflow-hidden group">
+                <div id="scratch-cover" class="absolute inset-0 bg-gradient-to-br from-gray-400 to-gray-500 dark:from-blue-600 dark:to-indigo-700 z-10 flex items-center justify-center transition-opacity duration-500">
+                    <i class="fa-solid fa-hand-pointer text-white text-3xl animate-bounce"></i>
+                </div>
+                <div class="text-center">
+                    <span id="scratch-prize-icon" class="text-4xl block mb-2">💰</span>
+                    <span id="scratch-prize-amount" class="text-3xl font-black dark:text-white">0</span>
+                    <p class="text-[10px] font-black text-blue-500 uppercase mt-2 tracking-widest">Added!</p>
+                </div>
+            </div>
+            <button id="scratch-btn" onclick="processInventoryScratch()" class="mt-8 w-full py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-widest shadow-lg shadow-blue-500/30 active:scale-95 transition-all">
+                Claim Reward
+            </button>
+        </div>
+    </div>
+    
+     <div id="login-bonus-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-6">
+        <div
+            class="bg-white dark:bg-gray-900 w-full max-w-sm rounded-[2.5rem] p-6 text-center relative shadow-2xl border border-white/10">
+            <button onclick="closeBonusModal()" class="absolute top-4 right-4 text-gray-400"><i
+                    class="fa-solid fa-circle-xmark text-xl"></i></button>
+            <h2 class="text-xl font-black dark:text-white uppercase italic mb-1">Daily Rewards</h2>
+            <p class="text-[10px] text-gray-400 mb-6 uppercase font-bold tracking-widest">Day <span
+                    id="streak-num">1</span> Streak</p>
+            <div id="login-days-grid" class="grid grid-cols-4 gap-2 mb-6"></div>
+            <button onclick="claimDailyBonus()" id="claim-bonus-btn"
+                class="w-full py-4 bg-yellow-400 text-black font-black uppercase rounded-2xl shadow-xl active:scale-95 mb-6">Claim
+                Now 💰</button>
+            <div id="chest-container" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 hidden">
+                <div class="bg-gradient-to-br from-yellow-400 to-orange-500 p-0.5 rounded-[2rem]">
+                    <div class="bg-white dark:bg-gray-900 rounded-[1.9rem] p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="text-3xl animate-bounce">🎁</div>
+                            <div class="text-left">
+                                <h5 class="text-[11px] font-black dark:text-white uppercase">Treasure Chest</h5>
+                                <p class="text-[8px] font-bold text-gray-400 uppercase">3+ Day Streak Bonus</p>
+                            </div>
+                        </div>
+                        <button onclick="claimTreasure()"
+                            class="px-4 py-2 bg-yellow-500 text-white text-[10px] font-black rounded-xl uppercase shadow-md shadow-yellow-500/20">Open</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+<!--<footer id="dynamic-bottom-nav" style="z-index: 2147483647 !important;" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-100 dark:border-gray-800 px-2 py-2 transition-[bottom] duration-300 shadow-[0_-10px_25px_rgba(0,0,0,0.1)]">-->
+<!--    <div class="flex items-center justify-around">-->
+<!--        <button onclick="safeNav('/')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-100 dark:group-hover:bg-blue-500/20">-->
+<!--                <i class="fa-solid fa-house text-blue-600 dark:text-blue-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Home</span>-->
+<!--        </button>-->
+<!--        <button onclick="safeNav('app.html?mode=referral')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20">-->
+<!--                <i class="fa-solid fa-share-nodes text-indigo-600 dark:text-indigo-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Invite</span>-->
+<!--        </button>-->
+<!--        <button onclick="triggerInstall('scratch-footer')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-100 dark:group-hover:bg-emerald-500/20">-->
+<!--                <i class="fa-solid fa-cloud-arrow-down text-emerald-600 dark:text-emerald-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Install</span>-->
+<!--        </button>-->
+<!--        <button onclick="safeNav('app.html?mode=categories')" class="flex flex-col items-center min-w-[70px] gap-1 group active:scale-90 transition-all">-->
+<!--            <div class="w-9 h-9 rounded-xl bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-orange-500/20">-->
+<!--                <i class="fa-solid fa-layer-group text-orange-600 dark:text-orange-400 text-base"></i>-->
+<!--            </div>-->
+<!--            <span class="text-[7px] font-black uppercase text-gray-500 dark:text-gray-400 tracking-tighter">Topics</span>-->
+<!--        </button>-->
+
+<!--    </div>-->
+<!--</footer>-->
+    
+    <script>
+        // Wrap updateDashboard to automatically render our cards list whenever dashboard updates
+        const originalUpdateDashboard = window.updateDashboard;
+        window.updateDashboard = function() {
+            if (typeof originalUpdateDashboard === 'function') {
+                originalUpdateDashboard();
+            }
+            renderCardsList();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDashboard();
+        });
+
+        function renderCardsList() {
+            const count = parseInt(localStorage.getItem('scratch_cards')) || 0;
+            const grid = document.getElementById('cards-grid');
+            const empty = document.getElementById('empty-state');
+            document.getElementById('total-card-count').innerText = count + " Cards";
+
+            if (count <= 0) {
+                grid.innerHTML = '';
+                empty.classList.remove('hidden');
+                return;
+            }
+
+            empty.classList.add('hidden');
+            let html = '';
+            for (let i = 1; i <= count; i++) {
+                html += `
+                <div onclick="openScratchForCard(${i})" class="bg-white dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 p-5 flex flex-col items-center justify-center cursor-pointer shadow-sm active:scale-95 transition-all hover:border-blue-500">
+                    <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-3">
+                        <i class="fa-solid fa-ticket-simple text-blue-600 text-xl rotate-45"></i>
+                    </div>
+                    <span class="text-[10px] font-black dark:text-white uppercase italic">Lucky Card #${i}</span>
+                    <span class="text-[7px] font-bold text-gray-400 mt-1 uppercase">Tap to reveal</span>
+                </div>`;
+            }
+            grid.innerHTML = html;
+        }
+
+        function openScratchForCard(id) {
+            document.getElementById('scratch-cover').style.opacity = "1";
+            document.getElementById('scratch-modal').classList.remove('hidden');
+            
+            const btn = document.getElementById('scratch-btn');
+            btn.innerText = "Scratch First";
+            btn.classList.add('opacity-40', 'pointer-events-none');
+            
+            document.getElementById('scratch-cover').onclick = function() {
+                this.style.opacity = "0";
+                const isDiamond = Math.random() > 0.85;
+                const amount = isDiamond ? Math.floor(Math.random() * 30) + 10 : Math.floor(Math.random() * 200) + 20;
+                document.getElementById('scratch-prize-icon').innerText = isDiamond ? "💎" : "💰";
+                document.getElementById('scratch-prize-amount').innerText = amount;
+                window.tempReward = { type: isDiamond ? 'diamond' : 'coin', amount: amount };
+                btn.innerText = "Claim Reward";
+                btn.classList.remove('opacity-40', 'pointer-events-none');
+            };
+        }
+
+        async function processInventoryScratch() {
+            let cards = parseInt(localStorage.getItem('scratch_cards')) || 0;
+            if (cards <= 0) return;
+            
+            localStorage.setItem('scratch_cards', cards - 1);
+            if (window.tempReward.type === 'diamond') {
+                let d = parseInt(localStorage.getItem('total_diamonds')) || 0;
+                localStorage.setItem('total_diamonds', d + window.tempReward.amount);
+            } else {
+                let w = parseInt(localStorage.getItem('total_wallet')) || 0;
+                localStorage.setItem('total_wallet', w + window.tempReward.amount);
+            }
+
+            await saveToServer();
+            updateDashboard();
+            document.getElementById('scratch-modal').classList.add('hidden');
+            renderCardsList();
+        }
+
+        function closeScratchModal() {
+            document.getElementById('scratch-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

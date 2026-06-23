@@ -1,0 +1,10646 @@
+const questionsPool = [
+    {
+        "category": "pvp",
+        "q": "What is a good FICO credit score range?",
+        "opt": [
+            "300-500",
+            "580-669",
+            "670-739",
+            "800-850"
+        ],
+        "ans": 2,
+        "exp": "A FICO score between 670 and 739 is generally considered 'Good' by lenders worldwide."
+    },
+    {
+        "category": "pvp",
+        "q": "What does APR stand for in the banking industry?",
+        "opt": [
+            "Annual Percentage Rate",
+            "Annual Payment Ratio",
+            "Average Price Rate",
+            "Amortized Payment Rate"
+        ],
+        "ans": 0,
+        "exp": "APR represents the annual cost of borrowing money, including interest and fees."
+    },
+    {
+        "category": "pvp",
+        "q": "Which of these is a major credit bureau in the USA?",
+        "opt": [
+            "Equifax",
+            "Chase",
+            "Wells Fargo",
+            "Visa"
+        ],
+        "ans": 0,
+        "exp": "Equifax, Experian, and TransUnion are the three major credit bureaus."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Credit Utilization'?",
+        "opt": [
+            "Your total income",
+            "The percentage of available credit you use",
+            "The number of cards you own",
+            "Your bank balance"
+        ],
+        "ans": 1,
+        "exp": "Keeping utilization below 30% is a key factor for a high credit score."
+    },
+    {
+        "category": "pvp",
+        "q": "What is a 'Secured' credit card?",
+        "opt": [
+            "A card with no limit",
+            "A card requiring a security deposit",
+            "A card for business only",
+            "A card with 0% interest"
+        ],
+        "ans": 1,
+        "exp": "Secured cards are used to build credit by providing a deposit as collateral."
+    },
+    {
+        "category": "pvp",
+        "q": "What is an insurance 'Premium'?",
+        "opt": [
+            "The amount the insurer pays you",
+            "The amount you pay for the policy",
+            "A discount for safe driving",
+            "A tax on your car"
+        ],
+        "ans": 1,
+        "exp": "The premium is the periodic payment made to keep an insurance policy active."
+    },
+    {
+        "category": "insurance",
+        "q": "What is a 'Deductible'?",
+        "opt": [
+            "A discount",
+            "The amount you pay before insurance starts paying",
+            "The total payout",
+            "The annual fee"
+        ],
+        "ans": 1,
+        "exp": "Higher deductibles usually lower monthly premiums, a core insurance shopping concept."
+    },
+    {
+        "category": "pvp",
+        "q": "What does 'Liability Insurance' cover?",
+        "opt": [
+            "Damage to your own car",
+            "Damage and injuries you cause to others",
+            "Theft of your vehicle",
+            "Natural disasters"
+        ],
+        "ans": 1,
+        "exp": "Liability insurance protects you if you are at fault in an accident."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Term Life Insurance'?",
+        "opt": [
+            "Insurance for your whole life",
+            "Insurance for a specific period of time",
+            "Insurance for home damage",
+            "Insurance for health bills"
+        ],
+        "ans": 1,
+        "exp": "Term life insurance provides coverage for a set number of years, like 10, 20, or 30."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Whole Life' insurance?",
+        "opt": [
+            "Insurance for one year",
+            "Lifetime coverage with a cash-value savings component",
+            "Health insurance",
+            "Car insurance"
+        ],
+        "ans": 1,
+        "exp": "Whole life insurance is an investment product, making it a high-CPM niche for financial advisors."
+    },
+    {
+        "category": "pvp",
+        "q": "What is a 'Mortgage'?",
+        "opt": [
+            "A car loan",
+            "A loan to purchase real estate",
+            "A personal loan",
+            "A business grant"
+        ],
+        "ans": 1,
+        "exp": "A mortgage is a debt instrument secured by the collateral of specified real estate property."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'PMI' in real estate?",
+        "opt": [
+            "Private Mortgage Insurance",
+            "Personal Money Interest",
+            "Primary Mortgage Installment",
+            "Public Money Investment"
+        ],
+        "ans": 0,
+        "exp": "PMI is usually required if your down payment is less than 20%."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Refinancing'?",
+        "opt": [
+            "Selling a property",
+            "Taking a new loan to pay off an old one with better terms",
+            "Repairing a house",
+            "Paying taxes"
+        ],
+        "ans": 1,
+        "exp": "Homeowners refinance to lower monthly payments or cash out equity."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Equity'?",
+        "opt": [
+            "The total house price",
+            "The difference between market value and mortgage balance",
+            "The size of the land",
+            "A type of insurance"
+        ],
+        "ans": 1,
+        "exp": "Equity is the portion of the home that you truly 'own'."
+    },
+    {
+        "category": "pvp",
+        "q": "What is an 'Escrow' account?",
+        "opt": [
+            "A bank for savings",
+            "A neutral account holding funds for taxes and insurance",
+            "A credit card for builders",
+            "A government tax"
+        ],
+        "ans": 1,
+        "exp": "Escrow ensures that property taxes and insurance are paid on time."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Bitcoin'?",
+        "opt": [
+            "A physical gold coin",
+            "A decentralized digital currency",
+            "A government bank",
+            "A type of stock"
+        ],
+        "ans": 1,
+        "exp": "Bitcoin was the first cryptocurrency created in 2009 by Satoshi Nakamoto."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Blockchain'?",
+        "opt": [
+            "A physical chain",
+            "A distributed ledger technology",
+            "A bank software",
+            "A crypto wallet name"
+        ],
+        "ans": 1,
+        "exp": "Blockchain is the foundation of the high-CPM cryptocurrency industry."
+    },
+    {
+        "category": "pvp",
+        "q": "What does 'HODL' mean in the crypto world?",
+        "opt": [
+            "Sell quickly",
+            "Hold onto a cryptocurrency for the long term",
+            "A type of new coin",
+            "A trading platform"
+        ],
+        "ans": 1,
+        "exp": "HODL is a popular term used by crypto investors who refuse to sell despite price drops."
+    },
+    {
+        "category": "crypto",
+        "q": "What is an 'NFT'?",
+        "opt": [
+            "New Finance Tool",
+            "Non-Fungible Token",
+            "National Funding Trust",
+            "Network File Transfer"
+        ],
+        "ans": 1,
+        "exp": "NFTs represent unique ownership of digital items, attracting tech and art ads."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Ethereum'?",
+        "opt": [
+            "A gas company",
+            "A blockchain with smart contract functionality",
+            "A digital bank",
+            "A type of loan"
+        ],
+        "ans": 1,
+        "exp": "Ethereum is the leading platform for DeFi and decentralized applications."
+    },
+    {
+        "category": "pvp",
+        "q": "What does 'AI' stand for?",
+        "opt": [
+            "Actual Intelligence",
+            "Artificial Intelligence",
+            "Automated Information",
+            "Advanced Integration"
+        ],
+        "ans": 1,
+        "exp": "AI refers to the simulation of human intelligence in machines."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Cloud Computing'?",
+        "opt": [
+            "Weather app",
+            "Computing services delivered over the internet",
+            "A type of battery",
+            "Software for pilots"
+        ],
+        "ans": 1,
+        "exp": "Cloud services (AWS, Google Cloud) are huge spenders on digital advertising."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Cybersecurity'?",
+        "opt": [
+            "Locking office doors",
+            "Protecting systems and networks from digital attacks",
+            "A bank security guard",
+            "Computer hardware"
+        ],
+        "ans": 1,
+        "exp": "Cybersecurity firms spend heavily to target enterprise IT managers."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Machine Learning'?",
+        "opt": [
+            "A factory robot",
+            "A branch of AI that learns from data to improve accuracy",
+            "Teaching kids",
+            "A high-speed printer"
+        ],
+        "ans": 1,
+        "exp": "Machine Learning and AI are the trendiest and highest-paying tech keywords today."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'SaaS'?",
+        "opt": [
+            "Software as a Service",
+            "System Account",
+            "Simple Apple",
+            "Standard Asset"
+        ],
+        "ans": 0,
+        "exp": "SaaS products like Salesforce and Slack have very high customer acquisition costs (High CPM)."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Personal Injury' law?",
+        "opt": [
+            "Hiring staff",
+            "Legal disputes that arise when a person suffers harm from an accident",
+            "Buying a house",
+            "Tax law"
+        ],
+        "ans": 1,
+        "exp": "Personal injury lawyers help victims get compensation for accidents."
+    },
+    {
+        "category": "legal",
+        "q": "What is a 'Class Action' lawsuit?",
+        "opt": [
+            "A case with one person",
+            "A lawsuit where a group of people collectively sues a party",
+            "A legal test for students",
+            "A sports penalty"
+        ],
+        "ans": 1,
+        "exp": "Class action lawsuits often involve big companies and large settlements, attracting expensive legal ads."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Power of Attorney'?",
+        "opt": [
+            "A very strong lawyer",
+            "Legal authority to act on another person's behalf",
+            "A high credit score",
+            "A government law"
+        ],
+        "ans": 1,
+        "exp": "POA is used to manage someone's financial or medical affairs if they cannot."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Malpractice'?",
+        "opt": [
+            "A new business plan",
+            "Negligence by a professional (like a doctor or lawyer)",
+            "A type of tax",
+            "A bank fee"
+        ],
+        "ans": 1,
+        "exp": "Medical malpractice occurs when a doctor fails to provide proper treatment."
+    },
+    {
+        "category": "brain",
+        "q": "What is 'Intellectual Property'?",
+        "opt": [
+            "Buying a house",
+            "Creations of the mind, like inventions and art",
+            "Money in the bank",
+            "A type of car"
+        ],
+        "ans": 1,
+        "exp": "Patents, trademarks, and copyrights are all forms of intellectual property."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Inheritance Tax'?",
+        "opt": [
+            "Tax on your salary",
+            "Tax paid by someone who inherits money or property",
+            "A tax on gifts",
+            "A property tax"
+        ],
+        "ans": 1,
+        "exp": "Inheritance and estate tax keywords are targeted by high-end wealth management firms."
+    },
+    {
+        "category": "pvp",
+        "q": "What is a 'Tax Deduction'?",
+        "opt": [
+            "A tax refund check",
+            "An expense that reduces your taxable income",
+            "A penalty for late filing",
+            "A tax on luxury items"
+        ],
+        "ans": 1,
+        "exp": "Deductions lower the total amount of income that the government can tax."
+    },
+    {
+        "category": "pvp",
+        "q": "What does 'IRS' stand for in the USA?",
+        "opt": [
+            "Internal Revenue Service",
+            "International Revenue System",
+            "Internal Reporting System",
+            "Individual Revenue Service"
+        ],
+        "ans": 0,
+        "exp": "The IRS is the government agency responsible for collecting taxes in the US."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Capital Gains'?",
+        "opt": [
+            "Your salary",
+            "Profit from the sale of an investment or property",
+            "A bank loan",
+            "The interest on a savings account"
+        ],
+        "ans": 1,
+        "exp": "Capital gains tax is paid on the profit made from investments like stocks."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'VAT'?",
+        "opt": [
+            "Value Added Tax",
+            "Variable Asset Tax",
+            "Verified Account Tool",
+            "Valid Annual Tax"
+        ],
+        "ans": 0,
+        "exp": "VAT is a consumption tax placed on a product whenever value is added at a stage of production."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'SEO'?",
+        "opt": [
+            "Social Economic Order",
+            "Search Engine Optimization",
+            "System Entry Option",
+            "Standard Email Operation"
+        ],
+        "ans": 1,
+        "exp": "SEO is a core digital marketing skill with massive global demand and high CPC."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'B2B' marketing?",
+        "opt": [
+            "Back to Business",
+            "Business to Business",
+            "Bank to Business",
+            "Business to Bank"
+        ],
+        "ans": 1,
+        "exp": "B2B refers to transactions or marketing between two different companies."
+    },
+    {
+        "category": "pvp",
+        "q": "What is a 'Unicorn' startup?",
+        "opt": [
+            "A company that failed",
+            "A private company valued at over $1 billion",
+            "A company that sells toys",
+            "A business with 1 employee"
+        ],
+        "ans": 1,
+        "exp": "Successful startups like SpaceX or OpenAI are often called Unicorns."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Affiliate Marketing'?",
+        "opt": [
+            "Buying a new business",
+            "Earning a commission by promoting products",
+            "Trading stocks",
+            "Hiring staff"
+        ],
+        "ans": 1,
+        "exp": "Affiliate marketing keywords have massive worldwide search volume and high payouts."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'E-commerce'?",
+        "opt": [
+            "Emailing customers",
+            "Buying and selling goods or services using the internet",
+            "A type of bank account",
+            "Electronic communication"
+        ],
+        "ans": 1,
+        "exp": "Websites like Amazon and eBay are the biggest examples of e-commerce."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Remote Work'?",
+        "opt": [
+            "Working only at night",
+            "Working from a location other than a central office",
+            "Working for free",
+            "A type of manual labor"
+        ],
+        "ans": 1,
+        "exp": "Remote work became a worldwide trend following the 2020 pandemic."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Sustainability' in business?",
+        "opt": [
+            "Making money fast",
+            "Operating without harming the environment",
+            "Closing a company",
+            "Hiring more staff"
+        ],
+        "ans": 1,
+        "exp": "Sustainability (ESG) is a major global trend with high corporate interest and ad spend."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Digital Transformation'?",
+        "opt": [
+            "Buying computers",
+            "Integrating digital tech into all business areas",
+            "Using Facebook",
+            "Internet tax"
+        ],
+        "ans": 1,
+        "exp": "Digital transformation is a top keyword for B2B tech consulting ads."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Data Mining'?",
+        "opt": [
+            "Digging for gold",
+            "The process of discovering patterns in large data sets",
+            "Deleting old files",
+            "A type of bank theft"
+        ],
+        "ans": 1,
+        "exp": "Data mining is crucial for modern marketing and business intelligence."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Fintech'?",
+        "opt": [
+            "Financial Technology",
+            "Final Tech",
+            "Finance and Teaching",
+            "Finnish Tech"
+        ],
+        "ans": 0,
+        "exp": "Fintech startups are among the biggest spenders on Facebook and Google ads."
+    },
+    {
+        "category": "pvp",
+        "q": "What is 'Gross Domestic Product' (GDP)?",
+        "opt": [
+            "Total bank deposits",
+            "Total value of goods and services produced in a country",
+            "Total tax collected",
+            "The country's population"
+        ],
+        "ans": 1,
+        "exp": "GDP is a primary indicator used to gauge the health of a country's economy."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Inflation'?",
+        "opt": [
+            "Prices falling",
+            "Increase in prices and decrease in purchasing power",
+            "Stable economy",
+            "New money"
+        ],
+        "ans": 1,
+        "exp": "Inflation is a global economic concern."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Net Worth'?",
+        "opt": [
+            "Annual salary",
+            "Total assets minus total liabilities",
+            "Money in bank",
+            "House value"
+        ],
+        "ans": 1,
+        "exp": "Net worth is the ultimate measure of wealth, a high-value finance keyword."
+    },
+    {
+        "category": "brain",
+        "q": "What is a 'Dividend'?",
+        "opt": [
+            "A bank loan",
+            "A portion of company profits paid to shareholders",
+            "A tax on stocks",
+            "The cost of a share"
+        ],
+        "ans": 1,
+        "exp": "Dividends provide a regular income stream for stock market investors."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Venture Capital'?",
+        "opt": [
+            "A bank loan",
+            "Financing provided to startups with high growth potential",
+            "Retirement savings",
+            "A type of tax"
+        ],
+        "ans": 1,
+        "exp": "VC firms are crucial for the growth of high-tech startups."
+    },
+    {
+        "category": "golf",
+        "q": "In Golf, what is the term for completing a hole in one stroke under par?",
+        "opt": [
+            "Bogey",
+            "Birdie",
+            "Eagle",
+            "Albatross"
+        ],
+        "ans": 1,
+        "exp": "A 'Birdie' is one stroke under par, a very common term in high-wealth golf circles."
+    },
+    {
+        "category": "f1",
+        "q": "Which Formula 1 team is famous for its 'Prancing Horse' logo?",
+        "opt": [
+            "Mercedes",
+            "Red Bull",
+            "Ferrari",
+            "McLaren"
+        ],
+        "ans": 2,
+        "exp": "Ferrari is one of the world's most valuable sports brands, attracting high-end luxury ads."
+    },
+    {
+        "category": "marketing",
+        "q": "In Sports Betting, what does 'Odds' represent?",
+        "opt": [
+            "The number of players",
+            "The probability of an event and potential payout",
+            "The length of the game",
+            "The ticket price"
+        ],
+        "ans": 1,
+        "exp": "Odds show how much you can win relative to your stake, a key term for high-CPM betting ads."
+    },
+    {
+        "category": "sports",
+        "q": "Which sport is known for the 'Grand Slam' tournaments like Wimbledon and the US Open?",
+        "opt": [
+            "Golf",
+            "Tennis",
+            "Cricket",
+            "Baseball"
+        ],
+        "ans": 1,
+        "exp": "Tennis attracts high-net-worth audiences, making it a high-CPM niche for advertisers."
+    },
+    {
+        "category": "gaming",
+        "q": "What is 'eSports'?",
+        "opt": [
+            "Outdoor sports",
+            "Competitive video gaming",
+            "Sports played by robots",
+            "Electronic gym equipment"
+        ],
+        "ans": 1,
+        "exp": "eSports is a billion-dollar industry with high engagement from tech-savvy users."
+    },
+    {
+        "category": "realestate",
+        "q": "What is a 'Personal Injury Lawyer' primarily hired for?",
+        "opt": [
+            "Buying a house",
+            "Getting compensation after an accident",
+            "Starting a business",
+            "Writing a will"
+        ],
+        "ans": 1,
+        "exp": "Personal injury is one of the highest CPC keywords globally ($100+ per click in some countries)."
+    },
+    {
+        "category": "legal",
+        "q": "What is 'Workers' Compensation'?",
+        "opt": [
+            "A holiday bonus",
+            "Insurance providing benefits to employees injured at work",
+            "A monthly salary",
+            "A gift from the boss"
+        ],
+        "ans": 1,
+        "exp": "Workers' comp is a major legal niche targeted by law firms for high-value settlements."
+    },
+    {
+        "category": "brain",
+        "q": "What is 'Medical Malpractice'?",
+        "opt": [
+            "Buying fake medicine",
+            "Professional negligence by a healthcare provider",
+            "A type of insurance",
+            "A bank fee"
+        ],
+        "ans": 1,
+        "exp": "Medical malpractice lawsuits are high-value cases targeted by premium law firms."
+    },
+    {
+        "category": "fitness",
+        "q": "What is a 'FICO Score' used for in the USA?",
+        "opt": [
+            "Measuring health",
+            "Determining creditworthiness for loans",
+            "Voting in elections",
+            "Tracking internet speed"
+        ],
+        "ans": 1,
+        "exp": "FICO scores are the standard for credit in the US, attracting lucrative banking ads."
+    },
+    {
+        "category": "brain",
+        "q": "What is 'Refinancing' a mortgage?",
+        "opt": [
+            "Selling a house",
+            "Replacing an old loan with a new one for a lower rate",
+            "Painting the house",
+            "Buying land"
+        ],
+        "ans": 1,
+        "exp": "Mortgage refinancing is a multi-billion dollar industry for banks and lenders."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Short Selling' in the stock market?",
+        "opt": [
+            "Selling small amounts of stock",
+            "Betting that a stock price will fall",
+            "Buying stocks for one day",
+            "Giving shares as a gift"
+        ],
+        "ans": 1,
+        "exp": "Short selling is an advanced trading strategy targeted by brokerage platforms."
+    },
+    {
+        "category": "crypto",
+        "q": "What is a 'Crypto Wallet' used for?",
+        "opt": [
+            "Storing physical cash",
+            "Storing private keys to access cryptocurrency",
+            "Paying for groceries in a shop",
+            "Tracking bank balances"
+        ],
+        "ans": 1,
+        "exp": "Crypto wallets like MetaMask are essential for DeFi and digital asset management."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'DeFi' in the blockchain world?",
+        "opt": [
+            "Department of Finance",
+            "Decentralized Finance",
+            "Digital File",
+            "Defined Finality"
+        ],
+        "ans": 1,
+        "exp": "DeFi aims to remove intermediaries like banks using smart contracts on blockchains."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Bitcoin Halving'?",
+        "opt": [
+            "Losing half your money",
+            "An event that cuts mining rewards by 50% every 4 years",
+            "A bank fee",
+            "Selling crypto"
+        ],
+        "ans": 1,
+        "exp": "Halving reduces the supply of new Bitcoins, often causing a worldwide market trend."
+    },
+    {
+        "category": "tech",
+        "q": "What does 'SaaS' stand for?",
+        "opt": [
+            "Software as a Service",
+            "System and Account Secure",
+            "Simple Apple System",
+            "Standard Asset Software"
+        ],
+        "ans": 0,
+        "exp": "SaaS is a dominant software model (e.g., Salesforce, Slack) with huge ad spends."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Phishing' in cybersecurity?",
+        "opt": [
+            "A sport with a rod",
+            "Fraudulent attempt to obtain sensitive info via email",
+            "A type of fast internet",
+            "Deleting old files"
+        ],
+        "ans": 1,
+        "exp": "Cybersecurity awareness is a top-tier niche for enterprise security ads."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Cloud Hosting'?",
+        "opt": [
+            "Storing files on a USB",
+            "Web hosting using multiple virtual servers to balance load",
+            "Weather forecasting",
+            "A type of satellite TV"
+        ],
+        "ans": 1,
+        "exp": "Cloud hosting is a high-CPM niche for B2B tech companies like AWS and Bluehost."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Gap Insurance' for a car?",
+        "opt": [
+            "Insurance for old cars",
+            "Covers the difference between car value and loan balance",
+            "Insurance for the tires only",
+            "A discount for new drivers"
+        ],
+        "ans": 1,
+        "exp": "Gap insurance is a specific high-value niche in the auto insurance industry."
+    },
+    {
+        "category": "tv",
+        "q": "What is a 'HMO' in health insurance?",
+        "opt": [
+            "Health Maintenance Organization",
+            "High Medical Option",
+            "Home Medical Office",
+            "Hospital Management Order"
+        ],
+        "ans": 0,
+        "exp": "HMO is a common type of health insurance plan in the US and Europe."
+    },
+    {
+        "category": "sports",
+        "q": "Which golf tournament awards the 'Green Jacket' to its winner?",
+        "opt": [
+            "The Open",
+            "US Open",
+            "The Masters",
+            "PGA Championship"
+        ],
+        "ans": 2,
+        "exp": "The Masters is the most prestigious golf event, attracting high-end sponsors like Rolex."
+    },
+    {
+        "category": "f1",
+        "q": "In Horse Racing, what is a 'Trifecta'?",
+        "opt": [
+            "Winning three races",
+            "Betting on the first three finishers in exact order",
+            "A three-mile race",
+            "The name of a horse"
+        ],
+        "ans": 1,
+        "exp": "Horse racing betting is a high-volume, high-CPM niche in many countries."
+    },
+    {
+        "category": "gaming",
+        "q": "What is 'Live Betting'?",
+        "opt": [
+            "Betting at the stadium",
+            "Placing bets on a sports event while it is in progress",
+            "Betting on a video game",
+            "Betting with friends"
+        ],
+        "ans": 1,
+        "exp": "Live betting platforms spend heavily on ads to acquire active users."
+    },
+    {
+        "category": "f1",
+        "q": "Which city hosts the 'Monaco Grand Prix'?",
+        "opt": [
+            "Paris",
+            "Monte Carlo",
+            "London",
+            "Nice"
+        ],
+        "ans": 1,
+        "exp": "The Monaco GP is synonymous with wealth, luxury, and high-value brand ads."
+    },
+    {
+        "category": "marketing",
+        "q": "What is a 'Parley' in sports gambling?",
+        "opt": [
+            "A type of penalty",
+            "A single bet that links two or more individual wagers",
+            "A player's salary",
+            "A meeting between coaches"
+        ],
+        "ans": 1,
+        "exp": "Parlays offer high payouts and are heavily promoted by betting apps (High CPM)."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Dividend Yield'?",
+        "opt": [
+            "The company's total profit",
+            "Ratio of annual dividend to current share price",
+            "The cost of a share",
+            "A bank fee"
+        ],
+        "ans": 1,
+        "exp": "Dividend-seeking investors are a key target for high-value financial services."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Corporate Social Responsibility' (CSR)?",
+        "opt": [
+            "Paying taxes",
+            "A company's efforts to improve society and environment",
+            "Hiring more employees",
+            "Buying office buildings"
+        ],
+        "ans": 1,
+        "exp": "CSR is a trending business topic with high corporate interest."
+    },
+    {
+        "category": "sports",
+        "q": "In Football (Soccer), what does 'VAR' stand for?",
+        "opt": [
+            "Video Assistant Referee",
+            "Virtual Area Review",
+            "Variable Action Rate",
+            "Video Action Replay"
+        ],
+        "ans": 0,
+        "exp": "VAR is a trending technology in global football, used in major leagues like EPL and La Liga."
+    },
+    {
+        "category": "sports",
+        "q": "Which tennis surface is used at the French Open?",
+        "opt": [
+            "Grass",
+            "Hard Court",
+            "Clay",
+            "Carpet"
+        ],
+        "ans": 2,
+        "exp": "Clay courts are iconic to the French Open (Roland Garros)."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Arbitrage'?",
+        "opt": [
+            "A legal penalty",
+            "Simultaneous buying and selling to profit from price differences",
+            "A type of stock insurance",
+            "Long-term investing"
+        ],
+        "ans": 1,
+        "exp": "Arbitrage is a high-level financial concept."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Asset Allocation'?",
+        "opt": [
+            "Selling all assets",
+            "Dividing a portfolio among different asset categories like stocks and bonds",
+            "Buying a house",
+            "Paying taxes"
+        ],
+        "ans": 1,
+        "exp": "Asset allocation is key for managing long-term investment risk."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Phishing'?",
+        "opt": [
+            "A sport with a rod",
+            "Fraudulent attempt to obtain sensitive info by disguising as a trustworthy entity",
+            "A type of fast internet",
+            "Deleting old files"
+        ],
+        "ans": 1,
+        "exp": "Phishing is a major cybersecurity threat often carried out via email or SMS."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Personal Injury'?",
+        "opt": [
+            "Hiring staff",
+            "Legal harm or injury to a person's body or mind",
+            "Buying a house",
+            "Tax law"
+        ],
+        "ans": 1,
+        "exp": "Personal injury lawyers are some of the biggest spenders on Google and Meta ads."
+    },
+    {
+        "category": "nba_ball",
+        "q": "In the NBA, what does 'MVP' stand for?",
+        "opt": [
+            "Most Valuable Player",
+            "Main Venue Position",
+            "Major Value Participant",
+            "Minimum Variable Point"
+        ],
+        "ans": 0,
+        "exp": "MVP is the top individual award in American basketball, attracting massive US traffic."
+    },
+    {
+        "category": "investing",
+        "q": "What is a 'Stop Loss' order?",
+        "opt": [
+            "Buying stocks",
+            "Automatically selling at a set price to limit loss",
+            "Stopping all trades",
+            "Double profit"
+        ],
+        "ans": 1,
+        "exp": "Stop-loss is an essential risk management tool for high-value active traders."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Leverage' in trading?",
+        "opt": [
+            "A type of tax",
+            "Using borrowed funds to increase a trading position",
+            "Buying without a broker",
+            "Investing in gold"
+        ],
+        "ans": 1,
+        "exp": "Leverage is common in Forex and Crypto trading, which have very high CPMs."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Insider Trading'?",
+        "opt": [
+            "Home trading",
+            "Illegal trading based on non-public information",
+            "Trading only in local stocks",
+            "Trading by bank employees"
+        ],
+        "ans": 1,
+        "exp": "Insider trading is a serious financial crime monitored by regulators worldwide."
+    },
+    {
+        "category": "legal",
+        "q": "What type of lawyer handles 'Mesothelioma' cases?",
+        "opt": [
+            "Criminal Lawyer",
+            "Personal Injury Lawyer",
+            "Corporate Lawyer",
+            "Divorce Lawyer"
+        ],
+        "ans": 1,
+        "exp": "Mesothelioma is a rare cancer caused by asbestos, and these legal cases are among the highest-paying keywords in the world."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Product Liability'?",
+        "opt": [
+            "Selling a product",
+            "Legal responsibility for injuries caused by defective products",
+            "A business tax",
+            "A bank fee"
+        ],
+        "ans": 1,
+        "exp": "Manufacturers are held liable for faulty products, a top niche for legal ads."
+    },
+    {
+        "category": "legal",
+        "q": "What does 'Pro Bono' mean in legal terms?",
+        "opt": [
+            "Professional bones",
+            "Legal work done for free for the public good",
+            "A type of insurance",
+            "A high court fee"
+        ],
+        "ans": 1,
+        "exp": "'Pro Bono' is a standard term in the legal industry worldwide."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'HELOC'?",
+        "opt": [
+            "High Energy Loan",
+            "Home Equity Line of Credit",
+            "Home Estate Loan",
+            "Helpful Emergency Loan"
+        ],
+        "ans": 1,
+        "exp": "A HELOC allows homeowners to borrow against the value of their home, a top-tier banking ad niche."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Amortization' in a mortgage?",
+        "opt": [
+            "Paying only interest",
+            "Spreading loan payments over a period of time",
+            "A type of insurance",
+            "A bank penalty"
+        ],
+        "ans": 1,
+        "exp": "Amortization schedules help borrowers understand how their principal and interest are paid off."
+    },
+    {
+        "category": "mortgage",
+        "q": "What is 'PMI' (Private Mortgage Insurance)?",
+        "opt": [
+            "Personal Money Investment",
+            "Insurance that protects the lender if the borrower defaults",
+            "A property tax",
+            "A loan fee"
+        ],
+        "ans": 1,
+        "exp": "PMI is usually required when the down payment on a home is less than 20%."
+    },
+    {
+        "category": "finance",
+        "q": "What is an 'Adjustable-Rate Mortgage' (ARM)?",
+        "opt": [
+            "A loan with fixed interest",
+            "A mortgage where interest rates can change over time",
+            "A loan for cars",
+            "A zero-interest loan"
+        ],
+        "ans": 1,
+        "exp": "ARM loans are popular worldwide and attract various mortgage-related advertisements."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Escrow'?",
+        "opt": [
+            "A type of house",
+            "A neutral third party holding funds during a transaction",
+            "A high interest rate",
+            "A legal penalty"
+        ],
+        "ans": 1,
+        "exp": "Escrow accounts are essential in real estate to manage taxes and insurance payments."
+    },
+    {
+        "category": "gk",
+        "q": "In Horse Racing, what is the 'Kentucky Derby' often called?",
+        "opt": [
+            "The Longest Race",
+            "The Most Exciting Two Minutes in Sports",
+            "The Golden Cup",
+            "The Horse Marathon"
+        ],
+        "ans": 1,
+        "exp": "The Kentucky Derby is a world-famous event attracting high-end luxury and betting ads."
+    },
+    {
+        "category": "sports",
+        "q": "Which Golf tournament is held annually at Augusta National?",
+        "opt": [
+            "The Open",
+            "US Open",
+            "The Masters",
+            "PGA Championship"
+        ],
+        "ans": 2,
+        "exp": "The Masters is the most prestigious golf event, synonymous with wealth and premium brands."
+    },
+    {
+        "category": "daily",
+        "q": "In Sports Betting, what is a 'Point Spread'?",
+        "opt": [
+            "A type of dinner",
+            "A bet on the margin of victory",
+            "The number of players",
+            "A sports ticket"
+        ],
+        "ans": 1,
+        "exp": "Point spreads are used to level the playing field between two unequal teams in gambling."
+    },
+    {
+        "category": "f1",
+        "q": "Which city is the home of the 'Formula 1' night race?",
+        "opt": [
+            "London",
+            "Singapore",
+            "New York",
+            "Paris"
+        ],
+        "ans": 1,
+        "exp": "The Singapore Grand Prix is a major global event for luxury tech and finance sponsors."
+    },
+    {
+        "category": "gaming",
+        "q": "What is a 'Prop Bet' in sports gambling?",
+        "opt": [
+            "A bet on the final score",
+            "A bet on specific events within a game (e.g., first scorer)",
+            "A type of team name",
+            "A coach's decision"
+        ],
+        "ans": 1,
+        "exp": "Proposition bets are highly engaging for users and profitable for betting companies."
+    },
+    {
+        "category": "math",
+        "q": "What is 'Actuarial Science' used for?",
+        "opt": [
+            "Building cars",
+            "Calculating risks and premiums in insurance",
+            "Designing software",
+            "Teaching sports"
+        ],
+        "ans": 1,
+        "exp": "Actuaries use math and statistics to assess risk, a core part of the multi-billion dollar insurance industry."
+    },
+    {
+        "category": "insurance_auto",
+        "q": "What is 'Comprehensive' auto insurance?",
+        "opt": [
+            "Covers only theft",
+            "Covers non-collision damage like fire or vandalism",
+            "Covers the other driver only",
+            "A minimum legal requirement"
+        ],
+        "ans": 1,
+        "exp": "Comprehensive coverage is an upsell for insurance companies, attracting high-value ads."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Liability' coverage?",
+        "opt": [
+            "Covers your injuries",
+            "Covers damage you cause to others",
+            "Covers theft",
+            "Insurance for your house"
+        ],
+        "ans": 1,
+        "exp": "Liability is the most searched insurance term globally, ensuring high ad volume."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Short Selling'?",
+        "opt": [
+            "Selling small amounts",
+            "Betting that a stock price will fall",
+            "Buying stocks for one day",
+            "Giving shares as a gift"
+        ],
+        "ans": 1,
+        "exp": "Short sellers borrow shares and sell them, hoping to buy them back later at a lower price."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Market Capitalization'?",
+        "opt": [
+            "The city where the market is",
+            "Total value of a company's outstanding shares",
+            "Total daily profit",
+            "The interest rate"
+        ],
+        "ans": 1,
+        "exp": "Market cap helps investors categorize companies like Apple or Microsoft."
+    },
+    {
+        "category": "finance",
+        "q": "What is an 'ETF' (Exchange-Traded Fund)?",
+        "opt": [
+            "Electronic Transfer",
+            "A fund that tracks an index and trades like a stock",
+            "A type of bank account",
+            "Early Trade Finance"
+        ],
+        "ans": 1,
+        "exp": "ETFs are popular worldwide for low-cost, diversified investing."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'EBITDA'?",
+        "opt": [
+            "Earnings Before Interest, Taxes, Depreciation, and Amortization",
+            "Every Business Income",
+            "Electronic Bank Data",
+            "Early Business Investment"
+        ],
+        "ans": 0,
+        "exp": "EBITDA is a measure of a company's overall financial performance, used by high-end investors."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'DeFi'?",
+        "opt": [
+            "Department of Finance",
+            "Decentralized Finance",
+            "Digital File",
+            "Defined Finality"
+        ],
+        "ans": 1,
+        "exp": "DeFi platforms allow financial services without traditional banks (High CPM)."
+    },
+    {
+        "category": "crypto",
+        "q": "What is a 'Stablecoin'?",
+        "opt": [
+            "A coin made of gold",
+            "A cryptocurrency pegged to a stable asset like the US Dollar",
+            "A type of horse",
+            "A bank's internal coin"
+        ],
+        "ans": 1,
+        "exp": "Stablecoins like USDT and USDC are used to reduce crypto market volatility."
+    },
+    {
+        "category": "mba",
+        "q": "What is 'CRM'?",
+        "opt": [
+            "Customer Relationship Management",
+            "Cash Return Management",
+            "Corporate Risk",
+            "Customer Review"
+        ],
+        "ans": 0,
+        "exp": "CRM software (like Salesforce) is essential for modern business and pays high CPMs."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Conversion Rate'?",
+        "opt": [
+            "The speed of a website",
+            "The percentage of visitors who take a desired action",
+            "The price of a product",
+            "A tax rate"
+        ],
+        "ans": 1,
+        "exp": "Conversion rate optimization is a top priority for digital marketers worldwide."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'B2B'?",
+        "opt": [
+            "Back to Business",
+            "Business to Business",
+            "Bank to Business",
+            "Business to Bank"
+        ],
+        "ans": 1,
+        "exp": "B2B transactions usually involve higher ticket items and more expensive advertising."
+    },
+    {
+        "category": "gk",
+        "q": "Which city is known as the 'Luxury Capital of the World' for shopping?",
+        "opt": [
+            "Paris",
+            "Dubai",
+            "New York",
+            "London"
+        ],
+        "ans": 0,
+        "exp": "Paris is home to high-end fashion brands like LVMH, attracting luxury lifestyle ads."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Fiduciary' duty?",
+        "opt": [
+            "A type of bank loan",
+            "The legal obligation to act in another's best interest",
+            "A high credit score",
+            "A tax on travel"
+        ],
+        "ans": 1,
+        "exp": "Financial advisors with fiduciary duty attract high-net-worth investors."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Forex' trading?",
+        "opt": [
+            "Trading in forests",
+            "The exchange of one currency for another",
+            "A stock market index",
+            "Buying gold"
+        ],
+        "ans": 1,
+        "exp": "Forex is the largest financial market in the world with high B2B ad value."
+    },
+    {
+        "category": "finance",
+        "q": "What does 'LTV' stand for in real estate?",
+        "opt": [
+            "Long Term Value",
+            "Loan-to-Value ratio",
+            "Large Tax Verification",
+            "Low Total Variable"
+        ],
+        "ans": 1,
+        "exp": "LTV is a key metric used by lenders to assess mortgage risk."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'DTI' ratio?",
+        "opt": [
+            "Debt-to-Income ratio",
+            "Daily Tax Income",
+            "Direct Total Interest",
+            "Digital Trade Index"
+        ],
+        "ans": 0,
+        "exp": "DTI is used by lenders to determine a borrower's ability to manage monthly payments."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Underwriting'?",
+        "opt": [
+            "Writing a book",
+            "The process of assessing the risk of a potential borrower",
+            "Painting a house",
+            "A home inspection"
+        ],
+        "ans": 1,
+        "exp": "Underwriters decide whether a loan or insurance policy should be approved."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Dividend'?",
+        "opt": [
+            "A type of bank loan",
+            "A portion of company profits paid to shareholders",
+            "A tax on stocks",
+            "The price of a share"
+        ],
+        "ans": 1,
+        "exp": "Dividends provide regular income to long-term stock investors."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Stagflation'?",
+        "opt": [
+            "High inflation and high growth",
+            "High inflation combined with stagnant economic growth",
+            "Low inflation",
+            "A stable market"
+        ],
+        "ans": 1,
+        "exp": "Stagflation is a difficult economic condition for policy makers to fix."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Fiscal Policy'?",
+        "opt": [
+            "A bank's internal policy",
+            "Government use of spending and taxation to influence the economy",
+            "Policy for hiring new staff",
+            "A law about trade unions"
+        ],
+        "ans": 1,
+        "exp": "Fiscal policy is a major tool used by governments to manage the economy."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Monetary Policy'?",
+        "opt": [
+            "Policy for office culture",
+            "Actions taken by a central bank to manage money supply and interest rates",
+            "A tax on luxury goods",
+            "A law about trade unions"
+        ],
+        "ans": 1,
+        "exp": "Central banks (like the RBI or Federal Reserve) manage monetary policy."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Laissez-faire'?",
+        "opt": [
+            "Government intervention",
+            "Free market with minimal government interference",
+            "Socialist economy",
+            "High taxation"
+        ],
+        "ans": 1,
+        "exp": "Laissez-faire economics promotes individual freedom and free trade."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Asset'?",
+        "opt": [
+            "Money you owe",
+            "A resource with economic value that an individual or corporation owns",
+            "A tax paid to government",
+            "A monthly expense"
+        ],
+        "ans": 1,
+        "exp": "Assets can be physical (like property) or intangible (like patents)."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Liability'?",
+        "opt": [
+            "Something you own",
+            "Something you owe to another party",
+            "Total cash in hand",
+            "A high profit margin"
+        ],
+        "ans": 1,
+        "exp": "Liabilities include loans, accounts payable, and other legal debts."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Working Capital'?",
+        "opt": [
+            "Total investment in building",
+            "Current assets minus current liabilities",
+            "The amount paid to workers",
+            "Money used for luxury cars"
+        ],
+        "ans": 1,
+        "exp": "Working capital measures a company's short-term financial health and liquidity."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Net Present Value' (NPV)?",
+        "opt": [
+            "Current price of a product",
+            "The difference between the present value of cash inflows and outflows",
+            "Total profit from last year",
+            "Value of a company on the stock market"
+        ],
+        "ans": 1,
+        "exp": "NPV is used in capital budgeting to analyze the profitability of a project."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Internal Rate of Return' (IRR)?",
+        "opt": [
+            "A type of bank loan",
+            "The discount rate that makes the NPV of a project zero",
+            "The annual growth rate of a company",
+            "A tax on international trade"
+        ],
+        "ans": 1,
+        "exp": "IRR is a metric used to estimate the profitability of potential investments."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Break-even Point'?",
+        "opt": [
+            "When a company goes bankrupt",
+            "The point at which total cost and total revenue are equal",
+            "When a company makes its first $1 million",
+            "Ending a business partnership"
+        ],
+        "ans": 1,
+        "exp": "Reaching the break-even point is a major milestone for new businesses."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Opportunity Cost'?",
+        "opt": [
+            "The cost of starting a business",
+            "The loss of potential gain from other alternatives when one is chosen",
+            "A discount given to customers",
+            "The total cost of production"
+        ],
+        "ans": 1,
+        "exp": "Opportunity cost is a fundamental principle in economic decision making."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Sunk Cost'?",
+        "opt": [
+            "A cost that is zero",
+            "A cost that has already been incurred and cannot be recovered",
+            "The cost of building a pool",
+            "Money spent on luxury items"
+        ],
+        "ans": 1,
+        "exp": "Sunk costs should not be considered when making future business decisions."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Economies of Scale'?",
+        "opt": [
+            "Measuring the size of a factory",
+            "Cost advantages companies obtain due to their scale of operation",
+            "A type of tax on large businesses",
+            "A law about minimum wages"
+        ],
+        "ans": 1,
+        "exp": "Large scale production often leads to lower costs per unit."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Monopoly'?",
+        "opt": [
+            "Many sellers in the market",
+            "A market structure with only one seller",
+            "Two companies dominating the market",
+            "A government-owned bank"
+        ],
+        "ans": 1,
+        "exp": "Monopolies can lead to higher prices and less innovation due to lack of competition."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Oligopoly'?",
+        "opt": [
+            "One seller in the market",
+            "A market structure dominated by a small number of large sellers",
+            "No sellers in the market",
+            "A market with infinite sellers"
+        ],
+        "ans": 1,
+        "exp": "Common in industries like airlines, automobiles, and telecommunications."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'Gross Margin'?",
+        "opt": [
+            "Total sales of a company",
+            "Revenue minus cost of goods sold (COGS)",
+            "Total money in the bank",
+            "A tax on company profits"
+        ],
+        "ans": 1,
+        "exp": "Gross margin shows how efficiently a company produces and sells its products."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Operating Margin'?",
+        "opt": [
+            "The size of an office",
+            "A measure of what proportion of revenue is left after paying for variable costs",
+            "Total daily sales",
+            "The speed of production"
+        ],
+        "ans": 1,
+        "exp": "It shows how much profit a company makes on each dollar of sales after paying costs."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'EBIT'?",
+        "opt": [
+            "Earnings Before Interest and Taxes",
+            "Electronic Bank Income Tool",
+            "Early Business Investment Tool",
+            "Every Business Income Tool"
+        ],
+        "ans": 0,
+        "exp": "EBIT is an indicator of a company's profitability, often called operating profit."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Price Elasticity of Demand'?",
+        "opt": [
+            "The cost of making a product",
+            "Measure of how much the quantity demanded of a good responds to a change in price",
+            "The weight of a product",
+            "The time it takes to sell a product"
+        ],
+        "ans": 1,
+        "exp": "Understanding elasticity helps businesses set prices to maximize revenue."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Market Segmentation'?",
+        "opt": [
+            "Closing down a market",
+            "Dividing a broad target market into subsets of consumers",
+            "Calculating total sales",
+            "Buying shares of different companies"
+        ],
+        "ans": 1,
+        "exp": "Segmentation allows companies to target their marketing more effectively."
+    },
+    {
+        "category": "space",
+        "q": "What is 'Blue Ocean Strategy'?",
+        "opt": [
+            "Fighting in a competitive market",
+            "Creating an uncontested market space where competition is irrelevant",
+            "Trading in international waters",
+            "A strategy for shipping companies"
+        ],
+        "ans": 1,
+        "exp": "The goal is to create new demand and make the competition irrelevant."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Just-In-Time' (JIT) production?",
+        "opt": [
+            "Hiring staff quickly",
+            "Inventory strategy to increase efficiency and decrease waste by receiving goods only as they are needed",
+            "A fast marketing plan",
+            "Ending a meeting on time"
+        ],
+        "ans": 1,
+        "exp": "JIT was popularized by Toyota to reduce inventory costs and improve quality."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Six Sigma'?",
+        "opt": [
+            "A type of marketing",
+            "A set of techniques for process improvement and quality management",
+            "A group of six companies",
+            "A financial tax bracket"
+        ],
+        "ans": 1,
+        "exp": "Six Sigma seeks to improve quality by identifying and removing causes of defects."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Benchmarking'?",
+        "opt": [
+            "Setting up benches in office",
+            "Comparing business processes and performance metrics to industry bests",
+            "Calculating employee working hours",
+            "Closing a deal with a client"
+        ],
+        "ans": 1,
+        "exp": "Benchmarking helps organizations find areas for improvement by looking at leaders."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'SWOT' Analysis?",
+        "opt": [
+            "Strengths, Weaknesses, Opportunities, Threats",
+            "Sales, Wages, Operations, Taxes",
+            "Strategy, Work, Output, Timing",
+            "Success, Wealth, Optimization, Trust"
+        ],
+        "ans": 0,
+        "exp": "SWOT analysis is a strategic planning tool used to evaluate a project or business venture."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'KPI'?",
+        "opt": [
+            "Key Performance Indicator",
+            "Key Profit Income",
+            "Knowledge Process Integration",
+            "Key Personnel Information"
+        ],
+        "ans": 0,
+        "exp": "KPIs are used to evaluate the success of an organization or activity in which it engages."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'ROI'?",
+        "opt": [
+            "Rate of Interest",
+            "Return on Investment",
+            "Risk of Inflation",
+            "Regular Open Income"
+        ],
+        "ans": 1,
+        "exp": "ROI measures the gain or loss generated on an investment relative to its cost."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'B2C'?",
+        "opt": [
+            "Business to Customer",
+            "Bank to Customer",
+            "Business to Company",
+            "Basic To Company"
+        ],
+        "ans": 0,
+        "exp": "B2C refers to businesses selling products directly to individual consumers."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'C2C'?",
+        "opt": [
+            "Company to Company",
+            "Customer to Customer",
+            "Customer to Company",
+            "Company to Customer"
+        ],
+        "ans": 1,
+        "exp": "Platforms like eBay or OLX are examples of Customer to Customer commerce."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Web 3.0'?",
+        "opt": [
+            "The first version of the web",
+            "The decentralized web based on blockchain technology",
+            "A high-speed internet cable",
+            "A type of web browser"
+        ],
+        "ans": 1,
+        "exp": "Web 3.0 aims to give users more control over their data and online identity."
+    },
+    {
+        "category": "crypto",
+        "q": "What is a 'Smart Contract'?",
+        "opt": [
+            "A contract written on paper",
+            "A self-executing contract with terms directly written into code",
+            "A meeting with a lawyer",
+            "A high interest loan"
+        ],
+        "ans": 1,
+        "exp": "Smart contracts run on blockchain networks and execute automatically when conditions are met."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'NFT'?",
+        "opt": [
+            "New Finance Tool",
+            "Non-Fungible Token",
+            "National Funding Trust",
+            "Network File Transfer"
+        ],
+        "ans": 1,
+        "exp": "NFTs represent unique ownership of digital items, such as art or collectibles."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'Green Jacket' awarded for?",
+        "opt": [
+            "Formula 1 Winner",
+            "The Masters Golf Tournament Winner",
+            "Wimbledon Winner",
+            "NBA Champion"
+        ],
+        "ans": 1,
+        "exp": "The Green Jacket is one of the most iconic prizes in all of sports, awarded since 1949."
+    },
+    {
+        "category": "f1",
+        "q": "In F1, what is the 'Chequered Flag' used for?",
+        "opt": [
+            "Start of the race",
+            "To signal the end of the race",
+            "To signal a car accident",
+            "To signal a pit stop"
+        ],
+        "ans": 1,
+        "exp": "The chequered flag is waved to the winner and every subsequent finisher."
+    },
+    {
+        "category": "brain",
+        "q": "In the sport of Golf, what is a 'Hole-in-One' also commonly called?",
+        "opt": [
+            "Bogey",
+            "Ace",
+            "Eagle",
+            "Birdie"
+        ],
+        "ans": 1,
+        "exp": "An 'Ace' is when a player hits the ball directly into the hole from the tee in one shot."
+    },
+    {
+        "category": "brain",
+        "q": "Which Formula 1 driver holds the record for the most World Championship titles (shared with Michael Schumacher)?",
+        "opt": [
+            "Lewis Hamilton",
+            "Max Verstappen",
+            "Sebastian Vettel",
+            "Fernando Alonso"
+        ],
+        "ans": 0,
+        "exp": "Lewis Hamilton has 7 World Titles, making him a top keyword for luxury car and watch ads."
+    },
+    {
+        "category": "brain",
+        "q": "Which Tennis tournament is played on 'Clay' courts?",
+        "opt": [
+            "Wimbledon",
+            "US Open",
+            "Roland Garros (French Open)",
+            "Australian Open"
+        ],
+        "ans": 2,
+        "exp": "Roland Garros is famous for its red clay surface, attracting high-net-worth audiences."
+    },
+    {
+        "category": "brain",
+        "q": "In Horse Racing, what is the term for betting on the first two finishers in the correct order?",
+        "opt": [
+            "Trifecta",
+            "Exacta",
+            "Quinella",
+            "Superfecta"
+        ],
+        "ans": 1,
+        "exp": "An 'Exacta' bet is a popular high-stakes wager in the worldwide horse racing industry."
+    },
+    {
+        "category": "brain",
+        "q": "Which city hosts the famous 'Monaco Grand Prix'?",
+        "opt": [
+            "Paris",
+            "Monte Carlo",
+            "Nice",
+            "Barcelona"
+        ],
+        "ans": 1,
+        "exp": "The Monaco GP is the most prestigious F1 race, attracting billionaire sponsors and high-CPM ads."
+    },
+    {
+        "category": "brain",
+        "q": "Which rare cancer is primarily caused by exposure to asbestos?",
+        "opt": [
+            "Leukemia",
+            "Mesothelioma",
+            "Lymphoma",
+            "Melanoma"
+        ],
+        "ans": 1,
+        "exp": "Mesothelioma legal keywords are the highest paying in the world (up to $200+ per click)."
+    },
+    {
+        "category": "brain",
+        "q": "What type of lawyer handles claims for injuries caused by car accidents?",
+        "opt": [
+            "Tax Lawyer",
+            "Personal Injury Lawyer",
+            "Corporate Lawyer",
+            "Divorce Lawyer"
+        ],
+        "ans": 1,
+        "exp": "Personal injury law is a massive global niche with extremely high advertising competition."
+    },
+    {
+        "category": "brain",
+        "q": "What is the maximum FICO Credit Score possible in the US?",
+        "opt": [
+            "700",
+            "800",
+            "850",
+            "900"
+        ],
+        "ans": 2,
+        "exp": "FICO scores range from 300 to 850; a higher score helps get lower interest rates."
+    },
+    {
+        "category": "brain",
+        "q": "What is 'DTI' in the banking and loan sector?",
+        "opt": [
+            "Debt-to-Income ratio",
+            "Daily Tax Income",
+            "Digital Trade Interest",
+            "Direct Total Investment"
+        ],
+        "ans": 0,
+        "exp": "DTI is used by lenders to determine a borrower's ability to manage monthly payments."
+    },
+    {
+        "category": "brain",
+        "q": "What does 'APR' stand for on a credit card statement?",
+        "opt": [
+            "Annual Percentage Rate",
+            "Average Price Ratio",
+            "Annual Payment Return",
+            "Actual Profit Rate"
+        ],
+        "ans": 0,
+        "exp": "APR represents the yearly interest rate you pay on borrowed money."
+    },
+    {
+        "category": "brain",
+        "q": "What is the technology that powers Bitcoin?",
+        "opt": [
+            "Cloud Computing",
+            "Blockchain",
+            "Artificial Intelligence",
+            "Metaverse"
+        ],
+        "ans": 1,
+        "exp": "Blockchain is a decentralized ledger that records all cryptocurrency transactions."
+    },
+    {
+        "category": "brain",
+        "q": "What does 'SaaS' stand for in the tech world?",
+        "opt": [
+            "System as a Service",
+            "Software as a Service",
+            "Secure Apple System",
+            "Standardized Asset Software"
+        ],
+        "ans": 1,
+        "exp": "SaaS is a software distribution model (e.g., Zoom, Slack) with high B2B ad value."
+    },
+    {
+        "category": "brain",
+        "q": "What is 'Gap Insurance' for a vehicle?",
+        "opt": [
+            "Insurance for old cars",
+            "Covers the difference between car value and loan balance",
+            "Insurance for tires",
+            "A discount for new drivers"
+        ],
+        "ans": 1,
+        "exp": "Gap insurance is vital for new car owners and a high-CPM keyword for insurers."
+    },
+    {
+        "category": "brain",
+        "q": "What is a 'Deductible' in insurance?",
+        "opt": [
+            "The total payout",
+            "The amount you pay out-of-pocket before insurance pays",
+            "A discount on price",
+            "The monthly fee"
+        ],
+        "ans": 1,
+        "exp": "Choosing a higher deductible usually leads to lower monthly premiums."
+    },
+    {
+        "category": "brain",
+        "q": "What is 'SEO' used for?",
+        "opt": [
+            "Social media posting",
+            "Improving website visibility on Google",
+            "Sending emails",
+            "Designing logos"
+        ],
+        "ans": 1,
+        "exp": "Search Engine Optimization is a core digital marketing skill with huge global demand."
+    },
+    {
+        "category": "brain",
+        "q": "What is a 'Unicorn' in the startup industry?",
+        "opt": [
+            "A mythological animal",
+            "A private company valued at over $1 billion",
+            "A company with 1 employee",
+            "A business that sells toys"
+        ],
+        "ans": 1,
+        "exp": "Unicorn startups are rare and highly valuable, attracting venture capital ads."
+    },
+    {
+        "category": "brain",
+        "q": "If a car travels at 60 mph, how far will it travel in 2.5 hours?",
+        "opt": [
+            "120 miles",
+            "140 miles",
+            "150 miles",
+            "180 miles"
+        ],
+        "ans": 2,
+        "exp": "Distance = Speed x Time (60 x 2.5 = 150)."
+    },
+    {
+        "category": "brain",
+        "q": "What is 15% of 200?",
+        "opt": [
+            "20",
+            "25",
+            "30",
+            "40"
+        ],
+        "ans": 2,
+        "exp": "(15/100) x 200 = 30."
+    },
+    {
+        "category": "brain",
+        "q": "In the NBA, how many points is a shot worth if taken from behind the arc?",
+        "opt": [
+            "1 point",
+            "2 points",
+            "3 points",
+            "4 points"
+        ],
+        "ans": 2,
+        "exp": "A 'Three-Pointer' is a staple of modern basketball scoring."
+    },
+    {
+        "category": "brain",
+        "q": "Which country has won the most FIFA World Cups?",
+        "opt": [
+            "Germany",
+            "Argentina",
+            "Brazil",
+            "Italy"
+        ],
+        "ans": 2,
+        "exp": "Brazil has won 5 FIFA World Cup titles, the most of any nation."
+    },
+    {
+        "category": "brain",
+        "q": "How long is a standard Marathon race?",
+        "opt": [
+            "21.1 km",
+            "42.195 km",
+            "10 km",
+            "50 km"
+        ],
+        "ans": 1,
+        "exp": "A full marathon is exactly 42.195 kilometers or 26.2 miles."
+    },
+    {
+        "category": "brain",
+        "q": "In Cricket, what is the term for a bowler taking three wickets in three consecutive balls?",
+        "opt": [
+            "Triple Play",
+            "Hat-trick",
+            "Grand Slam",
+            "Strike"
+        ],
+        "ans": 1,
+        "exp": "A 'Hat-trick' is a rare and celebrated achievement in cricket."
+    },
+    {
+        "category": "auto",
+        "q": "In legal terms, what is 'Negligence'?",
+        "opt": [
+            "Intentional harm",
+            "Failure to take proper care, resulting in damage to others",
+            "Winning a case",
+            "Paying a fine"
+        ],
+        "ans": 1,
+        "exp": "Negligence is the foundation of most personal injury and car accident lawsuits."
+    },
+    {
+        "category": "insurance",
+        "q": "What is an 'Insurance Claim Adjuster'?",
+        "opt": [
+            "A person who sells policies",
+            "A professional who investigates claims to determine payout",
+            "A car mechanic",
+            "A lawyer"
+        ],
+        "ans": 1,
+        "exp": "Adjusters evaluate damage after an accident, a key part of the high-value insurance process."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Wrongful Death' in law?",
+        "opt": [
+            "Death from natural causes",
+            "A claim against a person who can be held liable for a death",
+            "A type of insurance",
+            "A funeral plan"
+        ],
+        "ans": 1,
+        "exp": "Wrongful death lawsuits involve large settlements and very high advertising rates."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Fixed-Rate Mortgage'?",
+        "opt": [
+            "Interest changes every month",
+            "Interest rate remains the same throughout the loan term",
+            "A loan with zero interest",
+            "A loan for cars only"
+        ],
+        "ans": 1,
+        "exp": "Fixed-rate mortgages offer stability, attracting lucrative banking and refinance ads."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'Debt Consolidation'?",
+        "opt": [
+            "Spending more money",
+            "Combining multiple debts into a single, lower-interest payment",
+            "Filing for bankruptcy",
+            "Closing a bank account"
+        ],
+        "ans": 1,
+        "exp": "Consolidation loans are highly competitive keywords for financial advertisers."
+    },
+    {
+        "category": "finance",
+        "q": "What does 'LTV' stand for in lending?",
+        "opt": [
+            "Long Term Value",
+            "Loan-to-Value ratio",
+            "Low Total Variable",
+            "Large Tax Verification"
+        ],
+        "ans": 1,
+        "exp": "LTV is a key metric used by lenders to assess risk in mortgage applications."
+    },
+    {
+        "category": "daily",
+        "q": "What is a 'Credit Repair' service?",
+        "opt": [
+            "Buying a new card",
+            "A service that helps remove inaccurate info from credit reports",
+            "Increasing your salary",
+            "A bank for students"
+        ],
+        "ans": 1,
+        "exp": "Credit repair companies pay high CPCs to acquire customers with low scores."
+    },
+    {
+        "category": "luxury",
+        "q": "In the sport of Polo, what is a 'Chukka'?",
+        "opt": [
+            "A type of ball",
+            "A 7.5 minute period of play",
+            "The winning trophy",
+            "A penalty shot"
+        ],
+        "ans": 1,
+        "exp": "Polo is an elite sport associated with extreme wealth and luxury brand ads."
+    },
+    {
+        "category": "sports",
+        "q": "Which Golf tournament is known for the 'Amen Corner'?",
+        "opt": [
+            "The Open",
+            "The Masters",
+            "US Open",
+            "PGA Championship"
+        ],
+        "ans": 1,
+        "exp": "Augusta National's Amen Corner is a legendary part of The Masters Golf tournament."
+    },
+    {
+        "category": "f1",
+        "q": "In Formula 1, what is the 'DRS'?",
+        "opt": [
+            "Driver Rescue System",
+            "Drag Reduction System",
+            "Digital Race Start",
+            "Direct Road Steering"
+        ],
+        "ans": 1,
+        "exp": "DRS allows drivers to increase top speed and aid overtaking on straights."
+    },
+    {
+        "category": "sports",
+        "q": "What is a 'Grand Slam' in Professional Tennis?",
+        "opt": [
+            "Winning 100 matches",
+            "Winning all 4 major tournaments in a single year",
+            "A 5-set match",
+            "Winning a gold medal"
+        ],
+        "ans": 1,
+        "exp": "Grand Slams include the Australian Open, French Open, Wimbledon, and US Open."
+    },
+    {
+        "category": "gaming",
+        "q": "What is 'Sports Betting' Odds?",
+        "opt": [
+            "The number of players",
+            "The numerical expression of winning probability and payout",
+            "The ticket price",
+            "The duration of the game"
+        ],
+        "ans": 1,
+        "exp": "Odds determine the potential profit on a wager, a massive worldwide ad niche."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Data Analytics'?",
+        "opt": [
+            "Counting money",
+            "The process of analyzing raw data to find trends and insights",
+            "Writing code for games",
+            "Selling computers"
+        ],
+        "ans": 1,
+        "exp": "Businesses use data analytics to make strategic decisions, attracting B2B ads."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Life Insurance' cash value?",
+        "opt": [
+            "The death benefit only",
+            "The savings portion of a permanent life policy",
+            "The monthly cost",
+            "The bank balance"
+        ],
+        "ans": 1,
+        "exp": "Permanent life insurance policies build cash value over time, a high-value finance topic."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Gap Insurance' for cars?",
+        "opt": [
+            "Insurance for old cars",
+            "Covers the difference between car value and loan balance if totaled",
+            "Insurance for tires",
+            "A discount for new drivers"
+        ],
+        "ans": 1,
+        "exp": "Gap insurance is essential for new car buyers and a key ad niche for insurers."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Liability' coverage in auto insurance?",
+        "opt": [
+            "Covers your injuries",
+            "Covers damage and injury you cause to others",
+            "Covers theft",
+            "Insurance for your garage"
+        ],
+        "ans": 1,
+        "exp": "Liability is the most legally required and searched insurance term worldwide."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'HMO' in healthcare?",
+        "opt": [
+            "Health Maintenance Organization",
+            "High Medical Option",
+            "Hospital Management Order",
+            "Home Medical Office"
+        ],
+        "ans": 0,
+        "exp": "HMOs are a common type of managed care health insurance plan."
+    },
+    {
+        "category": "finance",
+        "q": "What is an 'IPO'?",
+        "opt": [
+            "Internal Profit Order",
+            "Initial Public Offering",
+            "International Price Option",
+            "Instant Purchase Order"
+        ],
+        "ans": 1,
+        "exp": "An IPO is when a private company first sells its shares to the public."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Fiduciary'?",
+        "opt": [
+            "A bank employee",
+            "A person legally bound to act in another's best interest",
+            "A high credit score",
+            "A tax lawyer"
+        ],
+        "ans": 1,
+        "exp": "Financial advisors with fiduciary duties attract high-net-worth investors."
+    },
+    {
+        "category": "sports",
+        "q": "Which Golf tournament awards the 'Green Jacket'?",
+        "opt": [
+            "The Open",
+            "The Masters",
+            "US Open",
+            "PGA Championship"
+        ],
+        "ans": 1,
+        "exp": "The Masters is the most prestigious golf event, attracting high-end sponsors."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Retargeting'?",
+        "opt": [
+            "Changing targets",
+            "Showing ads to people who already visited your site",
+            "New marketing"
+        ],
+        "ans": 1,
+        "exp": "Retargeting helps bring back lost visitors to complete a sale."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Domain Authority' (DA)?",
+        "opt": [
+            "Legal ownership",
+            "Score predicting how well a site will rank",
+            "Server speed"
+        ],
+        "ans": 1,
+        "exp": "DA is a search engine ranking score developed by Moz."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Upwork'?",
+        "opt": [
+            "Social media",
+            "Leading global freelance marketplace",
+            "Streaming site"
+        ],
+        "ans": 1,
+        "exp": "Freelancers find clients for everything from coding to writing on Upwork."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'APR' on a credit card?",
+        "opt": [
+            "Annual Percentage Rate",
+            "Annual Payment Return",
+            "Auto Price Rate"
+        ],
+        "ans": 0,
+        "exp": "APR is the annual interest rate you pay if you don't pay your balance in full."
+    },
+    {
+        "category": "finance",
+        "q": "What does 'CIBIL Score' represent?",
+        "opt": [
+            "Running speed",
+            "Creditworthiness",
+            "Social status"
+        ],
+        "ans": 1,
+        "exp": "CIBIL score is a 3-digit numeric summary of your credit history."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Public Liability Insurance'?",
+        "opt": [
+            "Personal health",
+            "Protection against injury to public",
+            "Government insurance"
+        ],
+        "ans": 1,
+        "exp": "Businesses buy it to cover damages caused to third parties at their premises."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Room Rent Limit'?",
+        "opt": [
+            "Maximum for food",
+            "Cap on daily hospital room charges",
+            "Hotel stay"
+        ],
+        "ans": 1,
+        "exp": "If you choose a room more expensive than the limit, you pay the difference."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Dark Web'?",
+        "opt": [
+            "Internet at night",
+            "Hidden part of internet for illegal acts",
+            "Private browsing"
+        ],
+        "ans": 1,
+        "exp": "The dark web requires specific software like Tor to access."
+    },
+    {
+        "category": "math",
+        "q": "What is 'Quantum Computing'?",
+        "opt": [
+            "Fast PC",
+            "Computing using quantum mechanics for complex math",
+            "Old tech"
+        ],
+        "ans": 1,
+        "exp": "Quantum computers can solve problems impossible for normal PCs."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Collateral'?",
+        "opt": [
+            "Type of car",
+            "Asset used to secure a loan",
+            "Monthly payment"
+        ],
+        "ans": 1,
+        "exp": "If you don't pay the loan, the lender can seize the collateral."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Offside' in football?",
+        "opt": [
+            "A goal",
+            "A rule violation",
+            "A type of kick"
+        ],
+        "ans": 1,
+        "exp": "Offside is one of the main rules of football to prevent 'goal-hanging'."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Alt Text' in images?",
+        "opt": [
+            "Image title",
+            "Description of image for search engines and accessibility",
+            "Image filter"
+        ],
+        "ans": 1,
+        "exp": "Alt text helps Google understand what an image is about and helps visually impaired users."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Upselling'?",
+        "opt": [
+            "Selling for less",
+            "Encouraging customers to buy a premium version",
+            "Giving free gifts"
+        ],
+        "ans": 1,
+        "exp": "Upselling increases the average order value by suggesting a better product."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Technical Indicator'?",
+        "opt": [
+            "News report",
+            "Mathematical tool for price charts",
+            "Bank statement"
+        ],
+        "ans": 1,
+        "exp": "Indicators like RSI or MACD help traders analyze market trends."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Algorithm'?",
+        "opt": [
+            "Math book",
+            "Step-by-step instructions for a computer",
+            "Music beat"
+        ],
+        "ans": 1,
+        "exp": "Every AI and app runs on various algorithms."
+    },
+    {
+        "category": "premier_league",
+        "q": "Which football club has the most expensive squad in the world?",
+        "opt": [
+            "Manchester City",
+            "Real Madrid",
+            "Liverpool"
+        ],
+        "ans": 0,
+        "exp": "Man City's squad is valued at over €1 billion."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Google Analytics' used for?",
+        "opt": [
+            "Sending emails",
+            "Tracking website traffic and behavior",
+            "Building websites"
+        ],
+        "ans": 1,
+        "exp": "Analytics helps you see how users interact with your website."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'AdSense'?",
+        "opt": [
+            "Google's program for publishers to show ads",
+            "An ad agency",
+            "Keyword tool"
+        ],
+        "ans": 0,
+        "exp": "AdSense allows website owners to earn money from Google's ad network."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Pip' in Forex?",
+        "opt": [
+            "A fruit seed",
+            "Smallest price move in a currency",
+            "Trading account"
+        ],
+        "ans": 1,
+        "exp": "Pip stands for 'Percentage in Point' and is usually the 4th decimal place."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Credit Inquiry' (Hard vs Soft)?",
+        "opt": [
+            "Asking for money",
+            "Check of your credit report by lenders",
+            "Bank interview"
+        ],
+        "ans": 1,
+        "exp": "Too many hard inquiries in a short time can lower your credit score."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Stock Split'?",
+        "opt": [
+            "Company closing down",
+            "Dividing existing shares into more shares",
+            "Selling shares"
+        ],
+        "ans": 1,
+        "exp": "A stock split increases the number of shares while lowering the price per share."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Grace Period'?",
+        "opt": [
+            "Time to buy",
+            "Extra time to pay premium after due date",
+            "Time for claim"
+        ],
+        "ans": 1,
+        "exp": "If you pay during the grace period, your policy remains active."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Malware'?",
+        "opt": [
+            "Good software",
+            "Malicious software (viruses, etc.)",
+            "Fast hardware"
+        ],
+        "ans": 1,
+        "exp": "Malware is designed to damage or gain unauthorized access to a system."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Balance Transfer'?",
+        "opt": [
+            "Moving to bank",
+            "Moving debt from a high-interest card to a low-interest one",
+            "Cashback"
+        ],
+        "ans": 1,
+        "exp": "Used as a strategy to pay off debt faster with less interest."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'FDI'?",
+        "opt": [
+            "Federal Deposit",
+            "Foreign Direct Investment",
+            "Fast Digital Income"
+        ],
+        "ans": 1,
+        "exp": "FDI is an investment made by a company or individual in one country into business interests in another."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is 'The Special One'?",
+        "opt": [
+            "Messi",
+            "Jose Mourinho",
+            "Pep Guardiola"
+        ],
+        "ans": 1,
+        "exp": "Jose Mourinho gave himself this nickname during a press conference."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Prepayment'?",
+        "opt": [
+            "Paying before buying",
+            "Paying back loan earlier than scheduled",
+            "Late fee"
+        ],
+        "ans": 1,
+        "exp": "Prepaying can save you a lot of money on interest."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Swing Trading'?",
+        "opt": [
+            "Holding for hours",
+            "Holding for days or weeks",
+            "Trading in playground"
+        ],
+        "ans": 1,
+        "exp": "Swing traders aim to capture gains in a stock within a few days to several weeks."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Copa Libertadores'?",
+        "opt": [
+            "European Cup",
+            "South American club championship",
+            "Youth cup"
+        ],
+        "ans": 1,
+        "exp": "The most prestigious club competition in South American football."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'OpenAI'?",
+        "opt": [
+            "A browser",
+            "An AI research and deployment company",
+            "A hardware store"
+        ],
+        "ans": 1,
+        "exp": "OpenAI is the creator of ChatGPT and DALL-E."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Personalization'?",
+        "opt": [
+            "Naming a site",
+            "Showing unique content to each user",
+            "Hiding data"
+        ],
+        "ans": 1,
+        "exp": "E-commerce sites use AI to show products you are likely to buy."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'Asian Cup'?",
+        "opt": [
+            "A cricket game",
+            "Top football tournament in Asia",
+            "A business group"
+        ],
+        "ans": 1,
+        "exp": "It determines the continental champion of Asia."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Amortization'?",
+        "opt": [
+            "Saving money",
+            "Process of paying off debt in regular parts",
+            "Selling property"
+        ],
+        "ans": 1,
+        "exp": "Amortization is the schedule of your mortgage payments over time."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Demo Account'?",
+        "opt": [
+            "Account with real money",
+            "Practice account with virtual money",
+            "Bank account for kids"
+        ],
+        "ans": 1,
+        "exp": "Demo accounts allow new traders to practice without risking real money."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the owner of Inter Miami?",
+        "opt": [
+            "David Beckham",
+            "Pele",
+            "Maradona"
+        ],
+        "ans": 0,
+        "exp": "David Beckham is a co-owner of the MLS club Inter Miami."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is known as 'Zizou'?",
+        "opt": [
+            "Ronaldinho",
+            "Zinedine Zidane",
+            "Zlatan"
+        ],
+        "ans": 1,
+        "exp": "Zidane is a legend both as a player and a manager for Real Madrid."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Cross-selling'?",
+        "opt": [
+            "Selling to competitors",
+            "Suggesting related or complementary products",
+            "Cancelling a sale"
+        ],
+        "ans": 1,
+        "exp": "Example: Suggesting a phone case when someone buys a smartphone."
+    },
+    {
+        "category": "realestate",
+        "q": "What is a 'Real Estate Agent'?",
+        "opt": [
+            "House builder",
+            "Professional who helps buy/sell property",
+            "Banker"
+        ],
+        "ans": 1,
+        "exp": "Agents are licensed professionals who represent buyers or sellers in transactions."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Net Income'?",
+        "opt": [
+            "Total salary before tax",
+            "Take-home pay after tax/deductions",
+            "Monthly rent"
+        ],
+        "ans": 1,
+        "exp": "Net income is the actual money you receive in your pocket."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Public Wi-Fi' risk?",
+        "opt": [
+            "High speed",
+            "Hackers can easily steal your data",
+            "Low battery"
+        ],
+        "ans": 1,
+        "exp": "Avoid using public Wi-Fi for banking unless using a VPN."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'FBA'?",
+        "opt": [
+            "Federal Bank account",
+            "Fulfillment by Amazon",
+            "Fast Business Ads"
+        ],
+        "ans": 1,
+        "exp": "FBA allows sellers to store products in Amazon's warehouses for faster delivery."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Cloud Gaming'?",
+        "opt": [
+            "Gaming in rain",
+            "Playing high-end games via internet without console",
+            "Mobile games"
+        ],
+        "ans": 1,
+        "exp": "Services like NVIDIA GeForce Now let you stream games on any device."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'BRICS'?",
+        "opt": [
+            "Building material",
+            "Group of emerging economies (Brazil, Russia, India, China, SA)",
+            "A bank name"
+        ],
+        "ans": 1,
+        "exp": "BRICS nations represent a major portion of the world's population and GDP."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Ray-Ban Meta'?",
+        "opt": [
+            "Sunglasses",
+            "Smart glasses with camera and AI",
+            "A movie"
+        ],
+        "ans": 1,
+        "exp": "These glasses allow you to record video and talk to an AI assistant."
+    },
+    {
+        "category": "ielts",
+        "q": "What is 'Ghostwriting'?",
+        "opt": [
+            "Writing about ghosts",
+            "Writing content for someone else under their name",
+            "Secret diary"
+        ],
+        "ans": 1,
+        "exp": "A highly profitable skill for freelance writers."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Reward Points' redemption?",
+        "opt": [
+            "Buying points",
+            "Using points for travel, shopping, or cashback",
+            "Selling a card"
+        ],
+        "ans": 1,
+        "exp": "Redeeming for travel usually offers the best value per point."
+    },
+    {
+        "category": "music",
+        "q": "What is 'Droning' in tech?",
+        "opt": [
+            "Playing music",
+            "Using Unmanned Aerial Vehicles (Drones)",
+            "Sleeping"
+        ],
+        "ans": 1,
+        "exp": "Drones are used for photography, delivery, and agriculture."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'MLS' in American football?",
+        "opt": [
+            "Major League Soccer",
+            "Main Level Sports",
+            "Multi League System"
+        ],
+        "ans": 0,
+        "exp": "MLS is the top-tier professional soccer league in the United States."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Hard Inquiry'?",
+        "opt": [
+            "Bank calling you",
+            "Credit check by a lender when you apply for a card",
+            "Checking score yourself"
+        ],
+        "ans": 1,
+        "exp": "Too many hard inquiries can temporarily lower your credit score."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Moratorium'?",
+        "opt": [
+            "Extra interest",
+            "Temporary period where you don't pay EMI",
+            "Loan closure"
+        ],
+        "ans": 1,
+        "exp": "Often offered during crises like COVID-19."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the all-time top scorer in football?",
+        "opt": [
+            "Messi",
+            "Cristiano Ronaldo",
+            "Pele"
+        ],
+        "ans": 1,
+        "exp": "Cristiano Ronaldo holds the record for most official goals scored."
+    },
+    {
+        "category": "music",
+        "q": "What is 'Bandwidth'?",
+        "opt": [
+            "Number of bands",
+            "Data transfer capacity",
+            "Music group"
+        ],
+        "ans": 1,
+        "exp": "Bandwidth is the maximum rate of data transfer across a given path."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Smart Contract'?",
+        "opt": [
+            "Legal paper",
+            "Self-executing code on blockchain",
+            "Bank agreement"
+        ],
+        "ans": 1,
+        "exp": "Smart contracts automatically execute transactions when conditions are met."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'High-Ticket' affiliate marketing?",
+        "opt": [
+            "Selling many items",
+            "Promoting expensive products with high commissions",
+            "Expensive ads"
+        ],
+        "ans": 1,
+        "exp": "Promoting $1000+ software or luxury retreats can earn you $100+ per sale."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Robots.txt'?",
+        "opt": [
+            "A chat robot",
+            "File that tells search engines which pages to crawl",
+            "A virus"
+        ],
+        "ans": 1,
+        "exp": "It is a text file webmasters create to instruct web robots how to crawl pages."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Two-Factor Authentication' (2FA)?",
+        "opt": [
+            "Using two passwords",
+            "Password + Extra code (OTP)",
+            "Logging out"
+        ],
+        "ans": 1,
+        "exp": "2FA adds an extra layer of security beyond just a password."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Smishing'?",
+        "opt": [
+            "Phishing via SMS",
+            "Smiling while phishing",
+            "Selling online"
+        ],
+        "ans": 0,
+        "exp": "Never click on suspicious links sent via SMS about 'prizes' or 'account blocks'."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Volatility' in Forex?",
+        "opt": [
+            "Fixed prices",
+            "Speed and size of price movements",
+            "Market closing"
+        ],
+        "ans": 1,
+        "exp": "Volatility can lead to high profits but also high risks."
+    },
+    {
+        "category": "football_stars",
+        "q": "Which player is called 'CR7'?",
+        "opt": [
+            "Ronaldinho",
+            "Cristiano Ronaldo",
+            "Ronaldo Nazario"
+        ],
+        "ans": 1,
+        "exp": "CR7 is the global brand name of Cristiano Ronaldo."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'PCI DSS'?",
+        "opt": [
+            "Security standard for card data",
+            "A type of card",
+            "Bank name"
+        ],
+        "ans": 0,
+        "exp": "It is a set of security standards to ensure all companies process card info safely."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Annual Fee'?",
+        "opt": [
+            "One-time fee",
+            "Yearly charge for using the card",
+            "Monthly interest"
+        ],
+        "ans": 1,
+        "exp": "Some cards waive the annual fee if you spend a certain amount."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Direct Response' marketing?",
+        "opt": [
+            "Answering calls",
+            "Marketing designed to get an immediate action",
+            "TV news"
+        ],
+        "ans": 1,
+        "exp": "It focuses on measurable results like clicks, signups, or sales."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Tax Benefit' on Life Insurance?",
+        "opt": [
+            "Section 80C",
+            "Section 80D",
+            "No benefit"
+        ],
+        "ans": 0,
+        "exp": "Premiums paid for life insurance are tax-deductible under Section 80C in India."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'OLED' in screens?",
+        "opt": [
+            "Old LED",
+            "Organic Light Emitting Diode",
+            "Output LED"
+        ],
+        "ans": 1,
+        "exp": "OLED screens have better contrast and deeper blacks than LCD."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Forex Broker'?",
+        "opt": [
+            "A bank manager",
+            "Firm that provides access to trading platform",
+            "A trader"
+        ],
+        "ans": 1,
+        "exp": "Brokers act as middlemen between you and the forex market."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Dividend Yield'?",
+        "opt": [
+            "Company's total profit",
+            "Dividend per share divided by price",
+            "Stock price growth"
+        ],
+        "ans": 1,
+        "exp": "Dividend yield shows how much a company pays out in dividends each year relative to its stock price."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Nominee'?",
+        "opt": [
+            "Insurance company",
+            "Person who receives benefits after death",
+            "The agent"
+        ],
+        "ans": 1,
+        "exp": "A nominee is a person chosen by the policyholder to receive the death benefit."
+    },
+    {
+        "category": "space",
+        "q": "What is 'Web Hosting'?",
+        "opt": [
+            "Creating a website",
+            "Space to store website files",
+            "Internet speed"
+        ],
+        "ans": 1,
+        "exp": "Web hosting is the service that makes your website accessible on the internet."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Merchant Discount Rate' (MDR)?",
+        "opt": [
+            "Customer discount",
+            "Fee merchants pay to banks for card payments",
+            "Card interest"
+        ],
+        "ans": 1,
+        "exp": "This is how banks earn money even if you pay your bill on time."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Currency Pair'?",
+        "opt": [
+            "Two people trading",
+            "Value of one currency against another",
+            "Bank account"
+        ],
+        "ans": 1,
+        "exp": "In Forex, currencies are always traded in pairs, like EUR/USD."
+    },
+    {
+        "category": "gk",
+        "q": "Which brand has a lifetime contract with LeBron James and Cristiano Ronaldo?",
+        "opt": [
+            "Adidas",
+            "Nike",
+            "Puma"
+        ],
+        "ans": 1,
+        "exp": "Nike signs lifetime deals only with the world's most iconic athletes."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Subscription Box'?",
+        "opt": [
+            "Free gift",
+            "Recurring delivery of products (e.g. Netflix)",
+            "Cardboard box"
+        ],
+        "ans": 1,
+        "exp": "Customers pay monthly to receive products regularly."
+    },
+    {
+        "category": "marketing",
+        "q": "What are 'Core Web Vitals'?",
+        "opt": [
+            "Website color theme",
+            "Google's speed and user experience metrics",
+            "Social media followers"
+        ],
+        "ans": 1,
+        "exp": "Core Web Vitals measure loading speed, interactivity, and visual stability of a page."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Claim' in insurance?",
+        "opt": [
+            "Paying premium",
+            "Request for compensation",
+            "Cancelling policy"
+        ],
+        "ans": 1,
+        "exp": "A claim is a formal request to an insurance company for payment based on policy terms."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Seed Phrase'?",
+        "opt": [
+            "Plant name",
+            "List of words to recover a wallet",
+            "Username"
+        ],
+        "ans": 1,
+        "exp": "A seed phrase is a 12 or 24-word series used to restore access to your crypto wallet."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Lapsed Policy'?",
+        "opt": [
+            "New policy",
+            "Inactive policy due to non-payment",
+            "Cheap policy"
+        ],
+        "ans": 1,
+        "exp": "A lapsed policy provides no benefits until it is reinstated."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Notion'?",
+        "opt": [
+            "Notebook",
+            "All-in-one workspace for notes, tasks, and wikis",
+            "Drawing app"
+        ],
+        "ans": 1,
+        "exp": "Nomads use Notion to plan their travel and manage their work projects."
+    },
+    {
+        "category": "premier_league",
+        "q": "Which club is known as 'The Citizens'?",
+        "opt": [
+            "Leicester",
+            "Manchester City",
+            "Arsenal"
+        ],
+        "ans": 1,
+        "exp": "Man City fans and the club are often called 'The Citizens'."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Card Skimming'?",
+        "opt": [
+            "Illegal device stealing card info at ATMs",
+            "Buying a card",
+            "Card discount"
+        ],
+        "ans": 0,
+        "exp": "Skimmers are small devices placed over card slots to steal data."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Neuralink'?",
+        "opt": [
+            "New internet",
+            "Brain-computer interface company by Elon Musk",
+            "Social network"
+        ],
+        "ans": 1,
+        "exp": "Neuralink aims to help humans communicate directly with computers."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'PPC'?",
+        "opt": [
+            "Pay Per Click",
+            "Price Per Customer",
+            "Paper Print Cost"
+        ],
+        "ans": 0,
+        "exp": "Affiliates often use Google or FB ads (PPC) to drive traffic to offers."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Volatility'?",
+        "opt": [
+            "Stable market",
+            "The degree of price variation over time",
+            "Market closing"
+        ],
+        "ans": 1,
+        "exp": "Higher volatility means higher risk and potentially higher rewards."
+    },
+    {
+        "category": "sports",
+        "q": "What is the value of the 'World Cup' trophy?",
+        "opt": [
+            "$50,000",
+            "$20 Million",
+            "$1 Billion"
+        ],
+        "ans": 1,
+        "exp": "The FIFA World Cup trophy is made of 18-karat gold and is worth millions."
+    },
+    {
+        "category": "champions_league",
+        "q": "What is a 'Release Clause'?",
+        "opt": [
+            "End of contract",
+            "Fixed fee to buy a player without negotiation",
+            "A type of injury"
+        ],
+        "ans": 1,
+        "exp": "Neymar's move to PSG was triggered by a record €222M release clause."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Professional Liability' (PI)?",
+        "opt": [
+            "Car insurance",
+            "Protection against errors and omissions",
+            "Life cover"
+        ],
+        "ans": 1,
+        "exp": "Doctors, lawyers, and consultants use PI to protect against negligence claims."
+    },
+    {
+        "category": "gk",
+        "q": "Who won the World Cup in 2010?",
+        "opt": [
+            "Netherlands",
+            "Spain",
+            "Germany"
+        ],
+        "ans": 1,
+        "exp": "Spain won their first World Cup title in South Africa."
+    },
+    {
+        "category": "premier_league",
+        "q": "Which league does 'Cristiano Ronaldo' play in now?",
+        "opt": [
+            "MLS",
+            "Saudi Pro League",
+            "Premier League"
+        ],
+        "ans": 1,
+        "exp": "Ronaldo plays for Al-Nassr in the Saudi Pro League (as of 2024)."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Premium Financing'?",
+        "opt": [
+            "Paying with cash",
+            "Taking a loan to pay large premiums",
+            "Free insurance"
+        ],
+        "ans": 1,
+        "exp": "Wealthy individuals often use this to pay for large life insurance policies."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'SQL'?",
+        "opt": [
+            "Simple Query Logic",
+            "Structured Query Language",
+            "Server Quick Link"
+        ],
+        "ans": 1,
+        "exp": "SQL is used to manage and communicate with databases."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Social Engineering'?",
+        "opt": [
+            "Building social apps",
+            "Manipulating people into giving secrets",
+            "Marketing"
+        ],
+        "ans": 1,
+        "exp": "It's easier to trick a person than to hack a complex system."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Computer Vision'?",
+        "opt": [
+            "Eye glasses",
+            "AI that can understand images/videos",
+            "Watching TV"
+        ],
+        "ans": 1,
+        "exp": "Computer vision is used in self-driving cars and face recognition."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Exclusion'?",
+        "opt": [
+            "Things covered",
+            "Things NOT covered by policy",
+            "The premium"
+        ],
+        "ans": 1,
+        "exp": "Exclusions are specific conditions or circumstances not covered by the insurance."
+    },
+    {
+        "category": "science",
+        "q": "What is 'Biometrics'?",
+        "opt": [
+            "Biology test",
+            "Security using physical traits like Fingerprint/Face ID",
+            "Life history"
+        ],
+        "ans": 1,
+        "exp": "Biometrics are much safer than traditional text passwords."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Passive Income'?",
+        "opt": [
+            "Money from your job",
+            "Money earned with little to no daily effort",
+            "A gift"
+        ],
+        "ans": 1,
+        "exp": "Examples include rental income, dividends, or selling digital products."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Diversified Portfolio'?",
+        "opt": [
+            "Holding only cash",
+            "Holding various types of investments",
+            "Holding one stock"
+        ],
+        "ans": 1,
+        "exp": "Diversification helps reduce the risk of losing all your money if one asset fails."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Card Upgrade'?",
+        "opt": [
+            "New color",
+            "Moving to a higher tier card with better benefits",
+            "Cancelling card"
+        ],
+        "ans": 1,
+        "exp": "Banks often offer upgrades to loyal customers with good scores."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Burnout'?",
+        "opt": [
+            "Fire",
+            "Physical or mental exhaustion from overwork",
+            "Cooking"
+        ],
+        "ans": 1,
+        "exp": "Common even for nomads who don't balance work and travel well."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Zoning'?",
+        "opt": [
+            "Sleeping area",
+            "Laws regulating how land can be used",
+            "Parking area"
+        ],
+        "ans": 1,
+        "exp": "Zoning laws determine if land can be used for residential, commercial, or industrial use."
+    },
+    {
+        "category": "fashion",
+        "q": "What is 'Co-branded Card'?",
+        "opt": [
+            "Fake card",
+            "Card tied to a specific brand (e.g., Air India, Amazon)",
+            "Government card"
+        ],
+        "ans": 1,
+        "exp": "These cards offer massive rewards for that specific brand."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'E-Residency' (Estonia)?",
+        "opt": [
+            "Citizenship",
+            "Digital identity for non-residents to run EU business",
+            "Passport"
+        ],
+        "ans": 1,
+        "exp": "Estonia was the first to offer digital residency for online entrepreneurs."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Complimentary Insurance'?",
+        "opt": [
+            "Paid cover",
+            "Free travel or air accident insurance with card",
+            "Health cover"
+        ],
+        "ans": 1,
+        "exp": "Many premium cards offer high-value air accident cover for free."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'E-book' publishing?",
+        "opt": [
+            "Printing books",
+            "Selling digital books online (e.g. Amazon KDP)",
+            "Library"
+        ],
+        "ans": 1,
+        "exp": "Once written, an e-book can provide income for years."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'M-commerce'?",
+        "opt": [
+            "Mega commerce",
+            "Mobile commerce",
+            "Mail commerce"
+        ],
+        "ans": 1,
+        "exp": "Buying and selling through mobile devices and apps."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Spyware'?",
+        "opt": [
+            "Camera app",
+            "Software that secretly records your activity",
+            "GPS"
+        ],
+        "ans": 1,
+        "exp": "Spyware can steal your passwords and banking information."
+    },
+    {
+        "category": "tech",
+        "q": "What is '5G' technology?",
+        "opt": [
+            "5 Gigabytes",
+            "5th Generation mobile network",
+            "Google 5"
+        ],
+        "ans": 1,
+        "exp": "5G offers much faster speeds and lower latency for mobile devices."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Fixed-Rate Mortgage'?",
+        "opt": [
+            "Interest changes every year",
+            "Interest rate stays same for entire loan",
+            "No interest"
+        ],
+        "ans": 1,
+        "exp": "A fixed-rate mortgage has the same interest rate for the whole life of the loan."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Reverse Mortgage'?",
+        "opt": [
+            "Paying loan fast",
+            "Lender pays homeowner monthly income",
+            "Selling house"
+        ],
+        "ans": 1,
+        "exp": "Usually for senior citizens who use their home equity for income."
+    },
+    {
+        "category": "space",
+        "q": "What is 'Coworking Space'?",
+        "opt": [
+            "Working at home",
+            "Shared office for freelancers and remote workers",
+            "Company office"
+        ],
+        "ans": 1,
+        "exp": "They provide high-speed internet and professional office amenities."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Cashless Hospitalization'?",
+        "opt": [
+            "Paying with cash",
+            "Insurer pays hospital directly",
+            "Free hospital"
+        ],
+        "ans": 1,
+        "exp": "Cashless facility means the insured doesn't have to pay the bill; the insurer settles it."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Going Long'?",
+        "opt": [
+            "Trading for many years",
+            "Buying with expectation price will rise",
+            "Selling fast"
+        ],
+        "ans": 1,
+        "exp": "Long means buying; Short means selling."
+    },
+    {
+        "category": "insurance",
+        "q": "Which of these is a 'Central Bank' of India?",
+        "opt": [
+            "SBI",
+            "RBI",
+            "ICICI"
+        ],
+        "ans": 1,
+        "exp": "RBI (Reserve Bank of India) is the central bank that controls monetary policy."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Ransomware'?",
+        "opt": [
+            "Free app",
+            "Malware that locks data for money",
+            "Antivirus"
+        ],
+        "ans": 1,
+        "exp": "Ransomware encrypts your files and demands a 'ransom' to unlock them."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Backups' in hosting?",
+        "opt": [
+            "Reverse gear",
+            "Copy of website data to prevent loss",
+            "Deleting files"
+        ],
+        "ans": 1,
+        "exp": "Regular backups are crucial in case of hacking or errors."
+    },
+    {
+        "category": "space",
+        "q": "What is a 'Michelin Star'?",
+        "opt": [
+            "A space star",
+            "Award for high-quality restaurants",
+            "Tire quality"
+        ],
+        "ans": 1,
+        "exp": "A 3-star Michelin rating is the highest honor for a chef/restaurant."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Small Cap' company?",
+        "opt": [
+            "Company making caps",
+            "Company with small market value",
+            "Government bank"
+        ],
+        "ans": 1,
+        "exp": "Small-cap companies usually have a market cap between $300 million and $2 billion."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'UGC'?",
+        "opt": [
+            "User Generated Content (Reviews, Photos)",
+            "Universal Global Code",
+            "Under Ground Club"
+        ],
+        "ans": 0,
+        "exp": "UGC build trust as customers see real people using the product."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Rug Pull'?",
+        "opt": [
+            "Cleaning a rug",
+            "Scam where developers abandon project",
+            "Price jump"
+        ],
+        "ans": 1,
+        "exp": "A rug pull is a crypto scam where developers pump a token and then disappear with the funds."
+    },
+    {
+        "category": "gk",
+        "q": "What is the 'Federal Reserve'?",
+        "opt": [
+            "A private bank",
+            "Central Bank of the United States",
+            "A tax agency"
+        ],
+        "ans": 1,
+        "exp": "The Fed's interest rate decisions affect the global economy."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Data Breach'?",
+        "opt": [
+            "Backing up data",
+            "Unauthorized leakage of private data",
+            "Internet crash"
+        ],
+        "ans": 1,
+        "exp": "Major companies can lose millions of user records in a data breach."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'CVV' security?",
+        "opt": [
+            "3-digit code for online transactions",
+            "Bank's address",
+            "Card's name"
+        ],
+        "ans": 0,
+        "exp": "Never share your CVV with anyone, as it's needed for online payments."
+    },
+    {
+        "category": "space",
+        "q": "What is 'Starlink'?",
+        "opt": [
+            "Movie",
+            "Satellite internet service for remote areas",
+            "Telescope"
+        ],
+        "ans": 1,
+        "exp": "Starlink is a game-changer for nomads traveling in rural regions."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'IP Address'?",
+        "opt": [
+            "Personal ID",
+            "Internet Protocol Address",
+            "Postal code"
+        ],
+        "ans": 1,
+        "exp": "An IP address is a unique string of characters that identifies each computer on a network."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'Under-20 World Cup'?",
+        "opt": [
+            "School game",
+            "FIFA tournament for youth players",
+            "Local cup"
+        ],
+        "ans": 1,
+        "exp": "A major platform for discovering future football superstars."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Stock Market Crash'?",
+        "opt": [
+            "Market closing",
+            "Sudden and dramatic decline in stock prices",
+            "Buying many stocks"
+        ],
+        "ans": 1,
+        "exp": "The 1929 and 2008 crashes are famous historical examples."
+    },
+    {
+        "category": "sports",
+        "q": "Which city is the home of 'FIFA'?",
+        "opt": [
+            "Paris",
+            "Zurich",
+            "London"
+        ],
+        "ans": 1,
+        "exp": "FIFA's headquarters are located in Zurich, Switzerland."
+    },
+    {
+        "category": "premier_league",
+        "q": "Which football club is known as 'The Red Devils'?",
+        "opt": [
+            "Liverpool",
+            "Manchester United",
+            "AC Milan"
+        ],
+        "ans": 1,
+        "exp": "Man Utd's famous nickname is recognized worldwide."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Megapixel' in cameras?",
+        "opt": [
+            "Speed",
+            "One million pixels; measure of image resolution",
+            "Memory"
+        ],
+        "ans": 1,
+        "exp": "More megapixels allow for more detailed and larger photos."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Blue Chip' company?",
+        "opt": [
+            "New company",
+            "Large, stable, reliable company",
+            "Loss-making company"
+        ],
+        "ans": 1,
+        "exp": "Blue chip companies are nationally recognized, well-established, and financially sound."
+    },
+    {
+        "category": "crypto",
+        "q": "Who is the anonymous creator of Bitcoin?",
+        "opt": [
+            "Satoshi Nakamoto",
+            "Vitalik Buterin",
+            "Elon Musk"
+        ],
+        "ans": 0,
+        "exp": "Satoshi Nakamoto is the name used by the presumed pseudonymous person who developed bitcoin."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Zero-Day' attack?",
+        "opt": [
+            "Attack on Day 0",
+            "Attack using a vulnerability the maker doesn't know",
+            "Failed attack"
+        ],
+        "ans": 1,
+        "exp": "These are dangerous because there is no fix available yet."
+    },
+    {
+        "category": "daily",
+        "q": "What is '2FA'?",
+        "opt": [
+            "Using 2 cards",
+            "Two-Factor Authentication (OTP + Password)",
+            "Double payment"
+        ],
+        "ans": 1,
+        "exp": "2FA makes it much harder for hackers to access your account."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the world's highest-paid athlete (2023-24)?",
+        "opt": [
+            "Messi",
+            "Cristiano Ronaldo",
+            "LeBron James"
+        ],
+        "ans": 1,
+        "exp": "Ronaldo's move to Al-Nassr made him the highest earner in sports."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'SERP'?",
+        "opt": [
+            "Search Engine Results Page",
+            "Social Engine Report",
+            "Secure Engine Record"
+        ],
+        "ans": 0,
+        "exp": "SERP is the page you see after entering a query into a search engine."
+    },
+    {
+        "category": "tech",
+        "q": "What is a 'Full Stack' developer?",
+        "opt": [
+            "Only design expert",
+            "Developer who handles both frontend and backend",
+            "Mobile expert"
+        ],
+        "ans": 1,
+        "exp": "Full stack developers can build an entire functional web application from scratch."
+    },
+    {
+        "category": "legal",
+        "q": "What is 'Will' (Legal document)?",
+        "opt": [
+            "Determination to do work",
+            "Document for asset distribution after death",
+            "A bank form"
+        ],
+        "ans": 1,
+        "exp": "A will ensures your assets go to the right people after you pass away."
+    },
+    {
+        "category": "trading",
+        "q": "What does 'FOMO' mean in trading?",
+        "opt": [
+            "Fear of Missing Out",
+            "Fast Only Money Offer",
+            "Focus On Market Only"
+        ],
+        "ans": 0,
+        "exp": "FOMO is the feeling of anxiety that an exciting or profitable investment is happening elsewhere."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Trade Deficit'?",
+        "opt": [
+            "Low exports",
+            "When a country imports more than it exports",
+            "No trade"
+        ],
+        "ans": 1,
+        "exp": "A trade deficit means more money is flowing out of the country."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'SEBI' in India?",
+        "opt": [
+            "A bank",
+            "Stock market regulator",
+            "Investment company"
+        ],
+        "ans": 1,
+        "exp": "SEBI ensures that the stock market operates fairly and protects investors."
+    },
+    {
+        "category": "crypto",
+        "q": "What is a 'Private Key'?",
+        "opt": [
+            "Bank account number",
+            "Secret code to access crypto",
+            "Email password"
+        ],
+        "ans": 1,
+        "exp": "A private key is like a digital signature that gives you ownership of your crypto."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Day Care Procedure'?",
+        "opt": [
+            "Full day stay",
+            "Treatment requiring less than 24h stay",
+            "Only medicine buy"
+        ],
+        "ans": 1,
+        "exp": "Procedures like cataract surgery or dialysis are covered even without 24h hospitalization."
+    },
+    {
+        "category": "daily",
+        "q": "What is the full form of 'KYC'?",
+        "opt": [
+            "Know Your Customer",
+            "Keep Your Cash",
+            "Know Your Company"
+        ],
+        "ans": 0,
+        "exp": "KYC is a process to verify the identity of bank clients."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Lot Size'?",
+        "opt": [
+            "Size of a house",
+            "Number of currency units traded",
+            "Broker's office"
+        ],
+        "ans": 1,
+        "exp": "Standard lots are 100,000 units, while micro lots are 1,000 units."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Credit Card Churning'?",
+        "opt": [
+            "Breaking a card",
+            "Opening/Closing cards to get multiple sign-up bonuses",
+            "Using one card only"
+        ],
+        "ans": 1,
+        "exp": "Churning can be profitable but can also hurt your credit score if not done carefully."
+    },
+    {
+        "category": "music",
+        "q": "What is 'EMV Chip' on a card?",
+        "opt": [
+            "Music chip",
+            "Security chip for transactions",
+            "Tracking chip"
+        ],
+        "ans": 1,
+        "exp": "EMV chips provide better security than old magnetic stripes."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Smart Home'?",
+        "opt": [
+            "Big house",
+            "Home with devices connected to the internet",
+            "School"
+        ],
+        "ans": 1,
+        "exp": "Examples include smart bulbs, thermostats, and Alexa."
+    },
+    {
+        "category": "crypto",
+        "q": "What is the 'World Bank'?",
+        "opt": [
+            "Bank for everyone",
+            "International organization providing loans for development",
+            "A crypto bank"
+        ],
+        "ans": 1,
+        "exp": "The World Bank focuses on reducing poverty and building shared prosperity."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'WordPress'?",
+        "opt": [
+            "A type of browser",
+            "A popular Content Management System (CMS)",
+            "A search engine"
+        ],
+        "ans": 1,
+        "exp": "WordPress powers over 40% of all websites on the internet."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Docker'?",
+        "opt": [
+            "Ship worker",
+            "Tool for running apps in containers",
+            "A file type"
+        ],
+        "ans": 1,
+        "exp": "Docker makes it easy to deploy applications across different servers."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Power Bank'?",
+        "opt": [
+            "Bank for money",
+            "Portable battery to charge devices",
+            "Electricity house"
+        ],
+        "ans": 1,
+        "exp": "Essential for travelers and heavy smartphone users."
+    },
+    {
+        "category": "travel",
+        "q": "What are 'Air Miles'?",
+        "opt": [
+            "Distance of flight",
+            "Points earned on travel cards to get free flights",
+            "Speed of plane"
+        ],
+        "ans": 1,
+        "exp": "Frequent flyers use air miles to upgrade to Business Class for free."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Lead Magnet'?",
+        "opt": [
+            "A magnet toy",
+            "Free value given in exchange for an email",
+            "A heavy lead"
+        ],
+        "ans": 1,
+        "exp": "Examples include free e-books, checklists, or discount codes."
+    },
+    {
+        "category": "sports",
+        "q": "Which company sponsors the World Cup?",
+        "opt": [
+            "Adidas",
+            "Nike",
+            "Puma"
+        ],
+        "ans": 0,
+        "exp": "Adidas is a long-term official partner and sponsor of the FIFA World Cup."
+    },
+    {
+        "category": "luxury",
+        "q": "Which watch brand is known for 'Grand Complications'?",
+        "opt": [
+            "Seiko",
+            "Patek Philippe",
+            "Casio"
+        ],
+        "ans": 1,
+        "exp": "Patek Philippe is famous for making the most complex mechanical watches."
+    },
+    {
+        "category": "gk",
+        "q": "What is the 'Santiago Bernabéu'?",
+        "opt": [
+            "A player",
+            "Real Madrid's stadium",
+            "A tournament"
+        ],
+        "ans": 1,
+        "exp": "It is one of the most famous football stadiums in the world."
+    },
+    {
+        "category": "tech",
+        "q": "What is '404 Error'?",
+        "opt": [
+            "Page found",
+            "Page not found",
+            "Server down"
+        ],
+        "ans": 1,
+        "exp": "This error occurs when the link is broken or the page has been deleted."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Niche Marketing'?",
+        "opt": [
+            "Selling everything",
+            "Targeting a specific, small segment",
+            "TV ads"
+        ],
+        "ans": 1,
+        "exp": "Niche marketing focuses on a very specific group of customers."
+    },
+    {
+        "category": "credit",
+        "q": "What is 'Charge Card'?",
+        "opt": [
+            "Same as credit card",
+            "Must pay full balance every month",
+            "Prepaid card"
+        ],
+        "ans": 1,
+        "exp": "Unlike credit cards, charge cards often have no pre-set spending limit but no EMI."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Inventory Turnover'?",
+        "opt": [
+            "Changing staff",
+            "How many times a company sells and replaces its stock",
+            "Moving a warehouse"
+        ],
+        "ans": 1,
+        "exp": "A high turnover ratio indicates efficient stock management."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'JavaScript' primarily used for?",
+        "opt": [
+            "Printing documents",
+            "Adding interactivity to websites",
+            "Creating logos"
+        ],
+        "ans": 1,
+        "exp": "JavaScript allows you to create dynamic content, maps, and animated graphics."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Endowment Policy'?",
+        "opt": [
+            "Term insurance",
+            "Savings + Insurance",
+            "Health cover"
+        ],
+        "ans": 1,
+        "exp": "It provides both a life cover and a savings component for maturity."
+    },
+    {
+        "category": "math",
+        "q": "What is 'Logistics'?",
+        "opt": [
+            "Math problem",
+            "Managing flow and storage of goods",
+            "Writing blogs"
+        ],
+        "ans": 1,
+        "exp": "Logistics covers everything from warehouse to final delivery."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'House Sitting'?",
+        "opt": [
+            "Building a house",
+            "Staying in a home for free while owners are away",
+            "Cleaning"
+        ],
+        "ans": 1,
+        "exp": "A popular way for nomads to save on accommodation costs."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Landing Page'?",
+        "opt": [
+            "Airport runway",
+            "Webpage designed for a specific goal",
+            "Homepage"
+        ],
+        "ans": 1,
+        "exp": "A landing page is where a user 'lands' after clicking an ad or link."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Foreclosure' in loans?",
+        "opt": [
+            "Opening account",
+            "Paying full loan before tenure ends",
+            "Borrowing more"
+        ],
+        "ans": 1,
+        "exp": "Closing the loan account early by paying the entire remaining balance."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Face Value'?",
+        "opt": [
+            "Current market price",
+            "Original value of a share",
+            "Company's reputation"
+        ],
+        "ans": 1,
+        "exp": "Face value is the nominal value of a security as stated by the issuer."
+    },
+    {
+        "category": "fashion",
+        "q": "What is 'White Label' product?",
+        "opt": [
+            "Empty box",
+            "Generic product sold under your brand",
+            "Medical product"
+        ],
+        "ans": 1,
+        "exp": "Many Amazon sellers use white labeling to build their brands."
+    },
+    {
+        "category": "sports",
+        "q": "Where was the 2022 FIFA World Cup held?",
+        "opt": [
+            "Russia",
+            "Qatar",
+            "Brazil"
+        ],
+        "ans": 1,
+        "exp": "Qatar hosted the first-ever winter FIFA World Cup in 2022."
+    },
+    {
+        "category": "investing",
+        "q": "What is a 'Mutual Fund'?",
+        "opt": [
+            "Single stock",
+            "Pool of money from investors",
+            "Government scheme"
+        ],
+        "ans": 1,
+        "exp": "Mutual funds pool money from many investors to buy stocks and bonds."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Leverage'?",
+        "opt": [
+            "Free money",
+            "Borrowing funds to increase trade size",
+            "A type of tax"
+        ],
+        "ans": 1,
+        "exp": "Leverage allows traders to control large positions with a small amount of capital."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'EPC' in affiliate dashboards?",
+        "opt": [
+            "Earnings Per Click",
+            "Every Person Clicks",
+            "Electronic Payment Code"
+        ],
+        "ans": 0,
+        "exp": "EPC helps affiliates estimate how much they might earn for every 100 clicks."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Black Friday'?",
+        "opt": [
+            "A holiday",
+            "Major shopping day with high discounts",
+            "Friday the 13th"
+        ],
+        "ans": 1,
+        "exp": "One of the busiest e-commerce days in the USA and globally."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Processing Fee'?",
+        "opt": [
+            "Interest",
+            "One-time charge for loan application",
+            "Fine"
+        ],
+        "ans": 1,
+        "exp": "Lenders charge this to cover the cost of verifying your documents."
+    },
+    {
+        "category": "fashion",
+        "q": "Which brand is known for 'Red Sole' shoes?",
+        "opt": [
+            "Prada",
+            "Christian Louboutin",
+            "Jimmy Choo"
+        ],
+        "ans": 1,
+        "exp": "Louboutin's red soles are a globally recognized status symbol."
+    },
+    {
+        "category": "crypto",
+        "q": "Which crypto is known for 'Smart Contracts'?",
+        "opt": [
+            "Bitcoin",
+            "Ethereum",
+            "Litecoin"
+        ],
+        "ans": 1,
+        "exp": "Ethereum was the first major platform to introduce smart contract functionality."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'PayPal' used for?",
+        "opt": [
+            "Social media",
+            "International money transfers and payments",
+            "Photography"
+        ],
+        "ans": 1,
+        "exp": "PayPal is a standard for paying freelancers globally."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Critical Illness Cover'?",
+        "opt": [
+            "Fever cover",
+            "Cover for life-threatening diseases",
+            "Accident cover"
+        ],
+        "ans": 1,
+        "exp": "It pays a lump sum if you are diagnosed with a specific serious illness."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Lien'?",
+        "opt": [
+            "A type of floor",
+            "Legal claim on property for debt",
+            "Property discount"
+        ],
+        "ans": 1,
+        "exp": "A lien is a legal right to keep possession of property until a debt is paid."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Scalping' in Forex?",
+        "opt": [
+            "Long term trading",
+            "Making many small profits in seconds",
+            "Losing money"
+        ],
+        "ans": 1,
+        "exp": "Scalping is a high-speed trading strategy focused on very small price changes."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Vintage' wine?",
+        "opt": [
+            "Cheap wine",
+            "Wine made from grapes of a specific high-quality year",
+            "Old bottle"
+        ],
+        "ans": 1,
+        "exp": "Vintage wines can cost thousands of dollars per bottle."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Van Life'?",
+        "opt": [
+            "Living in a van while traveling",
+            "Driving a van for work",
+            "Selling vans"
+        ],
+        "ans": 0,
+        "exp": "Many remote workers convert vans into mobile homes and offices."
+    },
+    {
+        "category": "luxury",
+        "q": "Who is the most expensive defender ever?",
+        "opt": [
+            "Virgil van Dijk",
+            "Harry Maguire",
+            "Josko Gvardiol"
+        ],
+        "ans": 2,
+        "exp": "Gvardiol's move to Man City set a new record for a defender."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Chatbot'?",
+        "opt": [
+            "A human chatter",
+            "AI program designed to simulate conversation",
+            "A game"
+        ],
+        "ans": 1,
+        "exp": "Chatbots are used for customer service on many websites."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Growth Stock'?",
+        "opt": [
+            "Stock that pays dividends",
+            "Stock expected to grow faster than market",
+            "Old company"
+        ],
+        "ans": 1,
+        "exp": "Growth stocks usually reinvest their profits instead of paying dividends."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Claim Settlement Ratio' (CSR)?",
+        "opt": [
+            "Number of agents",
+            "% of claims a company has paid",
+            "Company's profit"
+        ],
+        "ans": 1,
+        "exp": "A high CSR means the company is reliable in paying claims."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'SKU'?",
+        "opt": [
+            "Stock Keeping Unit",
+            "Simple Key Unit",
+            "Store Kind Unit"
+        ],
+        "ans": 0,
+        "exp": "A unique code to identify and track each product in inventory."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Payment Gateway'?",
+        "opt": [
+            "Bank's door",
+            "Service that processes credit card payments online",
+            "A shipping tool"
+        ],
+        "ans": 1,
+        "exp": "Examples include PayPal, Stripe, and Razorpay."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'RevShare'?",
+        "opt": [
+            "Sharing news",
+            "Percentage of revenue shared with the affiliate",
+            "Free sharing"
+        ],
+        "ans": 1,
+        "exp": "Revenue share is common in subscription services and betting apps."
+    },
+    {
+        "category": "sports",
+        "q": "Which city is the home of 'FIFA' headquarters?",
+        "opt": [
+            "Paris",
+            "Zurich",
+            "London"
+        ],
+        "ans": 1,
+        "exp": "FIFA is headquartered in Zurich, Switzerland."
+    },
+    {
+        "category": "fashion",
+        "q": "What is 'Big Data'?",
+        "opt": [
+            "Large hard drive",
+            "Massive and complex datasets",
+            "Internet speed"
+        ],
+        "ans": 1,
+        "exp": "Big Data is analyzed to reveal patterns, trends, and associations."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Blue Chip' stock?",
+        "opt": [
+            "Penny stock",
+            "Stock of large, reliable, and profitable company",
+            "New startup"
+        ],
+        "ans": 1,
+        "exp": "Companies like Coca-Cola or Reliance are considered blue-chip."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Concierge Service'?",
+        "opt": [
+            "Security guard",
+            "Personal assistant service provided by premium cards",
+            "Cleaning service"
+        ],
+        "ans": 1,
+        "exp": "Concierges can help with restaurant bookings and event tickets globally."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Cash Advance Fee'?",
+        "opt": [
+            "Reward points",
+            "High fee for withdrawing cash from ATM using credit card",
+            "Interest"
+        ],
+        "ans": 1,
+        "exp": "Never use a credit card for cash; interest starts from day one."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Noise Cancelling'?",
+        "opt": [
+            "Silence",
+            "Technology to block out background sound",
+            "Quiet room"
+        ],
+        "ans": 1,
+        "exp": "Headphones like Sony WH-1000XM5 use microphones to cancel noise."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Artificial Intelligence' (AI)?",
+        "opt": [
+            "Fake human",
+            "Machines mimicking intelligence",
+            "Fast computer"
+        ],
+        "ans": 1,
+        "exp": "AI is the simulation of human intelligence processes by computer systems."
+    },
+    {
+        "category": "crypto",
+        "q": "What is a 'Fixed Deposit' (FD)?",
+        "opt": [
+            "Savings with fixed term",
+            "Stock trading",
+            "Crypto coin"
+        ],
+        "ans": 0,
+        "exp": "FD is a financial instrument where you lock money for a set period for higher interest."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Yachting'?",
+        "opt": [
+            "Fishing",
+            "Traveling or racing on luxury boats",
+            "Swimming"
+        ],
+        "ans": 1,
+        "exp": "Superyachts can cost hundreds of millions of dollars."
+    },
+    {
+        "category": "premier_league",
+        "q": "Which club plays at 'Anfield'?",
+        "opt": [
+            "Everton",
+            "Liverpool",
+            "Man City"
+        ],
+        "ans": 1,
+        "exp": "Famous for the 'You'll Never Walk Alone' anthem."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Bounce Rate'?",
+        "opt": [
+            "Ball speed",
+            "Percentage of users who leave after 1 page",
+            "Upload speed"
+        ],
+        "ans": 1,
+        "exp": "A high bounce rate often means users didn't find what they wanted on the site."
+    },
+    {
+        "category": "gaming",
+        "q": "What is 'Euro 2024'?",
+        "opt": [
+            "Asian cup",
+            "European National Championship",
+            "Club game"
+        ],
+        "ans": 1,
+        "exp": "The top international tournament for European nations."
+    },
+    {
+        "category": "champions_league",
+        "q": "Which club plays in 'San Siro'?",
+        "opt": [
+            "Juventus",
+            "AC Milan & Inter Milan",
+            "Roma"
+        ],
+        "ans": 1,
+        "exp": "Both AC Milan and Inter share this iconic stadium in Milan."
+    },
+    {
+        "category": "sports",
+        "q": "Which stadium is the 'Home of England' football?",
+        "opt": [
+            "Old Trafford",
+            "Wembley",
+            "Anfield"
+        ],
+        "ans": 1,
+        "exp": "Wembley Stadium is the iconic venue for England's national team."
+    },
+    {
+        "category": "sports",
+        "q": "Which country has won 5 FIFA World Cups?",
+        "opt": [
+            "Germany",
+            "Brazil",
+            "Italy"
+        ],
+        "ans": 1,
+        "exp": "Brazil is the most successful national team in FIFA World Cup history."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Statement Credit'?",
+        "opt": [
+            "Loan",
+            "Points used to pay off part of your card bill",
+            "A receipt"
+        ],
+        "ans": 1,
+        "exp": "It's like getting a direct discount on your monthly bill."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'CVV'?",
+        "opt": [
+            "Card Valet Value",
+            "Card Verification Value",
+            "Common Visual Value"
+        ],
+        "ans": 1,
+        "exp": "CVV is the 3-digit security code on the back of your card."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Priority Pass'?",
+        "opt": [
+            "VIP entrance",
+            "Global membership program for airport lounges",
+            "A visa"
+        ],
+        "ans": 1,
+        "exp": "Most high-end credit cards provide a complimentary Priority Pass."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Asynchronous Communication'?",
+        "opt": [
+            "Talking on phone",
+            "Messaging without expecting immediate reply",
+            "Group meeting"
+        ],
+        "ans": 1,
+        "exp": "Essential for teams spread across different time zones."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Thunderbolt' port?",
+        "opt": [
+            "Lightning",
+            "High-speed hardware interface by Intel/Apple",
+            "Battery port"
+        ],
+        "ans": 1,
+        "exp": "Thunderbolt ports offer extreme data transfer speeds and video output."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Top-up Loan'?",
+        "opt": [
+            "New loan",
+            "Extra loan over an existing loan",
+            "Phone recharge"
+        ],
+        "ans": 1,
+        "exp": "Existing home loan customers can often get top-ups at lower rates."
+    },
+    {
+        "category": "fashion",
+        "q": "What is a 'Niche'?",
+        "opt": [
+            "A large market",
+            "A specific, focused segment of a market",
+            "A brand name"
+        ],
+        "ans": 1,
+        "exp": "Example: 'Vegan dog food' is a niche within the pet food market."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Uptime'?",
+        "opt": [
+            "Time to sleep",
+            "Percentage of time a server is running",
+            "Upload speed"
+        ],
+        "ans": 1,
+        "exp": "A good hosting provider offers 99.9% uptime."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Frontend' development?",
+        "opt": [
+            "Database management",
+            "The part of website users see and interact with",
+            "Server coding"
+        ],
+        "ans": 1,
+        "exp": "Frontend includes HTML, CSS, and JavaScript that runs in the browser."
+    },
+    {
+        "category": "credit",
+        "q": "What is 'Credit Utilization Ratio'?",
+        "opt": [
+            "Spending vs Salary",
+            "Balance vs Credit Limit",
+            "Tax vs Income"
+        ],
+        "ans": 1,
+        "exp": "Keeping this ratio below 30% helps improve your credit score."
+    },
+    {
+        "category": "tech",
+        "q": "What is a 'Plugin' in WordPress?",
+        "opt": [
+            "A power cable",
+            "Software to add new features to a site",
+            "A virus"
+        ],
+        "ans": 1,
+        "exp": "Plugins like Yoast SEO or Elementor extend the functionality of a WordPress site."
+    },
+    {
+        "category": "credit",
+        "q": "What is 'Credit Limit'?",
+        "opt": [
+            "Max cash in bank",
+            "Max money you can spend on credit card",
+            "Minimum balance"
+        ],
+        "ans": 1,
+        "exp": "Credit limit is the maximum balance a lender allows on a credit card."
+    },
+    {
+        "category": "travel",
+        "q": "What is a 'Boutique Hotel'?",
+        "opt": [
+            "Large resort",
+            "Small, stylish, and unique luxury hotel",
+            "Cheap motel"
+        ],
+        "ans": 1,
+        "exp": "Boutique hotels offer a more personalized experience than big chains."
+    },
+    {
+        "category": "music",
+        "q": "What is 'Solopreneur'?",
+        "opt": [
+            "Singer",
+            "Individual who runs their business alone",
+            "Solar worker"
+        ],
+        "ans": 1,
+        "exp": "Many digital nomads are solopreneurs managing their own brands."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Marine Cargo Insurance'?",
+        "opt": [
+            "Ship engine cover",
+            "Insurance for goods in transit by sea/air",
+            "Beach cover"
+        ],
+        "ans": 1,
+        "exp": "It protects exporters and importers from losses due to damaged cargo."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Billing Cycle'?",
+        "opt": [
+            "Bank holiday",
+            "The monthly period between two bill generations",
+            "Payment due date"
+        ],
+        "ans": 1,
+        "exp": "Purchases made at the start of the cycle get more interest-free days."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Exchange Rate'?",
+        "opt": [
+            "Speed of money",
+            "Value of one currency compared to another",
+            "Bank interest"
+        ],
+        "ans": 1,
+        "exp": "Exchange rates fluctuate based on supply, demand, and interest rates."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'API'?",
+        "opt": [
+            "Application Programming Interface",
+            "Apple Price Info",
+            "Auto Program Ink"
+        ],
+        "ans": 0,
+        "exp": "API allows two different softwares to communicate with each other."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who won the Ballon d'Or 2023?",
+        "opt": [
+            "Haaland",
+            "Lionel Messi",
+            "Mbappe"
+        ],
+        "ans": 1,
+        "exp": "Lionel Messi won his record 8th Ballon d'Or in 2023."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Disability Insurance'?",
+        "opt": [
+            "Covers death",
+            "Covers income loss due to injury",
+            "Car cover"
+        ],
+        "ans": 1,
+        "exp": "It provides income if you are unable to work due to a disability."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Nofollow' link?",
+        "opt": [
+            "A link you can't click",
+            "Link that doesn't pass SEO authority (link juice)",
+            "Social media link"
+        ],
+        "ans": 1,
+        "exp": "Nofollow tells search engines to ignore the link for ranking purposes."
+    },
+    {
+        "category": "history",
+        "q": "What is 'Hyperinflation'?",
+        "opt": [
+            "Low inflation",
+            "Extremely rapid and out-of-control inflation",
+            "Good economy"
+        ],
+        "ans": 1,
+        "exp": "Zimbabwe and Venezuela have faced hyperinflation in recent history."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'SSD'?",
+        "opt": [
+            "Solid State Drive",
+            "System Storage Disk",
+            "Slow Speed Drive"
+        ],
+        "ans": 0,
+        "exp": "SSDs are much faster and more durable than traditional Hard Drives (HDD)."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'REIT'?",
+        "opt": [
+            "Real Estate Investment Trust",
+            "Retail Income Tool",
+            "Real Estate Info"
+        ],
+        "ans": 0,
+        "exp": "REITs allow you to invest in real estate without owning physical property."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Auto-Installer'?",
+        "opt": [
+            "Robot",
+            "Tool to install apps like WordPress in 1-click",
+            "Antivirus"
+        ],
+        "ans": 1,
+        "exp": "Softaculous is a popular auto-installer used in cPanel."
+    },
+    {
+        "category": "tech",
+        "q": "What is a 'Firewall'?",
+        "opt": [
+            "Physical wall",
+            "Network security filter",
+            "Software update"
+        ],
+        "ans": 1,
+        "exp": "Firewalls block unauthorized access while allowing outward communication."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Email List'?",
+        "opt": [
+            "List of friends",
+            "Collection of emails from potential customers",
+            "A phone book"
+        ],
+        "ans": 1,
+        "exp": "Experienced affiliates say 'the money is in the list'."
+    },
+    {
+        "category": "fashion",
+        "q": "Which brand has the 'Double G' logo?",
+        "opt": [
+            "Givenchy",
+            "Gucci",
+            "Goyard"
+        ],
+        "ans": 1,
+        "exp": "Gucci is one of the world's most valuable luxury fashion brands."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'DEX'?",
+        "opt": [
+            "Digital Exchange",
+            "Decentralized Exchange",
+            "Daily Exchange"
+        ],
+        "ans": 1,
+        "exp": "A DEX allows users to trade crypto directly with each other without a middleman."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Nifty'?",
+        "opt": [
+            "BSE Index",
+            "NSE Index",
+            "US Market"
+        ],
+        "ans": 1,
+        "exp": "Nifty 50 is the benchmark index of the National Stock Exchange (NSE)."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Long-tail Keyword'?",
+        "opt": [
+            "Short popular words",
+            "Specific phrases with lower search volume but higher conversion",
+            "Dictionary words"
+        ],
+        "ans": 1,
+        "exp": "Example: 'Best credit card for travel' is a long-tail keyword."
+    },
+    {
+        "category": "bollywood",
+        "q": "What is 'Identity Theft'?",
+        "opt": [
+            "Losing ID",
+            "Stealing personal info for financial fraud",
+            "A movie name"
+        ],
+        "ans": 1,
+        "exp": "Criminals use your data to take loans or open credit cards in your name."
+    },
+    {
+        "category": "tech",
+        "q": "What is a 'Digital Nomad'?",
+        "opt": [
+            "Computer hacker",
+            "Someone who works remotely while traveling",
+            "IT worker"
+        ],
+        "ans": 1,
+        "exp": "Digital nomads use technology to work from cafes, beaches, or different countries."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Peer-to-Peer (P2P) Lending'?",
+        "opt": [
+            "Borrowing from bank",
+            "Lending money directly to others via apps",
+            "Giving money to friends"
+        ],
+        "ans": 1,
+        "exp": "P2P lending can offer higher interest than traditional savings accounts."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Revolut/Wise'?",
+        "opt": [
+            "Game",
+            "Digital banks for low-cost international transfers",
+            "Cloud storage"
+        ],
+        "ans": 1,
+        "exp": "Nomads use these to save on currency exchange fees."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'AI Hallucination'?",
+        "opt": [
+            "AI dreaming",
+            "AI generating false or nonsensical info",
+            "AI crashing"
+        ],
+        "ans": 1,
+        "exp": "Hallucinations happen when AI provides confident but incorrect answers."
+    },
+    {
+        "category": "fashion",
+        "q": "Which jewelry brand has a 'Tiffany Blue' box?",
+        "opt": [
+            "Cartier",
+            "Tiffany & Co.",
+            "Bulgari"
+        ],
+        "ans": 1,
+        "exp": "The blue box is a famous trademark of the American jeweler."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Bear Trap'?",
+        "opt": [
+            "Trap for animals",
+            "False signal of price drop",
+            "Market crash"
+        ],
+        "ans": 1,
+        "exp": "A bear trap is a false technical signal of a declining trend that tricks traders into selling."
+    },
+    {
+        "category": "gaming",
+        "q": "What is a 'Penalty Shootout'?",
+        "opt": [
+            "Game of 90 mins",
+            "Tie-breaker with 5 kicks",
+            "A free kick"
+        ],
+        "ans": 1,
+        "exp": "Penalty shootouts decide the winner of a drawn knockout match."
+    },
+    {
+        "category": "geo",
+        "q": "Which country's league is called 'Ligue 1'?",
+        "opt": [
+            "Spain",
+            "France",
+            "Italy"
+        ],
+        "ans": 1,
+        "exp": "Ligue 1 is home to clubs like PSG and Marseille."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Mobile-First Indexing'?",
+        "opt": [
+            "Buying a phone",
+            "Google using mobile version of site for ranking",
+            "Faster mobile apps"
+        ],
+        "ans": 1,
+        "exp": "Since 2019, Google primarily crawls and indexes the mobile version of websites."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'HTTPS'?",
+        "opt": [
+            "Fast website",
+            "Secure website with SSL certificate",
+            "A new browser"
+        ],
+        "ans": 1,
+        "exp": "The 'S' stands for secure; it encrypts the data between you and the site."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Business Loan'?",
+        "opt": [
+            "For vacation",
+            "For starting or expanding a company",
+            "For buying a car"
+        ],
+        "ans": 1,
+        "exp": "Used for working capital, machinery, or office expansion."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Default'?",
+        "opt": [
+            "Normal state",
+            "Failure to repay a loan",
+            "Fast payment"
+        ],
+        "ans": 1,
+        "exp": "Defaulting destroys your credit score for many years."
+    },
+    {
+        "category": "daily",
+        "q": "Which company created 'Windows'?",
+        "opt": [
+            "Apple",
+            "Microsoft",
+            "Intel"
+        ],
+        "ans": 1,
+        "exp": "Microsoft developed the Windows operating system."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Deductible'?",
+        "opt": [
+            "Free service",
+            "Amount you pay before insurer pays",
+            "Tax discount"
+        ],
+        "ans": 1,
+        "exp": "Higher deductibles usually lead to lower insurance premiums."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Liquid Asset'?",
+        "opt": [
+            "Oil and Water",
+            "Cash or assets easily turned to cash",
+            "A big house"
+        ],
+        "ans": 1,
+        "exp": "Savings accounts are liquid; real estate is not."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Restoration Benefit'?",
+        "opt": [
+            "Fixing a house",
+            "Refilling sum insured if used up",
+            "New policy"
+        ],
+        "ans": 1,
+        "exp": "If you use your full insurance amount, the company refills it for the next illness."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Surrender Value'?",
+        "opt": [
+            "Death payout",
+            "Amount paid if you cancel policy early",
+            "Fine for late payment"
+        ],
+        "ans": 1,
+        "exp": "If you exit a life insurance policy before the term ends, you get the surrender value."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'DDoS Attack'?",
+        "opt": [
+            "Software update",
+            "Overwhelming a server with fake traffic",
+            "Deleting files"
+        ],
+        "ans": 1,
+        "exp": "DDoS protection is essential for modern web hosting."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Metaverse'?",
+        "opt": [
+            "A new planet",
+            "A shared 3D virtual world",
+            "Social media site"
+        ],
+        "ans": 1,
+        "exp": "Meta (formerly Facebook) is heavily investing in the Metaverse."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'Super League' proposal?",
+        "opt": [
+            "A new FIFA cup",
+            "A breakaway league for top clubs",
+            "A youth league"
+        ],
+        "ans": 1,
+        "exp": "The Super League was a controversial project led by major European clubs."
+    },
+    {
+        "category": "champions_league",
+        "q": "Which club has the most 'Champions League' titles?",
+        "opt": [
+            "AC Milan",
+            "Real Madrid",
+            "Liverpool"
+        ],
+        "ans": 1,
+        "exp": "Real Madrid has won a record 14+ UEFA Champions League titles."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Welcome Bonus'?",
+        "opt": [
+            "Saying hello",
+            "Large points given for meeting spend in first 90 days",
+            "Free card"
+        ],
+        "ans": 1,
+        "exp": "A welcome bonus can sometimes pay for a full round-trip flight."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Contactless Payment' (NFC)?",
+        "opt": [
+            "Online only",
+            "Tapping card on terminal to pay without PIN",
+            "Paying via call"
+        ],
+        "ans": 1,
+        "exp": "NFC is fast but usually limited to smaller transaction amounts."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Black Hat SEO'?",
+        "opt": [
+            "Safe SEO practices",
+            "Unethical techniques to trick search engines",
+            "SEO for fashion sites"
+        ],
+        "ans": 1,
+        "exp": "Black hat SEO (like keyword stuffing) can lead to your site being banned by Google."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Keylogger'?",
+        "opt": [
+            "Software that records keystrokes",
+            "Keyboard driver",
+            "A lock"
+        ],
+        "ans": 0,
+        "exp": "Hackers use it to see exactly what you type, including passwords."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Injury Time'?",
+        "opt": [
+            "Time for surgery",
+            "Added minutes at the end of a half",
+            "Half time break"
+        ],
+        "ans": 1,
+        "exp": "Referees add time lost due to substitutions, injuries, and celebrations."
+    },
+    {
+        "category": "math",
+        "q": "What is an 'Algorithm'?",
+        "opt": [
+            "A music beat",
+            "Set of rules to solve a problem",
+            "Math textbook"
+        ],
+        "ans": 1,
+        "exp": "An algorithm is a step-by-step procedure for calculations or problem-solving."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Hard Currency'?",
+        "opt": [
+            "Physical coins",
+            "Stable, globally accepted currency (e.g. USD)",
+            "Fake money"
+        ],
+        "ans": 1,
+        "exp": "Hard currencies are expected to remain stable and are highly liquid."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Stamp Duty'?",
+        "opt": [
+            "Cost of stamps",
+            "Tax on legal documents for property",
+            "Postal tax"
+        ],
+        "ans": 1,
+        "exp": "Stamp duty is a tax levied by the government on property purchase documents."
+    },
+    {
+        "category": "credit",
+        "q": "What is a 'Limit Order'?",
+        "opt": [
+            "Buying at any price",
+            "Order to buy/sell at a specific price",
+            "Minimum investment"
+        ],
+        "ans": 1,
+        "exp": "A limit order only executes if the price reaches the specified limit set by the trader."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Bonus Issue'?",
+        "opt": [
+            "Extra salary",
+            "Free additional shares to shareholders",
+            "Cash gift"
+        ],
+        "ans": 1,
+        "exp": "Companies issue bonus shares to reward existing shareholders without paying cash."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'VPN'?",
+        "opt": [
+            "Virtual Private Network",
+            "Very Private Node",
+            "Visual Public Net"
+        ],
+        "ans": 0,
+        "exp": "VPN creates a safe and encrypted connection over a less secure network like the internet."
+    },
+    {
+        "category": "fashion",
+        "q": "What is 'ChatGPT' based on?",
+        "opt": [
+            "LLM (Large Language Model)",
+            "Video Engine",
+            "Simple Search"
+        ],
+        "ans": 0,
+        "exp": "ChatGPT uses GPT architecture to understand and generate text."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Cache'?",
+        "opt": [
+            "Physical cash",
+            "Temporary storage for faster loading",
+            "A virus"
+        ],
+        "ans": 1,
+        "exp": "Browsers store images in cache so they don't have to download them again."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Unemployment Rate'?",
+        "opt": [
+            "People with jobs",
+            "% of labor force that is jobless and seeking work",
+            "People retired"
+        ],
+        "ans": 1,
+        "exp": "A low unemployment rate is a sign of a healthy economy."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the first footballer to become a billionaire?",
+        "opt": [
+            "Messi",
+            "Cristiano Ronaldo",
+            "Neymar"
+        ],
+        "ans": 1,
+        "exp": "Ronaldo achieved billionaire status through his salary and endorsements."
+    },
+    {
+        "category": "crypto",
+        "q": "What is a 'Cold Wallet'?",
+        "opt": [
+            "Wallet kept in fridge",
+            "Offline storage for crypto",
+            "Empty wallet"
+        ],
+        "ans": 1,
+        "exp": "Cold wallets are physical devices that store crypto offline to prevent hacking."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Short Term Capital Gain'?",
+        "opt": [
+            "Profit from long investment",
+            "Profit from assets held for less than a year",
+            "Salary"
+        ],
+        "ans": 1,
+        "exp": "In many countries, short-term gains are taxed at a higher rate."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Systematic Investment Plan' (SIP)?",
+        "opt": [
+            "Investing a large lump sum",
+            "Investing a fixed amount regularly",
+            "A bank loan"
+        ],
+        "ans": 1,
+        "exp": "SIP is one of the best ways for small investors to build wealth."
+    },
+    {
+        "category": "crypto",
+        "q": "What is an 'Altcoin'?",
+        "opt": [
+            "Fake coin",
+            "Any coin other than Bitcoin",
+            "A stable coin"
+        ],
+        "ans": 1,
+        "exp": "Altcoin is a combination of 'alternative' and 'coin', referring to all cryptos except Bitcoin."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Native Advertising'?",
+        "opt": [
+            "Ads in local language",
+            "Ads that match the look and feel of the website",
+            "TV ads"
+        ],
+        "ans": 1,
+        "exp": "Native ads (like Taboola or Outbrain) don't look like traditional ads."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Deflation'?",
+        "opt": [
+            "Falling prices",
+            "Rising prices",
+            "Stable market"
+        ],
+        "ans": 0,
+        "exp": "While it sounds good, deflation can signal a weak economy."
+    },
+    {
+        "category": "mortgage",
+        "q": "What is 'Economic Calendar'?",
+        "opt": [
+            "Holiday list",
+            "Schedule of major news and data releases",
+            "Bank calendar"
+        ],
+        "ans": 1,
+        "exp": "Traders use economic calendars to track events like interest rate decisions."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'OPEC'?",
+        "opt": [
+            "Ocean pollution",
+            "Organization of Petroleum Exporting Countries",
+            "Energy company"
+        ],
+        "ans": 1,
+        "exp": "OPEC influences global oil prices by managing supply."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'SaaS' in e-commerce?",
+        "opt": [
+            "Shopify/BigCommerce",
+            "Physical shop",
+            "Selling software"
+        ],
+        "ans": 0,
+        "exp": "Software platforms that help you build an online store."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the 'All-time top scorer' for Brazil?",
+        "opt": [
+            "Pele",
+            "Neymar Jr",
+            "Ronaldo"
+        ],
+        "ans": 1,
+        "exp": "Neymar Jr recently surpassed Pele's official goal record for Brazil."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Slack' used for?",
+        "opt": [
+            "Watching videos",
+            "Team communication and collaboration",
+            "Coding"
+        ],
+        "ans": 1,
+        "exp": "Slack is the most popular messaging tool for remote teams."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Personal Accident Insurance'?",
+        "opt": [
+            "Car repair",
+            "Covers death or disability due to accident",
+            "Medical checkup"
+        ],
+        "ans": 1,
+        "exp": "It provides financial support if an accident leads to permanent disability."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Bull Market'?",
+        "opt": [
+            "Prices are falling",
+            "Prices are rising",
+            "Market is closed"
+        ],
+        "ans": 1,
+        "exp": "A bull market is when stock prices are on an upward trend."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Double Indemnity'?",
+        "opt": [
+            "Two policies",
+            "Twice the benefit for accidental death",
+            "Fake insurance"
+        ],
+        "ans": 1,
+        "exp": "It is a clause that pays double the sum insured if the death is accidental."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'CTA'?",
+        "opt": [
+            "Call to Action",
+            "Customer To Agent",
+            "Click To Apply"
+        ],
+        "ans": 0,
+        "exp": "A CTA is a prompt like 'Buy Now' or 'Sign Up' that tells users what to do."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Critical Illness Rider'?",
+        "opt": [
+            "Life cover only",
+            "Lump sum payout for serious diseases",
+            "Hospital bill only"
+        ],
+        "ans": 1,
+        "exp": "It provides a large cash amount if you are diagnosed with cancer, heart attack, etc."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Schema Markup'?",
+        "opt": [
+            "Website design",
+            "Code that helps search engines provide rich snippets",
+            "A type of database"
+        ],
+        "ans": 1,
+        "exp": "Schema helps show ratings, prices, and FAQs directly in Google search."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Vishing'?",
+        "opt": [
+            "Phishing via phone calls",
+            "Phishing via video",
+            "Fake emails"
+        ],
+        "ans": 0,
+        "exp": "Vishing (Voice Phishing) is when scammers call you pretending to be bank staff."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Value Investing'?",
+        "opt": [
+            "Buying expensive stocks",
+            "Buying undervalued stocks",
+            "Following tips"
+        ],
+        "ans": 1,
+        "exp": "Value investors look for stocks that are trading for less than their intrinsic value."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Organic Traffic'?",
+        "opt": [
+            "Paid traffic",
+            "Free traffic from search engine results",
+            "Traffic from friends"
+        ],
+        "ans": 1,
+        "exp": "Organic traffic is sustainable and doesn't require ad spending."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Framework' (e.g. React)?",
+        "opt": [
+            "A picture frame",
+            "A pre-written library for faster development",
+            "A computer"
+        ],
+        "ans": 1,
+        "exp": "React and Angular help developers build complex web apps faster."
+    },
+    {
+        "category": "gaming",
+        "q": "What is 'Google Search Console'?",
+        "opt": [
+            "A gaming console",
+            "Free tool to monitor site performance in Google",
+            "Paid ad tool"
+        ],
+        "ans": 1,
+        "exp": "It helps webmasters fix indexing issues and see search queries."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'No Claim Bonus' (NCB)?",
+        "opt": [
+            "Extra premium",
+            "Discount for claim-free year",
+            "A penalty"
+        ],
+        "ans": 1,
+        "exp": "NCB is a reward for not making any insurance claims during the policy period."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'CTR'?",
+        "opt": [
+            "Click Through Rate",
+            "Customer Total Return",
+            "Cash Transfer Rate"
+        ],
+        "ans": 0,
+        "exp": "CTR is the percentage of people who click an ad after seeing it."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'HTTP'?",
+        "opt": [
+            "Hyperlink Text Protocol",
+            "Hypertext Transfer Protocol",
+            "High Tech Transfer"
+        ],
+        "ans": 1,
+        "exp": "HTTP is the foundation of any data exchange on the Web."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Digital Wallet'?",
+        "opt": [
+            "Physical wallet",
+            "App for storing money and paying (GPay)",
+            "Crypto key"
+        ],
+        "ans": 1,
+        "exp": "Digital wallets are the most popular payment method in Asia."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Principal Amount'?",
+        "opt": [
+            "Original money borrowed",
+            "Total interest paid",
+            "Bank's profit"
+        ],
+        "ans": 0,
+        "exp": "Interest is calculated on the principal amount."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Phasing Out' a product?",
+        "opt": [
+            "Launching it",
+            "Gradually stopping production",
+            "Increasing price"
+        ],
+        "ans": 1,
+        "exp": "Companies phase out old products to make room for new ones."
+    },
+    {
+        "category": "retirement",
+        "q": "What is 'Annuity'?",
+        "opt": [
+            "One-time payment",
+            "Regular income for retirement",
+            "Yearly tax"
+        ],
+        "ans": 1,
+        "exp": "Annuity plans convert a lump sum into a steady stream of income for life."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'End-to-End Encryption'?",
+        "opt": [
+            "Only sender/receiver can read data",
+            "Government can read",
+            "Public data"
+        ],
+        "ans": 0,
+        "exp": "It prevents third parties from eavesdropping on your communications."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Bull Market'?",
+        "opt": [
+            "Prices are falling",
+            "Prices are rising",
+            "Market is closed"
+        ],
+        "ans": 1,
+        "exp": "A bull market indicates investor confidence and economic growth."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Cookie Duration'?",
+        "opt": [
+            "Time to bake",
+            "How long an affiliate link stays active for a user",
+            "Storage size"
+        ],
+        "ans": 1,
+        "exp": "If a user buys within the cookie duration (e.g., 24h or 30 days), you get commission."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the 'All-time top scorer' in Champions League history?",
+        "opt": [
+            "Messi",
+            "Cristiano Ronaldo",
+            "Lewandowski"
+        ],
+        "ans": 1,
+        "exp": "Ronaldo holds the record with over 140 goals."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Forex Signal'?",
+        "opt": [
+            "Traffic light",
+            "Trading suggestion from a pro/software",
+            "Mobile network"
+        ],
+        "ans": 1,
+        "exp": "Forex signals tell you when to buy or sell a specific currency pair."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Chargeback'?",
+        "opt": [
+            "Getting change",
+            "Bank returns money to buyer after dispute",
+            "Paying extra"
+        ],
+        "ans": 1,
+        "exp": "Sellers try to avoid chargebacks as they cost money and reputation."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Penetration Testing'?",
+        "opt": [
+            "Typing test",
+            "Ethical hacking to find weaknesses",
+            "New software"
+        ],
+        "ans": 1,
+        "exp": "Companies hire 'white hat' hackers to test their security."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Trojan Horse'?",
+        "opt": [
+            "A game",
+            "Malware disguised as useful software",
+            "Fast CPU"
+        ],
+        "ans": 1,
+        "exp": "A Trojan looks harmless but performs malicious actions once installed."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'CMS' (e.g., WordPress)?",
+        "opt": [
+            "Computer Main System",
+            "Content Management System",
+            "Cloud Main Server"
+        ],
+        "ans": 1,
+        "exp": "CMS is software used to create and manage digital content on websites."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Debugging'?",
+        "opt": [
+            "Killing insects",
+            "Finding and fixing errors in code",
+            "Cleaning computer"
+        ],
+        "ans": 1,
+        "exp": "Debugging is a core part of the software development process."
+    },
+    {
+        "category": "daily",
+        "q": "Which company owns 'YouTube'?",
+        "opt": [
+            "Facebook",
+            "Google",
+            "Microsoft"
+        ],
+        "ans": 1,
+        "exp": "Google (Alphabet) acquired YouTube in 2006."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Social Commerce'?",
+        "opt": [
+            "Donating to charity",
+            "Selling products directly through social media",
+            "Meeting friends"
+        ],
+        "ans": 1,
+        "exp": "Instagram Shopping and TikTok Shop are major social commerce platforms."
+    },
+    {
+        "category": "sports",
+        "q": "Which stadium is the largest in Europe?",
+        "opt": [
+            "Wembley",
+            "Camp Nou",
+            "Bernabeu"
+        ],
+        "ans": 1,
+        "exp": "Camp Nou (Barcelona) is the largest football stadium in Europe."
+    },
+    {
+        "category": "geo",
+        "q": "Which city is known as the 'Fashion Capital'?",
+        "opt": [
+            "New York",
+            "Paris",
+            "Tokyo"
+        ],
+        "ans": 1,
+        "exp": "Paris is home to major luxury brands like Chanel and Dior."
+    },
+    {
+        "category": "geo",
+        "q": "Which country is home to the 'Maracanã' Stadium?",
+        "opt": [
+            "Argentina",
+            "Brazil",
+            "Mexico"
+        ],
+        "ans": 1,
+        "exp": "The Maracanã in Rio de Janeiro is one of the most legendary stadiums."
+    },
+    {
+        "category": "realestate",
+        "q": "What is a 'Lease Agreement'?",
+        "opt": [
+            "Buying contract",
+            "Rental contract",
+            "Tax paper"
+        ],
+        "ans": 1,
+        "exp": "A lease is a legal contract between a landlord and a tenant for property use."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'AOV'?",
+        "opt": [
+            "Average Order Value",
+            "Auto Online View",
+            "All Out Venture"
+        ],
+        "ans": 0,
+        "exp": "AOV is the average amount a customer spends per transaction."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'A/B Testing'?",
+        "opt": [
+            "Simple test",
+            "Testing two site versions for better sales",
+            "Grading products"
+        ],
+        "ans": 1,
+        "exp": "Comparing two designs to see which one makes more people buy."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Dynamic Pricing'?",
+        "opt": [
+            "Fixed price",
+            "Changing prices based on demand and data",
+            "Discount code"
+        ],
+        "ans": 1,
+        "exp": "Airlines and Uber use dynamic pricing to maximize profit."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Control Panel' (cPanel)?",
+        "opt": [
+            "Dashboard to manage hosting",
+            "TV remote",
+            "Keyboard"
+        ],
+        "ans": 0,
+        "exp": "cPanel allows you to manage files, emails, and databases easily."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Augmented Reality' (AR)?",
+        "opt": [
+            "Full virtual world",
+            "Digital overlays on real world",
+            "3D movies"
+        ],
+        "ans": 1,
+        "exp": "Pokemon Go is a famous example of AR technology."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Grace Period' for payment?",
+        "opt": [
+            "Time to buy",
+            "Extra time to pay premium after due date",
+            "Gift time"
+        ],
+        "ans": 1,
+        "exp": "Usually 15-30 days, keeping the policy active even if payment is late."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Policyholder'?",
+        "opt": [
+            "The insurance company",
+            "The owner of the policy",
+            "The agent"
+        ],
+        "ans": 1,
+        "exp": "The policyholder is the person who has purchased and owns the insurance policy."
+    },
+    {
+        "category": "ielts",
+        "q": "What is 'Keyword Stuffing'?",
+        "opt": [
+            "Using many keywords naturally",
+            "Repeating keywords excessively to manipulate rankings",
+            "Writing long articles"
+        ],
+        "ans": 1,
+        "exp": "This is a spammy tactic that can lead to Google penalties."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Health Insurance'?",
+        "opt": [
+            "Life cover",
+            "Medical expense cover",
+            "Travel cover"
+        ],
+        "ans": 1,
+        "exp": "Health insurance pays for medical and surgical expenses of the insured."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Whitepaper'?",
+        "opt": [
+            "A blank page",
+            "Document explaining a crypto project",
+            "A tax form"
+        ],
+        "ans": 1,
+        "exp": "A whitepaper is a technical document released by a project to explain its tech and goals."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Universal Life Insurance'?",
+        "opt": [
+            "Insurance for aliens",
+            "Flexible premium life insurance",
+            "Fixed price cover"
+        ],
+        "ans": 1,
+        "exp": "It offers more flexibility in premiums and death benefits than whole life."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Chatbot' in sales?",
+        "opt": [
+            "Human seller",
+            "AI assistant for customer queries",
+            "Phone call"
+        ],
+        "ans": 1,
+        "exp": "Chatbots handle 24/7 support and lead generation."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Internal Linking'?",
+        "opt": [
+            "Linking to other websites",
+            "Linking from one page to another on the same site",
+            "Social media links"
+        ],
+        "ans": 1,
+        "exp": "Internal links help spread link equity and improve site navigation."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'USB-C'?",
+        "opt": [
+            "Slow charger",
+            "Universal connector for power and data",
+            "Apple cable only"
+        ],
+        "ans": 1,
+        "exp": "USB-C is now the standard port for almost all modern gadgets."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Whale' in crypto?",
+        "opt": [
+            "A sea animal",
+            "Investor with huge amount of crypto",
+            "A scammer"
+        ],
+        "ans": 1,
+        "exp": "Whales are individuals or entities that hold enough crypto to influence market prices."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Ballon d'Or Féminin'?",
+        "opt": [
+            "Best young player",
+            "Best female football player award",
+            "A French club"
+        ],
+        "ans": 1,
+        "exp": "It is the female version of the famous Ballon d'Or award."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Maturity Benefit'?",
+        "opt": [
+            "Death benefit",
+            "Amount received at end of policy term",
+            "Monthly pension"
+        ],
+        "ans": 1,
+        "exp": "Maturity benefit is found in endowment or ULIP plans, not in pure term insurance."
+    },
+    {
+        "category": "fashion",
+        "q": "What is the 'Golden Boot'?",
+        "opt": [
+            "Award for best goalie",
+            "Award for top goalscorer",
+            "Golden shoes"
+        ],
+        "ans": 1,
+        "exp": "It is awarded to the top scorer in a league or tournament."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Zero-Day Vulnerability'?",
+        "opt": [
+            "Old bug",
+            "A flaw unknown to the software maker",
+            "Fixed bug"
+        ],
+        "ans": 1,
+        "exp": "It is called 'zero-day' because the developer has zero days to fix it."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Sum Insured'?",
+        "opt": [
+            "Total premium",
+            "Maximum amount insurer will pay",
+            "Tax amount"
+        ],
+        "ans": 1,
+        "exp": "Sum insured is the maximum value covered by the insurance policy for a year."
+    },
+    {
+        "category": "credit",
+        "q": "What is 'Add-on Card'?",
+        "opt": [
+            "New card",
+            "Secondary card for family members on same account",
+            "Prepaid card"
+        ],
+        "ans": 1,
+        "exp": "Add-on cards share the credit limit and rewards of the primary card."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Infinity Pool'?",
+        "opt": [
+            "Deep pool",
+            "Pool that appears to merge into the horizon/ocean",
+            "Small pool"
+        ],
+        "ans": 1,
+        "exp": "Found in luxury resorts and high-end villas."
+    },
+    {
+        "category": "mba",
+        "q": "What is 'Guest Posting'?",
+        "opt": [
+            "Inviting guests home",
+            "Writing an article for another website to get a link",
+            "Posting on Facebook"
+        ],
+        "ans": 1,
+        "exp": "It is a popular strategy to build authority and backlinks."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Title Insurance'?",
+        "opt": [
+            "Insurance for car",
+            "Protection against property ownership disputes",
+            "Life insurance"
+        ],
+        "ans": 1,
+        "exp": "Title insurance protects the buyer if there are legal issues with property ownership."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'End-to-End Encryption' (E2EE)?",
+        "opt": [
+            "Only sender/receiver can read",
+            "Server can read",
+            "Public chat"
+        ],
+        "ans": 0,
+        "exp": "Apps like WhatsApp use E2EE to protect messages."
+    },
+    {
+        "category": "premier_league",
+        "q": "Which stadium is called 'Old Trafford'?",
+        "opt": [
+            "Liverpool",
+            "Manchester United",
+            "Chelsea"
+        ],
+        "ans": 1,
+        "exp": "Known as the 'Theatre of Dreams', it is Man Utd's home."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Mortgage'?",
+        "opt": [
+            "Car loan",
+            "Loan for property/house",
+            "Business loan"
+        ],
+        "ans": 1,
+        "exp": "In a mortgage, the house itself is the collateral."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Liquidity'?",
+        "opt": [
+            "Company's debt",
+            "Ease of converting asset to cash",
+            "Oil price"
+        ],
+        "ans": 1,
+        "exp": "Liquidity refers to how quickly an asset can be bought or sold in the market."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'UI' in web design?",
+        "opt": [
+            "User Interaction",
+            "User Interface",
+            "Universal Image"
+        ],
+        "ans": 1,
+        "exp": "UI refers to the visual elements users interact with on a site."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Rental Income'?",
+        "opt": [
+            "Paying rent",
+            "Money earned from leasing a property",
+            "Selling a house"
+        ],
+        "ans": 1,
+        "exp": "Real estate is a classic source of passive income."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Central Bank Intervention'?",
+        "opt": [
+            "Bank closing",
+            "Bank buying/selling currency to stabilize it",
+            "Giving free loans"
+        ],
+        "ans": 1,
+        "exp": "Central banks intervene to prevent their currency from becoming too strong or weak."
+    },
+    {
+        "category": "f1",
+        "q": "Which car brand uses the 'Prancing Horse' logo?",
+        "opt": [
+            "Lamborghini",
+            "Ferrari",
+            "Porsche"
+        ],
+        "ans": 1,
+        "exp": "Ferrari's logo is one of the most powerful symbols in luxury."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Stablecoin'?",
+        "opt": [
+            "Coin that never grows",
+            "Coin pegged to a stable asset like USD",
+            "Oldest coin"
+        ],
+        "ans": 1,
+        "exp": "Stablecoins like USDT are designed to have a stable price, usually $1."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'UEFA Champions League'?",
+        "opt": [
+            "Asian tournament",
+            "European club competition",
+            "World Cup"
+        ],
+        "ans": 1,
+        "exp": "It is an annual club football competition organized by UEFA for top European clubs."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Commodity Currency'?",
+        "opt": [
+            "Currency tied to gold/oil",
+            "A physical coin",
+            "Digital money"
+        ],
+        "ans": 0,
+        "exp": "Currencies like the Australian Dollar are often called commodity currencies."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'Debt-to-Income Ratio'?",
+        "opt": [
+            "Height vs Weight",
+            "Your debt vs your gross income",
+            "Tax vs Salary"
+        ],
+        "ans": 1,
+        "exp": "Banks use this to check if you can afford another loan."
+    },
+    {
+        "category": "gk",
+        "q": "What is the prize money for the World Cup winner?",
+        "opt": [
+            "$10 Million",
+            "$42 Million",
+            "$100 Million"
+        ],
+        "ans": 1,
+        "exp": "Argentina received $42 million for winning the 2022 World Cup."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Waiting Period' for Maternity?",
+        "opt": [
+            "9 months",
+            "Typically 2 to 4 years",
+            "No waiting"
+        ],
+        "ans": 1,
+        "exp": "Most health plans require you to hold the policy for a few years before maternity cover starts."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Capitalism'?",
+        "opt": [
+            "Government control",
+            "Economic system where private owners control trade and industry",
+            "Sharing everything"
+        ],
+        "ans": 1,
+        "exp": "Most of the world's major economies are capitalist."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Personal Accident' cover?",
+        "opt": [
+            "Car repair",
+            "Payout for death or disability by accident",
+            "Health checkup"
+        ],
+        "ans": 1,
+        "exp": "It provides a lump sum if an accident leads to permanent disability."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Family Floater'?",
+        "opt": [
+            "Insurance for a boat",
+            "One sum insured for the whole family",
+            "Travel insurance"
+        ],
+        "ans": 1,
+        "exp": "Any family member can use the total sum insured when needed."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Neural Network'?",
+        "opt": [
+            "Brain surgery",
+            "Computing system inspired by biological brains",
+            "Internet cable"
+        ],
+        "ans": 1,
+        "exp": "Neural networks are the foundation of deep learning."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'UX' in web design?",
+        "opt": [
+            "User Experience",
+            "User X-ray",
+            "Universal Exchange"
+        ],
+        "ans": 0,
+        "exp": "UX is the overall feeling and ease of use a user has on a website."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'ICO'?",
+        "opt": [
+            "Initial Coin Offering",
+            "Internal Coin Office",
+            "Instant Cash Only"
+        ],
+        "ans": 0,
+        "exp": "ICO is a type of crowdfunding for new cryptocurrency projects."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Subscription Model'?",
+        "opt": [
+            "One-time purchase",
+            "Recurring payment for regular product delivery",
+            "Free trial"
+        ],
+        "ans": 1,
+        "exp": "Examples include Netflix, Spotify, and monthly beauty boxes."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'VPS Hosting'?",
+        "opt": [
+            "Shared hosting",
+            "Virtual Private Server",
+            "Physical server only"
+        ],
+        "ans": 1,
+        "exp": "VPS gives you dedicated resources on a server shared with others."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Technical Analysis'?",
+        "opt": [
+            "Checking company's office",
+            "Using charts and patterns to trade",
+            "Reading news only"
+        ],
+        "ans": 1,
+        "exp": "Technical analysis focuses on price movement and volume to predict future trends."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Carry Trade'?",
+        "opt": [
+            "Moving bags",
+            "Borrowing low-interest currency to invest in high-interest one",
+            "Exchange cash"
+        ],
+        "ans": 1,
+        "exp": "Traders profit from the difference in interest rates between two countries."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'Copa América'?",
+        "opt": [
+            "European tournament",
+            "South American national team championship",
+            "Asian cup"
+        ],
+        "ans": 1,
+        "exp": "It is the oldest continental football competition."
+    },
+    {
+        "category": "sports",
+        "q": "How many players are on a football pitch per team?",
+        "opt": [
+            "10",
+            "11",
+            "12"
+        ],
+        "ans": 1,
+        "exp": "A standard football match is played with 11 players on each side."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Remote-First' company?",
+        "opt": [
+            "First day at office",
+            "Company designed to function without physical office",
+            "Startup"
+        ],
+        "ans": 1,
+        "exp": "Remote-first companies hire talent globally regardless of location."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Revolving Credit'?",
+        "opt": [
+            "Fixed loan",
+            "Credit that renews as you pay back",
+            "One-time use"
+        ],
+        "ans": 1,
+        "exp": "Credit cards are the most common form of revolving credit."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Conversion Rate Optimization' (CRO)?",
+        "opt": [
+            "Fast loading",
+            "Process of increasing % of visitors who buy",
+            "Design change"
+        ],
+        "ans": 1,
+        "exp": "CRO involves testing different elements to make more sales."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'FTP'?",
+        "opt": [
+            "File Transfer Protocol",
+            "Fast Tech Pro",
+            "File Total Price"
+        ],
+        "ans": 0,
+        "exp": "FTP is used to transfer files between a computer and a server."
+    },
+    {
+        "category": "gk",
+        "q": "Which league is the most-watched sports league in the world?",
+        "opt": [
+            "NBA",
+            "Premier League",
+            "La Liga"
+        ],
+        "ans": 1,
+        "exp": "The English Premier League is broadcast to billions of homes globally."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Inventory'?",
+        "opt": [
+            "A list",
+            "Stock of goods on hand",
+            "Profit"
+        ],
+        "ans": 1,
+        "exp": "Managing inventory is key to avoiding 'Out of Stock' messages."
+    },
+    {
+        "category": "finance",
+        "q": "What does 'P/E Ratio' stand for?",
+        "opt": [
+            "Price to Earnings",
+            "Profit to Expense",
+            "Price to Equity"
+        ],
+        "ans": 0,
+        "exp": "P/E ratio is a key metric used to value a company's share price relative to its earnings."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Credit Score'?",
+        "opt": [
+            "Game score",
+            "Number showing your loan repayment history",
+            "Exam marks"
+        ],
+        "ans": 1,
+        "exp": "CIBIL (India), Experian, and Equifax are major credit bureaus."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Property Tax'?",
+        "opt": [
+            "Tax on food",
+            "Tax paid by owners on their real estate",
+            "Sales tax"
+        ],
+        "ans": 1,
+        "exp": "Property tax is an annual tax paid to the local government by the owner."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Keyword Research'?",
+        "opt": [
+            "Finding long words",
+            "Finding terms people type in Google",
+            "Coding"
+        ],
+        "ans": 1,
+        "exp": "Keyword research helps you understand what your audience is searching for."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Inflation's' effect on currency?",
+        "opt": [
+            "Increases value",
+            "Decreases purchasing power",
+            "No effect"
+        ],
+        "ans": 1,
+        "exp": "High inflation usually leads to a decrease in the value of a currency."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Reinsurance'?",
+        "opt": [
+            "Insurance for agents",
+            "Insurance for insurance companies",
+            "Cancelling insurance"
+        ],
+        "ans": 1,
+        "exp": "Reinsurance is when an insurance company buys insurance to protect itself from large losses."
+    },
+    {
+        "category": "history",
+        "q": "What is 'Exclusion' in policy?",
+        "opt": [
+            "Included items",
+            "Things that are NOT covered",
+            "New features"
+        ],
+        "ans": 1,
+        "exp": "Common exclusions include war, suicide, or self-inflicted injuries."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Direct Debit'?",
+        "opt": [
+            "Manual payment",
+            "Automatic payment from bank account",
+            "Cash payment"
+        ],
+        "ans": 1,
+        "exp": "Setting up direct debit ensures you never miss a credit card due date."
+    },
+    {
+        "category": "math",
+        "q": "What is 'G20'?",
+        "opt": [
+            "Group of 20 gamers",
+            "Forum for governments from 20 major economies",
+            "A math formula"
+        ],
+        "ans": 1,
+        "exp": "G20 leaders meet annually to discuss global economic issues."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Anti-virus'?",
+        "opt": [
+            "A virus",
+            "Software to detect and delete malware",
+            "New hardware"
+        ],
+        "ans": 1,
+        "exp": "Always keep your antivirus updated to protect against new threats."
+    },
+    {
+        "category": "fashion",
+        "q": "What is 'White Labeling'?",
+        "opt": [
+            "Empty packaging",
+            "Buying generic products and selling under your brand",
+            "Doctor's medicine"
+        ],
+        "ans": 1,
+        "exp": "Many Amazon sellers use white labeling to build their own brands."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Bandwidth' in hosting?",
+        "opt": [
+            "Speed of CPU",
+            "Amount of data transferred",
+            "Server location"
+        ],
+        "ans": 1,
+        "exp": "More bandwidth allows more visitors to access your site simultaneously."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'ETF'?",
+        "opt": [
+            "Easy Trade Fund",
+            "Exchange Traded Fund",
+            "Electronic Transfer Fund"
+        ],
+        "ans": 1,
+        "exp": "ETFs are like mutual funds but trade on stock exchanges like individual stocks."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Open Source'?",
+        "opt": [
+            "Paid software",
+            "Software whose source code is free to everyone",
+            "Secret code"
+        ],
+        "ans": 1,
+        "exp": "Linux and WordPress are famous examples of open-source projects."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Autonomous Vehicle'?",
+        "opt": [
+            "Fast car",
+            "Self-driving car",
+            "Electric car"
+        ],
+        "ans": 1,
+        "exp": "Tesla and Waymo are pioneers in autonomous vehicle technology."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Sub-Affiliate'?",
+        "opt": [
+            "A smaller offer",
+            "Person who joins an affiliate program through you",
+            "A fake link"
+        ],
+        "ans": 1,
+        "exp": "You can earn a small percentage of your sub-affiliates' sales."
+    },
+    {
+        "category": "gk",
+        "q": "Who is the youngest player to score in a World Cup final?",
+        "opt": [
+            "Messi",
+            "Pelé",
+            "Mbappé"
+        ],
+        "ans": 1,
+        "exp": "Pelé scored in the 1958 final at the age of 17."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'NFC'?",
+        "opt": [
+            "Near Field Communication",
+            "New Fast Chip",
+            "Net File Connection"
+        ],
+        "ans": 0,
+        "exp": "NFC is used for tap-to-pay and fast device pairing."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Root Access'?",
+        "opt": [
+            "Tree roots",
+            "Full administrative control over a server",
+            "Basic user"
+        ],
+        "ans": 1,
+        "exp": "Root access is usually provided with VPS and Dedicated hosting."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'FIFA'?",
+        "opt": [
+            "Football in France",
+            "International Football Federation",
+            "Fast Football App"
+        ],
+        "ans": 1,
+        "exp": "Based in Switzerland, it is the global governing body of football."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Cashless Claim'?",
+        "opt": [
+            "Paying cash at hospital",
+            "Insurance pays hospital directly",
+            "Free treatment for everyone"
+        ],
+        "ans": 1,
+        "exp": "You don't need to pay the bill yourself; the insurer settles it with the network hospital."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Bio-metric Security'?",
+        "opt": [
+            "Password",
+            "Fingerprint or Face ID",
+            "Voice call"
+        ],
+        "ans": 1,
+        "exp": "Biometrics are harder to fake than traditional passwords."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'Copa del Rey'?",
+        "opt": [
+            "World Cup",
+            "Spanish knockout cup",
+            "Beach soccer"
+        ],
+        "ans": 1,
+        "exp": "It is an annual knockout football competition in Spanish football."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Margin Call'?",
+        "opt": [
+            "Call from a friend",
+            "Broker's demand for more funds",
+            "Closing a bank"
+        ],
+        "ans": 1,
+        "exp": "A margin call happens when your account balance falls below the required minimum."
+    },
+    {
+        "category": "insurance",
+        "q": "What is a 'Pre-existing Disease' (PED)?",
+        "opt": [
+            "Disease after policy starts",
+            "Disease you have before buying policy",
+            "A rare disease"
+        ],
+        "ans": 1,
+        "exp": "Most insurers cover PEDs only after a waiting period of 2 to 4 years."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Umbrella Insurance'?",
+        "opt": [
+            "Insurance for rain",
+            "Extra liability cover above other policies",
+            "Car insurance"
+        ],
+        "ans": 1,
+        "exp": "Umbrella insurance protects you from large lawsuits and major claims."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'TPA'?",
+        "opt": [
+            "Third Party Administrator",
+            "Total Policy Amount",
+            "Tax Paying Agent"
+        ],
+        "ans": 0,
+        "exp": "TPAs process health insurance claims and provide ID cards to policyholders."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Conversion'?",
+        "opt": [
+            "Changing money",
+            "When a visitor completes a desired goal (purchase/signup)",
+            "Switching browser"
+        ],
+        "ans": 1,
+        "exp": "The ultimate goal of any affiliate marketing campaign."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Closing Costs'?",
+        "opt": [
+            "Cost of building",
+            "Fees paid at the end of a home sale",
+            "Cost of locks"
+        ],
+        "ans": 1,
+        "exp": "Closing costs include taxes, title insurance, and loan processing fees."
+    },
+    {
+        "category": "sports",
+        "q": "Which company owns 'Manchester City'?",
+        "opt": [
+            "City Football Group",
+            "Glazer Family",
+            "Fenway Sports"
+        ],
+        "ans": 0,
+        "exp": "City Football Group owns clubs across multiple continents."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Shopping Cart Abandonment'?",
+        "opt": [
+            "Emptying cart",
+            "Adding items but not finishing purchase",
+            "Lost cart"
+        ],
+        "ans": 1,
+        "exp": "A major challenge for e-commerce sites to improve conversions."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Algorithm Bias'?",
+        "opt": [
+            "Fast AI",
+            "Unfair outcomes caused by biased data",
+            "AI error"
+        ],
+        "ans": 1,
+        "exp": "Bias occurs if the data used to train AI reflects human prejudices."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Reinstatement'?",
+        "opt": [
+            "Buying new policy",
+            "Restoring a cancelled/lapsed policy",
+            "Changing nominee"
+        ],
+        "ans": 1,
+        "exp": "You can reinstate a policy by paying unpaid premiums and interest."
+    },
+    {
+        "category": "math",
+        "q": "What is 'Actuary'?",
+        "opt": [
+            "Sales person",
+            "Professional who calculates risks",
+            "Bank manager"
+        ],
+        "ans": 1,
+        "exp": "Actuaries use math and statistics to estimate risk and set insurance premiums."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Annual Fee Waiver'?",
+        "opt": [
+            "Paying fee",
+            "Condition (like spending 2L) to not pay yearly fee",
+            "Cancelling card"
+        ],
+        "ans": 1,
+        "exp": "Many banks waive the annual fee if you reach a certain spending milestone."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Diversification'?",
+        "opt": [
+            "Investing in one stock",
+            "Investing in different assets",
+            "Saving in cash"
+        ],
+        "ans": 1,
+        "exp": "Diversification reduces risk by spreading investments across various sectors."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Day Trading'?",
+        "opt": [
+            "Investing for 10 years",
+            "Buying and selling on the same day",
+            "Trading only at night"
+        ],
+        "ans": 1,
+        "exp": "Day traders close all positions before the market closes for the day."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'P2P' trading?",
+        "opt": [
+            "Person to Person",
+            "Price to Profit",
+            "Post to Post"
+        ],
+        "ans": 0,
+        "exp": "P2P allows individuals to buy and sell crypto directly with each other."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Travel Insurance'?",
+        "opt": [
+            "Flight ticket",
+            "Covers losses during travel",
+            "Car insurance"
+        ],
+        "ans": 1,
+        "exp": "Travel insurance covers trip cancellation, medical emergencies, and lost luggage."
+    },
+    {
+        "category": "champions_league",
+        "q": "Which club has 'Més que un club' (More than a club) as its motto?",
+        "opt": [
+            "Real Madrid",
+            "FC Barcelona",
+            "Bayern Munich"
+        ],
+        "ans": 1,
+        "exp": "Barcelona's motto reflects its cultural and social significance."
+    },
+    {
+        "category": "sports",
+        "q": "Who is 'Erling Haaland'?",
+        "opt": [
+            "Norwegian striker",
+            "German coach",
+            "Brazilian goalie"
+        ],
+        "ans": 0,
+        "exp": "One of the most prolific young goalscorers in modern football."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'LSI' in SEO?",
+        "opt": [
+            "Latent Semantic Indexing (Related keywords)",
+            "Large Scale Internet",
+            "Local Search Index"
+        ],
+        "ans": 0,
+        "exp": "LSI keywords are conceptually related terms that help search engines understand content better."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Inbound Marketing'?",
+        "opt": [
+            "Cold calling",
+            "Attracting customers via quality content",
+            "Outdoor ads"
+        ],
+        "ans": 1,
+        "exp": "Inbound marketing focuses on being found by customers when they need you."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Transfer Partners'?",
+        "opt": [
+            "Sharing a card",
+            "Airlines/Hotels where you can move your card points",
+            "Bank staff"
+        ],
+        "ans": 1,
+        "exp": "Moving points to airlines like Singapore or Emirates often yields high value."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'Tax Evasion'?",
+        "opt": [
+            "Paying taxes",
+            "Illegally not paying taxes",
+            "Tax planning"
+        ],
+        "ans": 1,
+        "exp": "Tax evasion is the illegal non-payment or underpayment of taxes."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'DNS'?",
+        "opt": [
+            "Digital Name System",
+            "Domain Name System",
+            "Data Net Service"
+        ],
+        "ans": 1,
+        "exp": "DNS translates domain names (like .com) into IP addresses."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'Capital Gains Tax'?",
+        "opt": [
+            "Tax on salary",
+            "Tax on profit from selling an asset",
+            "Tax on shopping"
+        ],
+        "ans": 1,
+        "exp": "You pay capital gains tax when you sell a property for more than you paid for it."
+    },
+    {
+        "category": "music",
+        "q": "What is 'EMV Chip'?",
+        "opt": [
+            "Music chip",
+            "The small security chip on the front of the card",
+            "A tracker"
+        ],
+        "ans": 1,
+        "exp": "EMV (Europay, Mastercard, Visa) chips are much safer than magnetic stripes."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'CAPTCHA'?",
+        "opt": [
+            "Camera name",
+            "Test to tell humans from bots",
+            "File type"
+        ],
+        "ans": 1,
+        "exp": "CAPTCHA stands for Completely Automated Public Turing test."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Fixed Interest Rate'?",
+        "opt": [
+            "Changes every month",
+            "Stays same for entire loan term",
+            "Zero interest"
+        ],
+        "ans": 1,
+        "exp": "Fixed rates provide certainty about your monthly payments."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Staking' in Crypto?",
+        "opt": [
+            "Selling coins",
+            "Locking coins to support network and earn rewards",
+            "Mining"
+        ],
+        "ans": 1,
+        "exp": "It's like earning interest on your cryptocurrency."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'UX'?",
+        "opt": [
+            "User Experience",
+            "User X-ray",
+            "Universal Exchange"
+        ],
+        "ans": 0,
+        "exp": "UX is the overall experience a user has while using a product or site."
+    },
+    {
+        "category": "credit",
+        "q": "Which card allows you to 'Buy Now, Pay Later'?",
+        "opt": [
+            "Debit Card",
+            "Credit Card",
+            "Gift Card"
+        ],
+        "ans": 1,
+        "exp": "Credit cards allow users to borrow funds up to a pre-approved limit."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Rider' in insurance?",
+        "opt": [
+            "Insurance agent",
+            "Additional benefit to policy",
+            "The insured person"
+        ],
+        "ans": 1,
+        "exp": "A rider is an add-on to a basic insurance policy that provides extra protection."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Life Annuity'?",
+        "opt": [
+            "One-time payment",
+            "Regular income for life",
+            "Death benefit"
+        ],
+        "ans": 1,
+        "exp": "An annuity provides a series of payments at regular intervals for life."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Omnichannel' retailing?",
+        "opt": [
+            "Selling on one site",
+            "Unified experience across web, app, and physical store",
+            "Selling on TV only"
+        ],
+        "ans": 1,
+        "exp": "It provides a seamless shopping experience no matter where the customer is."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Fiscal Year'?",
+        "opt": [
+            "Calendar year",
+            "12-month period for financial reporting",
+            "Summer time"
+        ],
+        "ans": 1,
+        "exp": "In India, the fiscal year runs from April 1 to March 31."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Private Jet' charter?",
+        "opt": [
+            "Buying a plane",
+            "Renting an entire airplane for private use",
+            "Economy flight"
+        ],
+        "ans": 1,
+        "exp": "Chartering is popular among business executives and celebrities."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Insurable Interest'?",
+        "opt": [
+            "Interest rate",
+            "Legal right to insure something/someone",
+            "Bank profit"
+        ],
+        "ans": 1,
+        "exp": "You can only buy insurance for something where you suffer a financial loss."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Penthouse'?",
+        "opt": [
+            "Small room",
+            "Luxury apartment on the top floor of a building",
+            "A garden"
+        ],
+        "ans": 1,
+        "exp": "Penthouses usually offer the best views and premium amenities."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Airdrop'?",
+        "opt": [
+            "Dropping from plane",
+            "Receiving free crypto tokens",
+            "Fast internet"
+        ],
+        "ans": 1,
+        "exp": "Airdrops are a marketing stunt where free tokens are sent to wallet addresses."
+    },
+    {
+        "category": "finance",
+        "q": "Which city is the largest Forex hub?",
+        "opt": [
+            "New York",
+            "London",
+            "Tokyo"
+        ],
+        "ans": 1,
+        "exp": "London is the world's largest center for foreign exchange trading."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'AI PC'?",
+        "opt": [
+            "Fast computer",
+            "Computer with a dedicated chip for AI tasks",
+            "Internet cafe"
+        ],
+        "ans": 1,
+        "exp": "New laptops now come with 'NPU' chips for local AI processing."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Auto-Pilot' in cars?",
+        "opt": [
+            "Flying car",
+            "Advanced driver assistance system (Tesla)",
+            "Automatic gear"
+        ],
+        "ans": 1,
+        "exp": "It helps with steering, braking, and lane changes automatically."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Deductible' in Health?",
+        "opt": [
+            "Discount",
+            "Amount you pay before company starts paying",
+            "Tax benefit"
+        ],
+        "ans": 1,
+        "exp": "High deductible plans have lower premiums."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Foreign Transaction Fee'?",
+        "opt": [
+            "ATM fee",
+            "Fee for spending in another currency",
+            "Passport fee"
+        ],
+        "ans": 1,
+        "exp": "Many premium travel cards offer zero foreign transaction fees."
+    },
+    {
+        "category": "tech",
+        "q": "What is a 'Domain Name'?",
+        "opt": [
+            "Website's code",
+            "Website's address (e.g., .com)",
+            "Web server"
+        ],
+        "ans": 1,
+        "exp": "A domain name is the name of a website that people type in a browser."
+    },
+    {
+        "category": "sports",
+        "q": "What is the duration of a standard football match?",
+        "opt": [
+            "60 mins",
+            "90 mins",
+            "100 mins"
+        ],
+        "ans": 1,
+        "exp": "A match has two halves of 45 minutes each, plus added time."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Co-branded' credit card?",
+        "opt": [
+            "Bank only card",
+            "Card tied to a brand (e.g., Amazon)",
+            "Company ID"
+        ],
+        "ans": 1,
+        "exp": "Co-branded cards offer extra rewards for specific brands or airlines."
+    },
+    {
+        "category": "mortgage",
+        "q": "What is 'Foreclosure'?",
+        "opt": [
+            "Closing a door",
+            "Lender taking property due to unpaid debt",
+            "Renovating a home"
+        ],
+        "ans": 1,
+        "exp": "Foreclosure happens when a homeowner fails to pay the mortgage, and the bank seizes the home."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Interest-Free Period'?",
+        "opt": [
+            "No interest forever",
+            "Time between purchase and bill due date",
+            "Gift period"
+        ],
+        "ans": 1,
+        "exp": "This period can be up to 45-50 days depending on the bank."
+    },
+    {
+        "category": "kabaddi",
+        "q": "What is the 'Golden Glove' award?",
+        "opt": [
+            "Best Scorer",
+            "Best Goalkeeper",
+            "Best Defender"
+        ],
+        "ans": 1,
+        "exp": "The Golden Glove is awarded to the goalkeeper with the most clean sheets."
+    },
+    {
+        "category": "math",
+        "q": "What is 'Turing Test'?",
+        "opt": [
+            "Driving test",
+            "Test of a machine's ability to exhibit intelligent behavior",
+            "Math test"
+        ],
+        "ans": 1,
+        "exp": "If a human can't tell the machine apart from a human, it passes the test."
+    },
+    {
+        "category": "champions_league",
+        "q": "Who is known as 'El Clasico'?",
+        "opt": [
+            "AC Milan vs Inter",
+            "Real Madrid vs Barcelona",
+            "Liverpool vs Man Utd"
+        ],
+        "ans": 1,
+        "exp": "El Clasico is the name given to any match between Real Madrid and FC Barcelona."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Encryption'?",
+        "opt": [
+            "Deleting data",
+            "Scrambling data to keep it secret",
+            "Printing data"
+        ],
+        "ans": 1,
+        "exp": "Only someone with the right 'key' can read encrypted information."
+    },
+    {
+        "category": "finance",
+        "q": "What is the 'Spread' in Forex?",
+        "opt": [
+            "Jam on bread",
+            "Difference between Buy and Sell price",
+            "Broker fee only"
+        ],
+        "ans": 1,
+        "exp": "The spread is the cost of the trade, representing the gap between bid and ask prices."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Liability Insurance'?",
+        "opt": [
+            "Covers own damage",
+            "Covers damage to others",
+            "Life cover"
+        ],
+        "ans": 1,
+        "exp": "Liability insurance protects against claims resulting from injuries and damage to others."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'SEO' for E-commerce?",
+        "opt": [
+            "Selling online",
+            "Optimizing product pages for Google",
+            "Social Media"
+        ],
+        "ans": 1,
+        "exp": "Good SEO helps products rank higher when customers search."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Appraisal'?",
+        "opt": [
+            "A promotion",
+            "Professional estimate of property value",
+            "Cleaning"
+        ],
+        "ans": 1,
+        "exp": "An appraisal is an unbiased professional opinion of a home's value."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Liquidity' in stocks?",
+        "opt": [
+            "Stock price",
+            "How easily a stock can be sold",
+            "Company's cash"
+        ],
+        "ans": 1,
+        "exp": "Highly liquid stocks have many buyers and sellers, making them easy to trade."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Fuel Surcharge Waiver'?",
+        "opt": [
+            "Free petrol",
+            "Getting back the 1% fee on fuel purchases",
+            "Discount on car"
+        ],
+        "ans": 1,
+        "exp": "A common benefit on many mid-range credit cards."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Patch Management'?",
+        "opt": [
+            "Gardening",
+            "Updating software to fix security holes",
+            "Writing code"
+        ],
+        "ans": 1,
+        "exp": "Software patches are released to fix vulnerabilities."
+    },
+    {
+        "category": "gk",
+        "q": "Which league is the richest in the world?",
+        "opt": [
+            "La Liga",
+            "Premier League",
+            "Serie A"
+        ],
+        "ans": 1,
+        "exp": "The English Premier League generates the highest revenue of any football league."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Viral Marketing'?",
+        "opt": [
+            "Marketing for medicine",
+            "Content that spreads rapidly online",
+            "Secret marketing"
+        ],
+        "ans": 1,
+        "exp": "Viral marketing relies on audience sharing to grow exponentially."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Business Credit Card'?",
+        "opt": [
+            "For students",
+            "For business expenses and taxes",
+            "Personal card"
+        ],
+        "ans": 1,
+        "exp": "Business cards help owners separate personal and business finances."
+    },
+    {
+        "category": "gk",
+        "q": "Which brand is known for the 'Birkin' bag?",
+        "opt": [
+            "Gucci",
+            "Hermès",
+            "Louis Vuitton"
+        ],
+        "ans": 1,
+        "exp": "Birkin bags are among the most exclusive and expensive in the world."
+    },
+    {
+        "category": "gaming",
+        "q": "What is 'VAR'?",
+        "opt": [
+            "Very Awesome Ref",
+            "Video Assistant Referee",
+            "Voice Audio Ref"
+        ],
+        "ans": 1,
+        "exp": "Technology used to help referees review game-changing decisions."
+    },
+    {
+        "category": "fashion",
+        "q": "What is 'Marketplace'?",
+        "opt": [
+            "Single brand shop",
+            "Site where many sellers sell (e.g. eBay)",
+            "Offline mall"
+        ],
+        "ans": 1,
+        "exp": "Amazon and Mercado Libre are famous online marketplaces."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Keyword Density'?",
+        "opt": [
+            "Total words",
+            "Percentage of times a keyword appears in content",
+            "Keyword length"
+        ],
+        "ans": 1,
+        "exp": "Keeping keyword density natural (1-2%) is best for SEO."
+    },
+    {
+        "category": "sports",
+        "q": "How long is a 'Half' in football?",
+        "opt": [
+            "30 mins",
+            "45 mins",
+            "60 mins"
+        ],
+        "ans": 1,
+        "exp": "A match has two 45-minute halves with a 15-minute break."
+    },
+    {
+        "category": "crypto",
+        "q": "What is a 'Major Pair'?",
+        "opt": [
+            "Any two currencies",
+            "Pairs involving the US Dollar",
+            "Crypto pairs"
+        ],
+        "ans": 1,
+        "exp": "Major pairs like GBP/USD have high liquidity and low spreads."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Digital Nomad Visa'?",
+        "opt": [
+            "Standard tourist visa",
+            "Visa allowing long-term stay for remote workers",
+            "Work permit"
+        ],
+        "ans": 1,
+        "exp": "Countries like Dubai, Spain, and Bali offer these to attract high-earning nomads."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Copa America'?",
+        "opt": [
+            "European Cup",
+            "South American Cup",
+            "African Cup"
+        ],
+        "ans": 1,
+        "exp": "Copa America is the top football competition for national teams in South America."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Intraday Trading'?",
+        "opt": [
+            "Long term",
+            "Trading within the same day",
+            "Monthly trading"
+        ],
+        "ans": 1,
+        "exp": "Intraday trading is another term for day trading."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'CIBIL'?",
+        "opt": [
+            "A bank",
+            "Credit Information Bureau (India) Ltd",
+            "A loan type"
+        ],
+        "ans": 1,
+        "exp": "It is the most popular credit rating agency in India."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'MSME Loan'?",
+        "opt": [
+            "Mega Scale",
+            "Micro, Small and Medium Enterprises",
+            "Mostly Small"
+        ],
+        "ans": 1,
+        "exp": "Special government-backed loans for small businesses."
+    },
+    {
+        "category": "daily",
+        "q": "What does 'ROI' stand for in investment?",
+        "opt": [
+            "Rate of Interest",
+            "Return on Investment",
+            "Risk on Income"
+        ],
+        "ans": 1,
+        "exp": "ROI measures the gain or loss generated on an investment relative to its cost."
+    },
+    {
+        "category": "startup",
+        "q": "What color is the 'Card' for a sending-off?",
+        "opt": [
+            "Yellow",
+            "Red",
+            "Blue"
+        ],
+        "ans": 1,
+        "exp": "A red card means the player must leave the pitch immediately."
+    },
+    {
+        "category": "sports",
+        "q": "Which player has the most 'World Cup' trophies?",
+        "opt": [
+            "Maradona",
+            "Pelé",
+            "Ronaldo Nazario"
+        ],
+        "ans": 1,
+        "exp": "Pelé is the only player to win three FIFA World Cups (1958, 1962, 1970)."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'SMM'?",
+        "opt": [
+            "Social Media Marketing",
+            "Simple Mail Maker",
+            "Social Money Manager"
+        ],
+        "ans": 0,
+        "exp": "SMM involves using social platforms like Facebook and IG to build a brand."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Managed WordPress Hosting'?",
+        "opt": [
+            "Hosting for any site",
+            "Optimized hosting for WordPress sites",
+            "Free hosting"
+        ],
+        "ans": 1,
+        "exp": "It includes automatic updates, security, and speed optimization for WP."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Base Currency'?",
+        "opt": [
+            "Second currency in pair",
+            "First currency in a pair",
+            "National currency"
+        ],
+        "ans": 1,
+        "exp": "In EUR/USD, EUR is the base currency and USD is the quote currency."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Remarketing'?",
+        "opt": [
+            "Selling same product twice",
+            "Showing ads to previous visitors",
+            "Changing brand name"
+        ],
+        "ans": 1,
+        "exp": "Remarketing helps you re-engage users who have already visited your site."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Transfer Deadline Day'?",
+        "opt": [
+            "First day of season",
+            "Last day to buy/sell players",
+            "Holiday"
+        ],
+        "ans": 1,
+        "exp": "A very busy day for news and high-value player moves."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'CPA' in marketing?",
+        "opt": [
+            "Cost Per Action",
+            "Cost Per Ad",
+            "Cash Plus Account"
+        ],
+        "ans": 0,
+        "exp": "You get paid only when a user takes a specific action (like signing up)."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Quantitative Easing' (QE)?",
+        "opt": [
+            "Saving money",
+            "Central bank injecting money into the economy",
+            "High taxes"
+        ],
+        "ans": 1,
+        "exp": "QE is used to stimulate the economy when traditional monetary policy fails."
+    },
+    {
+        "category": "fashion",
+        "q": "What is '401(k)'?",
+        "opt": [
+            "A tax code",
+            "US retirement savings plan",
+            "A car model"
+        ],
+        "ans": 1,
+        "exp": "A 401(k) is a popular employer-sponsored retirement account in the US."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Influencer Marketing'?",
+        "opt": [
+            "Buying fans",
+            "Partnering with social media personalities to promote brands",
+            "Political ads"
+        ],
+        "ans": 1,
+        "exp": "Influencers leverage their trust with their audience to sell products."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Cashback' credit card?",
+        "opt": [
+            "Card that gives cash",
+            "Card that returns a % of spending",
+            "Free card"
+        ],
+        "ans": 1,
+        "exp": "Cashback cards return a small percentage of each purchase back to the user."
+    },
+    {
+        "category": "luxury",
+        "q": "Which watch brand makes the 'Daytona'?",
+        "opt": [
+            "Omega",
+            "Rolex",
+            "Patek Philippe"
+        ],
+        "ans": 1,
+        "exp": "The Rolex Daytona is a highly coveted luxury chronograph watch."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Zoom fatigue'?",
+        "opt": [
+            "Broken camera",
+            "Tiredness from excessive video calls",
+            "Slow internet"
+        ],
+        "ans": 1,
+        "exp": "A common psychological issue for full-time remote workers."
+    },
+    {
+        "category": "gk",
+        "q": "Which is the most traded currency in the world?",
+        "opt": [
+            "Euro",
+            "US Dollar",
+            "Yen"
+        ],
+        "ans": 1,
+        "exp": "The US Dollar (USD) is involved in nearly 90% of all forex trades."
+    },
+    {
+        "category": "daily",
+        "q": "Who is the kit sponsor of the Brazil National Team?",
+        "opt": [
+            "Adidas",
+            "Nike",
+            "Puma"
+        ],
+        "ans": 1,
+        "exp": "Nike has been the long-term official sponsor of Brazil since 1996."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Cloud Storage'?",
+        "opt": [
+            "Internet in rain",
+            "Saving data on remote servers (e.g. Dropbox)",
+            "USB drive"
+        ],
+        "ans": 1,
+        "exp": "It allows you to access your files from any device with an internet connection."
+    },
+    {
+        "category": "insurance",
+        "q": "What is a 'Critical Illness' policy?",
+        "opt": [
+            "Covers common cold",
+            "Lump sum for major diseases like Cancer",
+            "Covers eye checkups"
+        ],
+        "ans": 1,
+        "exp": "It provides a fixed amount if you are diagnosed with a severe life-threatening illness."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Dropshipping'?",
+        "opt": [
+            "Shipping from plane",
+            "Selling items without holding stock",
+            "Fast delivery"
+        ],
+        "ans": 1,
+        "exp": "The seller forwards orders to a supplier who ships directly to the customer."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Churn Rate'?",
+        "opt": [
+            "Profit growth",
+            "% of customers who stop using your service",
+            "Speed of site"
+        ],
+        "ans": 1,
+        "exp": "A high churn rate is a major problem for subscription-based businesses."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Commercial Real Estate'?",
+        "opt": [
+            "Residential houses",
+            "Properties used for business/offices",
+            "Farms"
+        ],
+        "ans": 1,
+        "exp": "Commercial real estate refers to properties used for business purposes."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Guarantor'?",
+        "opt": [
+            "Bank manager",
+            "Person responsible if borrower fails to pay",
+            "Salesman"
+        ],
+        "ans": 1,
+        "exp": "A guarantor's credit score is also affected if the borrower defaults."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Student Loan'?",
+        "opt": [
+            "Loan for a car",
+            "Loan to pay for education",
+            "Free money"
+        ],
+        "ans": 1,
+        "exp": "Student loans must be paid back with interest after finishing studies."
+    },
+    {
+        "category": "investing",
+        "q": "What is an 'Index Fund'?",
+        "opt": [
+            "Single company stock",
+            "Fund that tracks a specific market index (e.g. Nifty 50)",
+            "Bank account"
+        ],
+        "ans": 1,
+        "exp": "Index funds are low-cost and great for long-term passive investing."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Cumulative Bonus'?",
+        "opt": [
+            "Cashback",
+            "Increase in sum insured for claim-free year",
+            "Free checkup"
+        ],
+        "ans": 1,
+        "exp": "It rewards you by increasing your coverage amount without extra premium."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'CPL'?",
+        "opt": [
+            "Cost Per Lead",
+            "Cost Per Link",
+            "Cash Price Low"
+        ],
+        "ans": 0,
+        "exp": "Affiliates earn money for every qualified lead (contact info) they generate."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'Tariff'?",
+        "opt": [
+            "Free trade",
+            "Tax on imported goods",
+            "A boat"
+        ],
+        "ans": 1,
+        "exp": "Tariffs are often used to protect domestic industries from foreign competition."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Samba' football associated with?",
+        "opt": [
+            "Argentina",
+            "Brazil",
+            "Spain"
+        ],
+        "ans": 1,
+        "exp": "Brazil is famous for its rhythmic and skillful 'Samba' style."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Shoulder Surfing'?",
+        "opt": [
+            "Surfing in ocean",
+            "Watching someone enter PIN/password over their shoulder",
+            "A gym exercise"
+        ],
+        "ans": 1,
+        "exp": "Always cover your hand when entering your PIN at an ATM."
+    },
+    {
+        "category": "history",
+        "q": "What is a 'Royalties'?",
+        "opt": [
+            "King's money",
+            "Payment for use of creative work (books, music)",
+            "Tax"
+        ],
+        "ans": 1,
+        "exp": "Authors and musicians earn royalties every time their work is sold or used."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Latentcy'?",
+        "opt": [
+            "Fast speed",
+            "Delay in data transfer",
+            "Storage size"
+        ],
+        "ans": 1,
+        "exp": "Lower latency means a faster and more responsive website."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Overspending'?",
+        "opt": [
+            "Spending more than earned",
+            "Spending on groceries",
+            "Buying a house"
+        ],
+        "ans": 0,
+        "exp": "Overspending leads to debt and financial stress."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Endowment Plan'?",
+        "opt": [
+            "Only death cover",
+            "Life cover + Maturity benefit",
+            "Medical plan"
+        ],
+        "ans": 1,
+        "exp": "It helps you save for a future goal while providing life protection."
+    },
+    {
+        "category": "sports",
+        "q": "Which football league has the highest TV rights value?",
+        "opt": [
+            "La Liga",
+            "Premier League",
+            "Serie A"
+        ],
+        "ans": 1,
+        "exp": "The English Premier League sells its rights for billions of dollars globally."
+    },
+    {
+        "category": "laliga",
+        "q": "Which league is known as 'La Liga'?",
+        "opt": [
+            "Italian",
+            "Spanish",
+            "French"
+        ],
+        "ans": 1,
+        "exp": "La Liga features top clubs like Barcelona and Real Madrid."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'GitHub'?",
+        "opt": [
+            "Social media for kids",
+            "Platform for version control and code sharing",
+            "A gaming site"
+        ],
+        "ans": 1,
+        "exp": "GitHub is where developers store and manage their code projects."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Merchandising' in football?",
+        "opt": [
+            "Buying players",
+            "Selling club jerseys and products",
+            "Match tickets"
+        ],
+        "ans": 1,
+        "exp": "Top clubs make hundreds of millions from jersey sales globally."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Python'?",
+        "opt": [
+            "A snake",
+            "A versatile programming language for AI/Web",
+            "A game"
+        ],
+        "ans": 1,
+        "exp": "Python is very popular for data science, automation, and web backends."
+    },
+    {
+        "category": "gk",
+        "q": "What does 'VR' stand for?",
+        "opt": [
+            "Visual Reality",
+            "Virtual Reality",
+            "Video Record"
+        ],
+        "ans": 1,
+        "exp": "VR uses headsets to immerse users in a 3D digital world."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Backlink' in SEO?",
+        "opt": [
+            "A link to previous page",
+            "Link from another site to your site",
+            "Broken link"
+        ],
+        "ans": 1,
+        "exp": "Backlinks are signals to search engines that others vouch for your content."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'CDN'?",
+        "opt": [
+            "Content Delivery Network",
+            "Cloud Data Node",
+            "Core Digital Net"
+        ],
+        "ans": 0,
+        "exp": "CDN speeds up website loading by serving content from the nearest server."
+    },
+    {
+        "category": "music",
+        "q": "What is 'Trello' used for?",
+        "opt": [
+            "Music",
+            "Project management and organization",
+            "Emailing"
+        ],
+        "ans": 1,
+        "exp": "Trello uses boards and cards to track work progress."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Premium' in insurance?",
+        "opt": [
+            "Claim amount",
+            "Amount paid to keep policy active",
+            "Bonus"
+        ],
+        "ans": 1,
+        "exp": "Premium is the regular payment made to the insurance company."
+    },
+    {
+        "category": "daily",
+        "q": "What is the 'Financial Fair Play' (FFP) rule?",
+        "opt": [
+            "Fair play on field",
+            "Clubs must not spend more than they earn",
+            "Equal salaries"
+        ],
+        "ans": 1,
+        "exp": "FFP aims to prevent clubs from getting into serious financial trouble."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'CSS'?",
+        "opt": [
+            "Cascading Style Sheets",
+            "Computer Style System",
+            "Core Site Style"
+        ],
+        "ans": 0,
+        "exp": "CSS is used to style the layout, colors, and fonts of an HTML page."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'SSL Certificate'?",
+        "opt": [
+            "Fast loading",
+            "Security for encrypted connection",
+            "Website design"
+        ],
+        "ans": 1,
+        "exp": "SSL (HTTPS) protects data and improves Google ranking."
+    },
+    {
+        "category": "math",
+        "q": "What is 'GPU' used for in AI?",
+        "opt": [
+            "Saving data",
+            "Processing complex math for AI",
+            "Displaying time"
+        ],
+        "ans": 1,
+        "exp": "NVIDIA is a leader in GPUs used for training AI models."
+    },
+    {
+        "category": "tech",
+        "q": "What is an 'Influencer'?",
+        "opt": [
+            "A politician",
+            "Person with large social media following",
+            "A hacker"
+        ],
+        "ans": 1,
+        "exp": "Influencers have the power to affect purchasing decisions of their audience."
+    },
+    {
+        "category": "sports",
+        "q": "Who won the first-ever World Cup in 1930?",
+        "opt": [
+            "Brazil",
+            "Uruguay",
+            "Italy"
+        ],
+        "ans": 1,
+        "exp": "Uruguay won and also hosted the first FIFA World Cup."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Sitemap'?",
+        "opt": [
+            "Google Maps",
+            "A list of all pages on a website for search engines",
+            "Physical map"
+        ],
+        "ans": 1,
+        "exp": "Sitemaps help Google find and crawl all the content on your site."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Affiliate' in E-commerce?",
+        "opt": [
+            "A partner",
+            "Person earning commission for sales",
+            "A competitor"
+        ],
+        "ans": 1,
+        "exp": "Amazon Associates is the world's largest affiliate program."
+    },
+    {
+        "category": "fashion",
+        "q": "What is 'Gold Investment'?",
+        "opt": [
+            "Buying jewelry only",
+            "Holding gold as a hedge against inflation",
+            "Mining gold"
+        ],
+        "ans": 1,
+        "exp": "Gold is considered a 'safe haven' asset during economic uncertainty."
+    },
+    {
+        "category": "daily",
+        "q": "What does 'HTML' stand for?",
+        "opt": [
+            "Hyper Text Markup Language",
+            "High Tech Modern Language",
+            "Hyperlink Text Mode"
+        ],
+        "ans": 0,
+        "exp": "HTML is the standard language for creating web pages."
+    },
+    {
+        "category": "tech",
+        "q": "What is a 'Dedicated Server'?",
+        "opt": [
+            "Server for everyone",
+            "An entire server for one user",
+            "Cloud storage"
+        ],
+        "ans": 1,
+        "exp": "Dedicated servers offer maximum performance and security for large sites."
+    },
+    {
+        "category": "premier_league",
+        "q": "Which club is called 'The Red Devils'?",
+        "opt": [
+            "Liverpool",
+            "Manchester United",
+            "Arsenal"
+        ],
+        "ans": 1,
+        "exp": "Manchester United is famously nicknamed The Red Devils."
+    },
+    {
+        "category": "credit",
+        "q": "What is a 'Credit Limit'?",
+        "opt": [
+            "Money in bank",
+            "Maximum you can spend on a card",
+            "Card's weight"
+        ],
+        "ans": 1,
+        "exp": "Your credit limit is determined by your income and credit history."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Heatmap' in e-commerce?",
+        "opt": [
+            "Weather forecast",
+            "Visual tool showing where users click on a site",
+            "A hot product"
+        ],
+        "ans": 1,
+        "exp": "Tools like Hotjar help store owners optimize their layout."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Homeowners Insurance'?",
+        "opt": [
+            "Covers car",
+            "Covers house and contents",
+            "Covers health"
+        ],
+        "ans": 1,
+        "exp": "Home insurance covers damage to your house and the belongings inside it."
+    },
+    {
+        "category": "gaming",
+        "q": "What is 'The Treble' in European football?",
+        "opt": [
+            "Winning 3 matches",
+            "Winning League, Domestic Cup, and Champions League",
+            "3 goals in a game"
+        ],
+        "ans": 1,
+        "exp": "Winning the Treble is considered the ultimate achievement for a club."
+    },
+    {
+        "category": "daily",
+        "q": "What is a 'Transfer Fee'?",
+        "opt": [
+            "Ticket price",
+            "Money paid to buy a player",
+            "Referee's salary"
+        ],
+        "ans": 1,
+        "exp": "A transfer fee is the money paid by one club to another for a player's registration."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'IMF'?",
+        "opt": [
+            "International Monetary Fund",
+            "Indian Money Forum",
+            "Instant Money Fund"
+        ],
+        "ans": 0,
+        "exp": "The IMF works to foster global monetary cooperation and financial stability."
+    },
+    {
+        "category": "daily",
+        "q": "What is a 'Strong Password'?",
+        "opt": [
+            "Your name123",
+            "Mix of letters, numbers, and symbols",
+            "12345678"
+        ],
+        "ans": 1,
+        "exp": "A strong password is much harder for automated 'brute-force' tools to guess."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Lounge Access'?",
+        "opt": [
+            "Waiting at bus stop",
+            "Free access to luxury airport waiting areas",
+            "Hotel room"
+        ],
+        "ans": 1,
+        "exp": "Premium credit cards offer unlimited international lounge access."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Penny Stock'?",
+        "opt": [
+            "Expensive stock",
+            "Very low-priced, high-risk stock",
+            "Stock of a bank"
+        ],
+        "ans": 1,
+        "exp": "Penny stocks trade at low prices and have low market capitalization."
+    },
+    {
+        "category": "mortgage",
+        "q": "What is 'Floating Interest Rate'?",
+        "opt": [
+            "Changes with market conditions",
+            "Fixed for 10 years",
+            "Only for farmers"
+        ],
+        "ans": 0,
+        "exp": "Also called variable rate, it can go up or down over time."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'NLP'?",
+        "opt": [
+            "Natural Language Processing",
+            "New Logic Power",
+            "Net Life Price"
+        ],
+        "ans": 0,
+        "exp": "NLP helps machines understand and respond to human language."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Personal Loan'?",
+        "opt": [
+            "For any personal use",
+            "Only for car",
+            "Only for education"
+        ],
+        "ans": 0,
+        "exp": "It is a flexible loan with no restriction on how you spend the money."
+    },
+    {
+        "category": "boxing",
+        "q": "What is 'Extra Time'?",
+        "opt": [
+            "Time for snacks",
+            "30 mins added after draw",
+            "Half time"
+        ],
+        "ans": 1,
+        "exp": "Extra time is used in knockout matches to determine a winner if the score is level."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Zero Forex Markup'?",
+        "opt": [
+            "Free currency",
+            "No extra fee for spending in foreign currency",
+            "Zero tax"
+        ],
+        "ans": 1,
+        "exp": "Travelers look for zero forex cards to save 2-3% on international spending."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Emergency Fund'?",
+        "opt": [
+            "Money for vacation",
+            "Savings for unexpected expenses",
+            "Investment in stocks"
+        ],
+        "ans": 1,
+        "exp": "An emergency fund should cover 3-6 months of living expenses."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Rider' in Life Insurance?",
+        "opt": [
+            "Biker",
+            "Additional benefit like Accidental Death",
+            "Agent name"
+        ],
+        "ans": 1,
+        "exp": "Riders allow you to customize your policy for extra protection."
+    },
+    {
+        "category": "sports",
+        "q": "What is the distance of a Penalty Kick?",
+        "opt": [
+            "10 yards",
+            "12 yards",
+            "15 yards"
+        ],
+        "ans": 1,
+        "exp": "A penalty kick is taken from the penalty spot, 12 yards (11m) from the goal line."
+    },
+    {
+        "category": "mba",
+        "q": "What is 'Credit Counseling'?",
+        "opt": [
+            "Learning to spend",
+            "Help with debt management and budgeting",
+            "Applying for cards"
+        ],
+        "ans": 1,
+        "exp": "Counselors help people regain control of their finances."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the main sponsor of 'Lionel Messi'?",
+        "opt": [
+            "Nike",
+            "Adidas",
+            "Puma"
+        ],
+        "ans": 1,
+        "exp": "Messi has a lifetime sponsorship deal with Adidas."
+    },
+    {
+        "category": "luxury",
+        "q": "What is 'First Class' on flights?",
+        "opt": [
+            "Middle seat",
+            "Most expensive cabin with luxury seats and food",
+            "Standard seat"
+        ],
+        "ans": 1,
+        "exp": "First class often includes private suites and showers (on Emirates/Etihad)."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Slippage'?",
+        "opt": [
+            "Falling down",
+            "Difference between expected and actual price",
+            "Fast trading"
+        ],
+        "ans": 1,
+        "exp": "Slippage often happens during high volatility when prices change too quickly."
+    },
+    {
+        "category": "crypto",
+        "q": "Which is the largest Crypto Exchange globally?",
+        "opt": [
+            "Coinbase",
+            "Binance",
+            "Kraken"
+        ],
+        "ans": 1,
+        "exp": "Binance is the world's largest cryptocurrency exchange by trading volume."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Limited Edition'?",
+        "opt": [
+            "On sale",
+            "Products made in very small numbers to increase value",
+            "Free items"
+        ],
+        "ans": 1,
+        "exp": "Limited edition items often appreciate in value over time."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Supercar'?",
+        "opt": [
+            "Big car",
+            "High-performance, expensive sports car (e.g. Ferrari)",
+            "Electric car"
+        ],
+        "ans": 1,
+        "exp": "Supercars are designed for extreme speed and status."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Wearable Tech'?",
+        "opt": [
+            "T-shirt",
+            "Electronic devices worn on the body (e.g. Smartwatch)",
+            "Portable charger"
+        ],
+        "ans": 1,
+        "exp": "Apple Watch and Fitbit are leading wearable tech brands."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Bear Market'?",
+        "opt": [
+            "Prices are rising",
+            "Prices are falling",
+            "Stable prices"
+        ],
+        "ans": 1,
+        "exp": "A bear market is when stock prices are on a downward trend."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Sensex'?",
+        "opt": [
+            "BSE Index",
+            "NSE Index",
+            "Crypto index"
+        ],
+        "ans": 0,
+        "exp": "Sensex is the benchmark index of the Bombay Stock Exchange (BSE)."
+    },
+    {
+        "category": "marketing",
+        "q": "What does 'CPC' stand for?",
+        "opt": [
+            "Cost Per Click",
+            "Cost Per Customer",
+            "Cash Plus Credit"
+        ],
+        "ans": 0,
+        "exp": "CPC is the amount you pay for each click on your digital advertisement."
+    },
+    {
+        "category": "champions_league",
+        "q": "Which company is the main sponsor of 'Barcelona' stadium?",
+        "opt": [
+            "Nike",
+            "Spotify",
+            "Rakuten"
+        ],
+        "ans": 1,
+        "exp": "The stadium is now officially called 'Spotify Camp Nou'."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Portfolio'?",
+        "opt": [
+            "A type of bag",
+            "Collection of all your investments",
+            "Company's bank account"
+        ],
+        "ans": 1,
+        "exp": "A portfolio can include stocks, bonds, cash, and other assets."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'A/B Split Testing'?",
+        "opt": [
+            "School test",
+            "Comparing two versions of a page to see which performs better",
+            "Testing software"
+        ],
+        "ans": 1,
+        "exp": "Testing different headlines or buttons can double your profit."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Gold Loan'?",
+        "opt": [
+            "Buying gold",
+            "Loan taken by pledging gold jewelry",
+            "Free gold"
+        ],
+        "ans": 1,
+        "exp": "Gold loans are usually fast and require less documentation."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Sovereign Wealth Fund'?",
+        "opt": [
+            "Personal savings",
+            "State-owned investment fund",
+            "A charity"
+        ],
+        "ans": 1,
+        "exp": "Countries like Norway and UAE have huge sovereign wealth funds from oil revenue."
+    },
+    {
+        "category": "geo",
+        "q": "Which country is famous for 'Joga Bonito'?",
+        "opt": [
+            "Spain",
+            "Brazil",
+            "Italy"
+        ],
+        "ans": 1,
+        "exp": "It means 'The Beautiful Game' in Portuguese."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Square Footage'?",
+        "opt": [
+            "Number of floors",
+            "Total area of the property",
+            "Cost per foot"
+        ],
+        "ans": 1,
+        "exp": "Square footage measures the total livable area of a house or building."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Marine Insurance'?",
+        "opt": [
+            "Submarine cover",
+            "Cargo and ship insurance",
+            "Fish insurance"
+        ],
+        "ans": 1,
+        "exp": "Marine insurance covers the loss or damage of ships, cargo, and terminals."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'IoT'?",
+        "opt": [
+            "Internet of Tasks",
+            "Internet of Things",
+            "Input output tech"
+        ],
+        "ans": 1,
+        "exp": "IoT is a network of physical objects embedded with sensors and software to connect and exchange data."
+    },
+    {
+        "category": "luxury",
+        "q": "What is 'Caviar'?",
+        "opt": [
+            "Salt",
+            "Salt-cured roe (eggs) of sturgeon fish",
+            "A type of fruit"
+        ],
+        "ans": 1,
+        "exp": "Caviar is considered one of the most expensive delicacies in the world."
+    },
+    {
+        "category": "daily",
+        "q": "What is the 'Golden Boy' award?",
+        "opt": [
+            "Best scorer",
+            "Best young player in Europe",
+            "Most handsome player"
+        ],
+        "ans": 1,
+        "exp": "The award is for players under age 21 playing in Europe."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'OPD Cover'?",
+        "opt": [
+            "Operation Room cover",
+            "Outpatient Department cover (Doctor visits)",
+            "Oxygen cover"
+        ],
+        "ans": 1,
+        "exp": "OPD cover pays for doctor consultations and pharmacy bills without hospitalization."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Free Look Period'?",
+        "opt": [
+            "Free trial",
+            "Time to cancel policy after buying (15 days)",
+            "Waiting for claim"
+        ],
+        "ans": 1,
+        "exp": "You can return the policy and get a refund if you don't like the terms."
+    },
+    {
+        "category": "investing",
+        "q": "What are 'Dividends'?",
+        "opt": [
+            "A type of tax",
+            "Share of company profit given to shareholders",
+            "Bank interest"
+        ],
+        "ans": 1,
+        "exp": "Regularly investing in dividend stocks can build wealth over time."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Generative AI'?",
+        "opt": [
+            "AI that only searches",
+            "AI that can create new content (images, text)",
+            "Robot arm"
+        ],
+        "ans": 1,
+        "exp": "Generative AI can create art, code, and music from scratch."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Waiting Period' in Health Insurance?",
+        "opt": [
+            "Time at hospital",
+            "Time before certain diseases are covered",
+            "Appointment time"
+        ],
+        "ans": 1,
+        "exp": "Pre-existing diseases are usually covered only after 2-4 years of waiting."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Bridge Page'?",
+        "opt": [
+            "Page with a bridge",
+            "Intermediary page between an ad and the offer",
+            "A homepage"
+        ],
+        "ans": 1,
+        "exp": "Bridge pages pre-sell the visitor before sending them to the affiliate offer."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Payment Gateway'?",
+        "opt": [
+            "Bank's door",
+            "Software that processes online payments",
+            "A credit card"
+        ],
+        "ans": 1,
+        "exp": "Examples include Stripe, Razorpay, and PayPal."
+    },
+    {
+        "category": "gk",
+        "q": "What does 'AR' stand for?",
+        "opt": [
+            "Auto Record",
+            "Augmented Reality",
+            "Aero Ray"
+        ],
+        "ans": 1,
+        "exp": "AR overlays digital info onto the real world (e.g., Pokemon Go)."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'COD'?",
+        "opt": [
+            "Code on delivery",
+            "Cash on Delivery",
+            "Cost on demand"
+        ],
+        "ans": 1,
+        "exp": "Customer pays for the product only when it is physically delivered."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Compound Interest'?",
+        "opt": [
+            "Interest on principal only",
+            "Interest on principal + interest",
+            "Zero interest"
+        ],
+        "ans": 1,
+        "exp": "Compound interest is calculated on the initial principal and also on the accumulated interest."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Gas Fee' on Ethereum?",
+        "opt": [
+            "Fuel for cars",
+            "Transaction fee paid to miners",
+            "Account opening fee"
+        ],
+        "ans": 1,
+        "exp": "Gas fees are payments made by users to compensate for the computing energy required to process transactions."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the highest-paid footballer in the Saudi Pro League (2024)?",
+        "opt": [
+            "Benzema",
+            "Cristiano Ronaldo",
+            "Neymar"
+        ],
+        "ans": 1,
+        "exp": "Ronaldo's contract with Al-Nassr is the biggest in football history."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'MySQL'?",
+        "opt": [
+            "A website",
+            "A database management system",
+            "A programming language"
+        ],
+        "ans": 1,
+        "exp": "MySQL is used to store and manage website data."
+    },
+    {
+        "category": "mortgage",
+        "q": "What is 'Interest Rate'?",
+        "opt": [
+            "Cost of borrowing money",
+            "Bank's address",
+            "Monthly fee"
+        ],
+        "ans": 0,
+        "exp": "The interest rate is the percentage charged on the principal by a lender."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Education Loan'?",
+        "opt": [
+            "For buying books",
+            "Loan for higher studies/tuition",
+            "Loan for teachers"
+        ],
+        "ans": 1,
+        "exp": "It often has a moratorium period until the student finishes the course."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Minimum Amount Due'?",
+        "opt": [
+            "Total bill",
+            "Smallest payment to avoid late fees",
+            "Zero payment"
+        ],
+        "ans": 1,
+        "exp": "Paying only the minimum will still lead to high interest on the remaining balance."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'GDP'?",
+        "opt": [
+            "General Debt Plan",
+            "Gross Domestic Product",
+            "Global Deposit Price"
+        ],
+        "ans": 1,
+        "exp": "GDP is the total market value of all finished goods and services produced within a country."
+    },
+    {
+        "category": "sports",
+        "q": "Who won the FIFA World Cup 2022 Golden Boot?",
+        "opt": [
+            "Messi",
+            "Mbappé",
+            "Julian Alvarez"
+        ],
+        "ans": 1,
+        "exp": "Kylian Mbappé won it by scoring 8 goals in the tournament."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Lead Time'?",
+        "opt": [
+            "Time to lead",
+            "Time between placing an order and receiving it",
+            "Meeting time"
+        ],
+        "ans": 1,
+        "exp": "Managing lead time is crucial for keeping customers happy."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Cookie' in browsing?",
+        "opt": [
+            "Food",
+            "Small file storing site preferences",
+            "Browser virus"
+        ],
+        "ans": 1,
+        "exp": "While useful, cookies can also be used to track your behavior online."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Co-payment'?",
+        "opt": [
+            "Insurer pays all",
+            "Insured pays a fixed % of the bill",
+            "Paying for two people"
+        ],
+        "ans": 1,
+        "exp": "In co-payment, you share a percentage of the medical cost with the insurer."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Cold Outreach'?",
+        "opt": [
+            "Working in snow",
+            "Sending messages to people who don't know you",
+            "Customer support"
+        ],
+        "ans": 1,
+        "exp": "A key skill for freelancers to find new high-paying clients."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who won the World Cup 1986 for Argentina?",
+        "opt": [
+            "Messi",
+            "Maradona",
+            "Kempes"
+        ],
+        "ans": 1,
+        "exp": "Diego Maradona led Argentina to victory in the 1986 World Cup."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Firewall'?",
+        "opt": [
+            "Physical wall",
+            "Security system that blocks unauthorized access",
+            "Computer fan"
+        ],
+        "ans": 1,
+        "exp": "Firewalls are the first line of defense for a network."
+    },
+    {
+        "category": "football_stars",
+        "q": "Which player is nicknamed 'La Pulga'?",
+        "opt": [
+            "Neymar",
+            "Messi",
+            "Suarez"
+        ],
+        "ans": 1,
+        "exp": "Lionel Messi is famously known as 'La Pulga' (The Flea) due to his size and speed."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Anchor Text'?",
+        "opt": [
+            "Text on a boat",
+            "The clickable text in a hyperlink",
+            "Website title"
+        ],
+        "ans": 1,
+        "exp": "Optimized anchor text helps Google understand the destination page's topic."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Evergreen Content'?",
+        "opt": [
+            "Content about trees",
+            "Content that remains relevant for a long time",
+            "News updates"
+        ],
+        "ans": 1,
+        "exp": "Evergreen content provides steady traffic for months or years."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Amazon Associates'?",
+        "opt": [
+            "Amazon workers",
+            "Amazon's affiliate marketing program",
+            "Prime members"
+        ],
+        "ans": 1,
+        "exp": "It is one of the largest and easiest affiliate programs for beginners."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'GPU'?",
+        "opt": [
+            "General Power Unit",
+            "Graphics Processing Unit",
+            "Gaming Play Unit"
+        ],
+        "ans": 1,
+        "exp": "GPUs are essential for gaming, video editing, and AI training."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Credit Score' range in India (CIBIL)?",
+        "opt": [
+            "100-500",
+            "300-900",
+            "500-1000"
+        ],
+        "ans": 1,
+        "exp": "A score above 750 is usually considered excellent for loan approvals."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Localhost'?",
+        "opt": [
+            "A nearby shop",
+            "Your own computer used as a server",
+            "Free wifi"
+        ],
+        "ans": 1,
+        "exp": "Developers use localhost to test websites before making them public."
+    },
+    {
+        "category": "space",
+        "q": "What is 'Foldable Phone'?",
+        "opt": [
+            "Broken phone",
+            "Smartphone with a flexible display that folds",
+            "Small phone"
+        ],
+        "ans": 1,
+        "exp": "Samsung Galaxy Z Fold is a famous example."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Portfolio Rebalancing'?",
+        "opt": [
+            "Selling all stocks",
+            "Adjusting asset weights in a portfolio",
+            "Adding more cash"
+        ],
+        "ans": 1,
+        "exp": "Rebalancing ensures your portfolio stays aligned with your risk tolerance."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Botnet'?",
+        "opt": [
+            "Robot net",
+            "Network of infected computers controlled by hackers",
+            "Fast internet"
+        ],
+        "ans": 1,
+        "exp": "Botnets are used to launch massive DDoS attacks."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Expense Ratio'?",
+        "opt": [
+            "Cost of living",
+            "Annual fee charged by mutual funds",
+            "Personal tax"
+        ],
+        "ans": 1,
+        "exp": "A lower expense ratio means more of your money is being invested."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Router'?",
+        "opt": [
+            "A tool",
+            "Device that sends internet to your gadgets",
+            "Cable"
+        ],
+        "ans": 1,
+        "exp": "Modern Wi-Fi 6 routers provide faster and more stable connections."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Appreciation' in Real Estate?",
+        "opt": [
+            "Saying thank you",
+            "Increase in property value",
+            "Building a house"
+        ],
+        "ans": 1,
+        "exp": "Appreciation is the increase in a property's value over time."
+    },
+    {
+        "category": "sports",
+        "q": "Which country will host the 2026 FIFA World Cup?",
+        "opt": [
+            "USA, Mexico, Canada",
+            "China",
+            "England"
+        ],
+        "ans": 0,
+        "exp": "The 2026 edition will be the first hosted by three nations."
+    },
+    {
+        "category": "mba",
+        "q": "What is 'Time Zone' management?",
+        "opt": [
+            "Setting clock",
+            "Strategy for teams working in different hours",
+            "Jet lag"
+        ],
+        "ans": 1,
+        "exp": "Nomads often use tools like World Time Buddy to schedule meetings."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Content Marketing'?",
+        "opt": [
+            "Selling ads",
+            "Creating valuable content to attract audience",
+            "Buying articles"
+        ],
+        "ans": 1,
+        "exp": "Content marketing focuses on being helpful rather than just selling."
+    },
+    {
+        "category": "music",
+        "q": "What is a 'Studio Apartment'?",
+        "opt": [
+            "Large villa",
+            "One room with kitchen and bedroom combined",
+            "A music studio"
+        ],
+        "ans": 1,
+        "exp": "A studio is a small flat where the main functions are in one single room."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'SSD' in hosting?",
+        "opt": [
+            "Slow storage",
+            "Solid State Drive (Fast storage)",
+            "Memory"
+        ],
+        "ans": 1,
+        "exp": "SSD hosting is much faster than traditional HDD hosting."
+    },
+    {
+        "category": "gk",
+        "q": "What is 'Emerging Market'?",
+        "opt": [
+            "Local market",
+            "Economy becoming more advanced and engaged with global markets",
+            "Closed economy"
+        ],
+        "ans": 1,
+        "exp": "India, Brazil, and Mexico are considered major emerging markets."
+    },
+    {
+        "category": "gadgets",
+        "q": "What is 'Responsive Design'?",
+        "opt": [
+            "Fast loading",
+            "Websites that look good on all devices/screens",
+            "Colorful design"
+        ],
+        "ans": 1,
+        "exp": "Responsive sites adjust their layout for mobile, tablet, and desktop."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Spam' in marketing?",
+        "opt": [
+            "Canned meat",
+            "Unsolicited, irrelevant messages sent in bulk",
+            "Social posts"
+        ],
+        "ans": 1,
+        "exp": "Sending spam can get your affiliate accounts banned and ruin your brand."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Budgeting'?",
+        "opt": [
+            "Spending freely",
+            "Plan for income and expenses",
+            "Paying taxes"
+        ],
+        "ans": 1,
+        "exp": "Budgeting helps you track where your money goes each month."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Brute Force Attack'?",
+        "opt": [
+            "Fighting",
+            "Trying every possible password",
+            "Slow internet"
+        ],
+        "ans": 1,
+        "exp": "Hackers use automated tools to guess passwords until they find the right one."
+    },
+    {
+        "category": "football_stars",
+        "q": "Who is the CEO/President of FIFA?",
+        "opt": [
+            "Pele",
+            "Gianni Infantino",
+            "Zidane"
+        ],
+        "ans": 1,
+        "exp": "Infantino has been the president of FIFA since 2016."
+    },
+    {
+        "category": "finance",
+        "q": "What does 'Forex' stand for?",
+        "opt": [
+            "Foreign Exchange",
+            "Forward Exit",
+            "Foreign Exit"
+        ],
+        "ans": 0,
+        "exp": "Forex is the global market for trading national currencies."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'TPA' in insurance?",
+        "opt": [
+            "Type of policy",
+            "Third Party Administrator for claims",
+            "A insurance agent"
+        ],
+        "ans": 1,
+        "exp": "TPAs help in processing claims and providing networking hospitals."
+    },
+    {
+        "category": "gk",
+        "q": "Which country hosted the 2014 World Cup?",
+        "opt": [
+            "Russia",
+            "Brazil",
+            "Germany"
+        ],
+        "ans": 1,
+        "exp": "Brazil hosted the tournament where Germany became champions."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Group Insurance'?",
+        "opt": [
+            "Insurance for 1 person",
+            "Insurance for employees/group",
+            "Family plan only"
+        ],
+        "ans": 1,
+        "exp": "Group insurance covers a group of people, like employees of a company."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'IoT' (Internet of Things)?",
+        "opt": [
+            "Connecting people",
+            "Connecting physical devices to the internet",
+            "New browser"
+        ],
+        "ans": 1,
+        "exp": "Smart bulbs, smart watches, and connected ACs are part of IoT."
+    },
+    {
+        "category": "startup",
+        "q": "What is 'Keyman Insurance'?",
+        "opt": [
+            "For every employee",
+            "Insurance for a crucial person in business",
+            "For house keys"
+        ],
+        "ans": 1,
+        "exp": "It compensates a business for financial losses if a key person dies."
+    },
+    {
+        "category": "daily",
+        "q": "What is the full form of ATM?",
+        "opt": [
+            "Any Time Money",
+            "Automated Teller Machine",
+            "Auto Tech Money"
+        ],
+        "ans": 1,
+        "exp": "ATM stands for Automated Teller Machine, used for cash withdrawals."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Ray Tracing' in gaming?",
+        "opt": [
+            "Fast racing",
+            "Realistic lighting and reflection technology",
+            "Map tracking"
+        ],
+        "ans": 1,
+        "exp": "Ray tracing makes 3D environments look incredibly life-like."
+    },
+    {
+        "category": "tech",
+        "q": "What is '5G'?",
+        "opt": [
+            "5th Generation mobile network",
+            "5 Gigabytes",
+            "5 Google servers"
+        ],
+        "ans": 0,
+        "exp": "5G is the fifth generation technology standard for broadband cellular networks."
+    },
+    {
+        "category": "daily",
+        "q": "What is a 'Backlink'?",
+        "opt": [
+            "Link to previous page",
+            "Link from an external site to your site",
+            "Broken link"
+        ],
+        "ans": 1,
+        "exp": "Quality backlinks are one of the most important ranking factors for Google."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Deep Learning'?",
+        "opt": [
+            "Learning underwater",
+            "ML based on neural networks",
+            "Complex coding"
+        ],
+        "ans": 1,
+        "exp": "Deep learning mimics the human brain's structure to solve complex problems."
+    },
+    {
+        "category": "champions_league",
+        "q": "Which football club has the highest annual revenue?",
+        "opt": [
+            "Real Madrid",
+            "PSG",
+            "Bayern Munich"
+        ],
+        "ans": 0,
+        "exp": "Real Madrid is consistently at the top of the Deloitte Football Money League."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'NASDAQ'?",
+        "opt": [
+            "Indian Stock Exchange",
+            "American Tech-heavy Exchange",
+            "Crypto coin"
+        ],
+        "ans": 1,
+        "exp": "NASDAQ is the world's first electronic stock market, based in the USA."
+    },
+    {
+        "category": "champions_league",
+        "q": "Who won the 2023 UEFA Champions League?",
+        "opt": [
+            "Real Madrid",
+            "Manchester City",
+            "Inter Milan"
+        ],
+        "ans": 1,
+        "exp": "Man City won their first-ever Champions League title in 2023."
+    },
+    {
+        "category": "daily",
+        "q": "Which perfume is famous as 'No. 5'?",
+        "opt": [
+            "Dior",
+            "Chanel",
+            "Armani"
+        ],
+        "ans": 1,
+        "exp": "Chanel No. 5 is perhaps the most iconic fragrance ever made."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Omnichannel'?",
+        "opt": [
+            "Only one channel",
+            "Unified experience across web, app, store",
+            "Many TVs"
+        ],
+        "ans": 1,
+        "exp": "Selling everywhere the customer is, while keeping data synced."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'No Claim Bonus' (NCB) in health?",
+        "opt": [
+            "Cashback",
+            "Increase in cover for not claiming",
+            "Free medicines"
+        ],
+        "ans": 1,
+        "exp": "If you don't claim in a year, your sum insured increases at no extra cost."
+    },
+    {
+        "category": "tax",
+        "q": "What is 'Tax Refund'?",
+        "opt": [
+            "Paying more tax",
+            "Money back when you overpay tax",
+            "A penalty"
+        ],
+        "ans": 1,
+        "exp": "You get a refund if the tax you paid is more than what you owe."
+    },
+    {
+        "category": "marketing",
+        "q": "What is a 'Canonical Tag'?",
+        "opt": [
+            "A type of advertisement",
+            "Code to tell Google which version of a page is the main one",
+            "Website logo tag"
+        ],
+        "ans": 1,
+        "exp": "Canonical tags prevent duplicate content issues in SEO."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Serie A'?",
+        "opt": [
+            "German league",
+            "Italian league",
+            "Brazilian league"
+        ],
+        "ans": 1,
+        "exp": "Italy's top-tier professional football league."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'Resort Wear'?",
+        "opt": [
+            "Winter clothes",
+            "Luxury clothing designed for holidays/beaches",
+            "Work suit"
+        ],
+        "ans": 1,
+        "exp": "High-end brands launch 'Cruise' collections specifically for travel."
+    },
+    {
+        "category": "football_stars",
+        "q": "Which player has won the most Ballon d'Ors?",
+        "opt": [
+            "Cristiano Ronaldo",
+            "Lionel Messi",
+            "Johan Cruyff"
+        ],
+        "ans": 1,
+        "exp": "Messi has won a record 8 Ballon d'Or awards."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'ROAS'?",
+        "opt": [
+            "Return on Ad Spend",
+            "Rate of All Sales",
+            "Return on Assets"
+        ],
+        "ans": 0,
+        "exp": "ROAS measures how much revenue you earn for every dollar spent on ads."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Addon Domain'?",
+        "opt": [
+            "Subdomain",
+            "Extra domain hosted on same account",
+            "New hosting"
+        ],
+        "ans": 1,
+        "exp": "Addon domains allow you to run multiple websites on one hosting plan."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Email Marketing'?",
+        "opt": [
+            "Sending spam",
+            "Sending targeted messages to a list",
+            "Texting"
+        ],
+        "ans": 1,
+        "exp": "Email marketing is a powerful tool to nurture leads and promote products."
+    },
+    {
+        "category": "fashion",
+        "q": "Which brand sponsors the 'UEFA Champions League'?",
+        "opt": [
+            "Mastercard",
+            "Rolex",
+            "Mercedes"
+        ],
+        "ans": 0,
+        "exp": "Mastercard is a long-standing partner of the Champions League."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Overdraft'?",
+        "opt": [
+            "Credit card",
+            "Withdrawing more money than in account",
+            "Savings"
+        ],
+        "ans": 1,
+        "exp": "Interest is charged only on the amount you withdraw over your balance."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Socialism'?",
+        "opt": [
+            "Private profit",
+            "System where means of production are owned by community/state",
+            "A social media app"
+        ],
+        "ans": 1,
+        "exp": "Socialism focuses on equitable distribution of wealth."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Fundamental Analysis'?",
+        "opt": [
+            "Reading charts",
+            "Checking financial health and earnings",
+            "Following influencers"
+        ],
+        "ans": 1,
+        "exp": "Fundamental analysis looks at economic and financial factors to value a stock."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'CRM' software?",
+        "opt": [
+            "Customer Relationship Management",
+            "Cash Record Manager",
+            "Core Resource Main"
+        ],
+        "ans": 0,
+        "exp": "CRM helps businesses manage interactions with current and potential customers."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Market Volatility'?",
+        "opt": [
+            "Market is closed",
+            "Frequency and size of price swings",
+            "Stable market"
+        ],
+        "ans": 1,
+        "exp": "High volatility means the market experiences large price changes in a short time."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Mining' in crypto?",
+        "opt": [
+            "Digging for gold",
+            "Validating transactions via hardware",
+            "Buying coins"
+        ],
+        "ans": 1,
+        "exp": "Mining is the process of using computer power to secure the network and earn new coins."
+    },
+    {
+        "category": "tv",
+        "q": "What is 'Affiliate Network'?",
+        "opt": [
+            "Group of friends",
+            "Platform that connects brands with affiliates",
+            "Internet cable"
+        ],
+        "ans": 1,
+        "exp": "Examples include ShareASale, CJ Affiliate, and Impact."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'LTV' (Lifetime Value)?",
+        "opt": [
+            "Long Term View",
+            "Total revenue a business expects from one customer",
+            "Loan To Value"
+        ],
+        "ans": 1,
+        "exp": "LTV helps businesses decide how much to spend on acquiring a new customer."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Staking'?",
+        "opt": [
+            "Selling coins",
+            "Locking coins to earn rewards",
+            "Gambling"
+        ],
+        "ans": 1,
+        "exp": "Staking involves locking up crypto to support a blockchain network and earn interest."
+    },
+    {
+        "category": "sports",
+        "q": "What is the 'MLS'?",
+        "opt": [
+            "Major League Soccer (USA)",
+            "Multi League",
+            "Main Soccer"
+        ],
+        "ans": 0,
+        "exp": "The professional soccer league in the United States and Canada."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'VPN' essential for?",
+        "opt": [
+            "Fast internet",
+            "Privacy and accessing region-locked content",
+            "Hardware security"
+        ],
+        "ans": 1,
+        "exp": "Nomads use VPNs to access bank accounts and work tools securely."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Group Health Insurance'?",
+        "opt": [
+            "For family only",
+            "Policy provided by employers to employees",
+            "Government scheme"
+        ],
+        "ans": 1,
+        "exp": "It is often cheaper and covers employees from day one without medical tests."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Dwell Time'?",
+        "opt": [
+            "Time to sleep",
+            "Amount of time a user spends on a page before leaving",
+            "Loading speed"
+        ],
+        "ans": 1,
+        "exp": "Higher dwell time signals to Google that your content is valuable."
+    },
+    {
+        "category": "luxury",
+        "q": "What is 'Personal Shopper'?",
+        "opt": [
+            "Buying groceries",
+            "Professional who helps you buy luxury items",
+            "Online bot"
+        ],
+        "ans": 1,
+        "exp": "High-net-worth individuals hire them to manage their wardrobe."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Total Football'?",
+        "opt": [
+            "Full match",
+            "Tactical system from Netherlands",
+            "Only defense"
+        ],
+        "ans": 1,
+        "exp": "A famous style where any player can take over the role of any other player."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Loan Tenure'?",
+        "opt": [
+            "Interest rate",
+            "Duration of the loan",
+            "Maximum loan amount"
+        ],
+        "ans": 1,
+        "exp": "Longer tenure means smaller EMIs but more total interest."
+    },
+    {
+        "category": "auto",
+        "q": "Which car brand owns 'Rolls-Royce'?",
+        "opt": [
+            "Mercedes",
+            "BMW",
+            "Volkswagen"
+        ],
+        "ans": 1,
+        "exp": "BMW acquired the Rolls-Royce brand in 1998."
+    },
+    {
+        "category": "investing",
+        "q": "What is 'Bear Market'?",
+        "opt": [
+            "Prices are rising",
+            "Prices are falling",
+            "Stable market"
+        ],
+        "ans": 1,
+        "exp": "A bear market is defined by a 20% drop from recent highs."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Backend' development?",
+        "opt": [
+            "Website design",
+            "Server-side logic and database management",
+            "Writing blogs"
+        ],
+        "ans": 1,
+        "exp": "Backend developers focus on databases, scripting, and website architecture."
+    },
+    {
+        "category": "sports",
+        "q": "Which country hosted the first-ever World Cup in 1930?",
+        "opt": [
+            "Brazil",
+            "Uruguay",
+            "Italy"
+        ],
+        "ans": 1,
+        "exp": "Uruguay hosted and won the first FIFA World Cup."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Transfer Release Clause'?",
+        "opt": [
+            "Retirement fee",
+            "Fixed fee to buy a player without club negotiation",
+            "Loan fee"
+        ],
+        "ans": 1,
+        "exp": "Spain's La Liga requires every player to have a release clause."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Disk Space'?",
+        "opt": [
+            "Physical disk",
+            "Storage space for website files",
+            "RAM"
+        ],
+        "ans": 1,
+        "exp": "Disk space is used to store images, code, and databases of your site."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'ClickBank'?",
+        "opt": [
+            "A traditional bank",
+            "Popular affiliate marketplace for digital products",
+            "A keyboard"
+        ],
+        "ans": 1,
+        "exp": "ClickBank is famous for high-commission digital courses and software."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Domain Privacy' (WHOIS)?",
+        "opt": [
+            "Hiding website",
+            "Hiding owner's personal contact info",
+            "Password"
+        ],
+        "ans": 1,
+        "exp": "Domain privacy prevents spammers from seeing your personal details."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Recession'?",
+        "opt": [
+            "High growth",
+            "Two consecutive quarters of negative GDP growth",
+            "Stable market"
+        ],
+        "ans": 1,
+        "exp": "Recessions usually lead to higher unemployment and lower spending."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'SMTP'?",
+        "opt": [
+            "Website protocol",
+            "Simple Mail Transfer Protocol",
+            "Social Media Tool"
+        ],
+        "ans": 1,
+        "exp": "SMTP is used for sending emails from your server."
+    },
+    {
+        "category": "trading",
+        "q": "What is 'Market Cap'?",
+        "opt": [
+            "Price of 1 coin",
+            "Total value of all circulating coins",
+            "Daily trading volume"
+        ],
+        "ans": 1,
+        "exp": "Market cap = Current Price x Total Circulating Supply."
+    },
+    {
+        "category": "daily",
+        "q": "What is '3PL' in logistics?",
+        "opt": [
+            "3rd Party Logistics",
+            "3 Player League",
+            "3 Point Link"
+        ],
+        "ans": 0,
+        "exp": "3PL companies handle warehousing and shipping for other businesses."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Unsecured Loan'?",
+        "opt": [
+            "Safe loan",
+            "Loan without any collateral",
+            "Gold loan"
+        ],
+        "ans": 1,
+        "exp": "Personal loans and credit cards are examples of unsecured loans."
+    },
+    {
+        "category": "tax",
+        "q": "What is an 'Overdraft'?",
+        "opt": [
+            "Type of tax",
+            "Withdrawing more than balance",
+            "Bank closure"
+        ],
+        "ans": 1,
+        "exp": "An overdraft allows a person to withdraw more money than they have in their account."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Deep Linking'?",
+        "opt": [
+            "Linking to home",
+            "Linking to a specific product page instead of homepage",
+            "Hidden links"
+        ],
+        "ans": 1,
+        "exp": "Deep links usually have higher conversion rates."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Supervised Learning'?",
+        "opt": [
+            "Teacher in class",
+            "Training AI using labeled data",
+            "AI that doesn't learn"
+        ],
+        "ans": 1,
+        "exp": "It's like teaching a child by showing them pictures and telling them names."
+    },
+    {
+        "category": "insurance",
+        "q": "What is a 'Premium Card' (e.g. Amex Platinum)?",
+        "opt": [
+            "Free card",
+            "Card with high fees and luxury benefits",
+            "Basic card"
+        ],
+        "ans": 1,
+        "exp": "Premium cards offer airport lounge access, concierge, and high rewards."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Subletting'?",
+        "opt": [
+            "Selling a room",
+            "Tenant renting to another person",
+            "Buying a house"
+        ],
+        "ans": 1,
+        "exp": "Subletting is when a tenant rents out all or part of their rented property to someone else."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Flipping' a house?",
+        "opt": [
+            "Cleaning a house",
+            "Buying cheap, renovating, and selling fast",
+            "Living in a house"
+        ],
+        "ans": 1,
+        "exp": "Flipping is an investment strategy of buying, improving, and selling for profit."
+    },
+    {
+        "category": "realestate",
+        "q": "What is 'Down Payment'?",
+        "opt": [
+            "Monthly rent",
+            "Initial payment made when buying home",
+            "Final payment"
+        ],
+        "ans": 1,
+        "exp": "A down payment is a percentage of the total cost paid upfront."
+    },
+    {
+        "category": "geo",
+        "q": "What is 'Geoarbitrage'?",
+        "opt": [
+            "Geography test",
+            "Earning in strong currency, spending in weak currency",
+            "Map reading"
+        ],
+        "ans": 1,
+        "exp": "Nomads earn USD/Euro but live in countries with low cost of living like Thailand."
+    },
+    {
+        "category": "geo",
+        "q": "Which country has the 'Bundesliga'?",
+        "opt": [
+            "France",
+            "Germany",
+            "Netherlands"
+        ],
+        "ans": 1,
+        "exp": "The Bundesliga is the top professional football league in Germany."
+    },
+    {
+        "category": "finance",
+        "q": "What is a 'Bond'?",
+        "opt": [
+            "Legal glue",
+            "Loan to government or company",
+            "Stock share"
+        ],
+        "ans": 1,
+        "exp": "Bonds are fixed-income instruments that represent a loan made by an investor."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Market Order'?",
+        "opt": [
+            "Order to buy at best available price",
+            "Buying after market closes",
+            "Order with a fixed price"
+        ],
+        "ans": 0,
+        "exp": "A market order is executed immediately at the current market price."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Shared Hosting'?",
+        "opt": [
+            "Private server",
+            "Multiple sites on one server",
+            "Offline hosting"
+        ],
+        "ans": 1,
+        "exp": "Shared hosting is the most affordable option for new websites."
+    },
+    {
+        "category": "auto",
+        "q": "Which company is the leader in Electric Vehicles (EV) globally?",
+        "opt": [
+            "Toyota",
+            "Tesla",
+            "Ford"
+        ],
+        "ans": 1,
+        "exp": "Tesla, led by Elon Musk, is the world's most valuable EV manufacturer."
+    },
+    {
+        "category": "energy",
+        "q": "What does 'EV' stand for?",
+        "opt": [
+            "Energy Vehicle",
+            "Electric Vehicle",
+            "Engine Version"
+        ],
+        "ans": 1,
+        "exp": "Electric Vehicles run on electricity instead of internal combustion engines."
+    },
+    {
+        "category": "energy",
+        "q": "What is the main component of an EV battery?",
+        "opt": [
+            "Lead",
+            "Lithium-ion",
+            "Silver"
+        ],
+        "ans": 1,
+        "exp": "Lithium-ion batteries are used due to their high energy density and long life."
+    },
+    {
+        "category": "f1",
+        "q": "Which car brand owns 'Lamborghini'?",
+        "opt": [
+            "Ferrari",
+            "Volkswagen Group",
+            "Tata Motors"
+        ],
+        "ans": 1,
+        "exp": "Lamborghini is a subsidiary of Audi, which is owned by Volkswagen."
+    },
+    {
+        "category": "energy",
+        "q": "What is 'Regenerative Braking'?",
+        "opt": [
+            "Braking that charges battery",
+            "Faster braking",
+            "Automatic braking"
+        ],
+        "ans": 0,
+        "exp": "It captures kinetic energy during braking and converts it back into electricity."
+    },
+    {
+        "category": "fashion",
+        "q": "What is the range of a typical premium EV on full charge?",
+        "opt": [
+            "50 km",
+            "400-600 km",
+            "2000 km"
+        ],
+        "ans": 1,
+        "exp": "Modern high-end EVs like Tesla Model S offer over 500 km of range."
+    },
+    {
+        "category": "gk",
+        "q": "Which gas is primarily responsible for vehicle emissions?",
+        "opt": [
+            "Oxygen",
+            "Carbon Dioxide",
+            "Nitrogen"
+        ],
+        "ans": 1,
+        "exp": "CO2 emissions from petrol/diesel cars contribute to global warming."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Torque' in cars?",
+        "opt": [
+            "Speed",
+            "Rotational force/Acceleration power",
+            "Fuel capacity"
+        ],
+        "ans": 1,
+        "exp": "EVs provide instant torque, allowing them to accelerate very quickly."
+    },
+    {
+        "category": "gk",
+        "q": "Which is the fastest production car in the world?",
+        "opt": [
+            "Bugatti Chiron",
+            "Rimac Nevera",
+            "Koenigsegg Jesko Absolut"
+        ],
+        "ans": 2,
+        "exp": "The Jesko Absolut is designed to cross the 300mph (480km/h) barrier."
+    },
+    {
+        "category": "f1",
+        "q": "What is 'FSD' in Tesla cars?",
+        "opt": [
+            "Fast Speed Driving",
+            "Full Self-Driving",
+            "Fuel Saving Device"
+        ],
+        "ans": 1,
+        "exp": "FSD is an advanced driver-assist system aiming for full autonomy."
+    },
+    {
+        "category": "gk",
+        "q": "Which country produces the most cars in the world?",
+        "opt": [
+            "USA",
+            "China",
+            "Germany"
+        ],
+        "ans": 1,
+        "exp": "China has been the world's largest automobile producer since 2008."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Hybrid' car?",
+        "opt": [
+            "Only electric",
+            "Uses both fuel engine and electric motor",
+            "Hydrogen only"
+        ],
+        "ans": 1,
+        "exp": "Hybrids use two power sources to improve fuel efficiency."
+    },
+    {
+        "category": "f1",
+        "q": "What is 'ADAS'?",
+        "opt": [
+            "Advanced Driver Assistance Systems",
+            "Auto Data Alert System",
+            "Air Drag Analysis"
+        ],
+        "ans": 0,
+        "exp": "ADAS includes features like lane assist and emergency braking."
+    },
+    {
+        "category": "auto",
+        "q": "Which Indian company owns 'Jaguar Land Rover'?",
+        "opt": [
+            "Mahindra",
+            "Tata Motors",
+            "Reliance"
+        ],
+        "ans": 1,
+        "exp": "Tata Motors acquired JLR from Ford in 2008."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Hydrogen Fuel Cell'?",
+        "opt": [
+            "Type of petrol",
+            "Generates electricity from hydrogen with zero emission",
+            "Battery type"
+        ],
+        "ans": 1,
+        "exp": "Toyota Mirai is a famous hydrogen fuel cell vehicle."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Horsepower'?",
+        "opt": [
+            "Speed of a horse",
+            "Unit of measurement for engine power",
+            "Weight of engine"
+        ],
+        "ans": 1,
+        "exp": "It indicates how much work an engine can perform over time."
+    },
+    {
+        "category": "travel",
+        "q": "What is 'MPG' in fuel efficiency?",
+        "opt": [
+            "Miles Per Gallon",
+            "Meter Per Gram",
+            "Maximum Power Gain"
+        ],
+        "ans": 0,
+        "exp": "MPG measures how far a car can travel on a gallon of fuel."
+    },
+    {
+        "category": "auto",
+        "q": "Which brand uses the 'Four Rings' logo?",
+        "opt": [
+            "BMW",
+            "Audi",
+            "Mercedes"
+        ],
+        "ans": 1,
+        "exp": "The four rings represent the merger of four independent motor-vehicle manufacturers."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Turbocharger'?",
+        "opt": [
+            "Better battery",
+            "Device that forces more air into engine for power",
+            "A fast gear"
+        ],
+        "ans": 1,
+        "exp": "Turbochargers increase engine efficiency and power output."
+    },
+    {
+        "category": "auto",
+        "q": "Which is the best-selling car model of all time?",
+        "opt": [
+            "Ford F-Series",
+            "Toyota Corolla",
+            "VW Golf"
+        ],
+        "ans": 1,
+        "exp": "Over 50 million Toyota Corollas have been sold since 1966."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'Supercharger' in Tesla context?",
+        "opt": [
+            "Fast engine",
+            "Tesla's high-speed charging station",
+            "Engine part"
+        ],
+        "ans": 1,
+        "exp": "Superchargers can add up to 200 miles of range in just 15 minutes."
+    },
+    {
+        "category": "auto",
+        "q": "What is 'VIN'?",
+        "opt": [
+            "Vehicle Identification Number",
+            "Very Important Note",
+            "Vehicle Insurance Net"
+        ],
+        "ans": 0,
+        "exp": "A VIN is a unique 17-character code for every individual vehicle."
+    },
+    {
+        "category": "fashion",
+        "q": "Which luxury brand makes the 'Phantom'?",
+        "opt": [
+            "Bentley",
+            "Rolls-Royce",
+            "Maybach"
+        ],
+        "ans": 1,
+        "exp": "The Rolls-Royce Phantom is the pinnacle of luxury automobiles."
+    },
+    {
+        "category": "cruise_life",
+        "q": "What is 'Cruise Control'?",
+        "opt": [
+            "Controlling a ship",
+            "Maintaining a constant speed automatically",
+            "Parking help"
+        ],
+        "ans": 1,
+        "exp": "It allows the driver to take their foot off the accelerator on highways."
+    },
+    {
+        "category": "daily",
+        "q": "Which fuel is 'Octane Rating' associated with?",
+        "opt": [
+            "Diesel",
+            "Petrol (Gasoline)",
+            "CNG"
+        ],
+        "ans": 1,
+        "exp": "Higher octane ratings reduce 'knocking' in high-performance engines."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Bio-hacking'?",
+        "opt": [
+            "Hacking a hospital",
+            "Making small lifestyle changes to improve health",
+            "Cloning"
+        ],
+        "ans": 1,
+        "exp": "Bio-hacking ranges from intermittent fasting to wearable health tech."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Intermittent Fasting'?",
+        "opt": [
+            "Eating only fruits",
+            "Cycling between periods of eating and fasting",
+            "No water"
+        ],
+        "ans": 1,
+        "exp": "Popular for weight loss and improving metabolic health."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Telemedicine'?",
+        "opt": [
+            "Buying medicines online",
+            "Consulting doctors via video/phone",
+            "TV health shows"
+        ],
+        "ans": 1,
+        "exp": "It provides medical access to people in remote locations."
+    },
+    {
+        "category": "fitness",
+        "q": "Which vitamin is produced by the skin in sunlight?",
+        "opt": [
+            "Vitamin C",
+            "Vitamin D",
+            "Vitamin B12"
+        ],
+        "ans": 1,
+        "exp": "Vitamin D is essential for bone health and immune function."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Cortisol'?",
+        "opt": [
+            "Muscle builder",
+            "The body's main stress hormone",
+            "Type of sugar"
+        ],
+        "ans": 1,
+        "exp": "High cortisol levels over a long time can lead to health problems."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'BMI'?",
+        "opt": [
+            "Body Muscle Index",
+            "Body Mass Index",
+            "Basic Metabolic Intake"
+        ],
+        "ans": 1,
+        "exp": "BMI uses height and weight to estimate body fat."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Wearable Health Tech'?",
+        "opt": [
+            "Digital clothes",
+            "Devices like Apple Watch/Fitbit for health tracking",
+            "Hearing aids"
+        ],
+        "ans": 1,
+        "exp": "They monitor heart rate, sleep, and physical activity 24/7."
+    },
+    {
+        "category": "psychology",
+        "q": "What is 'Mental Health' insurance?",
+        "opt": [
+            "Insurance for brain surgery",
+            "Coverage for therapy and psychiatric care",
+            "Memory loss cover"
+        ],
+        "ans": 1,
+        "exp": "Modern health plans increasingly cover mental health treatments."
+    },
+    {
+        "category": "history",
+        "q": "What is 'Personal Health Record' (PHR)?",
+        "opt": [
+            "Doctor's diary",
+            "Patient's own collection of their health data",
+            "Insurance card"
+        ],
+        "ans": 1,
+        "exp": "Digital PHRs help patients manage their own medical history."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Probiotics'?",
+        "opt": [
+            "Antibiotics",
+            "Live beneficial bacteria for gut health",
+            "Protein powder"
+        ],
+        "ans": 1,
+        "exp": "Yogurt and Kefir are common sources of probiotics."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Melatonin'?",
+        "opt": [
+            "Skin color",
+            "Hormone that regulates sleep-wake cycles",
+            "Stress hormone"
+        ],
+        "ans": 1,
+        "exp": "Your body produces more melatonin when it gets dark."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Preventive Healthcare'?",
+        "opt": [
+            "Emergency care",
+            "Checkups and tests to find diseases early",
+            "Surgery"
+        ],
+        "ans": 1,
+        "exp": "It's better (and cheaper) to prevent a disease than to treat it."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Universal Health Coverage' (UHC)?",
+        "opt": [
+            "Private insurance",
+            "System where everyone gets health services without hardship",
+            "Free medicine only"
+        ],
+        "ans": 1,
+        "exp": "The goal of UHC is to ensure health for all citizens."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Calorie Deficit'?",
+        "opt": [
+            "Eating more",
+            "Burning more calories than you consume",
+            "Low protein"
+        ],
+        "ans": 1,
+        "exp": "A calorie deficit is the primary requirement for weight loss."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Antioxidants'?",
+        "opt": [
+            "Types of fats",
+            "Substances that protect cells from damage",
+            "Acidic food"
+        ],
+        "ans": 1,
+        "exp": "Berries, dark chocolate, and green tea are rich in antioxidants."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Deep Sleep'?",
+        "opt": [
+            "Sleeping 10 hours",
+            "The stage of sleep for body repair and growth",
+            "Dreaming stage"
+        ],
+        "ans": 1,
+        "exp": "Deep sleep is crucial for physical recovery."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Ketogenic Diet'?",
+        "opt": [
+            "High sugar diet",
+            "High-fat, low-carb diet",
+            "Only protein diet"
+        ],
+        "ans": 1,
+        "exp": "It forces the body to burn fats rather than carbohydrates."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'HDL' cholesterol?",
+        "opt": [
+            "Bad cholesterol",
+            "Good cholesterol",
+            "Neutral"
+        ],
+        "ans": 1,
+        "exp": "HDL helps remove other forms of cholesterol from your bloodstream."
+    },
+    {
+        "category": "science",
+        "q": "What is 'Genetic Testing'?",
+        "opt": [
+            "Blood group test",
+            "Analyzing DNA to identify health risks",
+            "IQ test"
+        ],
+        "ans": 1,
+        "exp": "Tests like 23andMe tell you about your ancestry and health traits."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Health Savings Account' (HSA)?",
+        "opt": [
+            "Bank account for shopping",
+            "Tax-advantaged account for medical expenses",
+            "Free clinic"
+        ],
+        "ans": 1,
+        "exp": "HSAs are popular for managing high-deductible health plans."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Gluten'?",
+        "opt": [
+            "A sugar",
+            "Protein found in wheat, barley, and rye",
+            "A fruit"
+        ],
+        "ans": 1,
+        "exp": "People with Celiac disease must avoid gluten entirely."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Meditation' used for?",
+        "opt": [
+            "Exercise",
+            "Training the mind for focus and stress reduction",
+            "Sleeping"
+        ],
+        "ans": 1,
+        "exp": "Proven to lower blood pressure and improve focus."
+    },
+    {
+        "category": "sports",
+        "q": "What is 'Circadian Rhythm'?",
+        "opt": [
+            "Heart beat",
+            "The body's internal 24-hour clock",
+            "Running speed"
+        ],
+        "ans": 1,
+        "exp": "It coordinates physical, mental, and behavioral changes in a day."
+    },
+    {
+        "category": "fitness",
+        "q": "What is 'Superfood'?",
+        "opt": [
+            "Huge fruit",
+            "Nutrient-rich food beneficial for health",
+            "Fast food"
+        ],
+        "ans": 1,
+        "exp": "Examples include Kale, Quinoa, and Chia seeds."
+    },
+    {
+        "category": "insurance",
+        "q": "What is 'Critical Illness'?",
+        "opt": [
+            "Common fever",
+            "Life-threatening disease like Cancer or Stroke",
+            "Small injury"
+        ],
+        "ans": 1,
+        "exp": "Critical illness insurance pays a lump sum upon diagnosis."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'SIM Swapping'?",
+        "opt": [
+            "Changing phone",
+            "Fraudster taking over your phone number for OTPs",
+            "New SIM card"
+        ],
+        "ans": 1,
+        "exp": "Criminals use your number to reset your bank and social media passwords."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Ponzi Scheme'?",
+        "opt": [
+            "Bank account",
+            "Scam that pays old investors with new investors' money",
+            "Government bond"
+        ],
+        "ans": 1,
+        "exp": "They eventually collapse when new investors stop joining."
+    },
+    {
+        "category": "legal",
+        "q": "What is 'Money Laundering'?",
+        "opt": [
+            "Washing cash",
+            "Making illegal money look like legal income",
+            "Printing money"
+        ],
+        "ans": 1,
+        "exp": "Criminals use complex bank transfers to hide the source of funds."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Skimming' at ATMs?",
+        "opt": [
+            "Card cleaning",
+            "Devices that steal card data during swipe",
+            "Free cash"
+        ],
+        "ans": 1,
+        "exp": "Always check the ATM card slot for any loose parts."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Card-not-present' (CNP) fraud?",
+        "opt": [
+            "Losing card",
+            "Fraudulent transaction where the card is not physically shown",
+            "ATM theft"
+        ],
+        "ans": 1,
+        "exp": "Common in online shopping using stolen card details."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Whale Phishing'?",
+        "opt": [
+            "Fishing for whales",
+            "Phishing targeted at high-level executives",
+            "Large virus"
+        ],
+        "ans": 1,
+        "exp": "CEO/CFOs are targeted because of their access to huge funds."
+    },
+    {
+        "category": "finance",
+        "q": "What is 'Pump and Dump'?",
+        "opt": [
+            "Gym workout",
+            "Artificially inflating stock price then selling",
+            "Water pump"
+        ],
+        "ans": 1,
+        "exp": "Scammers spread fake news to raise stock price, then sell their shares."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'KYC' for?",
+        "opt": [
+            "Keeping Your Cash",
+            "Verifying the identity of bank customers",
+            "Knowing Your City"
+        ],
+        "ans": 1,
+        "exp": "Know Your Customer (KYC) helps prevent fraud and money laundering."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'Account Takeover' (ATO)?",
+        "opt": [
+            "Closing account",
+            "Hacker gaining control of a legitimate user account",
+            "Opening new account"
+        ],
+        "ans": 1,
+        "exp": "ATO often happens due to weak passwords or phishing."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Mule Account'?",
+        "opt": [
+            "Farmer's account",
+            "Account used to transfer stolen money for others",
+            "Empty account"
+        ],
+        "ans": 1,
+        "exp": "Criminals use 'money mules' to hide their identity during transfers."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Encrypted Transaction'?",
+        "opt": [
+            "Unsafe payment",
+            "Payment protected by scrambling data",
+            "Physical cash"
+        ],
+        "ans": 1,
+        "exp": "HTTPS and SSL ensure that your data is safe while paying online."
+    },
+    {
+        "category": "daily",
+        "q": "What is 'Pharming'?",
+        "opt": [
+            "Growing crops",
+            "Redirecting users to fake websites automatically",
+            "Hacking a pharmacy"
+        ],
+        "ans": 1,
+        "exp": "Even if you type the correct URL, pharming can send you to a fake site."
+    },
+    {
+        "category": "marketing",
+        "q": "What is 'Malvertising'?",
+        "opt": [
+            "Funny ads",
+            "Using online advertisements to spread malware",
+            "TV ads"
+        ],
+        "ans": 1,
+        "exp": "Simply clicking an infected ad can compromise your device."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Decentralization'?",
+        "opt": [
+            "Government control",
+            "No single central authority or server",
+            "Focusing on one city"
+        ],
+        "ans": 1,
+        "exp": "Decentralization is the core principle of Blockchain and Crypto."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'DAO' in Crypto?",
+        "opt": [
+            "Digital Auto Office",
+            "Decentralized Autonomous Organization",
+            "Daily Asset Only"
+        ],
+        "ans": 1,
+        "exp": "DAOs are governed by smart contracts and their members, not a CEO."
+    },
+    {
+        "category": "math",
+        "q": "What is 'Mining' in Bitcoin?",
+        "opt": [
+            "Digging in ground",
+            "Solving complex math to secure network and earn coins",
+            "Buying coins"
+        ],
+        "ans": 1,
+        "exp": "Mining requires high computer power and electricity."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Crypto Wallet'?",
+        "opt": [
+            "Physical leather wallet",
+            "Software/Device to store private keys and access crypto",
+            "A bank branch"
+        ],
+        "ans": 1,
+        "exp": "If you lose your wallet keys, you lose your money forever."
+    },
+    {
+        "category": "energy",
+        "q": "What is 'Gas Fee'?",
+        "opt": [
+            "Car fuel",
+            "Transaction fee on the Ethereum network",
+            "Electricity bill"
+        ],
+        "ans": 1,
+        "exp": "Gas fees compensate miners for the energy used to process transactions."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Altcoin'?",
+        "opt": [
+            "Fake coin",
+            "Any cryptocurrency other than Bitcoin",
+            "A gold coin"
+        ],
+        "ans": 1,
+        "exp": "Ethereum, Solana, and Cardano are all altcoins."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Blockchain Ledger'?",
+        "opt": [
+            "School book",
+            "A distributed and public record of all transactions",
+            "Bank's computer"
+        ],
+        "ans": 1,
+        "exp": "Blockchain records are transparent and cannot be changed easily."
+    },
+    {
+        "category": "tech",
+        "q": "What is 'DApp'?",
+        "opt": [
+            "Daily App",
+            "Decentralized Application",
+            "Data App"
+        ],
+        "ans": 1,
+        "exp": "DApps run on a blockchain network rather than a single server."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Proof of Work' (PoW)?",
+        "opt": [
+            "Working in office",
+            "A consensus mechanism for verifying crypto transactions",
+            "A job certificate"
+        ],
+        "ans": 1,
+        "exp": "Bitcoin uses PoW, which requires high mining power."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Proof of Stake' (PoS)?",
+        "opt": [
+            "Betting",
+            "Verifying transactions based on coins held/staked",
+            "Ownership paper"
+        ],
+        "ans": 1,
+        "exp": "Ethereum 2.0 uses PoS, which is more energy-efficient than PoW."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'HODL'?",
+        "opt": [
+            "Holding cash",
+            "Slang for holding crypto long-term despite price drops",
+            "Fast trading"
+        ],
+        "ans": 1,
+        "exp": "HODL stands for 'Hold On for Dear Life'."
+    },
+    {
+        "category": "swimming",
+        "q": "What is 'Liquidity Pool'?",
+        "opt": [
+            "Swimming pool",
+            "Crowdsourced pool of tokens used for trading on DEX",
+            "Bank's cash"
+        ],
+        "ans": 1,
+        "exp": "Liquidity pools are essential for decentralized exchanges."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Satoshi Nakamoto'?",
+        "opt": [
+            "A tech company",
+            "Pseudonym of the creator of Bitcoin",
+            "A Japanese bank"
+        ],
+        "ans": 1,
+        "exp": "The real identity of Satoshi Nakamoto is still unknown."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Solana' known for?",
+        "opt": [
+            "Slow speed",
+            "High-speed and low-cost blockchain transactions",
+            "First crypto"
+        ],
+        "ans": 1,
+        "exp": "Solana is one of the fastest growing competitors to Ethereum."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'Cold Storage' in crypto?",
+        "opt": [
+            "Storing in fridge",
+            "Storing crypto offline for maximum security",
+            "Bank locker"
+        ],
+        "ans": 1,
+        "exp": "Hardware wallets like Ledger are used for cold storage."
+    },
+    {
+        "category": "crypto",
+        "q": "What is 'FOMO'?",
+        "opt": [
+            "Focus On Money Only",
+            "Fear Of Missing Out",
+            "Fast Online Money Offer"
+        ],
+        "ans": 1,
+        "exp": "FOMO often drives people to buy crypto at high prices."
+    }
+];
