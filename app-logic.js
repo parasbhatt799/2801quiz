@@ -30,7 +30,7 @@ function showDialog(title, message, isConfirm = false) {
         const modal = document.createElement('div');
         modal.id = 'custom-dialog';
         modal.className = 'fixed inset-0 z-[20000] flex items-center justify-center p-4 bg-black/20 animate-in fade-in duration-200';
-        
+
         modal.innerHTML = `
             <div class="bg-white dark:bg-[#0f172a] w-full max-w-[280px] rounded-[2.5rem] p-6 text-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/50 dark:border-slate-800 relative overflow-hidden scale-90 animate-in zoom-in duration-300">
                 <div class="absolute -top-5 -right-5 w-20 h-20 bg-blue-500/10 rounded-full blur-2xl"></div>
@@ -205,19 +205,19 @@ function shuffleArray(array) {
 
 
 function triggerAdAndNavigate(url) {
-    lockUI(); 
+    lockUI();
     document.body.style.transition = 'opacity 0.15s ease-in-out';
     document.body.style.opacity = '0';
     setTimeout(() => {
         window.location.href = url;
-    }, 150); 
+    }, 150);
 }
 
 
 
 
 function lockUI() {
-    if (isRedirecting) return true; 
+    if (isRedirecting) return true;
     isRedirecting = true;
     let loader = document.getElementById('global-app-loader');
     if (!loader) {
@@ -243,8 +243,8 @@ function lockUI() {
             console.log("Redirect taking too long... Unlocking UI.");
             unlockUI();
         }
-    }, 8000); 
-    
+    }, 8000);
+
 
     return false;
 }
@@ -260,17 +260,17 @@ function unlockUI() {
 
 
 function safeRedirect(url) {
-    if (lockUI()) return; 
+    if (lockUI()) return;
     triggerAdAndNavigate(url);
-    
+
 }
 
 function safeNav(url) {
-    if (isRedirecting) return; 
+    if (isRedirecting) return;
     lockUI();
-    
+
     triggerAdAndNavigate(url);
-    
+
 }
 function generateDeviceFingerprint() {
     const info = [
@@ -313,7 +313,7 @@ async function saveToServer() {
 
 async function loadFromServer() {
     const uid = localStorage.getItem('user_id');
-    const isNewUser = !localStorage.getItem('user_already_joined'); 
+    const isNewUser = !localStorage.getItem('user_already_joined');
     if (!uid) return;
 
     try {
@@ -329,8 +329,8 @@ async function loadFromServer() {
             if (data.country) localStorage.setItem('user_country', data.country);
         }
         updateDashboard();
-    } catch (e) { 
-        console.error("Detailed Load Error:", e); 
+    } catch (e) {
+        console.error("Detailed Load Error:", e);
     }
 }
 
@@ -349,7 +349,7 @@ async function detectUserCountry() {
 async function loadWithdrawalHistory() {
     const container = document.getElementById('withdrawal-list');
     const myId = localStorage.getItem('user_id');
-    
+
     let playMoreBtnHtml = `
         <div class="mb-6">
             <button onclick="safeNav('app.html?mode=categories')" 
@@ -364,7 +364,7 @@ async function loadWithdrawalHistory() {
     try {
         const res = await fetch(`${API_URL}?action=get_payouts&app_uid=${myId}`);
         const allData = await res.json();
-        
+
         if (!allData || allData.length === 0) {
             container.innerHTML = playMoreBtnHtml + `<p class="text-center text-gray-400 py-10">No history found!</p>`;
             return;
@@ -375,7 +375,7 @@ async function loadWithdrawalHistory() {
             const date = new Date(req.timestamp).toLocaleDateString('en-GB');
             let statusStyle = "text-yellow-500 bg-yellow-50 dark:bg-yellow-900/20";
             if (req.status === 'approved') statusStyle = "text-green-500 bg-green-50 dark:bg-green-900/20";
-            
+
             listHtml += `
             <div class="bg-white dark:bg-gray-900 p-4 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm flex items-center justify-between mb-3">
                 <div class="flex items-center gap-3">
@@ -395,7 +395,7 @@ async function loadWithdrawalHistory() {
                 </div>
             </div>`;
         }
-        
+
         container.innerHTML = playMoreBtnHtml + listHtml;
     } catch (e) {
         console.error("Load Payouts Error:", e);
@@ -455,8 +455,8 @@ async function init() {
                 userId = data.user_id;
                 localStorage.setItem('user_id', userId);
                 localStorage.setItem('user_name', data.username || userId);
-                localStorage.setItem('total_diamonds', data.diamonds !== undefined ? data.diamonds : '100'); 
-                localStorage.setItem('total_wallet', data.coins !== undefined ? data.coins : '500');   
+                localStorage.setItem('total_diamonds', data.diamonds !== undefined ? data.diamonds : '100');
+                localStorage.setItem('total_wallet', data.coins !== undefined ? data.coins : '500');
                 localStorage.setItem('user_xp', data.xp !== undefined ? data.xp : '0');
                 localStorage.setItem('scratch_cards', data.scratch_cards !== undefined ? data.scratch_cards : '6');
                 localStorage.setItem('user_already_joined', 'true');
@@ -467,9 +467,9 @@ async function init() {
             localStorage.setItem('user_id', userId);
         }
     }
-    
+
     if (!localStorage.getItem('user_name')) localStorage.setItem('user_name', userId);
-    await loadFromServer(); 
+    await loadFromServer();
     detectUserCountry();
     loadSavedTheme();
     updateDashboard();
@@ -477,17 +477,17 @@ async function init() {
     const isIndex = path === "" || path.endsWith('index.html') || path.endsWith('/index') || path.endsWith('index');
     const isApp = path.endsWith('app.html') || path.endsWith('/app') || path.endsWith('app');
     const isResult = path.endsWith('result.html') || path.endsWith('/result') || path.endsWith('result');
-    
+
     if (isResult) {
-        loadLeaderboard(false); 
+        loadLeaderboard(false);
         const needsVault = localStorage.getItem('show_vault_on_result');
         if (needsVault === 'true') {
-            localStorage.removeItem('show_vault_on_result'); 
+            localStorage.removeItem('show_vault_on_result');
             setTimeout(() => {
                 if (typeof openVaultModal === "function") {
-                    openVaultModal(true); 
+                    openVaultModal(true);
                 }
-            }, 1000); 
+            }, 1000);
         }
         const finalScore = parseInt(localStorage.getItem('qz_score')) || 0;
         const totalQs = parseInt(localStorage.getItem('qz_total_qs')) || 0;
@@ -505,7 +505,7 @@ async function init() {
             if (circle) circle.style.strokeDashoffset = 264 - (264 * accValue) / 100;
             if (logicBar) logicBar.style.width = accuracy;
         }, 300);
-        return; 
+        return;
     }
     if (isIndex) {
         console.log("Home Page: Initializing");
@@ -518,41 +518,41 @@ async function init() {
     if (isApp) {
         const currentMode = params.get('mode');
         const screens = [
-            'quiz-ui', 'spin-screen', 'shop-screen', 'diamond-screen', 
-            'category-screen', 'profile-screen', 'referral-screen', 
+            'quiz-ui', 'spin-screen', 'shop-screen', 'diamond-screen',
+            'category-screen', 'profile-screen', 'referral-screen',
             'achievements-screen', 'review-screen', 'withdrawal-history-screen',
             'how-to-play-screen'
         ];
-        
-        screens.forEach(id => { 
-            const el = document.getElementById(id); 
-            if (el) el.classList.add('hidden'); 
+
+        screens.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('hidden');
         });
 
         if (currentMode === 'categories') {
             const screen = document.getElementById('category-screen');
             window.trackGA('screen_view', { screen_name: 'categories', page_title: 'Quiz Categories' });
-           
-            if(screen) { screen.classList.remove('hidden'); renderAllCategories(); }
+
+            if (screen) { screen.classList.remove('hidden'); renderAllCategories(); }
         } else if (currentMode === 'profile') {
             const screen = document.getElementById('profile-screen');
-             window.trackGA('screen_view', {screen_name: 'profile', page_title: 'User Profile'});
-            if(screen) { screen.classList.remove('hidden'); loadProfileData(); }
+            window.trackGA('screen_view', { screen_name: 'profile', page_title: 'User Profile' });
+            if (screen) { screen.classList.remove('hidden'); loadProfileData(); }
         } else if (currentMode === 'spin') {
             const screen = document.getElementById('spin-screen');
             window.trackGA('screen_view', { screen_name: 'spin', page_title: 'Spin Screen' });
-            if(screen) { screen.classList.remove('hidden'); checkSpinAvailability(); }
+            if (screen) { screen.classList.remove('hidden'); checkSpinAvailability(); }
         } else if (currentMode === 'points') {
             document.getElementById('diamond-screen')?.classList.remove('hidden');
             window.trackGA('screen_view', { screen_name: 'point', page_title: 'point Screen' });
         } else if (currentMode === 'shop') {
             const screen = document.getElementById('shop-screen');
             window.trackGA('screen_view', { screen_name: 'shop', page_title: 'shop Screen' });
-            if(screen) { screen.classList.remove('hidden'); initShop(); }
-        } else if (currentMode === 'withdrawals') { 
+            if (screen) { screen.classList.remove('hidden'); initShop(); }
+        } else if (currentMode === 'withdrawals') {
             const screen = document.getElementById('withdrawal-history-screen');
             window.trackGA('screen_view', { screen_name: 'withdrawals', page_title: 'withdrawals Screen' });
-            if(screen) { screen.classList.remove('hidden'); loadWithdrawalHistory(); }
+            if (screen) { screen.classList.remove('hidden'); loadWithdrawalHistory(); }
         } else if (currentMode === 'referral') {
             document.getElementById('referral-screen')?.classList.remove('hidden');
             window.trackGA('screen_view', { screen_name: 'referral', page_title: 'referral Screen' });
@@ -560,17 +560,17 @@ async function init() {
         } else if (currentMode === 'achievements') {
             const screen = document.getElementById('achievements-screen');
             window.trackGA('screen_view', { screen_name: 'achievements', page_title: 'achievements Screen' });
-            if(screen) { screen.classList.remove('hidden'); renderAchievements(); }
+            if (screen) { screen.classList.remove('hidden'); renderAchievements(); }
         } else if (currentMode === 'Howtoplay') {
             document.getElementById('how-to-play-screen')?.classList.remove('hidden');
         } else if (currentMode === 'review') {
             const screen = document.getElementById('review-screen');
-            if(screen) { screen.classList.remove('hidden'); renderReviewPage(); }
+            if (screen) { screen.classList.remove('hidden'); renderReviewPage(); }
         } else if (currentMode) {
             requestWakeLock();
             const quizUI = document.getElementById('quiz-ui');
             window.trackGA('screen_view', { screen_name: 'quiz', page_title: 'quiz Screen' });
-            if(quizUI) {
+            if (quizUI) {
                 quizUI.classList.remove('hidden');
                 startTime = Date.now();
                 localStorage.setItem('qz_start_time', startTime);
@@ -663,12 +663,12 @@ function checkSpinAvailability() {
         btn.disabled = true;
         btn.classList.add('opacity-40', 'grayscale');
         msg.innerText = "All 10 Spins Used Today! 🎁";
-        return true; 
+        return true;
     } else {
         btn.disabled = false;
         btn.classList.remove('opacity-40', 'grayscale', 'hidden');
         msg.innerText = `You have ${spinsLeft}/10 Free Spins Left Today!`;
-        return false; 
+        return false;
     }
 }
 
@@ -706,7 +706,7 @@ function runSpin() {
         spinCount++;
         localStorage.setItem('daily_spin_count', spinCount);
         localStorage.setItem('last_spin_date', new Date().toDateString());
-        saveToServer(); 
+        saveToServer();
         winAmount.innerText = `${prize} COINS!`;
         window.trackGA('lucky_spin_win', { 'prize_amount': prize, 'spin_no': spinCount });
         winBox.classList.remove('hidden');
@@ -764,7 +764,7 @@ function renderReviewPage() {
                     <div class="text-center py-20">
                         <i class="fa-solid fa-folder-open text-4xl text-gray-200 mb-4"></i>
                         <p class="text-gray-400 font-bold">No review data found!</p>
-                        <button onclick="safeNav('/')" class="mt-4 text-blue-500 font-black uppercase text-[10px]">Go Home</button>
+                        <button onclick="location.href='?'" class="mt-4 text-blue-500 font-black uppercase text-[10px]">Go Home</button>
                     </div>`;
         return;
     }
@@ -805,7 +805,7 @@ function renderReviewPage() {
 }
 
 function closeReview() {
-    safeNav('/');
+    location.href = '?';
 }
 
 async function loadLeaderboard(isMini, filterType = 'global') {
@@ -907,13 +907,13 @@ function triggerBuzz(emoji) {
 
 
 async function startMode(m) {
-     if (isRedirecting) return; 
+    if (isRedirecting) return;
     lockUI();
     localStorage.removeItem('qz_responses');
     localStorage.removeItem('current_qs');
-    localStorage.setItem('qz_score', '0'); 
+    localStorage.setItem('qz_score', '0');
     localStorage.setItem('qz_total_qs', '0');
-    score = 0; 
+    score = 0;
     try {
         const res = await fetch(`${API_URL}?action=get_questions&category=${m}`);
         const data = await res.json();
@@ -921,7 +921,7 @@ async function startMode(m) {
             localStorage.setItem('current_qs', JSON.stringify(data));
             triggerAdAndNavigate(`app.html?mode=${m}&q=0`);
         } else {
-           isRedirecting = false;
+            isRedirecting = false;
             document.body.style.pointerEvents = 'auto';
             document.body.style.opacity = '1';
             unlockUI();
@@ -963,13 +963,13 @@ async function loadQuiz() {
 
             const waitTimer = setTimeout(() => {
                 window.dbUtils.remove(roomRef);
-                safeNav(`?mode=pvp&role=p1&q=0&bot=true`);
+                window.location.href = `?mode=pvp&role=p1&q=0&bot=true`;
             }, 1500);
             window.dbUtils.onValue(roomRef, (snap) => {
                 const data = snap.val();
                 if (data && data.status === 'playing') {
                     clearTimeout(waitTimer);
-                    safeNav(`?mode=pvp&room=${roomId}&role=p1&q=0`);
+                    window.location.href = `?mode=pvp&room=${roomId}&role=p1&q=0`;
                 }
             });
             return;
@@ -978,7 +978,7 @@ async function loadQuiz() {
         const roomRef = window.dbUtils.ref(window.db, `pvp_rooms/${roomId}`);
         const connectionTimeout = setTimeout(() => {
             console.log("Room Connection Timeout");
-            safeNav('/');
+            window.location.href = '?';
         }, 1000);
         window.dbUtils.onValue(roomRef, (snap) => {
             if (snap.exists()) {
@@ -1003,7 +1003,7 @@ async function loadQuiz() {
             try {
 
                 let fetchCat = mode || 'gk';
-                if (mode === 'daily' || mode === 'brain' || mode === 'fifa_wc'|| mode === 'luxury' || mode === 'premier_league') {
+                if (mode === 'daily' || mode === 'brain' || mode === 'fifa_wc' || mode === 'luxury' || mode === 'premier_league') {
                     fetchCat = 'all';
                 }
 
@@ -1035,11 +1035,9 @@ function renderQuestion() {
     document.getElementById('q-counter').innerText = (qIdx + 1) + "/" + sessionData.length;
     document.getElementById('progress-bar').style.width = `${((qIdx + 1) / sessionData.length) * 100}%`;
     const data = sessionData[qIdx];
-    let mappedOptions = data.opt
-        .map((text, index) => {
-            return { text: text, isCorrect: index === data.ans };
-        })
-        .filter(optObj => optObj.text !== null && optObj.text !== undefined && String(optObj.text).trim() !== "");
+    let mappedOptions = data.opt.map((text, index) => {
+        return { text: text, isCorrect: index === data.ans };
+    });
     mappedOptions.sort(() => Math.random() - 0.5);
     document.getElementById('q-title').innerText = data.q;
     const container = document.getElementById('options-container');
@@ -1089,8 +1087,8 @@ function renderQuestion() {
                 }, 500);
             } else {
                 setTimeout(() => {
-                    qIdx++; 
-        renderQuestion();
+                    qIdx++;
+                    renderQuestion();
                 }, 500);
             }
         };
@@ -1111,9 +1109,8 @@ async function usePowerUp(type) {
         const buttons = Array.from(document.querySelectorAll('.option-btn'));
         const correctText = sessionData[qIdx].opt[sessionData[qIdx].ans];
         let hiddenCount = 0;
-        const maxToHide = buttons.length === 3 ? 1 : 2;
         buttons.forEach(btn => {
-            if (btn.innerText !== correctText && hiddenCount < maxToHide) {
+            if (btn.innerText !== correctText && hiddenCount < 2) {
                 btn.style.visibility = 'hidden';
                 hiddenCount++;
             }
@@ -1143,13 +1140,13 @@ function handleNextClick() {
     if (mode === 'pvp') {
         nextUrl += `&room=${roomId || ''}&role=${myRole || ''}`;
     }
-    safeNav(nextUrl);
+    window.location.href = nextUrl;
 }
 
 
 async function finalizeAndShowResult() {
     if (isRedirecting) return;
-    lockUI(); 
+    lockUI();
     try {
         const endTime = Date.now();
         const timeTaken = Math.floor((endTime - startTime) / 1000);
@@ -1189,12 +1186,12 @@ async function finalizeAndShowResult() {
                 opponentScore = botScore;
             }
             if (score > opponentScore) {
-                earned += 500; 
+                earned += 500;
                 updateMissionProgress('win');
                 updateAchievementStats('pvp_wins', 1);
             }
         }
-        
+
         let totalWallet = parseInt(localStorage.getItem('total_wallet')) || 0;
         totalWallet += earned;
         localStorage.setItem('total_wallet', totalWallet);
@@ -1206,13 +1203,13 @@ async function finalizeAndShowResult() {
         updateAchievementStats('quizzes_played', 1);
         updateAchievementStats('total_coins_earned', earned);
         await saveToServer();
-        window.trackGA('quiz_complete', { 'score': score, 'accuracy': accuracy, 'category': mode }); 
+        window.trackGA('quiz_complete', { 'score': score, 'accuracy': accuracy, 'category': mode });
         if (botTimer) clearInterval(botTimer);
         releaseWakeLock();
-        safeNav("result.html");
+        window.location.href = "result.html";
     } catch (error) {
         console.error("Error in finalizeAndShowResult:", error);
-        safeNav("result.html");
+        window.location.href = "result.html";
     }
 }
 
@@ -1263,7 +1260,7 @@ function initDailyMissions() {
     if (missionDateEl) {
         missionDateEl.innerText = today;
     }
-    
+
     renderMissions();
 }
 
@@ -1278,7 +1275,7 @@ function updateMissionProgress(taskKey) {
 }
 
 function updateMissionUI(id, current, target, type) {
-     if (isRedirecting) return;
+    if (isRedirecting) return;
     const data = JSON.parse(localStorage.getItem('daily_missions'));
     const progText = document.getElementById(`m${id}-progress`);
     const claimBtn = document.getElementById(`m${id}-claim`);
@@ -1289,7 +1286,7 @@ function updateMissionUI(id, current, target, type) {
         progText.className = "text-[8px] font-black text-green-500";
         if (claimBtn) claimBtn.classList.add('hidden');
         card.classList.add('opacity-50', 'grayscale');
-        card.onclick = null; 
+        card.onclick = null;
     } else if (current >= target) {
         progText.innerText = "READY!";
         progText.className = "text-[9px] font-black text-blue-500 animate-pulse";
@@ -1303,14 +1300,14 @@ function updateMissionUI(id, current, target, type) {
 }
 
 async function claimMission(id) {
-    if (isRedirecting) return; 
+    if (isRedirecting) return;
     let data = JSON.parse(localStorage.getItem('daily_missions'));
     if (!data) return;
     let current = 0; let target = 0;
     let rewardName = ""; let missionName = "";
-    if(id === 1) { current = data.m1_played; target = 5; rewardName = "50 Coins 💰"; missionName = "Play 5 Quizzes"; }
-    if(id === 2) { current = data.m2_wins; target = 3; rewardName = "100 Coins 💰"; missionName = "Win 3 PvP Battles"; }
-    if(id === 3) { current = data.m3_perfect; target = 1; rewardName = "500 Rewards points"; missionName = "Score Perfect 5/5"; }
+    if (id === 1) { current = data.m1_played; target = 5; rewardName = "50 Coins 💰"; missionName = "Play 5 Quizzes"; }
+    if (id === 2) { current = data.m2_wins; target = 3; rewardName = "100 Coins 💰"; missionName = "Win 3 PvP Battles"; }
+    if (id === 3) { current = data.m3_perfect; target = 1; rewardName = "500 Rewards points"; missionName = "Score Perfect 5/5"; }
 
     if (current < target) {
         let playNow = await showDialog("Mission Pending", `Mission: ${missionName}\nProgress: ${current}/${target}\n\nPlay now to finish it?`, true);
@@ -1366,8 +1363,9 @@ function renderAchievements() {
                                         ${isClaimed ? '✅ Claimed' : canClaim ? 'Claim Reward' : `${stats[ach.type]}/${ach.target} Completed`}
                                     </button>
                                 </div>
-                            `; });
-    
+                            `;
+    });
+
 }
 async function claimAchievement(id, reward) {
     let claimed = JSON.parse(localStorage.getItem('claimed_achievements')) || [];
@@ -1487,21 +1485,21 @@ function openVaultModal(isBonus = false) {
     orb.classList.remove('animate-decrypt', 'opacity-20', 'grayscale', 'scale-0');
 
     if (isBonus) {
-        if(hint) hint.innerText = "BONUS CORE DETECTED";
-        if(hint) hint.className = "absolute -bottom-10 left-1/2 -translate-x-1/2 text-cyan-400 text-[9px] font-black uppercase tracking-widest animate-pulse";
-        if(cooldown) cooldown.classList.add('hidden');
-        if(container) container.onclick = () => startVaultOpening(true);
+        if (hint) hint.innerText = "BONUS CORE DETECTED";
+        if (hint) hint.className = "absolute -bottom-10 left-1/2 -translate-x-1/2 text-cyan-400 text-[9px] font-black uppercase tracking-widest animate-pulse";
+        if (cooldown) cooldown.classList.add('hidden');
+        if (container) container.onclick = () => startVaultOpening(true);
     } else {
         if (data.count >= 2) {
-            if(hint) hint.classList.add('hidden');
-            if(cooldown) cooldown.classList.remove('hidden');
+            if (hint) hint.classList.add('hidden');
+            if (cooldown) cooldown.classList.remove('hidden');
             orb.classList.add('opacity-20', 'grayscale');
-            if(container) container.onclick = null;
+            if (container) container.onclick = null;
         } else {
-            if(hint) hint.innerText = "Tap to Decrypt";
-            if(hint) hint.className = "absolute -bottom-10 left-1/2 -translate-x-1/2 text-white/40 text-[9px] font-black uppercase tracking-widest animate-pulse";
-            if(cooldown) cooldown.classList.add('hidden');
-            if(container) container.onclick = () => startVaultOpening(false);
+            if (hint) hint.innerText = "Tap to Decrypt";
+            if (hint) hint.className = "absolute -bottom-10 left-1/2 -translate-x-1/2 text-white/40 text-[9px] font-black uppercase tracking-widest animate-pulse";
+            if (cooldown) cooldown.classList.add('hidden');
+            if (container) container.onclick = () => startVaultOpening(false);
         }
     }
     updateVaultUI();
@@ -1528,7 +1526,7 @@ function processScratch() {
 
     safeSet('scratch-prize-icon', isDiamond ? "💎" : "💰");
     safeSet('scratch-prize-amount', amount);
-    
+
     const cover = document.getElementById('scratch-cover');
     if (cover) cover.style.opacity = "0";
 
@@ -1544,10 +1542,10 @@ function processScratch() {
     saveToServer().then(() => {
         updateDashboard();
         setTimeout(() => safeSet('scratch-count', cards - 1), 500);
-        
+
         if (btn) {
             btn.innerText = "Claimed!";
-            btn.disabled = false; 
+            btn.disabled = false;
             btn.onclick = () => {
                 closeScratchModal();
             };
@@ -1562,7 +1560,7 @@ function closeScratchModal() {
     const btn = document.getElementById('scratch-btn');
     if (btn) {
         btn.innerText = "Tap to Reveal";
-        btn.onclick = processScratch; 
+        btn.onclick = processScratch;
     }
 }
 
@@ -1571,7 +1569,7 @@ async function claimTreasure() {
     let wallet = parseInt(localStorage.getItem('total_wallet')) || 0;
     localStorage.setItem('total_wallet', wallet + amount);
     localStorage.setItem('last_chest_claimed', new Date().toDateString());
-    saveToServer(); 
+    saveToServer();
 
     document.getElementById('chest-container').classList.add('hidden');
     updateDashboard();
@@ -1726,7 +1724,7 @@ async function buyAv(id, price) {
         await showDialog("No Balance", "You don't have enough coins! 💰");
         return;
     }
-    
+
     let confirmBuy = await showDialog("Confirm Purchase", `Buy ${id} avatar for ${price} coins?`, true);
     if (confirmBuy) {
         wallet -= price;
@@ -1735,7 +1733,7 @@ async function buyAv(id, price) {
         owned.push(id);
         localStorage.setItem('owned_avatars', JSON.stringify(owned));
         saveToServer();
-        window.trackGA('purchase_avatar', { 'avatar_id': id, 'price': price }); 
+        window.trackGA('purchase_avatar', { 'avatar_id': id, 'price': price });
         initShop();
         updateDashboard();
         await showDialog("Success", "Avatar unlocked! You can now use it in your profile.");
@@ -1749,25 +1747,25 @@ function selectAv(id) {
 
 async function exchangeDiamonds(coinCost) {
     let coins = parseInt(localStorage.getItem('total_wallet')) || 0;
-    
+
     if (coins < coinCost) {
         let goPlay = await showDialog(
-            "Not Enough Coins", 
-            `💰 You need ${coinCost} coins for this exchange. Would you like to play more quizzes?`, 
+            "Not Enough Coins",
+            `💰 You need ${coinCost} coins for this exchange. Would you like to play more quizzes?`,
             true
         );
-        
+
         if (goPlay) safeNav('app.html?mode=categories');
         return;
     }
 
     let diamondsGained = (coinCost / 1000) * 100;
     let confirmEx = await showDialog(
-        "Confirm Exchange", 
-        `Do you want to exchange ${coinCost} coins for ${diamondsGained} Rewards?`, 
+        "Confirm Exchange",
+        `Do you want to exchange ${coinCost} coins for ${diamondsGained} Rewards?`,
         true
     );
-    
+
     if (confirmEx) {
         coins -= coinCost;
         localStorage.setItem('total_wallet', coins);
@@ -1782,8 +1780,8 @@ async function exchangeDiamonds(coinCost) {
 async function showAssetHint() {
     if (isRedirecting) return;
     let goPlay = await showDialog(
-        "Insufficient Balance", 
-        "⚠️ You need more coins to get Rewards! Would you like to play a quiz now to earn coins? 💰", 
+        "Insufficient Balance",
+        "⚠️ You need more coins to get Rewards! Would you like to play a quiz now to earn coins? 💰",
         true
     );
     if (goPlay) {
@@ -2185,7 +2183,7 @@ function initReferral() {
 }
 
 function shareReferral() {
-     window.trackGA('share_referral_click'); 
+    window.trackGA('share_referral_click');
     const link = document.getElementById('ref-link-text').innerText;
     const text = `Hey! I am earning Rewards and coins 💰 by playing IQ Master Quiz. Use my link to join and we both get rewards: ${link}`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
@@ -2199,7 +2197,7 @@ async function checkReferralOnLoad() {
     }
 }
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (isRedirecting) {
         e.preventDefault();
         e.stopPropagation();
@@ -2208,12 +2206,12 @@ document.addEventListener('click', function(e) {
     }
 }, true);
 
-window.onpageshow = function(event) {
+window.onpageshow = function (event) {
     isRedirecting = false;
     document.body.style.pointerEvents = 'auto';
     document.body.style.opacity = '1';
     document.body.style.cursor = 'default';
-    document.body.style.overflow = ''; 
+    document.body.style.overflow = '';
     const loader = document.getElementById('global-app-loader');
     if (loader) {
         loader.remove();

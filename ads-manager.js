@@ -3,13 +3,13 @@
 
 const AD_CONFIG = {
     // Flag to toggle between Google Ad Manager (GAM) and Google AdSense
-    useAdManager: false, 
+    useAdManager: false,
 
     // Google AdSense Publisher Client ID (replace with your actual client ID)
-    adsenseClient: "ca-pub-1020203735300376", 
+    adsenseClient: "ca-pub-1020203735300376",
 
     // Auto-refresh interval for visible Google Ad Manager ads (in milliseconds)
-    refreshInterval: 30000, 
+    refreshInterval: 30000,
 
     // Mapping of slot element IDs to Ad Manager configurations & AdSense Slot IDs
     // Note: All slots are mapped to the working AdSense Slot ID "8038463613" for maximum reliability.
@@ -29,7 +29,7 @@ const AD_CONFIG = {
         // Homepage Slot 2 (Medium Rectangle - Legacy/Reserve)
         "div-gpt-ad-17473701658652-2": {
             gamAdUnit: "/22856454650/2801_customRendaring",
-            adsenseSlot: "8038463613", 
+            adsenseSlot: "8038463613",
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // App Page Slot (Medium Rectangle)
@@ -47,7 +47,7 @@ const AD_CONFIG = {
         // Content Page Slot 2 (Medium Rectangle)
         "div-gpt-ad-17473701658621-5": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "8038463613", 
+            adsenseSlot: "8038463613",
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Topic Page Slot 1 (Small Banner)
@@ -59,7 +59,7 @@ const AD_CONFIG = {
         // Topic Page Slot 2 (Medium Rectangle)
         "div-gpt-ad-17473701658633-2": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "8038463613", 
+            adsenseSlot: "8038463613",
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Result Page Slot 1 (Medium Rectangle)
@@ -71,13 +71,13 @@ const AD_CONFIG = {
         // Result Page Slot 2 (Medium Rectangle)
         "div-gpt-ad-1747370165862-5": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "8038463613", 
+            adsenseSlot: "8038463613",
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Result Page Slot 3 (Medium Rectangle)
         "div-gpt-ad-1747370165862-6": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "8038463613", 
+            adsenseSlot: "8038463613",
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Scratch Page Slot (Medium Rectangle)
@@ -108,7 +108,7 @@ function loadAdLibrary() {
         script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CONFIG.adsenseClient}`;
         script.crossOrigin = "anonymous";
         document.head.appendChild(script);
-        
+
         // Setup AdSense Anchor if configured
         const anchorConfig = AD_CONFIG.slots["bottom-anchor"];
         if (anchorConfig && anchorConfig.adsenseSlot) {
@@ -200,7 +200,7 @@ function setupAdSenseAnchor(slotId) {
     ins.style.height = "50px";
     ins.setAttribute("data-ad-client", AD_CONFIG.adsenseClient);
     ins.setAttribute("data-ad-slot", slotId);
-    
+
     anchorDiv.appendChild(ins);
     document.body.appendChild(anchorDiv);
 
@@ -209,40 +209,6 @@ function setupAdSenseAnchor(slotId) {
     } catch (e) {
         console.error("AdSense Anchor Push Error: ", e);
     }
-}
-
-// Monitor and collapse unfilled AdSense containers to eliminate layout gaps
-function observeAdSenseStatus(container, ins) {
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.type === "attributes" && mutation.attributeName === "data-ad-status") {
-                const status = ins.getAttribute("data-ad-status");
-                if (status === "unfilled") {
-                    container.style.setProperty("display", "none", "important");
-                    container.style.setProperty("height", "0px", "important");
-                    container.style.setProperty("min-height", "0px", "important");
-                    // Also hide parent flex container and clear its margins/padding/gaps
-                    if (container.parentElement && container.parentElement.classList.contains("flex")) {
-                        container.parentElement.style.setProperty("display", "none", "important");
-                        container.parentElement.style.setProperty("margin", "0px", "important");
-                        container.parentElement.style.setProperty("padding", "0px", "important");
-                    }
-                    console.log(`[AdSense] Slot ${container.id} is unfilled. Collapsed container.`);
-                } else if (status === "filled") {
-                    container.style.removeProperty("display");
-                    container.style.removeProperty("height");
-                    container.style.removeProperty("min-height");
-                    if (container.parentElement && container.parentElement.classList.contains("flex")) {
-                        container.parentElement.style.removeProperty("display");
-                        container.parentElement.style.removeProperty("margin");
-                        container.parentElement.style.setProperty("display", "flex");
-                    }
-                    console.log(`[AdSense] Slot ${container.id} is filled.`);
-                }
-            }
-        });
-    });
-    observer.observe(ins, { attributes: true });
 }
 
 // Display or inject ad content inside placeholder div
@@ -268,23 +234,15 @@ function displayAd(divId) {
         ins.style.display = "block";
         ins.setAttribute("data-ad-client", AD_CONFIG.adsenseClient);
         ins.setAttribute("data-ad-slot", config.adsenseSlot);
-        
+
         // Dynamically select ad format based on layout design
         let format = "auto";
-        if (config.sizes && config.sizes[0]) {
-            const firstHeight = config.sizes[0][1];
-            if (firstHeight < 150) {
-                format = "horizontal";
-            } else if (firstHeight >= 200 && firstHeight <= 300) {
-                format = "rectangle";
-            }
+        if (config.sizes && config.sizes[0] && config.sizes[0][1] < 250) {
+            format = "horizontal";
         }
         ins.setAttribute("data-ad-format", format);
         ins.setAttribute("data-full-width-responsive", "true");
         container.appendChild(ins);
-
-        // Monitor and collapse unfilled ads
-        observeAdSenseStatus(container, ins);
 
         try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -340,12 +298,3 @@ if (document.readyState === "loading") {
 } else {
     initializeAds();
 }
-
-// Universal smooth navigation fallback for pages that don't load app-logic.js (like topic.html and content.html)
-window.safeNav = window.safeNav || function(url) {
-    document.body.style.transition = "opacity 0.15s ease-in-out";
-    document.body.style.opacity = "0";
-    setTimeout(() => {
-        window.location.href = url;
-    }, 150);
-};
