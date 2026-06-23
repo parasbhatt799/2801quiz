@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/main.css?44" />
     <script>tailwind.config = { darkMode: 'class' }</script>
-    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
+    <script src="ads-manager.js" defer></script>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -70,49 +70,7 @@
         console.log("GA Event Logged:", eventName, eventParams); // ચેક કરવા માટે
     };
 </script>
-<script>
-      window.googletag = window.googletag || { cmd: [] };
 
-      let anchorSlot;
-
-      googletag.cmd.push(() => {
-        anchorSlot = googletag.defineOutOfPageSlot(
-          "/22856454650/2801_Mid_Custom",
-          googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
-        );
-        if (anchorSlot) {
-          anchorSlot.addService(googletag.pubads()).setConfig({
-            targeting: {
-              test: "anchor",
-            },
-          });
-        }
-
-        // Define top ad slot globally
-        window.topAdSlot = googletag.defineSlot(
-          '/22856454650/2801_sc_custom_rendaring', 
-          [[336, 280], [300, 250], [300, 100], [320, 100]], 
-          'div-gpt-ad-17701189157955-7'
-        ).addService(googletag.pubads());
-
-        const pubads = googletag.pubads();
-        pubads.enableSingleRequest();
-        pubads.setCentering(true);
-        pubads.collapseEmptyDivs();
-
-        if (window.deviceId) {
-          pubads.setPublisherProvidedId(window.deviceId);
-        }
-        googletag.enableServices();
-      });
-    </script>
-
-
- <script>
-  googletag.cmd.push(() => {
-    googletag.display(anchorSlot);
-  });
-</script>
 
     
     
@@ -149,26 +107,8 @@
     </nav>
     
    <div class="flex items-center justify-center mt-10">
-    <script>
-        setInterval(function() {
-            if (window.topAdSlot && document.visibilityState === 'visible') {
-                const adElement = document.getElementById('div-gpt-ad-17701189157955-7');
-                if (adElement) {
-                    const rect = adElement.getBoundingClientRect();
-                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                    if (isVisible) {
-                        googletag.pubads().refresh([window.topAdSlot]);
-                    }
-                }
-            }
-        }, 30000);
-    </script>
-<div id='div-gpt-ad-17701189157955-7' style='min-width: 300px; min-height: 100px;'>
-<script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-17701189157955-7'); });
-</script>
-</div>
-</div>
+       <div id='div-gpt-ad-17701189157955-7' style='min-width: 300px; min-height: 100px;'></div>
+   </div>
 
     <div class="p-4">
     <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-4 rounded-[1.8rem] mb-5 text-white shadow-lg relative overflow-hidden flex items-center justify-between">

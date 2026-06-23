@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/main.css?223533555" type="text/css" media="all" />
     <script>tailwind.config = { darkMode: 'class', }</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
-    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script src="ads-manager.js" defer></script>
     
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -46,62 +46,7 @@
     };
 </script>
 
-<script>
-      window.googletag = window.googletag || { cmd: [] };
 
-      let anchorSlot;
-
-      googletag.cmd.push(() => {
-        anchorSlot = googletag.defineOutOfPageSlot(
-          "/22856454650/2801_Mid_Custom",
-          googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
-        );
-        if (anchorSlot) {
-          anchorSlot.addService(googletag.pubads()).setConfig({
-            targeting: {
-              test: "anchor",
-            },
-          });
-        }
-
-        // Define top ad slot globally
-        window.topAdSlot = googletag.defineSlot(
-          '/22856454650/2801_Small_Custome_topic', 
-          [[320, 100], [300, 100], [300, 75], [300, 50], [320, 50]], 
-          'div-gpt-ad-177011891579589-1'
-        ).addService(googletag.pubads());
-
-        // Define second display slot
-        googletag.defineSlot(
-          '/22856454650/2801_result_custom_rendaring', 
-          [[336, 280], [300, 250], [300, 100], [320, 100]], 
-          'div-gpt-ad-17473701658633-2'
-        ).setTargeting("test", "lazyload").addService(googletag.pubads());
-
-        const pubads = googletag.pubads();
-        pubads.addEventListener('slotRenderEnded', (event) => {
-          if (typeof window.trackGA === 'function') {
-            window.trackGA('ad_impression', { slot: event.slot.getSlotElementId() });
-          }
-        });
-
-        pubads.enableSingleRequest();
-        pubads.setCentering(true);
-        pubads.collapseEmptyDivs();
-
-        if (window.deviceId) {
-          pubads.setPublisherProvidedId(window.deviceId);
-        }
-        googletag.enableServices();
-      });
-    </script>
-
-
- <script>
-  googletag.cmd.push(() => {
-    googletag.display(anchorSlot);
-  });
-</script>
     
 </head>
 
@@ -134,25 +79,7 @@
         </div>
         
         <div class="flex items-center justify-center mt-5 mb-5">
-            <script>
-                setInterval(function() {
-                    if (window.topAdSlot && document.visibilityState === 'visible') {
-                        const adElement = document.getElementById('div-gpt-ad-177011891579589-1');
-                        if (adElement) {
-                            const rect = adElement.getBoundingClientRect();
-                            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                            if (isVisible) {
-                                googletag.pubads().refresh([window.topAdSlot]);
-                            }
-                        }
-                    }
-                }, 30000);
-            </script>
-                <div id='div-gpt-ad-177011891579589-1' style='min-width: 300px; min-height: 100px;'>
-                <script>
-                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-177011891579589-1'); });
-                </script>
-                </div>
+            <div id='div-gpt-ad-177011891579589-1' style='min-width: 300px; min-height: 100px;'></div>
         </div>
 
         <!-- 1. Sensitivity (Light Cyan) -->
@@ -248,13 +175,7 @@
         </div>
         
         <div class="flex items-center justify-center mt-5 mb-5">  
-
             <div id="div-gpt-ad-17473701658633-2" class="ad-slot" style="height: 250px; width: 300px"></div>
-                    <script>
-                        googletag.cmd.push(function() {
-                            googletag.display('div-gpt-ad-17473701658633-2');
-                        });
-                    </script>
         </div>  
 
         <!-- 5. Rank Push (Light Orange) -->
