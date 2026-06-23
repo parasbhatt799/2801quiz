@@ -3,7 +3,7 @@
 
 const AD_CONFIG = {
     // Flag to toggle between Google Ad Manager (GAM) and Google AdSense
-    useAdManager: true, 
+    useAdManager: false, 
 
     // Google AdSense Publisher Client ID (replace with your actual client ID)
     adsenseClient: "ca-pub-2534333430000000", 
