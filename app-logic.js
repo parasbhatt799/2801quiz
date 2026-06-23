@@ -473,10 +473,10 @@ async function init() {
     detectUserCountry();
     loadSavedTheme();
     updateDashboard();
-    const path = window.location.pathname;
-    const isIndex = path.endsWith('index.html') || path.endsWith('/');
-    const isApp = path.endsWith('app.html');
-    const isResult = path.endsWith('result.html');
+    const path = window.location.pathname.toLowerCase().replace(/\/$/, "");
+    const isIndex = path === "" || path.endsWith('index.html') || path.endsWith('/index') || path.endsWith('index');
+    const isApp = path.endsWith('app.html') || path.endsWith('/app') || path.endsWith('app');
+    const isResult = path.endsWith('result.html') || path.endsWith('/result') || path.endsWith('result');
     
     if (isResult) {
         loadLeaderboard(false); 

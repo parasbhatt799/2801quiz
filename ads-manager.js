@@ -211,6 +211,40 @@ function setupAdSenseAnchor(slotId) {
     }
 }
 
+// Monitor and collapse unfilled AdSense containers to eliminate layout gaps
+function observeAdSenseStatus(container, ins) {
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === "attributes" && mutation.attributeName === "data-ad-status") {
+                const status = ins.getAttribute("data-ad-status");
+                if (status === "unfilled") {
+                    container.style.setProperty("display", "none", "important");
+                    container.style.setProperty("height", "0px", "important");
+                    container.style.setProperty("min-height", "0px", "important");
+                    // Also hide parent flex container and clear its margins/padding/gaps
+                    if (container.parentElement && container.parentElement.classList.contains("flex")) {
+                        container.parentElement.style.setProperty("display", "none", "important");
+                        container.parentElement.style.setProperty("margin", "0px", "important");
+                        container.parentElement.style.setProperty("padding", "0px", "important");
+                    }
+                    console.log(`[AdSense] Slot ${container.id} is unfilled. Collapsed container.`);
+                } else if (status === "filled") {
+                    container.style.removeProperty("display");
+                    container.style.removeProperty("height");
+                    container.style.removeProperty("min-height");
+                    if (container.parentElement && container.parentElement.classList.contains("flex")) {
+                        container.parentElement.style.removeProperty("display");
+                        container.parentElement.style.removeProperty("margin");
+                        container.parentElement.style.setProperty("display", "flex");
+                    }
+                    console.log(`[AdSense] Slot ${container.id} is filled.`);
+                }
+            }
+        });
+    });
+    observer.observe(ins, { attributes: true });
+}
+
 // Display or inject ad content inside placeholder div
 function displayAd(divId) {
     const config = AD_CONFIG.slots[divId];
@@ -237,12 +271,20 @@ function displayAd(divId) {
         
         // Dynamically select ad format based on layout design
         let format = "auto";
-        if (config.sizes && config.sizes[0] && config.sizes[0][1] < 250) {
-            format = "horizontal";
+        if (config.sizes && config.sizes[0]) {
+            const firstHeight = config.sizes[0][1];
+            if (firstHeight < 150) {
+                format = "horizontal";
+            } else if (firstHeight >= 200 && firstHeight <= 300) {
+                format = "rectangle";
+            }
         }
         ins.setAttribute("data-ad-format", format);
         ins.setAttribute("data-full-width-responsive", "true");
         container.appendChild(ins);
+
+        // Monitor and collapse unfilled ads
+        observeAdSenseStatus(container, ins);
 
         try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
