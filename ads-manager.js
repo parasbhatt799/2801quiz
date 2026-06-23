@@ -6,7 +6,7 @@ const AD_CONFIG = {
     useAdManager: false, 
 
     // Google AdSense Publisher Client ID (replace with your actual client ID)
-    adsenseClient: "ca-pub-2534333430000000", 
+    adsenseClient: "ca-pub-1020203735300376", 
 
     // Auto-refresh interval for visible Google Ad Manager ads (in milliseconds)
     refreshInterval: 30000, 
@@ -16,73 +16,73 @@ const AD_CONFIG = {
         // Bottom sticky anchor ad
         "bottom-anchor": {
             gamAdUnit: "/22856454650/2801_Mid_Custom",
-            adsenseSlot: "1000000001", // AdSense Anchor slot ID
+            adsenseSlot: "7230034588", // AdSense Anchor slot ID
             size: "anchor"
         },
         // Homepage Slot 1 (Medium Rectangle)
         "div-gpt-ad-17701189157955-1": {
             gamAdUnit: "/22856454650/2801_customRendaring",
-            adsenseSlot: "2000000001", // AdSense Homepage Slot 1
+            adsenseSlot: "8038463613", // AdSense Homepage Slot 1
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Homepage Slot 2 (Medium Rectangle - Legacy/Reserve)
         "div-gpt-ad-17473701658652-2": {
             gamAdUnit: "/22856454650/2801_customRendaring",
-            adsenseSlot: "2000000002", 
+            adsenseSlot: "1652450448", 
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // App Page Slot (Medium Rectangle)
         "div-gpt-ad-17701189157955-3": {
             gamAdUnit: "/22856454650/2801_app_customtop_rendaring",
-            adsenseSlot: "3000000001", // AdSense App Top Slot
+            adsenseSlot: "9800357603", // AdSense App Top Slot
             sizes: [[300, 250], [300, 100], [320, 100]]
         },
         // Content Page Slot 1 (Small Banner)
         "div-gpt-ad-177011891579545-7": {
             gamAdUnit: "/22856454650/2801_Small_Custome_topic",
-            adsenseSlot: "4000000001", // AdSense Content Top Banner
+            adsenseSlot: "9608785910", // AdSense Content Top Banner
             sizes: [[320, 100], [300, 100], [300, 75], [300, 50], [320, 50]]
         },
         // Content Page Slot 2 (Medium Rectangle)
         "div-gpt-ad-17473701658621-5": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "4000000002", 
+            adsenseSlot: "9800357603", 
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Topic Page Slot 1 (Small Banner)
         "div-gpt-ad-177011891579589-1": {
             gamAdUnit: "/22856454650/2801_Small_Custome_topic",
-            adsenseSlot: "5000000001", // AdSense Topic Top Banner
+            adsenseSlot: "9800357603", // AdSense Topic Top Banner
             sizes: [[320, 100], [300, 100], [300, 75], [300, 50], [320, 50]]
         },
         // Topic Page Slot 2 (Medium Rectangle)
         "div-gpt-ad-17473701658633-2": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "5000000002", 
+            adsenseSlot: "9608785910", 
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Result Page Slot 1 (Medium Rectangle)
         "div-gpt-ad-17701189157955-4": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "6000000001", // AdSense Result Slot 1
+            adsenseSlot: "9800357603", // AdSense Result Slot 1
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Result Page Slot 2 (Medium Rectangle)
         "div-gpt-ad-1747370165862-5": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "6000000002", 
+            adsenseSlot: "9608785910", 
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Result Page Slot 3 (Medium Rectangle)
         "div-gpt-ad-1747370165862-6": {
             gamAdUnit: "/22856454650/2801_result_custom_rendaring",
-            adsenseSlot: "6000000003", 
+            adsenseSlot: "8038463613", 
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         },
         // Scratch Page Slot (Medium Rectangle)
         "div-gpt-ad-17701189157955-7": {
             gamAdUnit: "/22856454650/2801_sc_custom_rendaring",
-            adsenseSlot: "7000000001", // AdSense Scratch Slot
+            adsenseSlot: "8038463613", // AdSense Scratch Slot
             sizes: [[336, 280], [300, 250], [300, 100], [320, 100]]
         }
     }
