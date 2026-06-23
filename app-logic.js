@@ -838,23 +838,7 @@ async function loadLeaderboard(isMini, filterType = 'global') {
 }
 
 async function findMatch() {
-    if (isRedirecting) return;
-    lockUI(); 
-    const pvpCard = document.getElementById('pvp-card');
-    if (pvpCard) pvpCard.classList.add('searching-active');
-    const pvpContent = document.getElementById('pvp-content');
-    if (pvpContent) pvpContent.classList.add('hidden');
-    const pvpSearching = document.getElementById('pvp-searching');
-    if (pvpSearching) pvpSearching.classList.remove('hidden');
-    window.trackGA('pvp_search_start');
-    
-    setTimeout(() => {
-        isRedirecting = false;
-        unlockUI();
-        const botName = ["Aarav", "Kabir", "Vihaan", "Aditya", "Sai", "Arjun", "Reyansh", "Krishna", "Ishaan", "Shaurya"][Math.floor(Math.random() * 10)] + "_" + Math.floor(100 + Math.random() * 900);
-        localStorage.setItem('pvp_opp_name', botName);
-        window.location.href = `app.html?mode=pvp&role=p1&q=0&bot=true`;
-    }, 2500);
+    await showDialog("Info", "PvP Battle Arena is currently disabled.");
 }
 function simulateBotProgress() {
     botTimer = setInterval(() => {
