@@ -478,3 +478,5 @@ app.listen(port, async () => {
     console.log(`Server started on http://localhost:${port}`);
     await runMigrations();
 });
+
+module.exports = app;
