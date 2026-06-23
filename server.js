@@ -302,64 +302,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files and pages manually to handle Vercel's serverless path routing
-app.use((req, res, next) => {
-    const blocked = ['/server.js', '/package.json', '/package-lock.json', '/.env', '/vercel.json'];
-    if (blocked.includes(req.path) || req.path.startsWith('/api/index.js')) {
-        return res.status(403).send('Access Denied');
-    }
-    next();
-});
+// Serve static frontend files from this directory
+app.use(express.static(__dirname));
 
-app.get('/', (req, res, next) => {
-    if (req.query.action) {
-        return next();
-    }
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-app.get('/index.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-app.get(['/app', '/app.html'], (req, res) => {
-    res.sendFile(path.join(__dirname, 'app.html'));
-});
-
-app.get(['/topic', '/topic.html'], (req, res) => {
-    res.sendFile(path.join(__dirname, 'topic.html'));
-});
-
-app.get(['/result', '/result.html'], (req, res) => {
-    res.sendFile(path.join(__dirname, 'result.html'));
-});
-
-app.get(['/scratch', '/scratch.html'], (req, res) => {
-    res.sendFile(path.join(__dirname, 'scratch.html'));
-});
-
+// Route for privacy policy fallback
 app.get('/privacy-policy', (req, res) => {
     res.sendFile(path.join(__dirname, 'privacy-policy'));
 });
 
-app.use('/css', express.static(path.join(__dirname, 'css')));
-app.use('/webfonts', express.static(path.join(__dirname, 'webfonts')));
-
-app.get('/:file', (req, res, next) => {
-    const file = req.params.file;
-    const allowedExtensions = ['.js', '.css', '.png', '.json', '.txt', '.ico', '.webmanifest'];
-    const ext = path.extname(file);
-    if (allowedExtensions.includes(ext)) {
-        const filePath = path.join(__dirname, file);
-        if (fs.existsSync(filePath)) {
-            return res.sendFile(filePath);
-        }
-    }
-    next();
-});
-
 // Single Unified API Endpoint mapping to api.php requests
-app.all(['/api.php', '/api', '/api/', '/api/index.js', '/'], async (req, res) => {
+app.all('/api.php', async (req, res) => {
     const action = req.query.action || req.body.action || '';
 
     try {
