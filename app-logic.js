@@ -206,9 +206,11 @@ function shuffleArray(array) {
 
 function triggerAdAndNavigate(url) {
     lockUI(); 
+    document.body.style.transition = 'opacity 0.15s ease-in-out';
+    document.body.style.opacity = '0';
     setTimeout(() => {
         window.location.href = url;
-    }, 100); 
+    }, 150); 
 }
 
 
@@ -762,7 +764,7 @@ function renderReviewPage() {
                     <div class="text-center py-20">
                         <i class="fa-solid fa-folder-open text-4xl text-gray-200 mb-4"></i>
                         <p class="text-gray-400 font-bold">No review data found!</p>
-                        <button onclick="location.href='?'" class="mt-4 text-blue-500 font-black uppercase text-[10px]">Go Home</button>
+                        <button onclick="safeNav('/')" class="mt-4 text-blue-500 font-black uppercase text-[10px]">Go Home</button>
                     </div>`;
         return;
     }
@@ -803,7 +805,7 @@ function renderReviewPage() {
 }
 
 function closeReview() {
-    location.href = '?';
+    safeNav('/');
 }
 
 async function loadLeaderboard(isMini, filterType = 'global') {
@@ -961,13 +963,13 @@ async function loadQuiz() {
 
             const waitTimer = setTimeout(() => {
                 window.dbUtils.remove(roomRef);
-                window.location.href = `?mode=pvp&role=p1&q=0&bot=true`;
+                safeNav(`?mode=pvp&role=p1&q=0&bot=true`);
             }, 1500);
             window.dbUtils.onValue(roomRef, (snap) => {
                 const data = snap.val();
                 if (data && data.status === 'playing') {
                     clearTimeout(waitTimer);
-                    window.location.href = `?mode=pvp&room=${roomId}&role=p1&q=0`;
+                    safeNav(`?mode=pvp&room=${roomId}&role=p1&q=0`);
                 }
             });
             return;
@@ -976,7 +978,7 @@ async function loadQuiz() {
         const roomRef = window.dbUtils.ref(window.db, `pvp_rooms/${roomId}`);
         const connectionTimeout = setTimeout(() => {
             console.log("Room Connection Timeout");
-            window.location.href = '?';
+            safeNav('/');
         }, 1000);
         window.dbUtils.onValue(roomRef, (snap) => {
             if (snap.exists()) {
@@ -1141,7 +1143,7 @@ function handleNextClick() {
     if (mode === 'pvp') {
         nextUrl += `&room=${roomId || ''}&role=${myRole || ''}`;
     }
-    window.location.href = nextUrl;
+    safeNav(nextUrl);
 }
 
 
@@ -1207,10 +1209,10 @@ async function finalizeAndShowResult() {
         window.trackGA('quiz_complete', { 'score': score, 'accuracy': accuracy, 'category': mode }); 
         if (botTimer) clearInterval(botTimer);
         releaseWakeLock();
-        window.location.href = "result.html";
+        safeNav("result.html");
     } catch (error) {
         console.error("Error in finalizeAndShowResult:", error);
-        window.location.href = "result.html";
+        safeNav("result.html");
     }
 }
 

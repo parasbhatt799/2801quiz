@@ -298,3 +298,12 @@ if (document.readyState === "loading") {
 } else {
     initializeAds();
 }
+
+// Universal smooth navigation fallback for pages that don't load app-logic.js (like topic.html and content.html)
+window.safeNav = window.safeNav || function(url) {
+    document.body.style.transition = "opacity 0.15s ease-in-out";
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+        window.location.href = url;
+    }, 150);
+};

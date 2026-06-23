@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css?223533555" type="text/css" media="all" />
     <script>tailwind.config = { darkMode: 'class', }</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
+    <script>  if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
     <script src="ads-manager.js" defer></script>
     <!-- Preconnect to Ad Networks -->
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
@@ -72,7 +73,7 @@
 
     <nav class="p-4 border-b bg-white/80 backdrop-blur-md sticky top-1 z-30 flex justify-between items-center dark:bg-gray-900/80 dark:border-gray-800">
         <div class="flex items-center gap-3">
-            <div onclick="location.href='topic.html'" class="w-9 h-9 bg-blue-600 text-white rounded-xl flex items-center justify-center cursor-pointer active:scale-90 transition-all shadow-lg shadow-blue-500/20">
+            <div onclick="safeNav('topic.html')" class="w-9 h-9 bg-blue-600 text-white rounded-xl flex items-center justify-center cursor-pointer active:scale-90 transition-all shadow-lg shadow-blue-500/20">
                 <i class="fa-solid fa-chevron-left"></i>
             </div>
             <div>
@@ -132,7 +133,7 @@
         </div>
 
         <div class="mt-8">
-            <button onclick="location.href='topic.html'" class="w-full bg-gray-900 dark:bg-white p-4 rounded-2xl active:scale-95 transition-all shadow-xl">
+            <button onclick="safeNav('topic.html')" class="w-full bg-gray-900 dark:bg-white p-4 rounded-2xl active:scale-95 transition-all shadow-xl">
                 <span class="font-black text-white dark:text-black uppercase text-[10px] tracking-[0.2em]">Mark as Completed</span>
             </button>
         </div>

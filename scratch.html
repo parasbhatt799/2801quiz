@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/main.css?44" />
     <script>tailwind.config = { darkMode: 'class' }</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BMZY691ZG4"></script>
+    <script>  if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }</script>
     <script src="ads-manager.js" defer></script>
     <!-- Preconnect to Ad Networks -->
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
@@ -94,7 +95,7 @@
     <nav class="p-4 border-b bg-white/80 backdrop-blur-md sticky top-0 z-30 flex justify-between items-center shadow-sm dark:bg-gray-900/80 dark:border-gray-800">
         <div class="flex items-center gap-3">
             
-            <div onclick="location.href='index.html'"
+            <div onclick="safeNav('index.html')"
                 class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 cursor-pointer active:scale-90 transition-all">
                 <i class="fa-solid fa-arrow-left text-white text-lg"></i>
             </div>
