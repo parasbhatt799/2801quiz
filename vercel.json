@@ -1,12 +1,9 @@
 {
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api.php",
-      "dest": "/api/index.js"
-    },
-    {
-      "handle": "filesystem"
+      "source": "/api.php",
+      "destination": "/api/index.js"
     }
   ]
 }

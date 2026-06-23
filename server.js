@@ -311,7 +311,7 @@ app.get('/privacy-policy', (req, res) => {
 });
 
 // Single Unified API Endpoint mapping to api.php requests
-app.all('/api.php', async (req, res) => {
+app.all(['/api.php', '/api', '/api/index.js', '/'], async (req, res) => {
     const action = req.query.action || req.body.action || '';
 
     try {
