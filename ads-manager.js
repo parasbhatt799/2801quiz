@@ -142,11 +142,9 @@ function initAdManager() {
 
             const element = document.getElementById(divId);
             if (element) {
-                const isMobile = window.innerWidth <= 768;
-                const slotSizes = isMobile ? [300, 250] : config.sizes;
                 const slot = googletag.defineSlot(
                     config.gamAdUnit,
-                    slotSizes,
+                    config.sizes,
                     divId
                 ).addService(googletag.pubads());
                 window.gamActiveSlots[divId] = slot;
