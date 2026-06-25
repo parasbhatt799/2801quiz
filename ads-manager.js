@@ -142,9 +142,11 @@ function initAdManager() {
 
             const element = document.getElementById(divId);
             if (element) {
+                const isMobile = window.innerWidth <= 768;
+                const slotSizes = isMobile ? [300, 250] : config.sizes;
                 const slot = googletag.defineSlot(
                     config.gamAdUnit,
-                    config.sizes,
+                    slotSizes,
                     divId
                 ).addService(googletag.pubads());
                 window.gamActiveSlots[divId] = slot;
@@ -231,17 +233,28 @@ function displayAd(divId) {
         container.innerHTML = ""; // Clear existing tags
         const ins = document.createElement('ins');
         ins.className = "adsbygoogle";
-        ins.style.display = "block";
-        ins.setAttribute("data-ad-client", AD_CONFIG.adsenseClient);
-        ins.setAttribute("data-ad-slot", config.adsenseSlot);
+        
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            ins.style.display = "inline-block";
+            ins.style.width = "300px";
+            ins.style.height = "250px";
+            ins.setAttribute("data-ad-client", AD_CONFIG.adsenseClient);
+            ins.setAttribute("data-ad-slot", config.adsenseSlot);
+        } else {
+            ins.style.display = "block";
+            ins.setAttribute("data-ad-client", AD_CONFIG.adsenseClient);
+            ins.setAttribute("data-ad-slot", config.adsenseSlot);
 
-        // Dynamically select ad format based on layout design
-        let format = "auto";
-        if (config.sizes && config.sizes[0] && config.sizes[0][1] < 250) {
-            format = "horizontal";
+            // Dynamically select ad format based on layout design
+            let format = "auto";
+            if (config.sizes && config.sizes[0] && config.sizes[0][1] < 250) {
+                format = "horizontal";
+            }
+            ins.setAttribute("data-ad-format", format);
+            ins.setAttribute("data-full-width-responsive", "true");
         }
-        ins.setAttribute("data-ad-format", format);
-        ins.setAttribute("data-full-width-responsive", "true");
+        
         container.appendChild(ins);
 
         try {
