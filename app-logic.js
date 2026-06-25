@@ -269,8 +269,11 @@ function safeNav(url) {
     if (isRedirecting) return;
     lockUI();
 
-    triggerAdAndNavigate(url);
-
+    let targetUrl = url;
+    if (targetUrl === '/' || targetUrl === 'index.html' || targetUrl.endsWith('/index.html')) {
+        targetUrl = 'index.html?finished=true';
+    }
+    triggerAdAndNavigate(targetUrl);
 }
 function generateDeviceFingerprint() {
     const info = [
@@ -513,6 +516,13 @@ async function init() {
         loadLeaderboard(true);
         checkInstallAvailability();
         releaseWakeLock();
+        
+        if (params.get('finished') !== 'true') {
+            sessionStorage.setItem('is_initial_quiz', 'true');
+            const randomCat = ALL_CATEGORIES[Math.floor(Math.random() * ALL_CATEGORIES.length)];
+            startMode(randomCat.id);
+            return;
+        }
         return;
     }
     if (isApp) {
@@ -1022,6 +1032,11 @@ async function loadQuiz() {
     }
 }
 function renderQuestion() {
+    if (sessionStorage.getItem('is_initial_quiz') === 'true') {
+        if (sessionData && sessionData.length > 3) {
+            sessionData = sessionData.slice(0, 3);
+        }
+    }
     if (qIdx >= sessionData.length) {
         document.getElementById('quiz-ui').classList.add('hidden');
         finalizeAndShowResult();
@@ -1035,9 +1050,11 @@ function renderQuestion() {
     document.getElementById('q-counter').innerText = (qIdx + 1) + "/" + sessionData.length;
     document.getElementById('progress-bar').style.width = `${((qIdx + 1) / sessionData.length) * 100}%`;
     const data = sessionData[qIdx];
-    let mappedOptions = data.opt.map((text, index) => {
-        return { text: text, isCorrect: index === data.ans };
-    });
+    let mappedOptions = data.opt
+        .map((text, index) => {
+            return { text: text, isCorrect: index === data.ans };
+        })
+        .filter(optObj => optObj.text !== null && optObj.text !== undefined && String(optObj.text).trim() !== "" && String(optObj.text).trim() !== "null" && String(optObj.text).trim() !== "undefined");
     mappedOptions.sort(() => Math.random() - 0.5);
     document.getElementById('q-title').innerText = data.q;
     const container = document.getElementById('options-container');
@@ -1206,10 +1223,21 @@ async function finalizeAndShowResult() {
         window.trackGA('quiz_complete', { 'score': score, 'accuracy': accuracy, 'category': mode });
         if (botTimer) clearInterval(botTimer);
         releaseWakeLock();
-        window.location.href = "result.html";
+        
+        if (sessionStorage.getItem('is_initial_quiz') === 'true') {
+            sessionStorage.removeItem('is_initial_quiz');
+            window.location.href = "index.html?finished=true";
+        } else {
+            window.location.href = "result.html";
+        }
     } catch (error) {
         console.error("Error in finalizeAndShowResult:", error);
-        window.location.href = "result.html";
+        if (sessionStorage.getItem('is_initial_quiz') === 'true') {
+            sessionStorage.removeItem('is_initial_quiz');
+            window.location.href = "index.html?finished=true";
+        } else {
+            window.location.href = "result.html";
+        }
     }
 }
 
