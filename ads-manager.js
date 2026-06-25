@@ -95,6 +95,10 @@ window.gamActiveSlots = window.gamActiveSlots || {};
 // Load the appropriate SDK script
 function loadAdLibrary() {
     if (AD_CONFIG.useAdManager) {
+        if (document.querySelector('script[src*="gpt.js"]')) {
+            initAdManager();
+            return;
+        }
         // Load Google Ad Manager SDK
         const script = document.createElement('script');
         script.async = true;
@@ -102,6 +106,14 @@ function loadAdLibrary() {
         document.head.appendChild(script);
         initAdManager();
     } else {
+        if (document.querySelector('script[src*="adsbygoogle.js"]')) {
+            // Setup AdSense Anchor if configured
+            const anchorConfig = AD_CONFIG.slots["bottom-anchor"];
+            if (anchorConfig && anchorConfig.adsenseSlot) {
+                setupAdSenseAnchor(anchorConfig.adsenseSlot);
+            }
+            return;
+        }
         // Load Google AdSense SDK
         const script = document.createElement('script');
         script.async = true;
@@ -232,8 +244,9 @@ function displayAd(divId) {
         const ins = document.createElement('ins');
         ins.className = "adsbygoogle";
         
-        const isMobile = window.innerWidth <= 768;
-        if (isMobile) {
+        // Enforce 300x250 size for all slots that support it (for speed & layout safety)
+        const supports300x250 = config.sizes && config.sizes.some(s => s[0] === 300 && s[1] === 250);
+        if (supports300x250) {
             ins.style.display = "inline-block";
             ins.style.width = "300px";
             ins.style.height = "250px";
